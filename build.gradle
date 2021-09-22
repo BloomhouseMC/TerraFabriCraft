@@ -16,6 +16,11 @@ repositories {
 		name = 'Ladysnake Mods'
 		url = 'https://ladysnake.jfrog.io/artifactory/mods'
 	}
+	//GECKOLIB
+	maven {
+		name = 'GeckoLib'
+		url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+	}
 	//REI
 	maven {
 		name = "Shedaniel"
@@ -53,6 +58,11 @@ dependencies {
 	include "io.github.onyxStudios.Cardinal-Components-API:cardinal-components-entity:${project.cc_version}"
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-world:${project.cc_version}"
 	include "io.github.onyxStudios.Cardinal-Components-API:cardinal-components-world:${project.cc_version}"
+	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:${project.cc_version}"
+	include "io.github.onyxStudios.Cardinal-Components-API:cardinal-components-item:${project.cc_version}"
+
+	//Geckolib
+	modImplementation "software.bernie.geckolib:geckolib-fabric-${gecko_version}:dev"
 
 	//Patchouli
 	modImplementation "vazkii.patchouli:Patchouli:${patchouli_version}"

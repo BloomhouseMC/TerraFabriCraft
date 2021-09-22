@@ -23,6 +23,18 @@
   "entrypoints": {
     "main": [
       "malek.terrafabricraft.TerraFabriCraft"
+    ],
+    "client": [
+      "malek.terrafabricraft.TerraFabriCraftClient"
+    ],
+    "cardinal-components-entity": [
+      "malek.terrafabricraft.common.registry.TFCComponents"
+    ],
+    "cardinal-components-world": [
+      "malek.terrafabricraft.common.registry.TFCComponents"
+    ],
+    "cardinal-components-item": [
+      "malek.terrafabricraft.common.registry.TFCComponents"
     ]
   },
   "mixins": [
@@ -32,6 +44,11 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
+    "cardinal-components-base": ">=3.1.1",
+    "cardinal-components-entity": ">=3.1.1",
+    "cardinal-components-world": ">=3.1.1",
+    "cardinal-components-item": ">=3.1.1",
+    "geckolib3": "*",
     "minecraft": "1.17.x",
     "java": ">=16"
   },

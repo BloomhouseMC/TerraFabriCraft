@@ -4,8 +4,10 @@
   "package": "malek.terrafabricraft.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+
   ],
   "client": [
+    "client.InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1
