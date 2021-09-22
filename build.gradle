@@ -58,6 +58,8 @@ dependencies {
 	include "io.github.onyxStudios.Cardinal-Components-API:cardinal-components-entity:${project.cc_version}"
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-world:${project.cc_version}"
 	include "io.github.onyxStudios.Cardinal-Components-API:cardinal-components-world:${project.cc_version}"
+	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:${project.cc_version}"
+	include "io.github.onyxStudios.Cardinal-Components-API:cardinal-components-item:${project.cc_version}"
 
 	//Geckolib
 	modImplementation "software.bernie.geckolib:geckolib-fabric-${gecko_version}:dev"
