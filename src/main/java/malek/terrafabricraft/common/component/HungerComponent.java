@@ -50,7 +50,7 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         if (difficulty != Difficulty.PEACEFUL && passiveHungerTicker >= 10 && healthComponent.getHealth() < healthComponent.getMaxHealth() && hungerComponent.getHunger() > (int)hungerComponent.getMaxHunger()*0.8) {
             healthComponent.setHealth(healthComponent.getHealth() + 1);
             hungerComponent.setHunger(hungerComponent.getHunger() - 1);
-            hungerTicker = 0;
+            passiveHungerTicker = 0;
         }
         //SLOW KILLER
         if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0){
@@ -58,7 +58,7 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
             playerEntity.damage(DamageSource.STARVE, 1.0F);
         }
         //IDLE HUNGER DECAY
-        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 10 == 0){
+        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 15 == 0 && difficulty != Difficulty.PEACEFUL && !playerEntity.isSpectator() && !playerEntity.isCreative()){
             hungerComponent.setHunger(hungerComponent.getHunger() - 1);
             passiveHungerTicker = 0;
         }
