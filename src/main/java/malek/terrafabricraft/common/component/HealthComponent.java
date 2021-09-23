@@ -41,10 +41,11 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
     public void serverTick() {
         if(livingEntity instanceof PlayerEntity){
             HealthComponent healthComponent = HealthComponent.get(livingEntity);
-            HungerComponent hungerComponent = HungerComponent.get((PlayerEntity) (Object) livingEntity);
-            if(healthComponent.getHealth() <= 0 && hungerComponent.getHunger() <= 0){
+            if(healthComponent.getHealth() <= 0 && livingEntity.isAlive()){
                 //TODO: Hunger Hack, could be nicer to deal with death
-                livingEntity.damage(DamageSource.STARVE, 1);
+                if(livingEntity.getRecentDamageSource() != null){
+                    livingEntity.damage(livingEntity.getRecentDamageSource(), Float.MAX_VALUE);
+                }
             }
         }
     }
