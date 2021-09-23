@@ -47,12 +47,11 @@ public abstract class InGameHudMixin extends DrawableHelper {
         PlayerEntity player = getCameraPlayer();
         //To use our textures
         RenderSystem.setShaderTexture(0, TFC_GUI_ICONS_TEXTURE);
+        drawHunger(matrices, player, scaledWidth / 2 + 1, scaledHeight - 40);
+        drawThirst(matrices, player, scaledWidth / 2 + 1, scaledHeight - 35);
         matrices.push();
-        drawHealth(matrices, player, scaledWidth / 2 - 94, scaledHeight - 40);
+        drawHealth(matrices, player, scaledWidth / 2 - 91, scaledHeight - 40);
         matrices.pop();
-        drawHunger(matrices, player, scaledWidth / 2 + 4, scaledHeight - 40);
-        drawThirst(matrices, player, scaledWidth / 2 + 4, scaledHeight - 35);
-
 
         //To give back minecraft its textures
         RenderSystem.setShaderTexture(0, EMPTY_GUI_ICONS_TEXTURE);
@@ -68,7 +67,7 @@ public abstract class InGameHudMixin extends DrawableHelper {
             drawTexture(matrices, x, y, 0, 10, (int)(health*90), 9);
 
             //matrices.scale(0.6F,0.6F,1F);
-            //textRenderer.draw(matrices, new TranslatableText("hud.terrafabricraft.health", new TranslatableText(String.valueOf(healthDisp)),new TranslatableText(String.valueOf(maxDisp))), x, y-50, 0xffffff);
+            textRenderer.draw(matrices, new TranslatableText("hud.terrafabricraft.health", new TranslatableText(String.valueOf(healthDisp)),new TranslatableText(String.valueOf(maxDisp))), x+5, y-10, 0xffffff);
 
         });
     }
