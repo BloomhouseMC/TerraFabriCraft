@@ -38,7 +38,7 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         this.hunger = hunger;
         TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
     }
-
+    //TODO: fix values
     @Override
     public void serverTick() {
         hungerTicker++;
@@ -47,22 +47,21 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         HealthComponent healthComponent = HealthComponent.get(playerEntity);
         HungerComponent hungerComponent = HungerComponent.get(playerEntity);
         //HEALING
-        if (difficulty != Difficulty.PEACEFUL && hungerTicker >= 2 && healthComponent.getHealth() < healthComponent.getMaxHealth() && hungerComponent.getHunger() > 0) {
+        if (difficulty != Difficulty.PEACEFUL && passiveHungerTicker >= 10 && healthComponent.getHealth() < healthComponent.getMaxHealth() && hungerComponent.getHunger() > (int)hungerComponent.getMaxHunger()*0.8) {
             healthComponent.setHealth(healthComponent.getHealth() + 1);
             hungerComponent.setHunger(hungerComponent.getHunger() - 1);
             hungerTicker = 0;
         }
         //SLOW KILLER
-        if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0){
-            healthComponent.setHealth(healthComponent.getHealth() - 1);
+        if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0){
+            healthComponent.setHealth(healthComponent.getHealth() - 10);
             playerEntity.damage(DamageSource.STARVE, 1.0F);
         }
         //IDLE HUNGER DECAY
-        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 20 == 0){
+        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 10 == 0){
             hungerComponent.setHunger(hungerComponent.getHunger() - 1);
             passiveHungerTicker = 0;
         }
-        System.out.println(hungerComponent.getHunger());
     }
 
     @Override

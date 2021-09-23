@@ -9,20 +9,17 @@ public class TFCDamage {
 
     public static float handleDamage(LivingEntity entity, DamageSource source, float amount) {
         if(entity instanceof PlayerEntity){
-            amount = handlePlayerDamage(entity, source, amount);
+            amount = handlePlayerDamage((PlayerEntity) (Object)entity, source, amount);
         }
         return amount;
     }
 
 
-    public static float handlePlayerDamage(LivingEntity entity, DamageSource source, float amount) {
+    public static float handlePlayerDamage(PlayerEntity entity, DamageSource source, float amount) {
         HealthComponent healthComponent = HealthComponent.get(entity);
         while (amount >= 0 && healthComponent.getHealth() > 0 && !entity.isDead()) {
             amount--;
             healthComponent.setHealth(healthComponent.getHealth() - 1);
-        }
-        if (healthComponent.getHealth() <= 0 && !entity.isDead()) {
-            entity.onDeath(source);
         }
         return amount;
     }
