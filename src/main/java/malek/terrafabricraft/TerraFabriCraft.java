@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 public class TerraFabriCraft implements ModInitializer {
 
     public static final String MODID = "terrafabricraft";
-    public static final ItemGroup TERRAFABRICRAFT_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.SILT));
+    public static final ItemGroup TERRAFABRICRAFT_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.DIRT_SILT));
 
     @Override
     public void onInitialize() {
