@@ -1,0 +1,56 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "variants": {
+    "count=1": [
+      {
+        "model": "tfc:block/rock/pebble/conglomerate",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/pebble/conglomerate"
+      },
+      {
+        "model": "tfc:block/rock/pebble/conglomerate",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/pebble/conglomerate",
+        "y": 270
+      }
+    ],
+    "count=2": [
+      {
+        "model": "tfc:block/rock/rubble/conglomerate",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/rubble/conglomerate"
+      },
+      {
+        "model": "tfc:block/rock/rubble/conglomerate",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/rubble/conglomerate",
+        "y": 270
+      }
+    ],
+    "count=3": [
+      {
+        "model": "tfc:block/rock/boulder/conglomerate",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/boulder/conglomerate"
+      },
+      {
+        "model": "tfc:block/rock/boulder/conglomerate",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/boulder/conglomerate",
+        "y": 270
+      }
+    ]
+  }
+}

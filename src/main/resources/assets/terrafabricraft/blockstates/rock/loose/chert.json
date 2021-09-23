@@ -1,0 +1,56 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "variants": {
+    "count=1": [
+      {
+        "model": "tfc:block/rock/pebble/chert",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/pebble/chert"
+      },
+      {
+        "model": "tfc:block/rock/pebble/chert",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/pebble/chert",
+        "y": 270
+      }
+    ],
+    "count=2": [
+      {
+        "model": "tfc:block/rock/rubble/chert",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/rubble/chert"
+      },
+      {
+        "model": "tfc:block/rock/rubble/chert",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/rubble/chert",
+        "y": 270
+      }
+    ],
+    "count=3": [
+      {
+        "model": "tfc:block/rock/boulder/chert",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/boulder/chert"
+      },
+      {
+        "model": "tfc:block/rock/boulder/chert",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/boulder/chert",
+        "y": 270
+      }
+    ]
+  }
+}

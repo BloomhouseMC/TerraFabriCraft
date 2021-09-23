@@ -1,0 +1,56 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "variants": {
+    "count=1": [
+      {
+        "model": "tfc:block/rock/pebble/rhyolite",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/pebble/rhyolite"
+      },
+      {
+        "model": "tfc:block/rock/pebble/rhyolite",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/pebble/rhyolite",
+        "y": 270
+      }
+    ],
+    "count=2": [
+      {
+        "model": "tfc:block/rock/rubble/rhyolite",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/rubble/rhyolite"
+      },
+      {
+        "model": "tfc:block/rock/rubble/rhyolite",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/rubble/rhyolite",
+        "y": 270
+      }
+    ],
+    "count=3": [
+      {
+        "model": "tfc:block/rock/boulder/rhyolite",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/boulder/rhyolite"
+      },
+      {
+        "model": "tfc:block/rock/boulder/rhyolite",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/boulder/rhyolite",
+        "y": 270
+      }
+    ]
+  }
+}

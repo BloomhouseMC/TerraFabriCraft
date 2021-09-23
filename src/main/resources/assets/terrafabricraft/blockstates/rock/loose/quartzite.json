@@ -1,0 +1,56 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "variants": {
+    "count=1": [
+      {
+        "model": "tfc:block/rock/pebble/quartzite",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/pebble/quartzite"
+      },
+      {
+        "model": "tfc:block/rock/pebble/quartzite",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/pebble/quartzite",
+        "y": 270
+      }
+    ],
+    "count=2": [
+      {
+        "model": "tfc:block/rock/rubble/quartzite",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/rubble/quartzite"
+      },
+      {
+        "model": "tfc:block/rock/rubble/quartzite",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/rubble/quartzite",
+        "y": 270
+      }
+    ],
+    "count=3": [
+      {
+        "model": "tfc:block/rock/boulder/quartzite",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/boulder/quartzite"
+      },
+      {
+        "model": "tfc:block/rock/boulder/quartzite",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/boulder/quartzite",
+        "y": 270
+      }
+    ]
+  }
+}

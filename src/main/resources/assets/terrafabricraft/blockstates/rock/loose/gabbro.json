@@ -1,0 +1,56 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "variants": {
+    "count=1": [
+      {
+        "model": "tfc:block/rock/pebble/gabbro",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/pebble/gabbro"
+      },
+      {
+        "model": "tfc:block/rock/pebble/gabbro",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/pebble/gabbro",
+        "y": 270
+      }
+    ],
+    "count=2": [
+      {
+        "model": "tfc:block/rock/rubble/gabbro",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/rubble/gabbro"
+      },
+      {
+        "model": "tfc:block/rock/rubble/gabbro",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/rubble/gabbro",
+        "y": 270
+      }
+    ],
+    "count=3": [
+      {
+        "model": "tfc:block/rock/boulder/gabbro",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/boulder/gabbro"
+      },
+      {
+        "model": "tfc:block/rock/boulder/gabbro",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/boulder/gabbro",
+        "y": 270
+      }
+    ]
+  }
+}

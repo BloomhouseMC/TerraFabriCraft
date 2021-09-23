@@ -1,0 +1,56 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "variants": {
+    "count=1": [
+      {
+        "model": "tfc:block/rock/pebble/claystone",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/pebble/claystone"
+      },
+      {
+        "model": "tfc:block/rock/pebble/claystone",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/pebble/claystone",
+        "y": 270
+      }
+    ],
+    "count=2": [
+      {
+        "model": "tfc:block/rock/rubble/claystone",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/rubble/claystone"
+      },
+      {
+        "model": "tfc:block/rock/rubble/claystone",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/rubble/claystone",
+        "y": 270
+      }
+    ],
+    "count=3": [
+      {
+        "model": "tfc:block/rock/boulder/claystone",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/boulder/claystone"
+      },
+      {
+        "model": "tfc:block/rock/boulder/claystone",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/boulder/claystone",
+        "y": 270
+      }
+    ]
+  }
+}

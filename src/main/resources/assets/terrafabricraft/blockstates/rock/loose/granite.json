@@ -1,0 +1,56 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "variants": {
+    "count=1": [
+      {
+        "model": "tfc:block/rock/pebble/granite",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/pebble/granite"
+      },
+      {
+        "model": "tfc:block/rock/pebble/granite",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/pebble/granite",
+        "y": 270
+      }
+    ],
+    "count=2": [
+      {
+        "model": "tfc:block/rock/rubble/granite",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/rubble/granite"
+      },
+      {
+        "model": "tfc:block/rock/rubble/granite",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/rubble/granite",
+        "y": 270
+      }
+    ],
+    "count=3": [
+      {
+        "model": "tfc:block/rock/boulder/granite",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/boulder/granite"
+      },
+      {
+        "model": "tfc:block/rock/boulder/granite",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/boulder/granite",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "variants": {
+    "count=1": [
+      {
+        "model": "tfc:block/rock/pebble/basalt",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/pebble/basalt"
+      },
+      {
+        "model": "tfc:block/rock/pebble/basalt",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/pebble/basalt",
+        "y": 270
+      }
+    ],
+    "count=2": [
+      {
+        "model": "tfc:block/rock/rubble/basalt",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/rubble/basalt"
+      },
+      {
+        "model": "tfc:block/rock/rubble/basalt",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/rubble/basalt",
+        "y": 270
+      }
+    ],
+    "count=3": [
+      {
+        "model": "tfc:block/rock/boulder/basalt",
+        "y": 90
+      },
+      {
+        "model": "tfc:block/rock/boulder/basalt"
+      },
+      {
+        "model": "tfc:block/rock/boulder/basalt",
+        "y": 180
+      },
+      {
+        "model": "tfc:block/rock/boulder/basalt",
+        "y": 270
+      }
+    ]
+  }
+}
