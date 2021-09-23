@@ -19,7 +19,7 @@ public class TFCDamage {
         HealthComponent healthComponent = HealthComponent.get(entity);
         while (amount >= 0 && healthComponent.getHealth() > 0 && !entity.isDead()) {
             amount--;
-            healthComponent.setHealth(healthComponent.getHealth() - 1);
+            //healthComponent.setHealth(healthComponent.getHealth() - 1);
         }
         if (healthComponent.getHealth() <= 0 && !entity.isDead()) {
             entity.onDeath(source);

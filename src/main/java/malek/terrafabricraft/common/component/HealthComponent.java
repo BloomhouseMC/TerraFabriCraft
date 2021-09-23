@@ -37,7 +37,6 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
         TFCComponents.HEALTH_COMPONENT.sync(livingEntity);
     }
 
-
     @Override
     public void serverTick() {
         if(livingEntity instanceof PlayerEntity){

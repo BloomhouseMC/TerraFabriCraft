@@ -33,10 +33,14 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         return amount;
     }
 
-    @Inject(method = "damage", at = @At(value = "HEAD"))
+    @Inject(method = "damage", at = @At(value = "HEAD"), cancellable = true)
     private void canDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir){
-
+        this.despawnCounter=0;
+        if (this.isDead()) {
+            cir.setReturnValue(false);
+        }
     }
+
     @Inject(method = "eatFood", at = @At("HEAD"))
     private void eat(World world, ItemStack stack, CallbackInfoReturnable<ItemStack> callbackInfo) {
         if (!world.isClient) {
@@ -45,6 +49,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             hungerComponent.setHunger(hungerComponent.getHunger() + 10);    //TODO: this value 10 is just for testing
         }
     }
+
     @Inject(method = "canFoodHeal", at = @At("RETURN"), cancellable = true)
     private void disableNormalFoodHeal(CallbackInfoReturnable<Boolean> callbackInfo) {
         callbackInfo.setReturnValue(false);
