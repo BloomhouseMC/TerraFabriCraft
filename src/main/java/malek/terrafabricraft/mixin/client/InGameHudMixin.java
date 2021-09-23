@@ -65,9 +65,7 @@ public abstract class InGameHudMixin extends DrawableHelper {
             float health = ((float) healthComponent.getHealth() / HealthComponent.MAX_HEALTH);
             drawTexture(matrices, x, y, 0, 0, 90, 9);
             drawTexture(matrices, x, y, 0, 10, (int)(health*90), 9);
-
-            //matrices.scale(0.6F,0.6F,1F);
-            textRenderer.draw(matrices, new TranslatableText("hud.terrafabricraft.health", new TranslatableText(String.valueOf(healthDisp)),new TranslatableText(String.valueOf(maxDisp))), x+5, y-10, 0xffffff);
+            textRenderer.draw(matrices, new TranslatableText("hud.terrafabricraft.health", new TranslatableText(String.valueOf(healthDisp)),new TranslatableText(String.valueOf(maxDisp))), x+20, y+1, 0xffffff);
 
         });
     }
