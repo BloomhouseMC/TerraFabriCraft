@@ -9,6 +9,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.world.Difficulty;
 
 import java.util.Optional;
 
@@ -45,6 +46,10 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
                 if(livingEntity.getRecentDamageSource() != null){
                     livingEntity.damage(livingEntity.getRecentDamageSource(), Float.MAX_VALUE);
                 }
+            }
+            Difficulty difficulty = livingEntity.world.getDifficulty();
+            if(difficulty == Difficulty.PEACEFUL && healthComponent.getHealth() < healthComponent.getMaxHealth()){
+                healthComponent.setHealth(healthComponent.getHealth() + 1);
             }
         }
     }

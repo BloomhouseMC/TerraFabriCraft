@@ -13,6 +13,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -35,7 +36,7 @@ public class TFCObjects {
     public static final Block PEAT = createDirt("peat", true);
 
     //Ground Cover
-    public static final Block STICK = createGroundCover("groundcover/stick", true);
+    public static final Block STICK = createGroundCover("groundcover/stick", true, Items.STICK);
 
     //Logs
     public static final Block ACACIA_LOG = createLog("acacia_log", true);
@@ -94,6 +95,11 @@ public class TFCObjects {
 
     public static Block createGroundCover(String id, boolean hasItem) {
         var block = new GroundCoverBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(6.0f));
+        register(id, block, hasItem);
+        return block;
+    }
+    public static Block createGroundCover(String id, boolean hasItem, Item dropItem) {
+        var block = new GroundCoverBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(6.0f), dropItem);
         register(id, block, hasItem);
         return block;
     }
