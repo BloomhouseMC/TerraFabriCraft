@@ -77,7 +77,7 @@ public abstract class InGameHudMixin extends DrawableHelper {
         });
     }
     private void drawThirst(MatrixStack matrices, LivingEntity entity, int x, int y) {
-        ThirstComponent.maybeGet(entity).ifPresent(thirstComponent -> {
+        ThirstComponent.maybeGet((PlayerEntity) (Object)entity).ifPresent(thirstComponent -> {
             float thirst = ((float) thirstComponent.getThirst() / ThirstComponent.MAX_THIRST);
             drawTexture(matrices, x, y, 90, 20, 90, 5);
             drawTexture(matrices, x, y, 90, 25, (int)(thirst*90), 5);
