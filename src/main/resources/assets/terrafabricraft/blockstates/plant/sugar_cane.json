@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/sugar_cane_lower"
+          "model": "terrafabricraft:block/plant/sugar_cane_lower"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/sugar_cane_middle"
+          "model": "terrafabricraft:block/plant/sugar_cane_middle"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/sugar_cane_upper"
+          "model": "terrafabricraft:block/plant/sugar_cane_upper"
         }
       ]
     }

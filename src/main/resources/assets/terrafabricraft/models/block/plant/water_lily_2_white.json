@@ -1,10 +1,10 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "tfc:block/plant/water_lily/water_lily",
-    "flower": "tfc:block/plant/water_lily/water_lily_2_white",
-    "layer0": "tfc:block/plant/water_lily/water_lily",
-    "stem": "tfc:block/plant/water_lily/water_lily_0"
+    "particle": "terrifabricraft:block/plant/water_lily/water_lily",
+    "flower": "terrifabricraft:block/plant/water_lily/water_lily_2_white",
+    "layer0": "terrifabricraft:block/plant/water_lily/water_lily",
+    "stem": "terrifabricraft:block/plant/water_lily/water_lily_0"
   },
   "elements": [
     {

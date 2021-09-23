@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "tfc:block/thatch",
-		"1": "tfc:block/log_pile_side",
-		"2": "tfc:block/molten",
-		"particle": "tfc:block/thatch"
+		"0": "terrifabricraft:block/thatch",
+		"1": "terrifabricraft:block/log_pile_side",
+		"2": "terrifabricraft:block/molten",
+		"particle": "terrifabricraft:block/thatch"
 	},
 	"elements": [
 		{

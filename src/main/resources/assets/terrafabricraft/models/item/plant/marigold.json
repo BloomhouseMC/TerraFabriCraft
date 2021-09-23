@@ -1,5 +1,5 @@
 {
-  "parent": "tfc:block/plant/marigold_single_2",
+  "parent": "terrafabricraft:block/plant/marigold_single_2",
   "display": {
     "thirdperson_righthand": {
       "translation": [

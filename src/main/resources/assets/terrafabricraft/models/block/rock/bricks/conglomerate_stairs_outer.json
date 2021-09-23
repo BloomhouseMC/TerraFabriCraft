@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "tfc:block/rock/bricks/conglomerate",
-    "top": "tfc:block/rock/bricks/conglomerate",
-    "side": "tfc:block/rock/bricks/conglomerate"
+    "bottom": "terrifabricraft:block/rock/bricks/conglomerate",
+    "top": "terrifabricraft:block/rock/bricks/conglomerate",
+    "side": "terrifabricraft:block/rock/bricks/conglomerate"
   }
 }

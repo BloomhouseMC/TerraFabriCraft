@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "tfc:block/rock/raw/rhyolite",
-    "top": "tfc:block/rock/raw/rhyolite",
-    "side": "tfc:block/rock/raw/rhyolite"
+    "bottom": "terrafabricraft:block/rock/raw/rhyolite",
+    "top": "terrafabricraft:block/rock/raw/rhyolite",
+    "side": "terrafabricraft:block/rock/raw/rhyolite"
   }
 }

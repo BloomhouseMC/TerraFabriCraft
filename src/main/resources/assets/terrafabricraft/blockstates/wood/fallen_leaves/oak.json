@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/oak",
+        "model": "terrafabricraft:block/wood/fallen_leaves/oak",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/oak"
+        "model": "terrafabricraft:block/wood/fallen_leaves/oak"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/oak",
+        "model": "terrafabricraft:block/wood/fallen_leaves/oak",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/oak",
+        "model": "terrafabricraft:block/wood/fallen_leaves/oak",
         "y": 270
       }
     ]

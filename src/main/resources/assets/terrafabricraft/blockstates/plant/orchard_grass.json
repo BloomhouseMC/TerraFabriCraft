@@ -5,7 +5,7 @@
         "age": "0"
       },
       "apply": {
-        "model": "tfc:block/plant/orchard_grass_shortest"
+        "model": "terrafabricraft:block/plant/orchard_grass_shortest"
       }
     },
     {
@@ -13,7 +13,7 @@
         "age": "1"
       },
       "apply": {
-        "model": "tfc:block/plant/orchard_grass_shorter"
+        "model": "terrafabricraft:block/plant/orchard_grass_shorter"
       }
     },
     {
@@ -21,7 +21,7 @@
         "age": "2"
       },
       "apply": {
-        "model": "tfc:block/plant/orchard_grass_short"
+        "model": "terrafabricraft:block/plant/orchard_grass_short"
       }
     },
     {
@@ -29,7 +29,7 @@
         "age": "3"
       },
       "apply": {
-        "model": "tfc:block/plant/orchard_grass"
+        "model": "terrafabricraft:block/plant/orchard_grass"
       }
     }
   ]

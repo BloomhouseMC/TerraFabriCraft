@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/grass_top",
+  "parent": "terrifabricraft:block/grass_top",
   "textures": {
-    "texture": "tfc:block/peat"
+    "texture": "terrifabricraft:block/peat"
   }
 }

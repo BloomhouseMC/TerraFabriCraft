@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/sandstone/top/brown",
-    "top": "tfc:block/sandstone/top/brown",
-    "side": "tfc:block/sandstone/top/brown"
+    "bottom": "terrifabricraft:block/sandstone/top/brown",
+    "top": "terrifabricraft:block/sandstone/top/brown",
+    "side": "terrifabricraft:block/sandstone/top/brown"
   }
 }

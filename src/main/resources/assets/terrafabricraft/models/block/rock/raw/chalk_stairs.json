@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/rock/raw/chalk",
-    "top": "tfc:block/rock/raw/chalk",
-    "side": "tfc:block/rock/raw/chalk"
+    "bottom": "terrafabricraft:block/rock/raw/chalk",
+    "top": "terrafabricraft:block/rock/raw/chalk",
+    "side": "terrafabricraft:block/rock/raw/chalk"
   }
 }

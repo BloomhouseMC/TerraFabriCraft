@@ -1,6 +1,6 @@
 {
   "credit": "Made with Blockbench",
-  "parent": "tfc:block/anvil_inventory",
+  "parent": "terrafabricraft:block/anvil_inventory",
   "elements": [
     {
       "from": [

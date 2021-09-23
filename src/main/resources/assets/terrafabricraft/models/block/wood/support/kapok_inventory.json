@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/wood/support/inventory",
+  "parent": "terrifabricraft:block/wood/support/inventory",
   "textures": {
-    "texture": "tfc:block/wood/sheet/kapok"
+    "texture": "terrifabricraft:block/wood/sheet/kapok"
   }
 }

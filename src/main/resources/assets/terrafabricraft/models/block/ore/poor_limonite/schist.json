@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/ore",
+  "parent": "terrifabricraft:block/ore",
   "textures": {
-    "all": "tfc:block/rock/raw/schist",
-    "particle": "tfc:block/rock/raw/schist",
-    "overlay": "tfc:block/ore/poor_limonite"
+    "all": "terrifabricraft:block/rock/raw/schist",
+    "particle": "terrifabricraft:block/rock/raw/schist",
+    "overlay": "terrifabricraft:block/ore/poor_limonite"
   }
 }

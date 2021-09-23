@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/sandstone/top/yellow",
-    "top": "tfc:block/sandstone/top/yellow",
-    "side": "tfc:block/sandstone/cut/yellow"
+    "bottom": "terrifabricraft:block/sandstone/top/yellow",
+    "top": "terrifabricraft:block/sandstone/top/yellow",
+    "side": "terrifabricraft:block/sandstone/cut/yellow"
   }
 }

@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "tfc:block/rock/raw/conglomerate",
-    "top": "tfc:block/rock/raw/conglomerate",
-    "side": "tfc:block/rock/raw/conglomerate"
+    "bottom": "terrafabricraft:block/rock/raw/conglomerate",
+    "top": "terrafabricraft:block/rock/raw/conglomerate",
+    "side": "terrafabricraft:block/rock/raw/conglomerate"
   }
 }

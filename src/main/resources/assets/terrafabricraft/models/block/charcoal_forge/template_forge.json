@@ -1,7 +1,7 @@
 {
   "textures": {
-    "particle": "tfc:block/charcoal_pile",
-    "all": "tfc:block/charcoal_pile"
+    "particle": "terrifabricraft:block/charcoal_pile",
+    "all": "terrifabricraft:block/charcoal_pile"
   },
   "elements": [
     {

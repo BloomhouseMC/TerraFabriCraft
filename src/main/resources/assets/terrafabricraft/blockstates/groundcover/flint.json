@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/flint",
+        "model": "terrafabricraft:block/groundcover/flint",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/flint"
+        "model": "terrafabricraft:block/groundcover/flint"
       },
       {
-        "model": "tfc:block/groundcover/flint",
+        "model": "terrafabricraft:block/groundcover/flint",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/flint",
+        "model": "terrafabricraft:block/groundcover/flint",
         "y": 270
       }
     ]

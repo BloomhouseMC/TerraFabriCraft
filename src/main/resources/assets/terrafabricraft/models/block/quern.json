@@ -1,10 +1,10 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "side": "tfc:block/devices/quern/quern_side",
-    "particle": "tfc:block/devices/quern/quern_side",
-    "top": "tfc:block/devices/quern/quern_top",
-    "bottom": "tfc:block/devices/quern/quern_bottom"
+    "side": "terrafabricraft:block/devices/quern/quern_side",
+    "particle": "terrafabricraft:block/devices/quern/quern_side",
+    "top": "terrafabricraft:block/devices/quern/quern_top",
+    "bottom": "terrafabricraft:block/devices/quern/quern_bottom"
   },
   "elements": [
     {

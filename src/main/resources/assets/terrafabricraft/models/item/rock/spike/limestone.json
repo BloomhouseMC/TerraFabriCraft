@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike/limestone_base",
+  "parent": "terrafabricraft:block/rock/spike/limestone_base",
   "textures": {
-    "layer0": "tfc:block/rock/raw/limestone"
+    "layer0": "terrafabricraft:block/rock/raw/limestone"
   }
 }

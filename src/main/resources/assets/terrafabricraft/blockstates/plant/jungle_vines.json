@@ -5,7 +5,7 @@
         "east": "true"
       },
       "apply": {
-        "model": "tfc:block/plant/jungle_vines",
+        "model": "terrafabricraft:block/plant/jungle_vines",
         "x": 270,
         "y": 90
       }
@@ -15,7 +15,7 @@
         "north": "true"
       },
       "apply": {
-        "model": "tfc:block/plant/jungle_vines",
+        "model": "terrafabricraft:block/plant/jungle_vines",
         "x": 270
       }
     },
@@ -24,7 +24,7 @@
         "south": "true"
       },
       "apply": {
-        "model": "tfc:block/plant/jungle_vines",
+        "model": "terrafabricraft:block/plant/jungle_vines",
         "x": 270,
         "y": 180
       }
@@ -34,7 +34,7 @@
         "up": "true"
       },
       "apply": {
-        "model": "tfc:block/plant/jungle_vines",
+        "model": "terrafabricraft:block/plant/jungle_vines",
         "x": 180
       }
     },
@@ -43,7 +43,7 @@
         "west": "true"
       },
       "apply": {
-        "model": "tfc:block/plant/jungle_vines",
+        "model": "terrafabricraft:block/plant/jungle_vines",
         "x": 270,
         "y": 270
       }

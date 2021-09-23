@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/sycamore",
+        "model": "terrafabricraft:block/wood/fallen_leaves/sycamore",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/sycamore"
+        "model": "terrafabricraft:block/wood/fallen_leaves/sycamore"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/sycamore",
+        "model": "terrafabricraft:block/wood/fallen_leaves/sycamore",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/sycamore",
+        "model": "terrafabricraft:block/wood/fallen_leaves/sycamore",
         "y": 270
       }
     ]

@@ -6,35 +6,35 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/sagebrush_0",
+          "model": "terrafabricraft:block/plant/sagebrush_0",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_1",
+          "model": "terrafabricraft:block/plant/sagebrush_1",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_2",
+          "model": "terrafabricraft:block/plant/sagebrush_2",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_3",
+          "model": "terrafabricraft:block/plant/sagebrush_3",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_4",
+          "model": "terrafabricraft:block/plant/sagebrush_4",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_5",
+          "model": "terrafabricraft:block/plant/sagebrush_5",
           "weight": 1
         },
         {
-          "model": "tfc:block/plant/sagebrush_6",
+          "model": "terrafabricraft:block/plant/sagebrush_6",
           "weight": 1
         },
         {
-          "model": "tfc:block/plant/sagebrush_7",
+          "model": "terrafabricraft:block/plant/sagebrush_7",
           "weight": 1
         }
       ]
@@ -45,35 +45,35 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/sagebrush_0b",
+          "model": "terrafabricraft:block/plant/sagebrush_0b",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_1b",
+          "model": "terrafabricraft:block/plant/sagebrush_1b",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_2b",
+          "model": "terrafabricraft:block/plant/sagebrush_2b",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_3b",
+          "model": "terrafabricraft:block/plant/sagebrush_3b",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_4b",
+          "model": "terrafabricraft:block/plant/sagebrush_4b",
           "weight": 5
         },
         {
-          "model": "tfc:block/plant/sagebrush_5b",
+          "model": "terrafabricraft:block/plant/sagebrush_5b",
           "weight": 1
         },
         {
-          "model": "tfc:block/plant/sagebrush_6b",
+          "model": "terrafabricraft:block/plant/sagebrush_6b",
           "weight": 1
         },
         {
-          "model": "tfc:block/plant/sagebrush_7b",
+          "model": "terrafabricraft:block/plant/sagebrush_7b",
           "weight": 1
         }
       ]

@@ -3,7 +3,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "tfc:block/plant/peach_branch_core"
+        "model": "terrafabricraft:block/plant/peach_branch_core"
       }
     },
     {
@@ -11,7 +11,7 @@
         "down": true
       },
       "apply": {
-        "model": "tfc:block/plant/peach_branch_down"
+        "model": "terrafabricraft:block/plant/peach_branch_down"
       }
     },
     {
@@ -19,7 +19,7 @@
         "up": true
       },
       "apply": {
-        "model": "tfc:block/plant/peach_branch_up"
+        "model": "terrafabricraft:block/plant/peach_branch_up"
       }
     },
     {
@@ -27,7 +27,7 @@
         "north": true
       },
       "apply": {
-        "model": "tfc:block/plant/peach_branch_side",
+        "model": "terrafabricraft:block/plant/peach_branch_side",
         "y": 90
       }
     },
@@ -36,7 +36,7 @@
         "south": true
       },
       "apply": {
-        "model": "tfc:block/plant/peach_branch_side",
+        "model": "terrafabricraft:block/plant/peach_branch_side",
         "y": 270
       }
     },
@@ -45,7 +45,7 @@
         "west": true
       },
       "apply": {
-        "model": "tfc:block/plant/peach_branch_side"
+        "model": "terrafabricraft:block/plant/peach_branch_side"
       }
     },
     {
@@ -53,7 +53,7 @@
         "east": true
       },
       "apply": {
-        "model": "tfc:block/plant/peach_branch_side",
+        "model": "terrafabricraft:block/plant/peach_branch_side",
         "y": 180
       }
     }

@@ -3,7 +3,7 @@
     {
       "apply": [
         {
-          "model": "tfc:block/plant/laminaria"
+          "model": "terrafabricraft:block/plant/laminaria"
         }
       ]
     }

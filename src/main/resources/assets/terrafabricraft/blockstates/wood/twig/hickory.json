@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/twig/hickory",
+        "model": "terrafabricraft:block/wood/twig/hickory",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/twig/hickory"
+        "model": "terrafabricraft:block/wood/twig/hickory"
       },
       {
-        "model": "tfc:block/wood/twig/hickory",
+        "model": "terrafabricraft:block/wood/twig/hickory",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/twig/hickory",
+        "model": "terrafabricraft:block/wood/twig/hickory",
         "y": 270
       }
     ]

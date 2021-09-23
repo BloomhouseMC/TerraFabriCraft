@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike/marble_base",
+  "parent": "terrafabricraft:block/rock/spike/marble_base",
   "textures": {
-    "layer0": "tfc:block/rock/raw/marble"
+    "layer0": "terrafabricraft:block/rock/raw/marble"
   }
 }

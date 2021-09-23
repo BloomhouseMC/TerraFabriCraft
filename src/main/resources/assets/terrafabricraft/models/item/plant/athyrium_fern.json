@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tfc:block/plant/athyrium_fern/single"
+    "layer0": "terrafabricraft:block/plant/athyrium_fern/single"
   }
 }

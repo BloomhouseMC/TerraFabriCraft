@@ -1,8 +1,8 @@
 {
   "textures": {
-    "0": "tfc:block/plant/lady_fern/fern_single",
-    "1": "tfc:block/plant/lady_fern/fern_single",
-    "particle": "tfc:block/plant/lady_fern/fern_single"
+    "0": "terrafabricraft:block/plant/lady_fern/fern_single",
+    "1": "terrafabricraft:block/plant/lady_fern/fern_single",
+    "particle": "terrafabricraft:block/plant/lady_fern/fern_single"
   },
   "elements": [
     {

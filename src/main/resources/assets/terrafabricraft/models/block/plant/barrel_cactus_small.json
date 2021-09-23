@@ -1,9 +1,9 @@
 {
   "textures": {
-    "particle": "tfc:block/plant/barrel_cactus/side",
-    "side": "tfc:block/plant/barrel_cactus/side",
-    "top": "tfc:block/plant/barrel_cactus/top",
-    "spike": "tfc:block/plant/barrel_cactus/spikes_single"
+    "particle": "terrafabricraft:block/plant/barrel_cactus/side",
+    "side": "terrafabricraft:block/plant/barrel_cactus/side",
+    "top": "terrafabricraft:block/plant/barrel_cactus/top",
+    "spike": "terrafabricraft:block/plant/barrel_cactus/spikes_single"
   },
   "elements": [
     {

@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/ore/poor_cassiterite/gabbro"
+      "model": "terrafabricraft:block/ore/poor_cassiterite/gabbro"
     }
   }
 }

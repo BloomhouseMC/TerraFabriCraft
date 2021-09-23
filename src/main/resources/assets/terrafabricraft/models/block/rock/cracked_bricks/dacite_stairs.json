@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/rock/cracked_bricks/dacite",
-    "top": "tfc:block/rock/cracked_bricks/dacite",
-    "side": "tfc:block/rock/cracked_bricks/dacite"
+    "bottom": "terrifabricraft:block/rock/cracked_bricks/dacite",
+    "top": "terrifabricraft:block/rock/cracked_bricks/dacite",
+    "side": "terrifabricraft:block/rock/cracked_bricks/dacite"
   }
 }

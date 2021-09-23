@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "tfc:block/plant/arundo"
+      "model": "terrafabricraft:block/plant/arundo"
     }
   }
 }

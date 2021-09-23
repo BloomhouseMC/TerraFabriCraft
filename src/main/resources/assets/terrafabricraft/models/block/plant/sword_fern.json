@@ -2,9 +2,9 @@
   "credit": "Made with Blockbench",
   "ambientocclusion": false,
   "textures": {
-    "single": "tfc:block/plant/sword_fern/sword_fern_single",
-    "particle": "tfc:block/plant/sword_fern/sword_fern_single",
-    "double": "tfc:block/plant/sword_fern/sword_fern_double"
+    "single": "terrafabricraft:block/plant/sword_fern/sword_fern_single",
+    "particle": "terrafabricraft:block/plant/sword_fern/sword_fern_single",
+    "double": "terrafabricraft:block/plant/sword_fern/sword_fern_double"
   },
   "elements": [
     {

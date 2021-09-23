@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"trunk": "tfc:block/plant/tree_fern/tree_fern_trunk",
-		"particle": "tfc:block/plant/tree_fern/tree_fern_0",
-		"frond": "tfc:block/plant/tree_fern/tree_fern_0"
+		"trunk": "terrafabricraft:block/plant/tree_fern/tree_fern_trunk",
+		"particle": "terrafabricraft:block/plant/tree_fern/tree_fern_0",
+		"frond": "terrafabricraft:block/plant/tree_fern/tree_fern_0"
 	},
 	"elements": [
 		{

@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/white_cedar",
+        "model": "terrafabricraft:block/wood/fallen_leaves/white_cedar",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/white_cedar"
+        "model": "terrafabricraft:block/wood/fallen_leaves/white_cedar"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/white_cedar",
+        "model": "terrafabricraft:block/wood/fallen_leaves/white_cedar",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/white_cedar",
+        "model": "terrafabricraft:block/wood/fallen_leaves/white_cedar",
         "y": 270
       }
     ]

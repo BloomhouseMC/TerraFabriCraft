@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/garnierite",
+        "model": "terrafabricraft:block/groundcover/garnierite",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/garnierite"
+        "model": "terrafabricraft:block/groundcover/garnierite"
       },
       {
-        "model": "tfc:block/groundcover/garnierite",
+        "model": "terrafabricraft:block/groundcover/garnierite",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/garnierite",
+        "model": "terrafabricraft:block/groundcover/garnierite",
         "y": 270
       }
     ]

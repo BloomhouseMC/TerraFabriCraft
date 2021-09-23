@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "part=base": {
-      "model": "tfc:block/rock/spike/shale_base"
+      "model": "terrafabricraft:block/rock/spike/shale_base"
     },
     "part=middle": {
-      "model": "tfc:block/rock/spike/shale_middle"
+      "model": "terrafabricraft:block/rock/spike/shale_middle"
     },
     "part=tip": {
-      "model": "tfc:block/rock/spike/shale_tip"
+      "model": "terrafabricraft:block/rock/spike/shale_tip"
     }
   }
 }

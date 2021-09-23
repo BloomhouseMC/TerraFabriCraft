@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/template_farmland",
   "textures": {
-    "dirt": "tfc:block/dirt/loam",
-    "top": "tfc:block/farmland/loam"
+    "dirt": "terrafabricraft:block/dirt/loam",
+    "top": "terrafabricraft:block/farmland/loam"
   }
 }

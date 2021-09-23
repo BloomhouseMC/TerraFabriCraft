@@ -3,7 +3,7 @@
     {
       "apply": [
         {
-          "model": "tfc:block/plant/sword_fern"
+          "model": "terrafabricraft:block/plant/sword_fern"
         }
       ]
     }

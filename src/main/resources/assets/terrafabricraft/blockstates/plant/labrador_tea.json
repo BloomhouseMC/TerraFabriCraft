@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/labrador_tea_0"
+          "model": "terrafabricraft:block/plant/labrador_tea_0"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/labrador_tea_1"
+          "model": "terrafabricraft:block/plant/labrador_tea_1"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/labrador_tea_2"
+          "model": "terrafabricraft:block/plant/labrador_tea_2"
         }
       ]
     },
@@ -36,7 +36,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/labrador_tea_3"
+          "model": "terrafabricraft:block/plant/labrador_tea_3"
         }
       ]
     },
@@ -46,7 +46,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/labrador_tea_4"
+          "model": "terrafabricraft:block/plant/labrador_tea_4"
         }
       ]
     },
@@ -56,7 +56,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/labrador_tea_5"
+          "model": "terrafabricraft:block/plant/labrador_tea_5"
         }
       ]
     },
@@ -66,7 +66,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/labrador_tea_6"
+          "model": "terrafabricraft:block/plant/labrador_tea_6"
         }
       ]
     }

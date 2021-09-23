@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/wood/support/connection",
+  "parent": "terrafabricraft:block/wood/support/connection",
   "textures": {
-    "texture": "tfc:block/wood/sheet/willow",
-    "particle": "tfc:block/wood/sheet/willow"
+    "texture": "terrafabricraft:block/wood/sheet/willow",
+    "particle": "terrafabricraft:block/wood/sheet/willow"
   }
 }

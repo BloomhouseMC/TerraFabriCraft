@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/ore",
+  "parent": "terrifabricraft:block/ore",
   "textures": {
-    "all": "tfc:block/rock/raw/phyllite",
-    "particle": "tfc:block/rock/raw/phyllite",
-    "overlay": "tfc:block/ore/rich_cassiterite"
+    "all": "terrifabricraft:block/rock/raw/phyllite",
+    "particle": "terrifabricraft:block/rock/raw/phyllite",
+    "overlay": "terrifabricraft:block/ore/rich_cassiterite"
   }
 }

@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike_base",
+  "parent": "terrifabricraft:block/rock/spike_base",
   "textures": {
-    "texture": "tfc:block/rock/raw/dolomite",
-    "particle": "tfc:block/rock/raw/dolomite"
+    "texture": "terrifabricraft:block/rock/raw/dolomite",
+    "particle": "terrifabricraft:block/rock/raw/dolomite"
   }
 }

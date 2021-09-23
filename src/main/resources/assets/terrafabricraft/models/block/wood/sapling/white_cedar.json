@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cross",
   "textures": {
-    "cross": "tfc:block/wood/sapling/white_cedar"
+    "cross": "terrafabricraft:block/wood/sapling/white_cedar"
   }
 }

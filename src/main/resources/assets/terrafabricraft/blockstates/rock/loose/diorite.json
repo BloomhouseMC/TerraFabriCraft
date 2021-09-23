@@ -3,52 +3,52 @@
   "variants": {
     "count=1": [
       {
-        "model": "tfc:block/rock/pebble/diorite",
+        "model": "terrafabricraft:block/rock/pebble/diorite",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/pebble/diorite"
+        "model": "terrafabricraft:block/rock/pebble/diorite"
       },
       {
-        "model": "tfc:block/rock/pebble/diorite",
+        "model": "terrafabricraft:block/rock/pebble/diorite",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/pebble/diorite",
+        "model": "terrafabricraft:block/rock/pebble/diorite",
         "y": 270
       }
     ],
     "count=2": [
       {
-        "model": "tfc:block/rock/rubble/diorite",
+        "model": "terrafabricraft:block/rock/rubble/diorite",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/rubble/diorite"
+        "model": "terrafabricraft:block/rock/rubble/diorite"
       },
       {
-        "model": "tfc:block/rock/rubble/diorite",
+        "model": "terrafabricraft:block/rock/rubble/diorite",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/rubble/diorite",
+        "model": "terrafabricraft:block/rock/rubble/diorite",
         "y": 270
       }
     ],
     "count=3": [
       {
-        "model": "tfc:block/rock/boulder/diorite",
+        "model": "terrafabricraft:block/rock/boulder/diorite",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/boulder/diorite"
+        "model": "terrafabricraft:block/rock/boulder/diorite"
       },
       {
-        "model": "tfc:block/rock/boulder/diorite",
+        "model": "terrafabricraft:block/rock/boulder/diorite",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/boulder/diorite",
+        "model": "terrafabricraft:block/rock/boulder/diorite",
         "y": 270
       }
     ]

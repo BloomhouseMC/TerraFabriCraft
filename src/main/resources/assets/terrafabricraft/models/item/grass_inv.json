@@ -3,9 +3,9 @@
   "textures": {
     "particle": "#block",
     "bottom": "#block",
-    "top": "tfc:item/grass_block_top",
+    "top": "terrafabricraft:item/grass_block_top",
     "side": "#block",
-    "overlay": "tfc:item/grass_block_side_overlay"
+    "overlay": "terrafabricraft:item/grass_block_side_overlay"
   },
   "elements": [
     {

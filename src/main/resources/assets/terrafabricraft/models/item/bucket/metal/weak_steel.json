@@ -2,5 +2,5 @@
   "__comment__": "This file was automatically created by mcresources",
   "loader": "forge:bucket",
   "parent": "forge:item/bucket",
-  "fluid": "tfc:metal/weak_steel"
+  "fluid": "terrafabricraft:metal/weak_steel"
 }

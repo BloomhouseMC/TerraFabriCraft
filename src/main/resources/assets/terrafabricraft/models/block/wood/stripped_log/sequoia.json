@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_column",
   "textures": {
-    "end": "tfc:block/wood/stripped_log_top/sequoia",
-    "side": "tfc:block/wood/stripped_log/sequoia"
+    "end": "terrafabricraft:block/wood/stripped_log_top/sequoia",
+    "side": "terrafabricraft:block/wood/stripped_log/sequoia"
   }
 }

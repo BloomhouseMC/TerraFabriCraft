@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/block",
   "textures": {
-    "overlay": "tfc:block/grass_top",
+    "overlay": "terrifabricraft:block/grass_top",
     "particle": "#texture"
   },
   "elements": [

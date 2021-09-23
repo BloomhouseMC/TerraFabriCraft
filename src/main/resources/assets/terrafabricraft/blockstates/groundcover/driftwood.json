@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/driftwood",
+        "model": "terrafabricraft:block/groundcover/driftwood",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/driftwood"
+        "model": "terrafabricraft:block/groundcover/driftwood"
       },
       {
-        "model": "tfc:block/groundcover/driftwood",
+        "model": "terrafabricraft:block/groundcover/driftwood",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/driftwood",
+        "model": "terrafabricraft:block/groundcover/driftwood",
         "y": 270
       }
     ]

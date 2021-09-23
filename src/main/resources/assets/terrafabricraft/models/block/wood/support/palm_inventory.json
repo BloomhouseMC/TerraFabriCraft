@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/wood/support/inventory",
+  "parent": "terrafabricraft:block/wood/support/inventory",
   "textures": {
-    "texture": "tfc:block/wood/sheet/palm"
+    "texture": "terrafabricraft:block/wood/sheet/palm"
   }
 }

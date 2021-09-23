@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/ore",
+  "parent": "terrifabricraft:block/ore",
   "textures": {
-    "all": "tfc:block/rock/raw/dacite",
-    "particle": "tfc:block/rock/raw/dacite",
-    "overlay": "tfc:block/ore/normal_magnetite"
+    "all": "terrifabricraft:block/rock/raw/dacite",
+    "particle": "terrifabricraft:block/rock/raw/dacite",
+    "overlay": "terrifabricraft:block/ore/normal_magnetite"
   }
 }

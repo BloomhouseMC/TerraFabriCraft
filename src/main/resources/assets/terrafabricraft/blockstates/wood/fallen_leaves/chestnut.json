@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/chestnut",
+        "model": "terrafabricraft:block/wood/fallen_leaves/chestnut",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/chestnut"
+        "model": "terrafabricraft:block/wood/fallen_leaves/chestnut"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/chestnut",
+        "model": "terrafabricraft:block/wood/fallen_leaves/chestnut",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/chestnut",
+        "model": "terrafabricraft:block/wood/fallen_leaves/chestnut",
         "y": 270
       }
     ]

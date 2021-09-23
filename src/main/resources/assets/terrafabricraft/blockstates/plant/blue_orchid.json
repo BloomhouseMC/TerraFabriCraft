@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/blue_orchid_0"
+          "model": "terrafabricraft:block/plant/blue_orchid_0"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/blue_orchid_1"
+          "model": "terrafabricraft:block/plant/blue_orchid_1"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/blue_orchid_2"
+          "model": "terrafabricraft:block/plant/blue_orchid_2"
         }
       ]
     }

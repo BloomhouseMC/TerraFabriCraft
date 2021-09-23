@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/tall_fescue_grass/placeholder",
-    "particle": "tfc:block/plant/tall_fescue_grass/placeholder"
+    "cross": "terrafabricraft:block/plant/tall_fescue_grass/placeholder",
+    "particle": "terrafabricraft:block/plant/tall_fescue_grass/placeholder"
   },
   "elements": [
     {

@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike_base",
+  "parent": "terrifabricraft:block/rock/spike_base",
   "textures": {
-    "texture": "tfc:block/rock/raw/conglomerate",
-    "particle": "tfc:block/rock/raw/conglomerate"
+    "texture": "terrifabricraft:block/rock/raw/conglomerate",
+    "particle": "terrifabricraft:block/rock/raw/conglomerate"
   }
 }

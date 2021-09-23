@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "tfc:block/plant/tree_fern"
+      "model": "terrafabricraft:block/plant/tree_fern"
     }
   }
 }

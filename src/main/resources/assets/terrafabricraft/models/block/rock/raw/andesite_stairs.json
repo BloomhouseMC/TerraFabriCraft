@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/rock/raw/andesite",
-    "top": "tfc:block/rock/raw/andesite",
-    "side": "tfc:block/rock/raw/andesite"
+    "bottom": "terrafabricraft:block/rock/raw/andesite",
+    "top": "terrafabricraft:block/rock/raw/andesite",
+    "side": "terrafabricraft:block/rock/raw/andesite"
   }
 }

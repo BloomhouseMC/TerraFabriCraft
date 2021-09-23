@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
-    "side": "tfc:block/log_pile_side",
-    "end": "tfc:block/log_pile_front"
+    "side": "terrafabricraft:block/log_pile_side",
+    "end": "terrafabricraft:block/log_pile_front"
   }
 }

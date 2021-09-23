@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/bismuthinite",
+        "model": "terrafabricraft:block/groundcover/bismuthinite",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/bismuthinite"
+        "model": "terrafabricraft:block/groundcover/bismuthinite"
       },
       {
-        "model": "tfc:block/groundcover/bismuthinite",
+        "model": "terrafabricraft:block/groundcover/bismuthinite",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/bismuthinite",
+        "model": "terrafabricraft:block/groundcover/bismuthinite",
         "y": 270
       }
     ]

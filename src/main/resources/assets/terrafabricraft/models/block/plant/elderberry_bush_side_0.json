@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/plant/berry_bush_side_0",
+  "parent": "terrafabricraft:block/plant/berry_bush_side_0",
   "textures": {
-    "cane": "tfc:block/berry_bush/elderberry_cane",
-    "bush": "tfc:block/berry_bush/elderberry_bush"
+    "cane": "terrafabricraft:block/berry_bush/elderberry_cane",
+    "bush": "terrafabricraft:block/berry_bush/elderberry_bush"
   }
 }

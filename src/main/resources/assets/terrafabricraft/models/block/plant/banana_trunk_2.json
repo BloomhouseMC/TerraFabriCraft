@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "tfc:block/fruit_tree/banana_leaves",
-		"1_0": "tfc:block/fruit_tree/banana_leaves"
+		"particle": "terrifabricraft:block/fruit_tree/banana_leaves",
+		"1_0": "terrifabricraft:block/fruit_tree/banana_leaves"
 	},
 	"elements": [
 		{

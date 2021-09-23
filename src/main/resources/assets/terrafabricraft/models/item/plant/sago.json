@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tfc:block/plant/sago/sago"
+    "layer0": "terrafabricraft:block/plant/sago/sago"
   }
 }

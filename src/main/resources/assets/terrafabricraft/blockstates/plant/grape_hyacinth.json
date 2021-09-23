@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/grape_hyacinth_0"
+          "model": "terrafabricraft:block/plant/grape_hyacinth_0"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/grape_hyacinth_1"
+          "model": "terrafabricraft:block/plant/grape_hyacinth_1"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/grape_hyacinth_2"
+          "model": "terrafabricraft:block/plant/grape_hyacinth_2"
         }
       ]
     },
@@ -36,7 +36,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/grape_hyacinth_3"
+          "model": "terrafabricraft:block/plant/grape_hyacinth_3"
         }
       ]
     }

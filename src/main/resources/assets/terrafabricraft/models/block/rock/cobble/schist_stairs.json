@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/rock/cobble/schist",
-    "top": "tfc:block/rock/cobble/schist",
-    "side": "tfc:block/rock/cobble/schist"
+    "bottom": "terrafabricraft:block/rock/cobble/schist",
+    "top": "terrafabricraft:block/rock/cobble/schist",
+    "side": "terrafabricraft:block/rock/cobble/schist"
   }
 }

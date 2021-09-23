@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "type=bottom": {
-      "model": "tfc:block/wood/planks/kapok_slab"
+      "model": "terrafabricraft:block/wood/planks/kapok_slab"
     },
     "type=top": {
-      "model": "tfc:block/wood/planks/kapok_slab_top"
+      "model": "terrafabricraft:block/wood/planks/kapok_slab_top"
     },
     "type=double": {
-      "model": "tfc:block/wood/planks/kapok"
+      "model": "terrafabricraft:block/wood/planks/kapok"
     }
   }
 }

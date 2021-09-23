@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "part=base": {
-      "model": "tfc:block/rock/spike/claystone_base"
+      "model": "terrafabricraft:block/rock/spike/claystone_base"
     },
     "part=middle": {
-      "model": "tfc:block/rock/spike/claystone_middle"
+      "model": "terrafabricraft:block/rock/spike/claystone_middle"
     },
     "part=tip": {
-      "model": "tfc:block/rock/spike/claystone_tip"
+      "model": "terrafabricraft:block/rock/spike/claystone_tip"
     }
   }
 }

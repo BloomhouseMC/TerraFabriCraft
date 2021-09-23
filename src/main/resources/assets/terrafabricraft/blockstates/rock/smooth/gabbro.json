@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/rock/smooth/gabbro"
+      "model": "terrafabricraft:block/rock/smooth/gabbro"
     }
   }
 }

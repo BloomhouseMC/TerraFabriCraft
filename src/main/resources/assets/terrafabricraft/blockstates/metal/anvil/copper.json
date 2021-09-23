@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/metal/anvil/copper"
+      "model": "terrafabricraft:block/metal/anvil/copper"
     }
   }
 }

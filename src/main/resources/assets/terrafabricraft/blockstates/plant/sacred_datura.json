@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/sacred_datura_0"
+          "model": "terrafabricraft:block/plant/sacred_datura_0"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/sacred_datura_1"
+          "model": "terrafabricraft:block/plant/sacred_datura_1"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/sacred_datura_2b"
+          "model": "terrafabricraft:block/plant/sacred_datura_2b"
         }
       ]
     },
@@ -36,7 +36,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/sacred_datura_3"
+          "model": "terrafabricraft:block/plant/sacred_datura_3"
         }
       ]
     }

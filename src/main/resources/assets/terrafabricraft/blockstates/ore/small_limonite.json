@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/limonite",
+        "model": "terrafabricraft:block/groundcover/limonite",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/limonite"
+        "model": "terrafabricraft:block/groundcover/limonite"
       },
       {
-        "model": "tfc:block/groundcover/limonite",
+        "model": "terrafabricraft:block/groundcover/limonite",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/limonite",
+        "model": "terrafabricraft:block/groundcover/limonite",
         "y": 270
       }
     ]

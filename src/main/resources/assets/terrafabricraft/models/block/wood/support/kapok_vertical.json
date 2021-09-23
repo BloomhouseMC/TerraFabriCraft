@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/wood/support/vertical",
+  "parent": "terrafabricraft:block/wood/support/vertical",
   "textures": {
-    "texture": "tfc:block/wood/sheet/kapok",
-    "particle": "tfc:block/wood/sheet/kapok"
+    "texture": "terrafabricraft:block/wood/sheet/kapok",
+    "particle": "terrafabricraft:block/wood/sheet/kapok"
   }
 }

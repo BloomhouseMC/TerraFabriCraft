@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "part=base": {
-      "model": "tfc:block/rock/spike/dolomite_base"
+      "model": "terrafabricraft:block/rock/spike/dolomite_base"
     },
     "part=middle": {
-      "model": "tfc:block/rock/spike/dolomite_middle"
+      "model": "terrafabricraft:block/rock/spike/dolomite_middle"
     },
     "part=tip": {
-      "model": "tfc:block/rock/spike/dolomite_tip"
+      "model": "terrafabricraft:block/rock/spike/dolomite_tip"
     }
   }
 }

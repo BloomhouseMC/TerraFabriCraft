@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/rock/bricks/gabbro",
-    "top": "tfc:block/rock/bricks/gabbro",
-    "side": "tfc:block/rock/bricks/gabbro"
+    "bottom": "terrifabricraft:block/rock/bricks/gabbro",
+    "top": "terrifabricraft:block/rock/bricks/gabbro",
+    "side": "terrifabricraft:block/rock/bricks/gabbro"
   }
 }

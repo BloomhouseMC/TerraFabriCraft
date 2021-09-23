@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/native_silver",
+        "model": "terrafabricraft:block/groundcover/native_silver",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/native_silver"
+        "model": "terrafabricraft:block/groundcover/native_silver"
       },
       {
-        "model": "tfc:block/groundcover/native_silver",
+        "model": "terrafabricraft:block/groundcover/native_silver",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/native_silver",
+        "model": "terrafabricraft:block/groundcover/native_silver",
         "y": 270
       }
     ]

@@ -2,10 +2,10 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "lit=true": {
-      "model": "tfc:block/firepit_lit"
+      "model": "terrafabricraft:block/firepit_lit"
     },
     "lit=false": {
-      "model": "tfc:block/firepit_unlit"
+      "model": "terrafabricraft:block/firepit_unlit"
     }
   }
 }

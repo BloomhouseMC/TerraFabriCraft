@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/tinted_cross",
+  "parent": "terrafabricraft:block/tinted_cross",
   "textures": {
-    "cross": "tfc:block/plant/orchard_grass/placeholder",
-    "particle": "tfc:block/plant/orchard_grass/placeholder"
+    "cross": "terrafabricraft:block/plant/orchard_grass/placeholder",
+    "particle": "terrafabricraft:block/plant/orchard_grass/placeholder"
   }
 }

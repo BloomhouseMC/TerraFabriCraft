@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "part=base": {
-      "model": "tfc:block/rock/spike/diorite_base"
+      "model": "terrafabricraft:block/rock/spike/diorite_base"
     },
     "part=middle": {
-      "model": "tfc:block/rock/spike/diorite_middle"
+      "model": "terrafabricraft:block/rock/spike/diorite_middle"
     },
     "part=tip": {
-      "model": "tfc:block/rock/spike/diorite_tip"
+      "model": "terrafabricraft:block/rock/spike/diorite_tip"
     }
   }
 }

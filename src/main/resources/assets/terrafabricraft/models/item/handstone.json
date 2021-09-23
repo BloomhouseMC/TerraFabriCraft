@@ -1,11 +1,11 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "3": "tfc:block/devices/quern/handstone_bottom",
-    "side": "tfc:block/devices/quern/handstone_side",
-    "handstone": "tfc:block/devices/quern/handstone_top",
-    "particle": "tfc:block/devices/quern/handstone_top",
-    "handle": "tfc:block/wood/sheet/oak"
+    "3": "terrafabricraft:block/devices/quern/handstone_bottom",
+    "side": "terrafabricraft:block/devices/quern/handstone_side",
+    "handstone": "terrafabricraft:block/devices/quern/handstone_top",
+    "particle": "terrafabricraft:block/devices/quern/handstone_top",
+    "handle": "terrafabricraft:block/wood/sheet/oak"
   },
   "elements": [
     {

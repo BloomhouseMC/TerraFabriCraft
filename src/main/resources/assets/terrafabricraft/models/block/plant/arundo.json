@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/arundo/tip"
+    "cross": "terrafabricraft:block/plant/arundo/tip"
   }
 }

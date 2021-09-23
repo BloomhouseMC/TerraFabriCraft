@@ -7,7 +7,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/rose_lower_0"
+          "model": "terrafabricraft:block/plant/rose_lower_0"
         }
       ]
     },
@@ -18,7 +18,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/rose_lower_1"
+          "model": "terrafabricraft:block/plant/rose_lower_1"
         }
       ]
     },
@@ -29,7 +29,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/rose_upper_0"
+          "model": "terrafabricraft:block/plant/rose_upper_0"
         }
       ]
     },
@@ -40,7 +40,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/rose_upper_1"
+          "model": "terrafabricraft:block/plant/rose_upper_1"
         }
       ]
     }

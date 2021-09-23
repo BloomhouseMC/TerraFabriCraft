@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/alabaster/stained/gray_polished_alabaster",
-    "top": "tfc:block/alabaster/stained/gray_polished_alabaster",
-    "side": "tfc:block/alabaster/stained/gray_polished_alabaster"
+    "bottom": "terrafabricraft:block/alabaster/stained/gray_polished_alabaster",
+    "top": "terrafabricraft:block/alabaster/stained/gray_polished_alabaster",
+    "side": "terrafabricraft:block/alabaster/stained/gray_polished_alabaster"
   }
 }

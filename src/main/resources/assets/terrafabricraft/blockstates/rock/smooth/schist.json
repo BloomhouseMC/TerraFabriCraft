@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/rock/smooth/schist"
+      "model": "terrafabricraft:block/rock/smooth/schist"
     }
   }
 }

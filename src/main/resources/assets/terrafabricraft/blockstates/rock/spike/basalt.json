@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "part=base": {
-      "model": "tfc:block/rock/spike/basalt_base"
+      "model": "terrafabricraft:block/rock/spike/basalt_base"
     },
     "part=middle": {
-      "model": "tfc:block/rock/spike/basalt_middle"
+      "model": "terrafabricraft:block/rock/spike/basalt_middle"
     },
     "part=tip": {
-      "model": "tfc:block/rock/spike/basalt_tip"
+      "model": "terrafabricraft:block/rock/spike/basalt_tip"
     }
   }
 }

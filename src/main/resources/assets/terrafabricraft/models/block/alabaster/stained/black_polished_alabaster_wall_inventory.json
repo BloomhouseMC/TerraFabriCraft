@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/wall_inventory",
   "textures": {
-    "wall": "tfc:block/alabaster/stained/black_polished_alabaster"
+    "wall": "terrifabricraft:block/alabaster/stained/black_polished_alabaster"
   }
 }

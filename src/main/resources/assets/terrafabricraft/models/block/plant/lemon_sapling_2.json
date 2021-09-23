@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/plant/cross_2",
+  "parent": "terrafabricraft:block/plant/cross_2",
   "textures": {
-    "cross": "tfc:block/fruit_tree/lemon_sapling"
+    "cross": "terrafabricraft:block/fruit_tree/lemon_sapling"
   }
 }

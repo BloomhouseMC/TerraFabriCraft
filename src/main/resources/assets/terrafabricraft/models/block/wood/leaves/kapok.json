@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/leaves",
   "textures": {
-    "all": "tfc:block/wood/leaves/kapok"
+    "all": "terrifabricraft:block/wood/leaves/kapok"
   }
 }

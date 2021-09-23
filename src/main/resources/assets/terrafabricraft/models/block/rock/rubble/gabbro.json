@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/groundcover/rubble",
+  "parent": "terrafabricraft:block/groundcover/rubble",
   "textures": {
-    "all": "tfc:item/loose_rock/gabbro"
+    "all": "terrafabricraft:item/loose_rock/gabbro"
   }
 }

@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/twig/chestnut",
+        "model": "terrafabricraft:block/wood/twig/chestnut",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/twig/chestnut"
+        "model": "terrafabricraft:block/wood/twig/chestnut"
       },
       {
-        "model": "tfc:block/wood/twig/chestnut",
+        "model": "terrafabricraft:block/wood/twig/chestnut",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/twig/chestnut",
+        "model": "terrafabricraft:block/wood/twig/chestnut",
         "y": 270
       }
     ]

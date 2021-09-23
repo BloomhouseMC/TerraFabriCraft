@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/malachite",
+        "model": "terrafabricraft:block/groundcover/malachite",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/malachite"
+        "model": "terrafabricraft:block/groundcover/malachite"
       },
       {
-        "model": "tfc:block/groundcover/malachite",
+        "model": "terrafabricraft:block/groundcover/malachite",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/malachite",
+        "model": "terrafabricraft:block/groundcover/malachite",
         "y": 270
       }
     ]

@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/water_canna/water_canna_0",
-    "particle": "tfc:block/plant/water_canna/water_canna_0"
+    "cross": "terrifabricraft:block/plant/water_canna/water_canna_0",
+    "particle": "terrifabricraft:block/plant/water_canna/water_canna_0"
   },
   "elements": [
     {

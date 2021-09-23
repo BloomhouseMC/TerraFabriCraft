@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/rosewood",
+        "model": "terrafabricraft:block/wood/fallen_leaves/rosewood",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/rosewood"
+        "model": "terrafabricraft:block/wood/fallen_leaves/rosewood"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/rosewood",
+        "model": "terrafabricraft:block/wood/fallen_leaves/rosewood",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/rosewood",
+        "model": "terrafabricraft:block/wood/fallen_leaves/rosewood",
         "y": 270
       }
     ]

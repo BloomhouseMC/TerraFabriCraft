@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/foxglove/foxglove_2",
-    "particle": "tfc:block/plant/foxglove/foxglove_2"
+    "cross": "terrafabricraft:block/plant/foxglove/foxglove_2",
+    "particle": "terrafabricraft:block/plant/foxglove/foxglove_2"
   },
   "elements": [
     {

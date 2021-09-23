@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/guano",
+        "model": "terrafabricraft:block/groundcover/guano",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/guano"
+        "model": "terrafabricraft:block/groundcover/guano"
       },
       {
-        "model": "tfc:block/groundcover/guano",
+        "model": "terrafabricraft:block/groundcover/guano",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/guano",
+        "model": "terrafabricraft:block/groundcover/guano",
         "y": 270
       }
     ]

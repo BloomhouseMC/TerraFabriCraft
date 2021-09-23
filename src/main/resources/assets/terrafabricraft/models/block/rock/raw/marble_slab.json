@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/rock/raw/marble",
-    "top": "tfc:block/rock/raw/marble",
-    "side": "tfc:block/rock/raw/marble"
+    "bottom": "terrafabricraft:block/rock/raw/marble",
+    "top": "terrafabricraft:block/rock/raw/marble",
+    "side": "terrafabricraft:block/rock/raw/marble"
   }
 }

@@ -1,7 +1,7 @@
 {   "parent": "block/thin_block",
     "textures": {
-        "particle": "tfc:block/charcoal_pile",
-        "texture": "tfc:block/charcoal_pile"
+        "particle": "terrafabricraft:block/charcoal_pile",
+        "texture": "terrafabricraft:block/charcoal_pile"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

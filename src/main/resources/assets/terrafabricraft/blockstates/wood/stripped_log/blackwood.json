@@ -2,14 +2,14 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "axis=y": {
-      "model": "tfc:block/wood/stripped_log/blackwood"
+      "model": "terrafabricraft:block/wood/stripped_log/blackwood"
     },
     "axis=z": {
-      "model": "tfc:block/wood/stripped_log/blackwood",
+      "model": "terrafabricraft:block/wood/stripped_log/blackwood",
       "x": 90
     },
     "axis=x": {
-      "model": "tfc:block/wood/stripped_log/blackwood",
+      "model": "terrafabricraft:block/wood/stripped_log/blackwood",
       "x": 90,
       "y": 90
     }

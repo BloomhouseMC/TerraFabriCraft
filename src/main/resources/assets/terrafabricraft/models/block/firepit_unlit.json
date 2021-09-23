@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"unlit": "tfc:block/devices/firepit/base",
-		"particle": "tfc:block/devices/firepit/base"
+		"unlit": "terrifabricraft:block/devices/firepit/base",
+		"particle": "terrifabricraft:block/devices/firepit/base"
 	  },
 	"elements": [
 		{

@@ -6,7 +6,7 @@
         "age": "0|1"
       },
       "apply": {
-        "model": "tfc:block/plant/tall_fescue_grass_short"
+        "model": "terrafabricraft:block/plant/tall_fescue_grass_short"
       }
     },
     {
@@ -15,7 +15,7 @@
         "age": "2|3"
       },
       "apply": {
-        "model": "tfc:block/plant/tall_fescue_grass"
+        "model": "terrafabricraft:block/plant/tall_fescue_grass"
       }
     }
   ]

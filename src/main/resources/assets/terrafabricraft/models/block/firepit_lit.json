@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"lit": "tfc:block/devices/firepit/base_lit",
-		"particle": "tfc:block/devices/firepit/base_lit"
+		"lit": "terrifabricraft:block/devices/firepit/base_lit",
+		"particle": "terrifabricraft:block/devices/firepit/base_lit"
 	  },
 	"elements": [
 		{

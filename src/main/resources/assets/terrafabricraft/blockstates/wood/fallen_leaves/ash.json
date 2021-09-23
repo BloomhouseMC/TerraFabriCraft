@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/ash",
+        "model": "terrafabricraft:block/wood/fallen_leaves/ash",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/ash"
+        "model": "terrafabricraft:block/wood/fallen_leaves/ash"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/ash",
+        "model": "terrafabricraft:block/wood/fallen_leaves/ash",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/ash",
+        "model": "terrafabricraft:block/wood/fallen_leaves/ash",
         "y": 270
       }
     ]

@@ -1,5 +1,5 @@
 {
-  "parent": "tfc:block/plant/sargassum",
+  "parent": "terrafabricraft:block/plant/sargassum",
   "display": {
     "thirdperson_righthand": {
       "rotation": [

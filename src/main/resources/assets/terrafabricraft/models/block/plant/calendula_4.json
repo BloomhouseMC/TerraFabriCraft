@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/calendula/calendula_4",
-    "particle": "tfc:block/plant/calendula/calendula_4"
+    "cross": "terrafabricraft:block/plant/calendula/calendula_4",
+    "particle": "terrafabricraft:block/plant/calendula/calendula_4"
   }
 }

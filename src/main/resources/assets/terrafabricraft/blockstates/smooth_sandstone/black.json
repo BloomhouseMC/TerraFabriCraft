@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/smooth_sandstone/black"
+      "model": "terrafabricraft:block/smooth_sandstone/black"
     }
   }
 }

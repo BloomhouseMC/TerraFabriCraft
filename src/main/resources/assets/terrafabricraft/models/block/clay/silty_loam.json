@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_all",
   "textures": {
-    "all": "tfc:block/clay/silty_loam"
+    "all": "terrafabricraft:block/clay/silty_loam"
   }
 }

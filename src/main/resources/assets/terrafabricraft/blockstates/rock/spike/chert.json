@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "part=base": {
-      "model": "tfc:block/rock/spike/chert_base"
+      "model": "terrafabricraft:block/rock/spike/chert_base"
     },
     "part=middle": {
-      "model": "tfc:block/rock/spike/chert_middle"
+      "model": "terrafabricraft:block/rock/spike/chert_middle"
     },
     "part=tip": {
-      "model": "tfc:block/rock/spike/chert_tip"
+      "model": "terrafabricraft:block/rock/spike/chert_tip"
     }
   }
 }

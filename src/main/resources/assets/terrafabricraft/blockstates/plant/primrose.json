@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/primrose_0"
+          "model": "terrafabricraft:block/plant/primrose_0"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/primrose_1"
+          "model": "terrafabricraft:block/plant/primrose_1"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/primrose_2"
+          "model": "terrafabricraft:block/plant/primrose_2"
         }
       ]
     }

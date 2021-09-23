@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/aspen",
+        "model": "terrafabricraft:block/wood/fallen_leaves/aspen",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/aspen"
+        "model": "terrafabricraft:block/wood/fallen_leaves/aspen"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/aspen",
+        "model": "terrafabricraft:block/wood/fallen_leaves/aspen",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/aspen",
+        "model": "terrafabricraft:block/wood/fallen_leaves/aspen",
         "y": 270
       }
     ]

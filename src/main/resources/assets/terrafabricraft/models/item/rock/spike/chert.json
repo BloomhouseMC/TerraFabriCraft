@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike/chert_base",
+  "parent": "terrafabricraft:block/rock/spike/chert_base",
   "textures": {
-    "layer0": "tfc:block/rock/raw/chert"
+    "layer0": "terrafabricraft:block/rock/raw/chert"
   }
 }

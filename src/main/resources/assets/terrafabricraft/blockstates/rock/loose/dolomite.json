@@ -3,52 +3,52 @@
   "variants": {
     "count=1": [
       {
-        "model": "tfc:block/rock/pebble/dolomite",
+        "model": "terrafabricraft:block/rock/pebble/dolomite",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/pebble/dolomite"
+        "model": "terrafabricraft:block/rock/pebble/dolomite"
       },
       {
-        "model": "tfc:block/rock/pebble/dolomite",
+        "model": "terrafabricraft:block/rock/pebble/dolomite",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/pebble/dolomite",
+        "model": "terrafabricraft:block/rock/pebble/dolomite",
         "y": 270
       }
     ],
     "count=2": [
       {
-        "model": "tfc:block/rock/rubble/dolomite",
+        "model": "terrafabricraft:block/rock/rubble/dolomite",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/rubble/dolomite"
+        "model": "terrafabricraft:block/rock/rubble/dolomite"
       },
       {
-        "model": "tfc:block/rock/rubble/dolomite",
+        "model": "terrafabricraft:block/rock/rubble/dolomite",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/rubble/dolomite",
+        "model": "terrafabricraft:block/rock/rubble/dolomite",
         "y": 270
       }
     ],
     "count=3": [
       {
-        "model": "tfc:block/rock/boulder/dolomite",
+        "model": "terrafabricraft:block/rock/boulder/dolomite",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/boulder/dolomite"
+        "model": "terrafabricraft:block/rock/boulder/dolomite"
       },
       {
-        "model": "tfc:block/rock/boulder/dolomite",
+        "model": "terrafabricraft:block/rock/boulder/dolomite",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/boulder/dolomite",
+        "model": "terrafabricraft:block/rock/boulder/dolomite",
         "y": 270
       }
     ]

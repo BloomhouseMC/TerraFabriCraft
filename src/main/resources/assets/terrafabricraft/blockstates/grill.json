@@ -3,7 +3,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "tfc:block/firepit_grill"
+        "model": "terrafabricraft:block/firepit_grill"
       }
     },
     {
@@ -11,7 +11,7 @@
         "lit": true
       },
       "apply": {
-        "model": "tfc:block/firepit_lit"
+        "model": "terrafabricraft:block/firepit_lit"
       }
     },
     {
@@ -19,7 +19,7 @@
         "lit": false
       },
       "apply": {
-        "model": "tfc:block/firepit_unlit"
+        "model": "terrafabricraft:block/firepit_unlit"
       }
     }
   ]

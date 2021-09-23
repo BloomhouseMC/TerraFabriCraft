@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/firepit_pot",
+  "parent": "terrafabricraft:block/firepit_pot",
   "textures": {
-    "layer0": "tfc:item/pot"
+    "layer0": "terrafabricraft:item/pot"
   }
 }

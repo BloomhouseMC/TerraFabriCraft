@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "tfc:block/thatch",
-		"1": "tfc:block/log_pile_side",
-		"particle": "tfc:block/thatch"
+		"0": "terrifabricraft:block/thatch",
+		"1": "terrifabricraft:block/log_pile_side",
+		"particle": "terrifabricraft:block/thatch"
 	},
 	"elements": [
 		{

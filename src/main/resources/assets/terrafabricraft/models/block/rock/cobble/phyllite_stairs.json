@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/rock/cobble/phyllite",
-    "top": "tfc:block/rock/cobble/phyllite",
-    "side": "tfc:block/rock/cobble/phyllite"
+    "bottom": "terrafabricraft:block/rock/cobble/phyllite",
+    "top": "terrafabricraft:block/rock/cobble/phyllite",
+    "side": "terrafabricraft:block/rock/cobble/phyllite"
   }
 }

@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/firepit_unlit",
+  "parent": "terrafabricraft:block/firepit_unlit",
   "textures": {
-    "layer0": "tfc:item/firepit"
+    "layer0": "terrafabricraft:item/firepit"
   }
 }
