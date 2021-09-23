@@ -4,7 +4,9 @@
   "package": "malek.terrafabricraft.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-
+    "common.HungerManagerMixin",
+    "common.LivingEntityMixin",
+    "common.PlayerEntityMixin"
   ],
   "client": [
     "client.InGameHudMixin"

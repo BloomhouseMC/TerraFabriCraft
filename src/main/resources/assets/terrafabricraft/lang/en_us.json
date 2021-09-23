@@ -1,4 +1,9 @@
 {
+  "hud.terrafabricraft.health": "%1$s / %2$s",
+
+
+
+
   "__comment__": "This file was automatically created by mcresources",
   "generator.tfc.tng": "TerraFirmaCraft",
   "death.attack.tfc.grill": "%1$s grilled themself to death",
