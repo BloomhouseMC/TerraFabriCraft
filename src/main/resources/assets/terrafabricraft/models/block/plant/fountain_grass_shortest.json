@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "tintedcross": "tfc:block/plant/fountain_grass/fountain_grass_0",
-    "particle": "tfc:block/plant/fountain_grass/fountain_grass_0"
+    "tintedcross": "terrafabricraft:block/plant/fountain_grass/fountain_grass_0",
+    "particle": "terrafabricraft:block/plant/fountain_grass/fountain_grass_0"
   },
   "elements": [
     {

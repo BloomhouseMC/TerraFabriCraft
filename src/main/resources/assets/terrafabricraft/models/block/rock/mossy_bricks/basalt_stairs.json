@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/rock/mossy_bricks/basalt",
-    "top": "tfc:block/rock/mossy_bricks/basalt",
-    "side": "tfc:block/rock/mossy_bricks/basalt"
+    "bottom": "terrafabricraft:block/rock/mossy_bricks/basalt",
+    "top": "terrafabricraft:block/rock/mossy_bricks/basalt",
+    "side": "terrafabricraft:block/rock/mossy_bricks/basalt"
   }
 }

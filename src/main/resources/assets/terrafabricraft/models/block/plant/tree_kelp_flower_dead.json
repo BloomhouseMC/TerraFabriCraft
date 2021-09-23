@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "tfc:block/plant/giant_kelp/flower",
-		"1": "tfc:block/plant/giant_kelp/petal",
-		"particle": "tfc:block/plant/giant_kelp/flower"
+		"0": "terrafabricraft:block/plant/giant_kelp/flower",
+		"1": "terrafabricraft:block/plant/giant_kelp/petal",
+		"particle": "terrafabricraft:block/plant/giant_kelp/flower"
 	},
 	"elements": [
 		{

@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/fence_post",
   "textures": {
-    "texture": "tfc:block/wood/planks/oak"
+    "texture": "terrafabricraft:block/wood/planks/oak"
   }
 }

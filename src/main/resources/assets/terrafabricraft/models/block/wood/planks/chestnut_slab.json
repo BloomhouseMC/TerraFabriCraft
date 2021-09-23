@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/wood/planks/chestnut",
-    "top": "tfc:block/wood/planks/chestnut",
-    "side": "tfc:block/wood/planks/chestnut"
+    "bottom": "terrafabricraft:block/wood/planks/chestnut",
+    "top": "terrafabricraft:block/wood/planks/chestnut",
+    "side": "terrafabricraft:block/wood/planks/chestnut"
   }
 }

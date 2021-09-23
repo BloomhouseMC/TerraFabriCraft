@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/oxeye_daisy/oxeye_daisy_3",
-    "particle": "tfc:block/plant/oxeye_daisy/oxeye_daisy_3"
+    "cross": "terrafabricraft:block/plant/oxeye_daisy/oxeye_daisy_3",
+    "particle": "terrafabricraft:block/plant/oxeye_daisy/oxeye_daisy_3"
   }
 }

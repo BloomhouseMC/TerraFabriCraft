@@ -1,12 +1,12 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
+import malek.terrafabricraft.common.block.GroundCoverBlock;
 import malek.terrafabricraft.common.block.entity.RockBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
-import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntity;
@@ -21,49 +21,56 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class TFCObjects {
-    private static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
+    public static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
     private static final Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
     private static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
-    public static final FabricBlockSettings LEAVES_TAG = FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f);
-    public static final FabricBlockSettings STONE_TAG = FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(6.0f);
-    public static final FabricBlockSettings DIRT_TAG = FabricBlockSettings.of(Material.SOIL).breakByTool(FabricToolTags.SHOVELS).strength(0.2f);
-    //        Should be rotatable block.
-    public static final FabricBlockSettings LOG_TAG = FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f);
+    public static final Block ROCK_BLOCK = createRock("rock_block", true);
 
+    //Dirt
+    public static final Block SILT = createDirt("dirt/silt", true);
+    public static final Block SILTY_LOAM = createDirt("dirt/silty_loam", true);
+    public static final Block LOAM = createDirt("dirt/loam", true);
+    public static final Block SANDY_LOAM = createDirt("dirt/sandy_loam", true);
+    public static final Block PEAT = createDirt("peat", true);
 
-    public static final Block ROCK_BLOCK = create("rock_block", new Block(STONE_TAG), true);
+    //Ground Cover
+    public static final Block STICK = createGroundCover("groundcover/stick", true);
 
-    public static final Block SILT = create("silt", new Block(DIRT_TAG), true);
-    public static final Block SILTY_LOAM = create("silty_loam", new Block(DIRT_TAG), true);
-    public static final Block LOAM = create("loam", new Block(DIRT_TAG), true);
-    public static final Block SANDY_LOAM = create("sandy_loam", new Block(DIRT_TAG), true);
-    public static final Block PEAT = create("peat", new Block(LOG_TAG), true);
-    public static final Block ACACIA_LOG = create("acacia_log", new Block(LOG_TAG), true);
-    public static final Block ASH_LOG = create("ash_log", new Block(LOG_TAG), true);
-    public static final Block ASPEN_LOG = create("aspen_log", new Block(LOG_TAG), true);
-    public static final Block BIRCH_LOG = create("birch_log", new Block(LOG_TAG), true);
-    public static final Block BLACKWOOD_LOG = create("blackwood_log", new Block(LOG_TAG), true);
-    public static final Block CHESTNUT_LOG = create("chestnut_log", new Block(LOG_TAG), true);
-    public static final Block DOUGLAS_FIR_LOG = create("douglas_fir_log", new Block(LOG_TAG), true);
-    public static final Block HICKORY_LOG = create("hickory_log", new Block(LOG_TAG), true);
-    public static final Block KAPOK_LOG = create("kapok_log", new Block(LOG_TAG), true);
-    public static final Block MAPLE_LOG = create("maple_log", new Block(LOG_TAG), true);
-    public static final Block OAK_LOG = create("oak_log", new Block(LOG_TAG), true);
-    public static final Block PALM_LOG = create("palm_log", new Block(LOG_TAG), true);
-    public static final Block PINE_LOG = create("pine_log", new Block(LOG_TAG), true);
-    public static final Block ROSEWOOD_LOG = create("rosewood_log", new Block(LOG_TAG), true);
-    public static final Block SEQUOIA_LOG = create("sequoia_log", new Block(LOG_TAG), true);
-    public static final Block SPRUCE_LOG = create("spruce_log", new Block(LOG_TAG), true);
-    public static final Block SYCAMORE_LOG = create("sycamore_log", new Block(LOG_TAG), true);
-    public static final Block WHITE_CEDAR_LOG = create("white_cedar_log", new Block(LOG_TAG), true);
-    public static final Block WILLOW_LOG = create("willow_log", new Block(LOG_TAG), true);
+    //Logs
+    public static final Block ACACIA_LOG = createLog("acacia_log", true);
+    public static final Block ASH_LOG = createLog("ash_log", true);
+    public static final Block ASPEN_LOG = createLog("aspen_log", true);
+    public static final Block BIRCH_LOG = createLog("birch_log", true);
+    public static final Block BLACKWOOD_LOG = createLog("blackwood_log", true);
+    public static final Block CHESTNUT_LOG = createLog("chestnut_log", true);
+    public static final Block DOUGLAS_FIR_LOG = createLog("douglas_fir_log", true);
+    public static final Block HICKORY_LOG = createLog("hickory_log", true);
+    public static final Block KAPOK_LOG = createLog("kapok_log", true);
+    public static final Block MAPLE_LOG = createLog("maple_log", true);
+    public static final Block OAK_LOG = createLog("oak_log", true);
+    public static final Block PALM_LOG = createLog("palm_log", true);
+    public static final Block PINE_LOG = createLog("pine_log", true);
+    public static final Block ROSEWOOD_LOG = createLog("rosewood_log", true);
+    public static final Block SEQUOIA_LOG = createLog("sequoia_log", true);
+    public static final Block SPRUCE_LOG = createLog("spruce_log", true);
+    public static final Block SYCAMORE_LOG = createLog("sycamore_log", true);
+    public static final Block WHITE_CEDAR_LOG = createLog("white_cedar_log", true);
+    public static final Block WILLOW_LOG = createLog("willow_log", true);
 
-    public static final Item ROCK = create("rock", new Item(gen()));
+    public static final Item ROCK = createItem("rock", new Item(gen()));
 
     public static final BlockEntityType<RockBlockEntity> ROCK_BLOCK_ENTITY = register("rock_block_entity", FabricBlockEntityTypeBuilder.create(RockBlockEntity::new, TFCObjects.ROCK_BLOCK).build(null));
 
-    private static <T extends Item> T create(String id, T item) {
+    public static <T extends Block> T register(String id, T block, boolean hasItem) {
+        BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
+        if (hasItem) {
+            ITEMS.put(new BlockItem(block, gen()), BLOCKS.get(block));
+        }
+        return block;
+    }
+
+    private static <T extends Item> T createItem(String id, T item) {
         ITEMS.put(item, new Identifier(TerraFabriCraft.MODID, id));
         return item;
     }
@@ -73,11 +80,42 @@ public class TFCObjects {
         return type;
     }
 
-    public static <T extends Block> T create(String id, T block, boolean hasItem) {
-        BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
-        if (hasItem) {
-            ITEMS.put(new BlockItem(block, gen()), BLOCKS.get(block));
-        }
+    public static Block createDirt(String id, boolean hasItem) {
+        var block = new Block(FabricBlockSettings.of(Material.SOIL).breakByTool(FabricToolTags.SHOVELS).strength(0.2f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    public static Block createRock(String id, boolean hasItem) {
+        var block = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(6.0f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    public static Block createGroundCover(String id, boolean hasItem) {
+        var block = new GroundCoverBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(6.0f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    public static Block createLog(String id, boolean hasItem) {
+//        Should be rotatable block.
+        var block = new Block(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    static Block createLeaves(String id) {
+//        Should use leaves sound.
+        var block = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).strength(0.2F).sounds(BlockSoundGroup.SLIME));
+        register(id, block, true);
+        return block;
+    }
+
+    static Block createStrippedLog(String id) {
+//        Should be rotatable block.
+        var block = new Block(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        register(id, block, true);
         return block;
     }
 

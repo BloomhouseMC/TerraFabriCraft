@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "tfc:block/rock/raw/gneiss",
-    "particle": "tfc:block/rock/raw/gneiss",
-    "overlay": "tfc:block/ore/poor_malachite"
+    "all": "terrafabricraft:block/rock/raw/gneiss",
+    "particle": "terrafabricraft:block/rock/raw/gneiss",
+    "overlay": "terrafabricraft:block/ore/poor_malachite"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_seagrass",
   "textures": {
-    "texture": "tfc:block/plant/coontail/0"
+    "texture": "terrafabricraft:block/plant/coontail/0"
   }
 }

@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/rose/rose_1",
-    "particle": "tfc:block/plant/rose/rose_1"
+    "cross": "terrafabricraft:block/plant/rose/rose_1",
+    "particle": "terrafabricraft:block/plant/rose/rose_1"
   },
   "elements": [
     {

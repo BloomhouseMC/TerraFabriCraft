@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/blood_lily/blood_lily",
-    "particle": "tfc:block/plant/blood_lily/blood_lily"
+    "cross": "terrafabricraft:block/plant/blood_lily/blood_lily",
+    "particle": "terrafabricraft:block/plant/blood_lily/blood_lily"
   }
 }

@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "tfc:block/rock/mossy_cobble/dolomite",
-    "top": "tfc:block/rock/mossy_cobble/dolomite",
-    "side": "tfc:block/rock/mossy_cobble/dolomite"
+    "bottom": "terrafabricraft:block/rock/mossy_cobble/dolomite",
+    "top": "terrafabricraft:block/rock/mossy_cobble/dolomite",
+    "side": "terrafabricraft:block/rock/mossy_cobble/dolomite"
   }
 }

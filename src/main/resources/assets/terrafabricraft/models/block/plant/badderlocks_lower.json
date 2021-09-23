@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/badderlocks/placeholder",
-    "particle": "tfc:block/plant/badderlocks/placeholder"
+    "cross": "terrafabricraft:block/plant/badderlocks/placeholder",
+    "particle": "terrafabricraft:block/plant/badderlocks/placeholder"
   },
   "elements": [
     {

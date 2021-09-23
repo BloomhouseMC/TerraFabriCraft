@@ -1,8 +1,8 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "tfc:block/groundcover/seaweed",
-    "particle": "tfc:block/groundcover/seaweed"
+    "0": "terrafabricraft:block/groundcover/seaweed",
+    "particle": "terrafabricraft:block/groundcover/seaweed"
   },
   "elements": [
     {

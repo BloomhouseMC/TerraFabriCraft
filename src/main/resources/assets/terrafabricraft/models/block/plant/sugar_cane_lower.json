@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/sugar_cane/placeholder",
-    "particle": "tfc:block/plant/sugar_cane/placeholder"
+    "cross": "terrafabricraft:block/plant/sugar_cane/placeholder",
+    "particle": "terrafabricraft:block/plant/sugar_cane/placeholder"
   },
   "elements": [
     {

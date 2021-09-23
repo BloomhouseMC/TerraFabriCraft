@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "minecraft:block/bookshelf",
   "textures": {
-    "end": "tfc:block/wood/planks/sycamore",
-    "side": "tfc:block/wood/planks/sycamore_bookshelf"
+    "end": "terrafabricraft:block/wood/planks/sycamore",
+    "side": "terrafabricraft:block/wood/planks/sycamore_bookshelf"
   }
 }

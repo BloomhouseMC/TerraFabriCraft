@@ -2,9 +2,9 @@
   "credit": "Made with Blockbench",
   "parent": "block/block",
   "textures": {
-    "side": "tfc:block/devices/crucible/side",
-    "top": "tfc:block/devices/crucible/top",
-    "particle": "tfc:block/devices/crucible/side"
+    "side": "terrafabricraft:block/devices/crucible/side",
+    "top": "terrafabricraft:block/devices/crucible/top",
+    "particle": "terrafabricraft:block/devices/crucible/side"
   },
   "elements": [
     {

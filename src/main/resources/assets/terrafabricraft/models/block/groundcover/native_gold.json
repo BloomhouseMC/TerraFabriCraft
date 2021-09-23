@@ -1,8 +1,8 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "tfc:item/ore/small_native_gold",
-    "particle": "tfc:item/ore/small_native_gold"
+    "0": "terrafabricraft:item/ore/small_native_gold",
+    "particle": "terrafabricraft:item/ore/small_native_gold"
   },
   "elements": [
     {

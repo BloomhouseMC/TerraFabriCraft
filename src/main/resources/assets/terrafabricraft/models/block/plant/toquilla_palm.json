@@ -1,10 +1,10 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross1": "tfc:block/plant/toquilla_palm/toquilla_palm_1",
-    "cross2": "tfc:block/plant/toquilla_palm/toquilla_palm_2",
-    "cross3": "tfc:block/plant/toquilla_palm/toquilla_palm_2_overlay",
-    "particle": "tfc:block/plant/toquilla_palm/toquilla_palm_1"
+    "cross1": "terrafabricraft:block/plant/toquilla_palm/toquilla_palm_1",
+    "cross2": "terrafabricraft:block/plant/toquilla_palm/toquilla_palm_2",
+    "cross3": "terrafabricraft:block/plant/toquilla_palm/toquilla_palm_2_overlay",
+    "particle": "terrafabricraft:block/plant/toquilla_palm/toquilla_palm_1"
   },
   "elements": [
     {

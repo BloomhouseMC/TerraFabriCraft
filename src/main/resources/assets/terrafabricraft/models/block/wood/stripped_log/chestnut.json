@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_column",
   "textures": {
-    "end": "tfc:block/wood/stripped_log_top/chestnut",
-    "side": "tfc:block/wood/stripped_log/chestnut"
+    "end": "terrafabricraft:block/wood/stripped_log_top/chestnut",
+    "side": "terrafabricraft:block/wood/stripped_log/chestnut"
   }
 }

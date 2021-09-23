@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "tfc:block/rock/cracked_bricks/phyllite",
-    "top": "tfc:block/rock/cracked_bricks/phyllite",
-    "side": "tfc:block/rock/cracked_bricks/phyllite"
+    "bottom": "terrafabricraft:block/rock/cracked_bricks/phyllite",
+    "top": "terrafabricraft:block/rock/cracked_bricks/phyllite",
+    "side": "terrafabricraft:block/rock/cracked_bricks/phyllite"
   }
 }

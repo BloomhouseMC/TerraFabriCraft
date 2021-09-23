@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "tfc:block/rock/smooth/marble",
-    "top": "tfc:block/rock/smooth/marble",
-    "side": "tfc:block/rock/smooth/marble"
+    "bottom": "terrafabricraft:block/rock/smooth/marble",
+    "top": "terrafabricraft:block/rock/smooth/marble",
+    "side": "terrafabricraft:block/rock/smooth/marble"
   }
 }

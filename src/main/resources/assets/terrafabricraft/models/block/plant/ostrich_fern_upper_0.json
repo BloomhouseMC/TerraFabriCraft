@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "tfc:block/plant/ostrich_fern/ostrich_fern_0",
-    "uppernotint": "tfc:block/plant/ostrich_fern/ostrich_fern_top_0"
+    "particle": "terrafabricraft:block/plant/ostrich_fern/ostrich_fern_0",
+    "uppernotint": "terrafabricraft:block/plant/ostrich_fern/ostrich_fern_top_0"
   },
   "elements": [
     {

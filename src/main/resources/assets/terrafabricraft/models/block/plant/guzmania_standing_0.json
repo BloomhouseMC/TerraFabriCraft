@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/guzmania/guzmania_0",
-    "particle": "tfc:block/plant/guzmania/guzmania_0"
+    "cross": "terrafabricraft:block/plant/guzmania/guzmania_0",
+    "particle": "terrafabricraft:block/plant/guzmania/guzmania_0"
   }
 }

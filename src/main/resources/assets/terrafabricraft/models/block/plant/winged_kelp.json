@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "tfc:block/plant/winged_kelp/top",
-		"1": "tfc:block/plant/winged_kelp/stem",
-		"particle": "tfc:block/plant/winged_kelp/top"
+		"0": "terrafabricraft:block/plant/winged_kelp/top",
+		"1": "terrafabricraft:block/plant/winged_kelp/stem",
+		"particle": "terrafabricraft:block/plant/winged_kelp/top"
 	},
 	"elements": [
 		{

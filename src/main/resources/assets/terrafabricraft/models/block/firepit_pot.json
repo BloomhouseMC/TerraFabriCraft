@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"2": "tfc:block/devices/firepit/stick",
-		"particle": "tfc:block/ceramic/large_vessel_side",
-		"pot_side": "tfc:block/ceramic/large_vessel_side",
-		"pot_bottom": "tfc:block/ceramic/large_vessel_bottom"
+		"2": "terrafabricraft:block/devices/firepit/stick",
+		"particle": "terrafabricraft:block/ceramic/large_vessel_side",
+		"pot_side": "terrafabricraft:block/ceramic/large_vessel_side",
+		"pot_bottom": "terrafabricraft:block/ceramic/large_vessel_bottom"
 	},
 	"elements": [
 		{

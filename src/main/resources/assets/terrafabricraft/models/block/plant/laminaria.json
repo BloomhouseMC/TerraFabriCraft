@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "tfc:block/plant/laminaria/large",
-		"2": "tfc:block/plant/laminaria/small",
-		"4": "tfc:block/plant/laminaria/thin",
-		"particle": "tfc:block/plant/laminaria/large"
+		"0": "terrafabricraft:block/plant/laminaria/large",
+		"2": "terrafabricraft:block/plant/laminaria/small",
+		"4": "terrafabricraft:block/plant/laminaria/thin",
+		"particle": "terrafabricraft:block/plant/laminaria/large"
 	},
 	"elements": [
 		{

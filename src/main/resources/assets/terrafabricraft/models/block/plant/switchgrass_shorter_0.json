@@ -1,6 +1,6 @@
 {
-  "parent": "tfc:block/tinted_cross",
+  "parent": "terrafabricraft:block/tinted_cross",
   "textures": {
-    "cross": "tfc:block/plant/switchgrass/switchgrass_shorter_0"
+    "cross": "terrafabricraft:block/plant/switchgrass/switchgrass_shorter_0"
   }
 }

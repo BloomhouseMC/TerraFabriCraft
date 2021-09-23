@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "tfc:block/plant/labrador_tea/labrador_tea_5",
-    "particle": "tfc:block/plant/labrador_tea/labrador_tea_5"
+    "cross": "terrafabricraft:block/plant/labrador_tea/labrador_tea_5",
+    "particle": "terrafabricraft:block/plant/labrador_tea/labrador_tea_5"
   }
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/ryegrass/ryegrass_1"
+    "cross": "terrafabricraft:block/plant/ryegrass/ryegrass_1"
   }
 }

@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "tfc:block/rock/raw/slate",
-    "particle": "tfc:block/rock/raw/slate",
-    "overlay": "tfc:block/ore/sylvite"
+    "all": "terrafabricraft:block/rock/raw/slate",
+    "particle": "terrafabricraft:block/rock/raw/slate",
+    "overlay": "terrafabricraft:block/ore/sylvite"
   }
 }

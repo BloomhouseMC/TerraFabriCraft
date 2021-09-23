@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "tfc:block/wood/planks/acacia",
-    "top": "tfc:block/wood/planks/acacia",
-    "side": "tfc:block/wood/planks/acacia"
+    "bottom": "terrafabricraft:block/wood/planks/acacia",
+    "top": "terrafabricraft:block/wood/planks/acacia",
+    "side": "terrafabricraft:block/wood/planks/acacia"
   }
 }

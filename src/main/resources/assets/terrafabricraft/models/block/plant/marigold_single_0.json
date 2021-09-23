@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "marigold": "tfc:block/plant/marigold/marigold_0",
-    "particle": "tfc:block/plant/marigold/marigold_0"
+    "marigold": "terrafabricraft:block/plant/marigold/marigold_0",
+    "particle": "terrafabricraft:block/plant/marigold/marigold_0"
   },
   "elements": [
     {

@@ -1,8 +1,8 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "tfc:item/ore/small_native_copper",
-    "particle": "tfc:item/ore/small_native_copper"
+    "0": "terrafabricraft:item/ore/small_native_copper",
+    "particle": "terrafabricraft:item/ore/small_native_copper"
   },
   "elements": [
     {

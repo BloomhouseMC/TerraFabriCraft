@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "tfc:block/plant/ivy/ivy",
-		"particle": "tfc:block/plant/ivy/ivy"
+		"0": "terrafabricraft:block/plant/ivy/ivy",
+		"particle": "terrafabricraft:block/plant/ivy/ivy"
 	},
 	"elements": [
 		{

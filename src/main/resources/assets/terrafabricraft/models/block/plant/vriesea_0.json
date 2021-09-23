@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/vriesea/vriesea_0",
-    "particle": "tfc:block/plant/vriesea/vriesea_0"
+    "cross": "terrafabricraft:block/plant/vriesea/vriesea_0",
+    "particle": "terrafabricraft:block/plant/vriesea/vriesea_0"
   },
   "elements": [
     {

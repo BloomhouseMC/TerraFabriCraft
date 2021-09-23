@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "tfc:block/wood/planks/willow",
-    "top": "tfc:block/wood/planks/willow",
-    "side": "tfc:block/wood/planks/willow"
+    "bottom": "terrafabricraft:block/wood/planks/willow",
+    "top": "terrafabricraft:block/wood/planks/willow",
+    "side": "terrafabricraft:block/wood/planks/willow"
   }
 }

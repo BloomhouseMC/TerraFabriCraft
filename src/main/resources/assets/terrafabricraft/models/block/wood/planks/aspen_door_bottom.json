@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/door_bottom",
   "textures": {
-    "top": "tfc:block/wood/planks/aspen_door_top",
-    "bottom": "tfc:block/wood/planks/aspen_door_bottom"
+    "top": "terrafabricraft:block/wood/planks/aspen_door_top",
+    "bottom": "terrafabricraft:block/wood/planks/aspen_door_bottom"
   }
 }

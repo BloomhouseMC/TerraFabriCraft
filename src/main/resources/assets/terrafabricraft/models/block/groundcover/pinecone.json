@@ -1,8 +1,8 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "tfc:block/groundcover/stick",
-    "particle": "tfc:block/groundcover/stick"
+    "0": "terrafabricraft:block/groundcover/stick",
+    "particle": "terrafabricraft:block/groundcover/stick"
   },
   "elements": [
     {

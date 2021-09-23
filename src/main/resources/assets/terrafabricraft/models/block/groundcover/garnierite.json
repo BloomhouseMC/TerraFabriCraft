@@ -1,8 +1,8 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "tfc:item/ore/small_garnierite",
-    "particle": "tfc:item/ore/small_garnierite"
+    "0": "terrafabricraft:item/ore/small_garnierite",
+    "particle": "terrafabricraft:item/ore/small_garnierite"
   },
   "elements": [
     {

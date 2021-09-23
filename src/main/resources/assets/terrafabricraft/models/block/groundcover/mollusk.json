@@ -1,8 +1,8 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "tfc:block/groundcover/mollusk",
-    "particle": "tfc:block/groundcover/mollusk"
+    "0": "terrafabricraft:block/groundcover/mollusk",
+    "particle": "terrafabricraft:block/groundcover/mollusk"
   },
   "elements": [
     {

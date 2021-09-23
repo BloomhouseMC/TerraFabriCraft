@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "tfc:block/plant/lotus/lotus",
-    "flower": "tfc:block/plant/lotus/lotus_0",
-    "layer0": "tfc:block/plant/lotus/lotus"
+    "particle": "terrafabricraft:block/plant/lotus/lotus",
+    "flower": "terrafabricraft:block/plant/lotus/lotus_0",
+    "layer0": "terrafabricraft:block/plant/lotus/lotus"
   },
   "elements": [
     {

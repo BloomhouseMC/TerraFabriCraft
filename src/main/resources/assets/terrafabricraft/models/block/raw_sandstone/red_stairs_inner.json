@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "tfc:block/sandstone/bottom/red",
-    "top": "tfc:block/sandstone/bottom/red",
-    "side": "tfc:block/sandstone/bottom/red"
+    "bottom": "terrafabricraft:block/sandstone/bottom/red",
+    "top": "terrafabricraft:block/sandstone/bottom/red",
+    "side": "terrafabricraft:block/sandstone/bottom/red"
   }
 }

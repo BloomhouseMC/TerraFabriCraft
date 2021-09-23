@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/allium/allium_5",
-    "particle": "tfc:block/plant/allium/allium_5"
+    "cross": "terrafabricraft:block/plant/allium/allium_5",
+    "particle": "terrafabricraft:block/plant/allium/allium_5"
   }
 }

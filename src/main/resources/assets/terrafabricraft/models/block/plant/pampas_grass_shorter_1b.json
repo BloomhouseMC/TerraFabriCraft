@@ -2,10 +2,10 @@
   "credit": "Made with Blockbench",
   "ambientocclusion": false,
   "textures": {
-    "0": "tfc:block/plant/pampas_grass/pampas_0",
-    "1": "tfc:block/plant/pampas_grass/pampas_1",
-    "particle": "tfc:block/plant/pampas_grass/pampas_0",
-    "1b": "tfc:block/plant/pampas_grass/pampas_1b"
+    "0": "terrafabricraft:block/plant/pampas_grass/pampas_0",
+    "1": "terrafabricraft:block/plant/pampas_grass/pampas_1",
+    "particle": "terrafabricraft:block/plant/pampas_grass/pampas_0",
+    "1b": "terrafabricraft:block/plant/pampas_grass/pampas_1b"
   },
   "elements": [
     {

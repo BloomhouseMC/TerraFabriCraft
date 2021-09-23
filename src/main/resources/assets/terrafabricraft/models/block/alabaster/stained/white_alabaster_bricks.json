@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_all",
   "textures": {
-    "all": "tfc:block/alabaster/stained/white_alabaster_bricks"
+    "all": "terrafabricraft:block/alabaster/stained/white_alabaster_bricks"
   }
 }

@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/grass_side",
+  "parent": "terrafabricraft:block/grass_side",
   "textures": {
-    "texture": "tfc:block/dirt/loam"
+    "texture": "terrafabricraft:block/dirt/loam"
   }
 }

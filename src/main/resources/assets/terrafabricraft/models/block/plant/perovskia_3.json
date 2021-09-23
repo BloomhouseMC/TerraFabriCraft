@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/perovskia/perovskia_3",
-    "particle": "tfc:block/plant/perovskia/perovskia_3"
+    "cross": "terrafabricraft:block/plant/perovskia/perovskia_3",
+    "particle": "terrafabricraft:block/plant/perovskia/perovskia_3"
   }
 }

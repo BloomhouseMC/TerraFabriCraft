@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/scutch_grass/placeholder",
-    "particle": "tfc:block/plant/scutch_grass/placeholder"
+    "cross": "terrafabricraft:block/plant/scutch_grass/placeholder",
+    "particle": "terrafabricraft:block/plant/scutch_grass/placeholder"
   },
   "elements": [
     {

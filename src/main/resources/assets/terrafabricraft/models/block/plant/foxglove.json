@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/foxglove/placeholder",
-    "particle": "tfc:block/plant/foxglove/placeholder"
+    "cross": "terrafabricraft:block/plant/foxglove/placeholder",
+    "particle": "terrafabricraft:block/plant/foxglove/placeholder"
   }
 }

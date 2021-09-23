@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/snapdragon/snapdragon_6",
-    "particle": "tfc:block/plant/snapdragon/snapdragon_6"
+    "cross": "terrafabricraft:block/plant/snapdragon/snapdragon_6",
+    "particle": "terrafabricraft:block/plant/snapdragon/snapdragon_6"
   }
 }

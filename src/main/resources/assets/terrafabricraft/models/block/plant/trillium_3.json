@@ -1,10 +1,10 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "2": "tfc:block/plant/trillium/trillium_flower_back",
-    "cross": "tfc:block/plant/trillium/trillium_2",
-    "top": "tfc:block/plant/trillium/trillium_flower",
-    "particle": "tfc:block/plant/trillium/item"
+    "2": "terrafabricraft:block/plant/trillium/trillium_flower_back",
+    "cross": "terrafabricraft:block/plant/trillium/trillium_2",
+    "top": "terrafabricraft:block/plant/trillium/trillium_flower",
+    "particle": "terrafabricraft:block/plant/trillium/item"
   },
   "elements": [
     {

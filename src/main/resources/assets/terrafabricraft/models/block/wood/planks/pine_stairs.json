@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/wood/planks/pine",
-    "top": "tfc:block/wood/planks/pine",
-    "side": "tfc:block/wood/planks/pine"
+    "bottom": "terrafabricraft:block/wood/planks/pine",
+    "top": "terrafabricraft:block/wood/planks/pine",
+    "side": "terrafabricraft:block/wood/planks/pine"
   }
 }

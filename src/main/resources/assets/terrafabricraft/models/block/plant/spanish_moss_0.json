@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "tfc:block/plant/spanish_moss/spanish_moss_0",
-    "layer0": "tfc:block/plant/spanish_moss/spanish_moss_0"
+    "particle": "terrafabricraft:block/plant/spanish_moss/spanish_moss_0",
+    "layer0": "terrafabricraft:block/plant/spanish_moss/spanish_moss_0"
   },
   "elements": [
     {

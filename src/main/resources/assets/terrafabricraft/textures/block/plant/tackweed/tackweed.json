@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc2:blocks/plants/tackweed01",
-    "particle": "tfc2:blocks/plants/tackweed01"
+    "cross": "terrafabricraft2:blocks/plants/tackweed01",
+    "particle": "terrafabricraft2:blocks/plants/tackweed01"
   },
   "elements": [
     {

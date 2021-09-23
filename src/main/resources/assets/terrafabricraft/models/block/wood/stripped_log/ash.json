@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_column",
   "textures": {
-    "end": "tfc:block/wood/stripped_log_top/ash",
-    "side": "tfc:block/wood/stripped_log/ash"
+    "end": "terrafabricraft:block/wood/stripped_log_top/ash",
+    "side": "terrafabricraft:block/wood/stripped_log/ash"
   }
 }

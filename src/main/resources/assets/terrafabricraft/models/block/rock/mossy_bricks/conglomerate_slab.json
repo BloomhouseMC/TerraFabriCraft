@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/rock/mossy_bricks/conglomerate",
-    "top": "tfc:block/rock/mossy_bricks/conglomerate",
-    "side": "tfc:block/rock/mossy_bricks/conglomerate"
+    "bottom": "terrafabricraft:block/rock/mossy_bricks/conglomerate",
+    "top": "terrafabricraft:block/rock/mossy_bricks/conglomerate",
+    "side": "terrafabricraft:block/rock/mossy_bricks/conglomerate"
   }
 }

@@ -1,10 +1,10 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "layer0": "tfc:block/plant/moss/moss_layer0",
-    "layer1": "tfc:block/plant/moss/moss_layer1",
-    "layer2": "tfc:block/plant/moss/moss_layer2",
-    "particle": "tfc:block/plant/moss/moss_layer0"
+    "layer0": "terrafabricraft:block/plant/moss/moss_layer0",
+    "layer1": "terrafabricraft:block/plant/moss/moss_layer1",
+    "layer2": "terrafabricraft:block/plant/moss/moss_layer2",
+    "particle": "terrafabricraft:block/plant/moss/moss_layer0"
   },
   "elements": [
     {

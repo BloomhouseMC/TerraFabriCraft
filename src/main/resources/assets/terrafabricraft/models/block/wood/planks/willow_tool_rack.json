@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/tool_rack",
+  "parent": "terrafabricraft:block/tool_rack",
   "textures": {
-    "texture": "tfc:block/wood/planks/willow",
-    "particle": "tfc:block/wood/planks/willow"
+    "texture": "terrafabricraft:block/wood/planks/willow",
+    "particle": "terrafabricraft:block/wood/planks/willow"
   }
 }

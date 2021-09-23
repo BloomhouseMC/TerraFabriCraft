@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/switchgrass/switchgrass_bottom_1",
-    "cross1": "tfc:block/plant/switchgrass/switchgrass_top_1",
-    "particle": "tfc:block/plant/switchgrass/switchgrass_top_1"
+    "cross": "terrafabricraft:block/plant/switchgrass/switchgrass_bottom_1",
+    "cross1": "terrafabricraft:block/plant/switchgrass/switchgrass_top_1",
+    "particle": "terrafabricraft:block/plant/switchgrass/switchgrass_top_1"
   },
   "elements": [
     {

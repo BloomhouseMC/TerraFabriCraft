@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "layer0": "tfc:block/plant/pistia/pistia_0",
-    "layer1": "tfc:block/plant/pistia/pistia_1",
-    "particle": "tfc:block/plant/pistia/pistia_0"
+    "layer0": "terrafabricraft:block/plant/pistia/pistia_0",
+    "layer1": "terrafabricraft:block/plant/pistia/pistia_1",
+    "particle": "terrafabricraft:block/plant/pistia/pistia_0"
   },
   "elements": [
     {

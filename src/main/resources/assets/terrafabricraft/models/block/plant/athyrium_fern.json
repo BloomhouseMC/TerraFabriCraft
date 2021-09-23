@@ -1,9 +1,9 @@
 {
   "credit": "Made with Blockbench, a free, modern block model editor made by JannisX11",
   "textures": {
-    "0": "tfc:block/plant/athyrium_fern/double",
-    "1": "tfc:block/plant/athyrium_fern/single",
-    "particle": "tfc:block/plant/athyrium_fern/single"
+    "0": "terrafabricraft:block/plant/athyrium_fern/double",
+    "1": "terrafabricraft:block/plant/athyrium_fern/single",
+    "particle": "terrafabricraft:block/plant/athyrium_fern/single"
   },
   "elements": [
     {

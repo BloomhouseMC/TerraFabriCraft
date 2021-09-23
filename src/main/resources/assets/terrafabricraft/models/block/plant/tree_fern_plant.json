@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "trunk": "tfc:block/plant/tree_fern/tree_fern_trunk",
-    "particle": "tfc:block/plant/tree_fern/tree_fern_trunk"
+    "trunk": "terrafabricraft:block/plant/tree_fern/tree_fern_trunk",
+    "particle": "terrafabricraft:block/plant/tree_fern/tree_fern_trunk"
   },
   "elements": [
     {

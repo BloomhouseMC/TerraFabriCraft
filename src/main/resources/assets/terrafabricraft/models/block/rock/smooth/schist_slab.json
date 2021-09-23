@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/rock/smooth/schist",
-    "top": "tfc:block/rock/smooth/schist",
-    "side": "tfc:block/rock/smooth/schist"
+    "bottom": "terrafabricraft:block/rock/smooth/schist",
+    "top": "terrafabricraft:block/rock/smooth/schist",
+    "side": "terrafabricraft:block/rock/smooth/schist"
   }
 }

@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "layer0": "tfc:block/plant/duckweed/duckweed",
-    "particle": "tfc:block/plant/duckweed/duckweed"
+    "layer0": "terrafabricraft:block/plant/duckweed/duckweed",
+    "particle": "terrafabricraft:block/plant/duckweed/duckweed"
   },
   "elements": [
     {

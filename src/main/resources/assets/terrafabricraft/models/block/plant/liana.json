@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/liana/tip"
+    "cross": "terrafabricraft:block/plant/liana/tip"
   }
 }

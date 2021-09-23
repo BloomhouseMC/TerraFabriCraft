@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "flower": "tfc:block/plant/barrel_cactus/flower_0",
-    "particle": "tfc:block/plant/barrel_cactus/flower_0"
+    "flower": "terrafabricraft:block/plant/barrel_cactus/flower_0",
+    "particle": "terrafabricraft:block/plant/barrel_cactus/flower_0"
   },
   "elements": [
     {

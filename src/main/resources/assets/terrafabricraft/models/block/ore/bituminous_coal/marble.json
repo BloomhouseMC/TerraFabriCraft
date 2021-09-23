@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "tfc:block/rock/raw/marble",
-    "particle": "tfc:block/rock/raw/marble",
-    "overlay": "tfc:block/ore/bituminous_coal"
+    "all": "terrafabricraft:block/rock/raw/marble",
+    "particle": "terrafabricraft:block/rock/raw/marble",
+    "overlay": "terrafabricraft:block/ore/bituminous_coal"
   }
 }

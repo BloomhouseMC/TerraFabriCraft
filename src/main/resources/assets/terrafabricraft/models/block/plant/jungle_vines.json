@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "tfc:block/plant/jungle_vines/vine",
-		"particle": "tfc:block/plant/jungle_vines/vine"
+		"0": "terrafabricraft:block/plant/jungle_vines/vine",
+		"particle": "terrafabricraft:block/plant/jungle_vines/vine"
 	},
 	"elements": [
 		{

@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/log_fence_inventory",
+  "parent": "terrafabricraft:block/log_fence_inventory",
   "textures": {
-    "log": "tfc:block/wood/log/acacia",
-    "planks": "tfc:block/wood/planks/acacia"
+    "log": "terrafabricraft:block/wood/log/acacia",
+    "planks": "terrafabricraft:block/wood/planks/acacia"
   }
 }

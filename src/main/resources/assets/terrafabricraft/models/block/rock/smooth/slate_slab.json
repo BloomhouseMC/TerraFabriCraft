@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/rock/smooth/slate",
-    "top": "tfc:block/rock/smooth/slate",
-    "side": "tfc:block/rock/smooth/slate"
+    "bottom": "terrafabricraft:block/rock/smooth/slate",
+    "top": "terrafabricraft:block/rock/smooth/slate",
+    "side": "terrafabricraft:block/rock/smooth/slate"
   }
 }

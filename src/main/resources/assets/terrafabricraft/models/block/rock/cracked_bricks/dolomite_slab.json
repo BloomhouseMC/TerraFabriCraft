@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/rock/cracked_bricks/dolomite",
-    "top": "tfc:block/rock/cracked_bricks/dolomite",
-    "side": "tfc:block/rock/cracked_bricks/dolomite"
+    "bottom": "terrafabricraft:block/rock/cracked_bricks/dolomite",
+    "top": "terrafabricraft:block/rock/cracked_bricks/dolomite",
+    "side": "terrafabricraft:block/rock/cracked_bricks/dolomite"
   }
 }

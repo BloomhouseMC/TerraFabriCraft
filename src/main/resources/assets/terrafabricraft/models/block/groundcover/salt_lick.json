@@ -1,8 +1,8 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "tfc:block/groundcover/salt_lick",
-    "particle": "tfc:block/groundcover/salt_lick"
+    "0": "terrafabricraft:block/groundcover/salt_lick",
+    "particle": "terrafabricraft:block/groundcover/salt_lick"
   },
   "elements": [
     {

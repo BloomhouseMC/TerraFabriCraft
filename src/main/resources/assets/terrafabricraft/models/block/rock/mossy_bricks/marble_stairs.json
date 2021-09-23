@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/rock/mossy_bricks/marble",
-    "top": "tfc:block/rock/mossy_bricks/marble",
-    "side": "tfc:block/rock/mossy_bricks/marble"
+    "bottom": "terrafabricraft:block/rock/mossy_bricks/marble",
+    "top": "terrafabricraft:block/rock/mossy_bricks/marble",
+    "side": "terrafabricraft:block/rock/mossy_bricks/marble"
   }
 }

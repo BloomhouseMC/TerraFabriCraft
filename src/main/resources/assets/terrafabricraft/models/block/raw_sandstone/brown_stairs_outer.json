@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "tfc:block/sandstone/bottom/brown",
-    "top": "tfc:block/sandstone/bottom/brown",
-    "side": "tfc:block/sandstone/bottom/brown"
+    "bottom": "terrafabricraft:block/sandstone/bottom/brown",
+    "top": "terrafabricraft:block/sandstone/bottom/brown",
+    "side": "terrafabricraft:block/sandstone/bottom/brown"
   }
 }

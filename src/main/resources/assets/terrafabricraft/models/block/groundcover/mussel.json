@@ -1,8 +1,8 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "tfc:block/groundcover/mussel",
-    "particle": "tfc:block/groundcover/mussel"
+    "0": "terrafabricraft:block/groundcover/mussel",
+    "particle": "terrafabricraft:block/groundcover/mussel"
   },
   "elements": [
     {
