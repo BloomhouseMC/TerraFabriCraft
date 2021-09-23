@@ -6,6 +6,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class TFCDamage {
+    public static final DamageSource DROUGHT = new UnblockableDamageSource("drought");
 
     public static float handleDamage(LivingEntity entity, DamageSource source, float amount) {
         if(entity instanceof PlayerEntity){
@@ -22,5 +23,13 @@ public class TFCDamage {
             healthComponent.setHealth(healthComponent.getHealth() - 1);
         }
         return amount;
+    }
+    private static class UnblockableDamageSource extends DamageSource {
+        protected UnblockableDamageSource(String name) {
+            super(name);
+            setBypassesArmor();
+            setUnblockable();
+            setOutOfWorld();
+        }
     }
 }
