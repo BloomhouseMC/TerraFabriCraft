@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/houstonia_0"
+          "model": "terrifabricraft:block/plant/houstonia_0"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/houstonia_1"
+          "model": "terrifabricraft:block/plant/houstonia_1"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/houstonia_2"
+          "model": "terrifabricraft:block/plant/houstonia_2"
         }
       ]
     }

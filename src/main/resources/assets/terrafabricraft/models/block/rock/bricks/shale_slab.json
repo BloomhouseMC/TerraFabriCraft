@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/rock/bricks/shale",
-    "top": "tfc:block/rock/bricks/shale",
-    "side": "tfc:block/rock/bricks/shale"
+    "bottom": "terrifabricraft:block/rock/bricks/shale",
+    "top": "terrifabricraft:block/rock/bricks/shale",
+    "side": "terrifabricraft:block/rock/bricks/shale"
   }
 }

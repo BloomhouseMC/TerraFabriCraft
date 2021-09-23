@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "item/generated",
   "textures": {
-    "layer0": "tfc:item/wrought_iron_grill"
+    "layer0": "terrifabricraft:item/wrought_iron_grill"
   }
 }

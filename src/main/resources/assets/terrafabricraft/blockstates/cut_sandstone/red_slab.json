@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "type=bottom": {
-      "model": "tfc:block/cut_sandstone/red_slab"
+      "model": "terrifabricraft:block/cut_sandstone/red_slab"
     },
     "type=top": {
-      "model": "tfc:block/cut_sandstone/red_slab_top"
+      "model": "terrifabricraft:block/cut_sandstone/red_slab_top"
     },
     "type=double": {
-      "model": "tfc:block/cut_sandstone/red"
+      "model": "terrifabricraft:block/cut_sandstone/red"
     }
   }
 }

@@ -3,7 +3,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "tfc:block/wood/support/chestnut_vertical"
+        "model": "terrifabricraft:block/wood/support/chestnut_vertical"
       }
     },
     {
@@ -11,7 +11,7 @@
         "north": true
       },
       "apply": {
-        "model": "tfc:block/wood/support/chestnut_connection",
+        "model": "terrifabricraft:block/wood/support/chestnut_connection",
         "y": 270
       }
     },
@@ -20,7 +20,7 @@
         "east": true
       },
       "apply": {
-        "model": "tfc:block/wood/support/chestnut_connection"
+        "model": "terrifabricraft:block/wood/support/chestnut_connection"
       }
     },
     {
@@ -28,7 +28,7 @@
         "south": true
       },
       "apply": {
-        "model": "tfc:block/wood/support/chestnut_connection",
+        "model": "terrifabricraft:block/wood/support/chestnut_connection",
         "y": 90
       }
     },
@@ -37,7 +37,7 @@
         "west": true
       },
       "apply": {
-        "model": "tfc:block/wood/support/chestnut_connection",
+        "model": "terrifabricraft:block/wood/support/chestnut_connection",
         "y": 180
       }
     }

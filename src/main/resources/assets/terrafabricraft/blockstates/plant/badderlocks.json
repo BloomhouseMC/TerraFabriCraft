@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/badderlocks_lower"
+          "model": "terrifabricraft:block/plant/badderlocks_lower"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/badderlocks_upper"
+          "model": "terrifabricraft:block/plant/badderlocks_upper"
         }
       ]
     }

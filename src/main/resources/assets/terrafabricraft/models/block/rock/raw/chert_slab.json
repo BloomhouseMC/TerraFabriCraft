@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "tfc:block/rock/raw/chert",
-    "top": "tfc:block/rock/raw/chert",
-    "side": "tfc:block/rock/raw/chert"
+    "bottom": "terrifabricraft:block/rock/raw/chert",
+    "top": "terrifabricraft:block/rock/raw/chert",
+    "side": "terrifabricraft:block/rock/raw/chert"
   }
 }

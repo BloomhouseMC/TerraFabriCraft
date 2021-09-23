@@ -3,7 +3,7 @@
     {
       "apply": [
         {
-          "model": "tfc:block/plant/sago"
+          "model": "terrifabricraft:block/plant/sago"
         }
       ]
     }

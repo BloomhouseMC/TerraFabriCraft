@@ -3,7 +3,7 @@
     {
       "apply": [
         {
-          "model": "tfc:block/plant/milfoil"
+          "model": "terrifabricraft:block/plant/milfoil"
         }
       ]
     }

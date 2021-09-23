@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike/dolomite_base",
+  "parent": "terrifabricraft:block/rock/spike/dolomite_base",
   "textures": {
-    "layer0": "tfc:block/rock/raw/dolomite"
+    "layer0": "terrifabricraft:block/rock/raw/dolomite"
   }
 }

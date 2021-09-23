@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "tfc:block/rock/cracked_bricks/shale",
-    "top": "tfc:block/rock/cracked_bricks/shale",
-    "side": "tfc:block/rock/cracked_bricks/shale"
+    "bottom": "terrifabricraft:block/rock/cracked_bricks/shale",
+    "top": "terrifabricraft:block/rock/cracked_bricks/shale",
+    "side": "terrifabricraft:block/rock/cracked_bricks/shale"
   }
 }

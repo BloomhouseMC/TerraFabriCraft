@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/palm",
+        "model": "terrifabricraft:block/wood/fallen_leaves/palm",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/palm"
+        "model": "terrifabricraft:block/wood/fallen_leaves/palm"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/palm",
+        "model": "terrifabricraft:block/wood/fallen_leaves/palm",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/palm",
+        "model": "terrifabricraft:block/wood/fallen_leaves/palm",
         "y": 270
       }
     ]

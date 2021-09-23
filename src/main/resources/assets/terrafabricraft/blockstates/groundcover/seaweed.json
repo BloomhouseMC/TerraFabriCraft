@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/seaweed",
+        "model": "terrifabricraft:block/groundcover/seaweed",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/seaweed"
+        "model": "terrifabricraft:block/groundcover/seaweed"
       },
       {
-        "model": "tfc:block/groundcover/seaweed",
+        "model": "terrifabricraft:block/groundcover/seaweed",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/seaweed",
+        "model": "terrifabricraft:block/groundcover/seaweed",
         "y": 270
       }
     ]

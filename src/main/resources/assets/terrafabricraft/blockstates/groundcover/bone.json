@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/bone",
+        "model": "terrifabricraft:block/groundcover/bone",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/bone"
+        "model": "terrifabricraft:block/groundcover/bone"
       },
       {
-        "model": "tfc:block/groundcover/bone",
+        "model": "terrifabricraft:block/groundcover/bone",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/bone",
+        "model": "terrifabricraft:block/groundcover/bone",
         "y": 270
       }
     ]

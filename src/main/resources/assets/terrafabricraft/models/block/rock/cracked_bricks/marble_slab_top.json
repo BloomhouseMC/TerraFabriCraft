@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab_top",
   "textures": {
-    "bottom": "tfc:block/rock/cracked_bricks/marble",
-    "top": "tfc:block/rock/cracked_bricks/marble",
-    "side": "tfc:block/rock/cracked_bricks/marble"
+    "bottom": "terrifabricraft:block/rock/cracked_bricks/marble",
+    "top": "terrifabricraft:block/rock/cracked_bricks/marble",
+    "side": "terrifabricraft:block/rock/cracked_bricks/marble"
   }
 }

@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/wood/support/horizontal",
+  "parent": "terrifabricraft:block/wood/support/horizontal",
   "textures": {
-    "texture": "tfc:block/wood/sheet/sequoia",
-    "particle": "tfc:block/wood/sheet/sequoia"
+    "texture": "terrifabricraft:block/wood/sheet/sequoia",
+    "particle": "terrifabricraft:block/wood/sheet/sequoia"
   }
 }

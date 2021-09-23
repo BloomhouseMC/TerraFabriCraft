@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/clam",
+        "model": "terrifabricraft:block/groundcover/clam",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/clam"
+        "model": "terrifabricraft:block/groundcover/clam"
       },
       {
-        "model": "tfc:block/groundcover/clam",
+        "model": "terrifabricraft:block/groundcover/clam",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/clam",
+        "model": "terrifabricraft:block/groundcover/clam",
         "y": 270
       }
     ]

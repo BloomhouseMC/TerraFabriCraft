@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:item/metal/axe/blue_steel"
+    "layer0": "terrifabricraft:item/metal/axe/blue_steel"
   }
 }

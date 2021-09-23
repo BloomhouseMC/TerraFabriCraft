@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrifabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/tulip/tulip_0",
-    "particle": "tfc:block/plant/tulip/tulip_0"
+    "cross": "terrifabricraft:block/plant/tulip/tulip_0",
+    "particle": "terrifabricraft:block/plant/tulip/tulip_0"
   }
 }

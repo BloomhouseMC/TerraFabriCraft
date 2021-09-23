@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/acacia",
+        "model": "terrifabricraft:block/wood/fallen_leaves/acacia",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/acacia"
+        "model": "terrifabricraft:block/wood/fallen_leaves/acacia"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/acacia",
+        "model": "terrifabricraft:block/wood/fallen_leaves/acacia",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/acacia",
+        "model": "terrifabricraft:block/wood/fallen_leaves/acacia",
         "y": 270
       }
     ]

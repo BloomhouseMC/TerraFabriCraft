@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/ore/cinnabar/slate"
+      "model": "terrifabricraft:block/ore/cinnabar/slate"
     }
   }
 }

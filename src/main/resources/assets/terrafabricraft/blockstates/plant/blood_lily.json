@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/blood_lily_0"
+          "model": "terrifabricraft:block/plant/blood_lily_0"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/blood_lily_1"
+          "model": "terrifabricraft:block/plant/blood_lily_1"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/blood_lily_2"
+          "model": "terrifabricraft:block/plant/blood_lily_2"
         }
       ]
     },
@@ -36,7 +36,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/blood_lily_3"
+          "model": "terrifabricraft:block/plant/blood_lily_3"
         }
       ]
     }

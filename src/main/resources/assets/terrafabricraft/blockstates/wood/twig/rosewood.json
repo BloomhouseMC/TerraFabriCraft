@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/twig/rosewood",
+        "model": "terrifabricraft:block/wood/twig/rosewood",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/twig/rosewood"
+        "model": "terrifabricraft:block/wood/twig/rosewood"
       },
       {
-        "model": "tfc:block/wood/twig/rosewood",
+        "model": "terrifabricraft:block/wood/twig/rosewood",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/twig/rosewood",
+        "model": "terrifabricraft:block/wood/twig/rosewood",
         "y": 270
       }
     ]

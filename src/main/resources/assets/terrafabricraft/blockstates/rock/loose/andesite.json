@@ -3,52 +3,52 @@
   "variants": {
     "count=1": [
       {
-        "model": "tfc:block/rock/pebble/andesite",
+        "model": "terrifabricraft:block/rock/pebble/andesite",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/pebble/andesite"
+        "model": "terrifabricraft:block/rock/pebble/andesite"
       },
       {
-        "model": "tfc:block/rock/pebble/andesite",
+        "model": "terrifabricraft:block/rock/pebble/andesite",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/pebble/andesite",
+        "model": "terrifabricraft:block/rock/pebble/andesite",
         "y": 270
       }
     ],
     "count=2": [
       {
-        "model": "tfc:block/rock/rubble/andesite",
+        "model": "terrifabricraft:block/rock/rubble/andesite",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/rubble/andesite"
+        "model": "terrifabricraft:block/rock/rubble/andesite"
       },
       {
-        "model": "tfc:block/rock/rubble/andesite",
+        "model": "terrifabricraft:block/rock/rubble/andesite",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/rubble/andesite",
+        "model": "terrifabricraft:block/rock/rubble/andesite",
         "y": 270
       }
     ],
     "count=3": [
       {
-        "model": "tfc:block/rock/boulder/andesite",
+        "model": "terrifabricraft:block/rock/boulder/andesite",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/boulder/andesite"
+        "model": "terrifabricraft:block/rock/boulder/andesite"
       },
       {
-        "model": "tfc:block/rock/boulder/andesite",
+        "model": "terrifabricraft:block/rock/boulder/andesite",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/boulder/andesite",
+        "model": "terrifabricraft:block/rock/boulder/andesite",
         "y": 270
       }
     ]

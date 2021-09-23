@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/water_canna_0"
+          "model": "terrifabricraft:block/plant/water_canna_0"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/water_canna_1"
+          "model": "terrifabricraft:block/plant/water_canna_1"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/water_canna_2"
+          "model": "terrifabricraft:block/plant/water_canna_2"
         }
       ]
     },
@@ -36,7 +36,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/water_canna_3"
+          "model": "terrifabricraft:block/plant/water_canna_3"
         }
       ]
     }

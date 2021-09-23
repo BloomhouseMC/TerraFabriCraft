@@ -1,6 +1,6 @@
 {
-  "parent": "tfc:block/tinted_cross",
+  "parent": "terrifabricraft:block/tinted_cross",
   "textures": {
-    "cross": "tfc:block/plant/ryegrass/ryegrass_short_0"
+    "cross": "terrifabricraft:block/plant/ryegrass/ryegrass_short_0"
   }
 }

@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/grass_snowy_side",
+  "parent": "terrifabricraft:block/grass_snowy_side",
   "textures": {
-    "texture": "tfc:block/peat"
+    "texture": "terrifabricraft:block/peat"
   }
 }

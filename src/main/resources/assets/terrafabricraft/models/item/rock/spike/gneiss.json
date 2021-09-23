@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike/gneiss_base",
+  "parent": "terrifabricraft:block/rock/spike/gneiss_base",
   "textures": {
-    "layer0": "tfc:block/rock/raw/gneiss"
+    "layer0": "terrifabricraft:block/rock/raw/gneiss"
   }
 }

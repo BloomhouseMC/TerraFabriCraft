@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/magnetite",
+        "model": "terrifabricraft:block/groundcover/magnetite",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/magnetite"
+        "model": "terrifabricraft:block/groundcover/magnetite"
       },
       {
-        "model": "tfc:block/groundcover/magnetite",
+        "model": "terrifabricraft:block/groundcover/magnetite",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/magnetite",
+        "model": "terrifabricraft:block/groundcover/magnetite",
         "y": 270
       }
     ]

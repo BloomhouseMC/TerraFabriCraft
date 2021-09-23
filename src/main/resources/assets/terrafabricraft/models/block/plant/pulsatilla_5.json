@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "tfc:block/plant/pulsatilla/pulsatilla_5",
-    "particle": "tfc:block/plant/pulsatilla/pulsatilla_5"
+    "cross": "terrifabricraft:block/plant/pulsatilla/pulsatilla_5",
+    "particle": "terrifabricraft:block/plant/pulsatilla/pulsatilla_5"
   }
 }

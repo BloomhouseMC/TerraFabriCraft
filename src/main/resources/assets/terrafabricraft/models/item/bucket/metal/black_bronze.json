@@ -2,5 +2,5 @@
   "__comment__": "This file was automatically created by mcresources",
   "loader": "forge:bucket",
   "parent": "forge:item/bucket",
-  "fluid": "tfc:metal/black_bronze"
+  "fluid": "terrifabricraft:metal/black_bronze"
 }

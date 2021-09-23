@@ -1,12 +1,12 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "tfc:block/plant/morning_glory/morning_glory_layer0",
-    "layer0": "tfc:block/plant/morning_glory/morning_glory_layer0",
-    "layer1": "tfc:block/plant/morning_glory/morning_glory_layer1",
-    "bottom": "tfc:block/empty",
-    "middle": "tfc:block/empty",
-    "top": "tfc:block/empty"
+    "particle": "terrifabricraft:block/plant/morning_glory/morning_glory_layer0",
+    "layer0": "terrifabricraft:block/plant/morning_glory/morning_glory_layer0",
+    "layer1": "terrifabricraft:block/plant/morning_glory/morning_glory_layer1",
+    "bottom": "terrifabricraft:block/empty",
+    "middle": "terrifabricraft:block/empty",
+    "top": "terrifabricraft:block/empty"
   },
   "elements": [
     {

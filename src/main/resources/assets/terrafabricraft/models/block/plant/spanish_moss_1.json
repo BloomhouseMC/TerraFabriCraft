@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrifabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/spanish_moss/spanish_moss_0",
-    "particle": "tfc:block/plant/spanish_moss/spanish_moss_0"
+    "cross": "terrifabricraft:block/plant/spanish_moss/spanish_moss_0",
+    "particle": "terrifabricraft:block/plant/spanish_moss/spanish_moss_0"
   }
 }

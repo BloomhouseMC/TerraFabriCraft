@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "tfc:block/rock/cracked_bricks/basalt",
-    "top": "tfc:block/rock/cracked_bricks/basalt",
-    "side": "tfc:block/rock/cracked_bricks/basalt"
+    "bottom": "terrifabricraft:block/rock/cracked_bricks/basalt",
+    "top": "terrifabricraft:block/rock/cracked_bricks/basalt",
+    "side": "terrifabricraft:block/rock/cracked_bricks/basalt"
   }
 }

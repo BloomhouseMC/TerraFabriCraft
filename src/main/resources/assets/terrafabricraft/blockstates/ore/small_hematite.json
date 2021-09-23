@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/hematite",
+        "model": "terrifabricraft:block/groundcover/hematite",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/hematite"
+        "model": "terrifabricraft:block/groundcover/hematite"
       },
       {
-        "model": "tfc:block/groundcover/hematite",
+        "model": "terrifabricraft:block/groundcover/hematite",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/hematite",
+        "model": "terrifabricraft:block/groundcover/hematite",
         "y": 270
       }
     ]

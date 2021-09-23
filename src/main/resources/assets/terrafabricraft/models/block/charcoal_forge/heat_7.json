@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/charcoal_forge/template_forge",
+  "parent": "terrifabricraft:block/charcoal_forge/template_forge",
   "textures": {
-    "top": "tfc:block/devices/charcoal_forge/7"
+    "top": "terrifabricraft:block/devices/charcoal_forge/7"
   }
 }

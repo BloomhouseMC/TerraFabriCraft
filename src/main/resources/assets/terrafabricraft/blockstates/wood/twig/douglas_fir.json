@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/twig/douglas_fir",
+        "model": "terrifabricraft:block/wood/twig/douglas_fir",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/twig/douglas_fir"
+        "model": "terrifabricraft:block/wood/twig/douglas_fir"
       },
       {
-        "model": "tfc:block/wood/twig/douglas_fir",
+        "model": "terrifabricraft:block/wood/twig/douglas_fir",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/twig/douglas_fir",
+        "model": "terrifabricraft:block/wood/twig/douglas_fir",
         "y": 270
       }
     ]

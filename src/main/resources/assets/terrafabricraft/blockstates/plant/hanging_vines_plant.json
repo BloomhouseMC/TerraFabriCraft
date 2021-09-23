@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "tfc:block/plant/hanging_vines_plant"
+      "model": "terrifabricraft:block/plant/hanging_vines_plant"
     }
   }
 }

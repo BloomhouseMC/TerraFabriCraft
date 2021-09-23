@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "type=bottom": {
-      "model": "tfc:block/rock/raw/marble_slab"
+      "model": "terrifabricraft:block/rock/raw/marble_slab"
     },
     "type=top": {
-      "model": "tfc:block/rock/raw/marble_slab_top"
+      "model": "terrifabricraft:block/rock/raw/marble_slab_top"
     },
     "type=double": {
-      "model": "tfc:block/rock/raw/marble"
+      "model": "terrifabricraft:block/rock/raw/marble"
     }
   }
 }

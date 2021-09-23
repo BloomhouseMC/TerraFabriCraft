@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/orchard_grass/placeholder",
-    "particle": "tfc:block/plant/orchard_grass/placeholder"
+    "cross": "terrifabricraft:block/plant/orchard_grass/placeholder",
+    "particle": "terrifabricraft:block/plant/orchard_grass/placeholder"
   },
   "elements": [
     {

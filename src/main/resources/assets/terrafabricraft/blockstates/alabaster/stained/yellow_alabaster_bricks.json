@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/alabaster/stained/yellow_alabaster_bricks"
+      "model": "terrifabricraft:block/alabaster/stained/yellow_alabaster_bricks"
     }
   }
 }

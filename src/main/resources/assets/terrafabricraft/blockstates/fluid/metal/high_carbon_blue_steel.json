@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/fluid/metal/high_carbon_blue_steel"
+      "model": "terrifabricraft:block/fluid/metal/high_carbon_blue_steel"
     }
   }
 }

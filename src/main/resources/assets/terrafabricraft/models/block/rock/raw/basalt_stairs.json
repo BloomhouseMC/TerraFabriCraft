@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/rock/raw/basalt",
-    "top": "tfc:block/rock/raw/basalt",
-    "side": "tfc:block/rock/raw/basalt"
+    "bottom": "terrifabricraft:block/rock/raw/basalt",
+    "top": "terrifabricraft:block/rock/raw/basalt",
+    "side": "terrifabricraft:block/rock/raw/basalt"
   }
 }

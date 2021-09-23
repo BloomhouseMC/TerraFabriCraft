@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/ore/poor_native_silver/schist"
+      "model": "terrifabricraft:block/ore/poor_native_silver/schist"
     }
   }
 }

@@ -3,18 +3,18 @@
     {
       "apply": [
         {
-          "model": "tfc:block/plant/pistia"
+          "model": "terrifabricraft:block/plant/pistia"
         },
         {
-          "model": "tfc:block/plant/pistia",
+          "model": "terrifabricraft:block/plant/pistia",
           "y": 90
         },
         {
-          "model": "tfc:block/plant/pistia",
+          "model": "terrifabricraft:block/plant/pistia",
           "y": 180
         },
         {
-          "model": "tfc:block/plant/pistia",
+          "model": "terrifabricraft:block/plant/pistia",
           "y": 270
         }
       ]

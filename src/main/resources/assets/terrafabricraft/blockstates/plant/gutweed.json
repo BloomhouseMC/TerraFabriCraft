@@ -3,18 +3,18 @@
     {
       "apply": [
         {
-          "model": "tfc:block/plant/gutweed"
+          "model": "terrifabricraft:block/plant/gutweed"
         },
         {
-          "model": "tfc:block/plant/gutweed",
+          "model": "terrifabricraft:block/plant/gutweed",
           "y": 90
         },
         {
-          "model": "tfc:block/plant/gutweed",
+          "model": "terrifabricraft:block/plant/gutweed",
           "y": 180
         },
         {
-          "model": "tfc:block/plant/gutweed",
+          "model": "terrifabricraft:block/plant/gutweed",
           "y": 270
         }
       ]

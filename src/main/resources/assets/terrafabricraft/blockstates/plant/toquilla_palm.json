@@ -6,18 +6,18 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/toquilla_palm"
+          "model": "terrifabricraft:block/plant/toquilla_palm"
         },
         {
-          "model": "tfc:block/plant/toquilla_palm",
+          "model": "terrifabricraft:block/plant/toquilla_palm",
           "y": 90
         },
         {
-          "model": "tfc:block/plant/toquilla_palm",
+          "model": "terrifabricraft:block/plant/toquilla_palm",
           "y": 180
         },
         {
-          "model": "tfc:block/plant/toquilla_palm",
+          "model": "terrifabricraft:block/plant/toquilla_palm",
           "y": 270
         }
       ]

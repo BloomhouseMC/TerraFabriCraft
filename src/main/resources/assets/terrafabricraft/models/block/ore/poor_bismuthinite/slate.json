@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/ore",
+  "parent": "terrifabricraft:block/ore",
   "textures": {
-    "all": "tfc:block/rock/raw/slate",
-    "particle": "tfc:block/rock/raw/slate",
-    "overlay": "tfc:block/ore/poor_bismuthinite"
+    "all": "terrifabricraft:block/rock/raw/slate",
+    "particle": "terrifabricraft:block/rock/raw/slate",
+    "overlay": "terrifabricraft:block/ore/poor_bismuthinite"
   }
 }

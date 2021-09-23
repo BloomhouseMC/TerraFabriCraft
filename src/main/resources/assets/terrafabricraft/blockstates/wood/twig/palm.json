@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/twig/palm",
+        "model": "terrifabricraft:block/wood/twig/palm",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/twig/palm"
+        "model": "terrifabricraft:block/wood/twig/palm"
       },
       {
-        "model": "tfc:block/wood/twig/palm",
+        "model": "terrifabricraft:block/wood/twig/palm",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/twig/palm",
+        "model": "terrifabricraft:block/wood/twig/palm",
         "y": 270
       }
     ]

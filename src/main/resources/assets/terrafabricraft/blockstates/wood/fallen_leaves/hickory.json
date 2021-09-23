@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/hickory",
+        "model": "terrifabricraft:block/wood/fallen_leaves/hickory",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/hickory"
+        "model": "terrifabricraft:block/wood/fallen_leaves/hickory"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/hickory",
+        "model": "terrifabricraft:block/wood/fallen_leaves/hickory",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/hickory",
+        "model": "terrifabricraft:block/wood/fallen_leaves/hickory",
         "y": 270
       }
     ]

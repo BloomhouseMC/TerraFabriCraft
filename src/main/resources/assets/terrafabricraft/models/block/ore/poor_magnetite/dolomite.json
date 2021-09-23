@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/ore",
+  "parent": "terrifabricraft:block/ore",
   "textures": {
-    "all": "tfc:block/rock/raw/dolomite",
-    "particle": "tfc:block/rock/raw/dolomite",
-    "overlay": "tfc:block/ore/poor_magnetite"
+    "all": "terrifabricraft:block/rock/raw/dolomite",
+    "particle": "terrifabricraft:block/rock/raw/dolomite",
+    "overlay": "terrifabricraft:block/ore/poor_magnetite"
   }
 }

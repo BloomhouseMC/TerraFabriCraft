@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike/rhyolite_base",
+  "parent": "terrifabricraft:block/rock/spike/rhyolite_base",
   "textures": {
-    "layer0": "tfc:block/rock/raw/rhyolite"
+    "layer0": "terrifabricraft:block/rock/raw/rhyolite"
   }
 }

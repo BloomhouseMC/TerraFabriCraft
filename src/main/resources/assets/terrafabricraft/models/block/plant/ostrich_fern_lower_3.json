@@ -1,10 +1,10 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "tfc:block/plant/ostrich_fern/ostrich_fern_2",
-    "fernlow": "tfc:block/plant/ostrich_fern/ostrich_fern_2",
-    "lowersingle": "tfc:block/plant/ostrich_fern/ostrich_fern_2",
-    "fernhigh": "tfc:block/plant/ostrich_fern/ostrich_fern_2"
+    "particle": "terrifabricraft:block/plant/ostrich_fern/ostrich_fern_2",
+    "fernlow": "terrifabricraft:block/plant/ostrich_fern/ostrich_fern_2",
+    "lowersingle": "terrifabricraft:block/plant/ostrich_fern/ostrich_fern_2",
+    "fernhigh": "terrifabricraft:block/plant/ostrich_fern/ostrich_fern_2"
   },
   "elements": [
     {

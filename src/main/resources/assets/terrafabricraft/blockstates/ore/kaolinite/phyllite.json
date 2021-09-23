@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/ore/kaolinite/phyllite"
+      "model": "terrifabricraft:block/ore/kaolinite/phyllite"
     }
   }
 }

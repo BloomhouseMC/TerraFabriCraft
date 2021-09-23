@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/ore/sylvite/basalt"
+      "model": "terrifabricraft:block/ore/sylvite/basalt"
     }
   }
 }

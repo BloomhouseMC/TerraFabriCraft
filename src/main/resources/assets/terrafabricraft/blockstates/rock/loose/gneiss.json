@@ -3,52 +3,52 @@
   "variants": {
     "count=1": [
       {
-        "model": "tfc:block/rock/pebble/gneiss",
+        "model": "terrifabricraft:block/rock/pebble/gneiss",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/pebble/gneiss"
+        "model": "terrifabricraft:block/rock/pebble/gneiss"
       },
       {
-        "model": "tfc:block/rock/pebble/gneiss",
+        "model": "terrifabricraft:block/rock/pebble/gneiss",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/pebble/gneiss",
+        "model": "terrifabricraft:block/rock/pebble/gneiss",
         "y": 270
       }
     ],
     "count=2": [
       {
-        "model": "tfc:block/rock/rubble/gneiss",
+        "model": "terrifabricraft:block/rock/rubble/gneiss",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/rubble/gneiss"
+        "model": "terrifabricraft:block/rock/rubble/gneiss"
       },
       {
-        "model": "tfc:block/rock/rubble/gneiss",
+        "model": "terrifabricraft:block/rock/rubble/gneiss",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/rubble/gneiss",
+        "model": "terrifabricraft:block/rock/rubble/gneiss",
         "y": 270
       }
     ],
     "count=3": [
       {
-        "model": "tfc:block/rock/boulder/gneiss",
+        "model": "terrifabricraft:block/rock/boulder/gneiss",
         "y": 90
       },
       {
-        "model": "tfc:block/rock/boulder/gneiss"
+        "model": "terrifabricraft:block/rock/boulder/gneiss"
       },
       {
-        "model": "tfc:block/rock/boulder/gneiss",
+        "model": "terrifabricraft:block/rock/boulder/gneiss",
         "y": 180
       },
       {
-        "model": "tfc:block/rock/boulder/gneiss",
+        "model": "terrifabricraft:block/rock/boulder/gneiss",
         "y": 270
       }
     ]

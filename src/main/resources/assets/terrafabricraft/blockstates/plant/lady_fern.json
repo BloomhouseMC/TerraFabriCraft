@@ -3,7 +3,7 @@
     {
       "apply": [
         {
-          "model": "tfc:block/plant/lady_fern"
+          "model": "terrifabricraft:block/plant/lady_fern"
         }
       ]
     }

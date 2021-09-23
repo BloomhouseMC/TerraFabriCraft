@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/native_gold",
+        "model": "terrifabricraft:block/groundcover/native_gold",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/native_gold"
+        "model": "terrifabricraft:block/groundcover/native_gold"
       },
       {
-        "model": "tfc:block/groundcover/native_gold",
+        "model": "terrifabricraft:block/groundcover/native_gold",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/native_gold",
+        "model": "terrifabricraft:block/groundcover/native_gold",
         "y": 270
       }
     ]

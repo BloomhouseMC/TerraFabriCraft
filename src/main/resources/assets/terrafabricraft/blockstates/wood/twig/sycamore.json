@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/twig/sycamore",
+        "model": "terrifabricraft:block/wood/twig/sycamore",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/twig/sycamore"
+        "model": "terrifabricraft:block/wood/twig/sycamore"
       },
       {
-        "model": "tfc:block/wood/twig/sycamore",
+        "model": "terrifabricraft:block/wood/twig/sycamore",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/twig/sycamore",
+        "model": "terrifabricraft:block/wood/twig/sycamore",
         "y": 270
       }
     ]

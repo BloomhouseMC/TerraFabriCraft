@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/ore/rich_malachite/chalk"
+      "model": "terrifabricraft:block/ore/rich_malachite/chalk"
     }
   }
 }

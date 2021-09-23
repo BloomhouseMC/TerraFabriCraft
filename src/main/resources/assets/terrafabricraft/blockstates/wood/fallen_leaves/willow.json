@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/willow",
+        "model": "terrifabricraft:block/wood/fallen_leaves/willow",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/willow"
+        "model": "terrifabricraft:block/wood/fallen_leaves/willow"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/willow",
+        "model": "terrifabricraft:block/wood/fallen_leaves/willow",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/willow",
+        "model": "terrifabricraft:block/wood/fallen_leaves/willow",
         "y": 270
       }
     ]

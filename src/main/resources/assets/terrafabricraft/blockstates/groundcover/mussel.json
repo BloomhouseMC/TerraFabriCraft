@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/mussel",
+        "model": "terrifabricraft:block/groundcover/mussel",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/mussel"
+        "model": "terrifabricraft:block/groundcover/mussel"
       },
       {
-        "model": "tfc:block/groundcover/mussel",
+        "model": "terrifabricraft:block/groundcover/mussel",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/mussel",
+        "model": "terrifabricraft:block/groundcover/mussel",
         "y": 270
       }
     ]

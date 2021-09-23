@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/ore/bituminous_coal/slate"
+      "model": "terrifabricraft:block/ore/bituminous_coal/slate"
     }
   }
 }

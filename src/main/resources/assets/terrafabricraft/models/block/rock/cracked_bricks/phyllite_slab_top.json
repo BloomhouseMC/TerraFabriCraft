@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab_top",
   "textures": {
-    "bottom": "tfc:block/rock/cracked_bricks/phyllite",
-    "top": "tfc:block/rock/cracked_bricks/phyllite",
-    "side": "tfc:block/rock/cracked_bricks/phyllite"
+    "bottom": "terrifabricraft:block/rock/cracked_bricks/phyllite",
+    "top": "terrifabricraft:block/rock/cracked_bricks/phyllite",
+    "side": "terrifabricraft:block/rock/cracked_bricks/phyllite"
   }
 }

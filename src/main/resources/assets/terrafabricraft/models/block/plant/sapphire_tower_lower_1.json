@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "tfc:block/plant/sapphire_tower/sapphire_tower_1",
-    "particle": "tfc:block/plant/sapphire_tower/sapphire_tower_1"
+    "cross": "terrifabricraft:block/plant/sapphire_tower/sapphire_tower_1",
+    "particle": "terrifabricraft:block/plant/sapphire_tower/sapphire_tower_1"
   },
   "elements": [
     {

@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/ore/borax/chert"
+      "model": "terrifabricraft:block/ore/borax/chert"
     }
   }
 }

@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/rock/chiseled/andesite"
+      "model": "terrifabricraft:block/rock/chiseled/andesite"
     }
   }
 }

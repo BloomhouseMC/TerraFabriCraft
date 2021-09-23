@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "tfc:block/plant/winged_kelp_plant"
+      "model": "terrifabricraft:block/plant/winged_kelp_plant"
     }
   }
 }

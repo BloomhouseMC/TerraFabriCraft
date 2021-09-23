@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/lamp",
+  "parent": "terrifabricraft:block/lamp",
   "textures": {
-    "all": "tfc:block/metal/copper",
-    "particle": "tfc:block/metal/copper"
+    "all": "terrifabricraft:block/metal/copper",
+    "particle": "terrifabricraft:block/metal/copper"
   }
 }

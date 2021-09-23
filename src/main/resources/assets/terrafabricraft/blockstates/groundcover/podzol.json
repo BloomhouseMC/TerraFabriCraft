@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/podzol",
+        "model": "terrifabricraft:block/groundcover/podzol",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/podzol"
+        "model": "terrifabricraft:block/groundcover/podzol"
       },
       {
-        "model": "tfc:block/groundcover/podzol",
+        "model": "terrifabricraft:block/groundcover/podzol",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/podzol",
+        "model": "terrifabricraft:block/groundcover/podzol",
         "y": 270
       }
     ]

@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "type=bottom": {
-      "model": "tfc:block/raw_sandstone/yellow_slab"
+      "model": "terrifabricraft:block/raw_sandstone/yellow_slab"
     },
     "type=top": {
-      "model": "tfc:block/raw_sandstone/yellow_slab_top"
+      "model": "terrifabricraft:block/raw_sandstone/yellow_slab_top"
     },
     "type=double": {
-      "model": "tfc:block/raw_sandstone/yellow"
+      "model": "terrifabricraft:block/raw_sandstone/yellow"
     }
   }
 }

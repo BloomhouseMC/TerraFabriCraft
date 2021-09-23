@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/native_copper",
+        "model": "terrifabricraft:block/groundcover/native_copper",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/native_copper"
+        "model": "terrifabricraft:block/groundcover/native_copper"
       },
       {
-        "model": "tfc:block/groundcover/native_copper",
+        "model": "terrifabricraft:block/groundcover/native_copper",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/native_copper",
+        "model": "terrifabricraft:block/groundcover/native_copper",
         "y": 270
       }
     ]

@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "tfc:block/rock/bricks/gneiss",
-    "top": "tfc:block/rock/bricks/gneiss",
-    "side": "tfc:block/rock/bricks/gneiss"
+    "bottom": "terrifabricraft:block/rock/bricks/gneiss",
+    "top": "terrifabricraft:block/rock/bricks/gneiss",
+    "side": "terrifabricraft:block/rock/bricks/gneiss"
   }
 }

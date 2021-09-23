@@ -2,10 +2,10 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "tip=true": {
-      "model": "tfc:block/calcite_tip"
+      "model": "terrifabricraft:block/calcite_tip"
     },
     "tip=false": {
-      "model": "tfc:block/calcite"
+      "model": "terrifabricraft:block/calcite"
     }
   }
 }

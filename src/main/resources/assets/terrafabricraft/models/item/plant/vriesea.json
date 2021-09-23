@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tfc:block/plant/vriesea/vriesea_1"
+    "layer0": "terrifabricraft:block/plant/vriesea/vriesea_1"
   }
 }

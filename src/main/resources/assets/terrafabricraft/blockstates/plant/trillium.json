@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/trillium_0"
+          "model": "terrifabricraft:block/plant/trillium_0"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/trillium_1"
+          "model": "terrifabricraft:block/plant/trillium_1"
         }
       ]
     },
@@ -26,7 +26,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/trillium_2"
+          "model": "terrifabricraft:block/plant/trillium_2"
         }
       ]
     },
@@ -36,7 +36,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/trillium_3"
+          "model": "terrifabricraft:block/plant/trillium_3"
         }
       ]
     },
@@ -46,7 +46,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/trillium_4"
+          "model": "terrifabricraft:block/plant/trillium_4"
         }
       ]
     }

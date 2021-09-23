@@ -5,7 +5,7 @@
         "age": "0"
       },
       "apply": {
-        "model": "tfc:block/plant/coontail_0"
+        "model": "terrifabricraft:block/plant/coontail_0"
       }
     },
     {
@@ -13,7 +13,7 @@
         "age": "1"
       },
       "apply": {
-        "model": "tfc:block/plant/coontail_1"
+        "model": "terrifabricraft:block/plant/coontail_1"
       }
     },
     {
@@ -21,7 +21,7 @@
         "age": "2"
       },
       "apply": {
-        "model": "tfc:block/plant/coontail_2"
+        "model": "terrifabricraft:block/plant/coontail_2"
       }
     },
     {
@@ -29,7 +29,7 @@
         "age": "3"
       },
       "apply": {
-        "model": "tfc:block/plant/coontail_3"
+        "model": "terrifabricraft:block/plant/coontail_3"
       }
     }
   ]

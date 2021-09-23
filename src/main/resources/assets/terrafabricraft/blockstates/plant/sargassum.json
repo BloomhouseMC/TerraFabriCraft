@@ -3,18 +3,18 @@
     {
       "apply": [
         {
-          "model": "tfc:block/plant/sargassum"
+          "model": "terrifabricraft:block/plant/sargassum"
         },
         {
-          "model": "tfc:block/plant/sargassum",
+          "model": "terrifabricraft:block/plant/sargassum",
           "y": 90
         },
         {
-          "model": "tfc:block/plant/sargassum",
+          "model": "terrifabricraft:block/plant/sargassum",
           "y": 180
         },
         {
-          "model": "tfc:block/plant/sargassum",
+          "model": "terrifabricraft:block/plant/sargassum",
           "y": 270
         }
       ]

@@ -7,7 +7,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_0"
+          "model": "terrifabricraft:block/plant/guzmania_0"
         }
       ]
     },
@@ -18,7 +18,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_1"
+          "model": "terrifabricraft:block/plant/guzmania_1"
         }
       ]
     },
@@ -29,10 +29,10 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_1"
+          "model": "terrifabricraft:block/plant/guzmania_1"
         },
         {
-          "model": "tfc:block/plant/guzmania_2"
+          "model": "terrifabricraft:block/plant/guzmania_2"
         }
       ]
     },
@@ -43,7 +43,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_2"
+          "model": "terrifabricraft:block/plant/guzmania_2"
         }
       ]
     },
@@ -54,7 +54,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_0",
+          "model": "terrifabricraft:block/plant/guzmania_0",
           "y": 90
         }
       ]
@@ -66,7 +66,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_1",
+          "model": "terrifabricraft:block/plant/guzmania_1",
           "y": 90
         }
       ]
@@ -78,11 +78,11 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_1",
+          "model": "terrifabricraft:block/plant/guzmania_1",
           "y": 90
         },
         {
-          "model": "tfc:block/plant/guzmania_2",
+          "model": "terrifabricraft:block/plant/guzmania_2",
           "y": 90
         }
       ]
@@ -94,7 +94,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_2",
+          "model": "terrifabricraft:block/plant/guzmania_2",
           "y": 90
         }
       ]
@@ -106,7 +106,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_0",
+          "model": "terrifabricraft:block/plant/guzmania_0",
           "y": 180
         }
       ]
@@ -118,7 +118,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_1",
+          "model": "terrifabricraft:block/plant/guzmania_1",
           "y": 180
         }
       ]
@@ -130,11 +130,11 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_1",
+          "model": "terrifabricraft:block/plant/guzmania_1",
           "y": 180
         },
         {
-          "model": "tfc:block/plant/guzmania_2",
+          "model": "terrifabricraft:block/plant/guzmania_2",
           "y": 180
         }
       ]
@@ -146,7 +146,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_2",
+          "model": "terrifabricraft:block/plant/guzmania_2",
           "y": 180
         }
       ]
@@ -158,7 +158,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_0",
+          "model": "terrifabricraft:block/plant/guzmania_0",
           "y": 270
         }
       ]
@@ -170,7 +170,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_1",
+          "model": "terrifabricraft:block/plant/guzmania_1",
           "y": 270
         }
       ]
@@ -182,11 +182,11 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_1",
+          "model": "terrifabricraft:block/plant/guzmania_1",
           "y": 270
         },
         {
-          "model": "tfc:block/plant/guzmania_2",
+          "model": "terrifabricraft:block/plant/guzmania_2",
           "y": 270
         }
       ]
@@ -198,7 +198,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/guzmania_2",
+          "model": "terrifabricraft:block/plant/guzmania_2",
           "y": 270
         }
       ]

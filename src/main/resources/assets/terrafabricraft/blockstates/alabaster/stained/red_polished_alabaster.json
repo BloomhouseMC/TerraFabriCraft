@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/alabaster/stained/red_polished_alabaster"
+      "model": "terrifabricraft:block/alabaster/stained/red_polished_alabaster"
     }
   }
 }

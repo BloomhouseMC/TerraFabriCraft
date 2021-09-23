@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/fluid/metal/bismuth_bronze"
+      "model": "terrifabricraft:block/fluid/metal/bismuth_bronze"
     }
   }
 }

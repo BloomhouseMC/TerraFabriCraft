@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "": {
-      "model": "tfc:block/wood/sapling/blackwood"
+      "model": "terrifabricraft:block/wood/sapling/blackwood"
     }
   }
 }

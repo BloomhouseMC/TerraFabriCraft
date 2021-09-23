@@ -1,7 +1,7 @@
 {
-  "parent": "tfc:block/cross",
+  "parent": "terrifabricraft:block/cross",
   "textures": {
-    "cross": "tfc:block/plant/sacred_datura/sacred_datura_3",
-    "particle": "tfc:block/plant/sacred_datura/sacred_datura_3"
+    "cross": "terrifabricraft:block/plant/sacred_datura/sacred_datura_3",
+    "particle": "terrifabricraft:block/plant/sacred_datura/sacred_datura_3"
   }
 }

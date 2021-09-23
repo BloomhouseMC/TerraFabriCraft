@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "tfc:block/rock/bricks/chert",
-    "top": "tfc:block/rock/bricks/chert",
-    "side": "tfc:block/rock/bricks/chert"
+    "bottom": "terrifabricraft:block/rock/bricks/chert",
+    "top": "terrifabricraft:block/rock/bricks/chert",
+    "side": "terrifabricraft:block/rock/bricks/chert"
   }
 }

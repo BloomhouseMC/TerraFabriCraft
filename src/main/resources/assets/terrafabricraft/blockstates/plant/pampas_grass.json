@@ -5,7 +5,7 @@
         "part": "lower"
       },
       "apply": {
-        "model": "tfc:block/plant/pampas_grass_lower"
+        "model": "terrifabricraft:block/plant/pampas_grass_lower"
       }
     },
     {
@@ -15,7 +15,7 @@
         "stage": "0"
       },
       "apply": {
-        "model": "tfc:block/plant/pampas_grass_short"
+        "model": "terrifabricraft:block/plant/pampas_grass_short"
       }
     },
     {
@@ -25,7 +25,7 @@
         "stage": "0"
       },
       "apply": {
-        "model": "tfc:block/plant/pampas_grass_top"
+        "model": "terrifabricraft:block/plant/pampas_grass_top"
       }
     },
     {
@@ -35,7 +35,7 @@
         "stage": "1"
       },
       "apply": {
-        "model": "tfc:block/plant/pampas_grass_shortb"
+        "model": "terrifabricraft:block/plant/pampas_grass_shortb"
       }
     },
     {
@@ -45,7 +45,7 @@
         "stage": "1"
       },
       "apply": {
-        "model": "tfc:block/plant/pampas_grass_topb"
+        "model": "terrifabricraft:block/plant/pampas_grass_topb"
       }
     }
   ]

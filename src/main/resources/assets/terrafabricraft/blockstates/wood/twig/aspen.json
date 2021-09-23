@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/twig/aspen",
+        "model": "terrifabricraft:block/wood/twig/aspen",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/twig/aspen"
+        "model": "terrifabricraft:block/wood/twig/aspen"
       },
       {
-        "model": "tfc:block/wood/twig/aspen",
+        "model": "terrifabricraft:block/wood/twig/aspen",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/twig/aspen",
+        "model": "terrifabricraft:block/wood/twig/aspen",
         "y": 270
       }
     ]

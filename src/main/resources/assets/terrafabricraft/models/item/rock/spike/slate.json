@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike/slate_base",
+  "parent": "terrifabricraft:block/rock/spike/slate_base",
   "textures": {
-    "layer0": "tfc:block/rock/raw/slate"
+    "layer0": "terrifabricraft:block/rock/raw/slate"
   }
 }

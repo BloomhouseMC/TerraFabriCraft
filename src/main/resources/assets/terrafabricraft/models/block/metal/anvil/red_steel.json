@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/anvil",
+  "parent": "terrifabricraft:block/anvil",
   "textures": {
-    "all": "tfc:block/metal/red_steel",
-    "particle": "tfc:block/metal/red_steel"
+    "all": "terrifabricraft:block/metal/red_steel",
+    "particle": "terrifabricraft:block/metal/red_steel"
   }
 }

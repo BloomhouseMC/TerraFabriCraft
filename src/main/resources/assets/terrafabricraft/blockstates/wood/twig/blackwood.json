@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/twig/blackwood",
+        "model": "terrifabricraft:block/wood/twig/blackwood",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/twig/blackwood"
+        "model": "terrifabricraft:block/wood/twig/blackwood"
       },
       {
-        "model": "tfc:block/wood/twig/blackwood",
+        "model": "terrifabricraft:block/wood/twig/blackwood",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/twig/blackwood",
+        "model": "terrifabricraft:block/wood/twig/blackwood",
         "y": 270
       }
     ]

@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/groundcover/mollusk",
+        "model": "terrifabricraft:block/groundcover/mollusk",
         "y": 90
       },
       {
-        "model": "tfc:block/groundcover/mollusk"
+        "model": "terrifabricraft:block/groundcover/mollusk"
       },
       {
-        "model": "tfc:block/groundcover/mollusk",
+        "model": "terrifabricraft:block/groundcover/mollusk",
         "y": 180
       },
       {
-        "model": "tfc:block/groundcover/mollusk",
+        "model": "terrifabricraft:block/groundcover/mollusk",
         "y": 270
       }
     ]

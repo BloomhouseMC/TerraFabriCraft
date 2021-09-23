@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/rock/spike/granite_base",
+  "parent": "terrifabricraft:block/rock/spike/granite_base",
   "textures": {
-    "layer0": "tfc:block/rock/raw/granite"
+    "layer0": "terrifabricraft:block/rock/raw/granite"
   }
 }

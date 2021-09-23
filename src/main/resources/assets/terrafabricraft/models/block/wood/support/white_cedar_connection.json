@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "tfc:block/wood/support/connection",
+  "parent": "terrifabricraft:block/wood/support/connection",
   "textures": {
-    "texture": "tfc:block/wood/sheet/white_cedar",
-    "particle": "tfc:block/wood/sheet/white_cedar"
+    "texture": "terrifabricraft:block/wood/sheet/white_cedar",
+    "particle": "terrifabricraft:block/wood/sheet/white_cedar"
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "tfc:block/plant/liana"
+      "model": "terrifabricraft:block/plant/liana"
     }
   }
 }

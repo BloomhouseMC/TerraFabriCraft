@@ -6,7 +6,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/barrel_cactus_lower"
+          "model": "terrifabricraft:block/plant/barrel_cactus_lower"
         }
       ]
     },
@@ -16,7 +16,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/barrel_cactus_upper"
+          "model": "terrifabricraft:block/plant/barrel_cactus_upper"
         }
       ]
     },
@@ -27,7 +27,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/barrel_cactus_flower_0"
+          "model": "terrifabricraft:block/plant/barrel_cactus_flower_0"
         }
       ]
     },
@@ -39,7 +39,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/barrel_cactus_flower_1"
+          "model": "terrifabricraft:block/plant/barrel_cactus_flower_1"
         }
       ]
     },
@@ -51,7 +51,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/barrel_cactus_flower_2"
+          "model": "terrifabricraft:block/plant/barrel_cactus_flower_2"
         }
       ]
     },
@@ -62,7 +62,7 @@
       },
       "apply": [
         {
-          "model": "tfc:block/plant/barrel_cactus_flower_3"
+          "model": "terrifabricraft:block/plant/barrel_cactus_flower_3"
         }
       ]
     }

@@ -3,18 +3,18 @@
   "variants": {
     "": [
       {
-        "model": "tfc:block/wood/fallen_leaves/blackwood",
+        "model": "terrifabricraft:block/wood/fallen_leaves/blackwood",
         "y": 90
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/blackwood"
+        "model": "terrifabricraft:block/wood/fallen_leaves/blackwood"
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/blackwood",
+        "model": "terrifabricraft:block/wood/fallen_leaves/blackwood",
         "y": 180
       },
       {
-        "model": "tfc:block/wood/fallen_leaves/blackwood",
+        "model": "terrifabricraft:block/wood/fallen_leaves/blackwood",
         "y": 270
       }
     ]
