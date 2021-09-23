@@ -52,6 +52,13 @@
     "minecraft": "1.17.x",
     "java": ">=16"
   },
+  "custom":  {
+    "cardinal-components": [
+      "terrafabricraft:health",
+      "terrafabricraft:hunger",
+      "terrafabricraft:thirst"
+    ]
+  },
   "suggests": {
     "another-mod": "*"
   }
