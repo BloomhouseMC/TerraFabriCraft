@@ -21,7 +21,7 @@ public class UserHud extends DrawableHelper implements HudRenderCallback {
             int health = healthComponent.getHealth();
             int max = healthComponent.getMaxHealth();
             matrixStack.push();
-            renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.health", new TranslatableText(String.valueOf(health)),new TranslatableText(String.valueOf(max))));
+            //renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.health", new TranslatableText(String.valueOf(health)),new TranslatableText(String.valueOf(max))));
             matrixStack.pop();
         });
     }

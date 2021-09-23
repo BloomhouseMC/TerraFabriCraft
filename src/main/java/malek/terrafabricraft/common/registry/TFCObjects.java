@@ -27,10 +27,10 @@ public class TFCObjects {
     public static final Block ROCK_BLOCK = createRock("rock_block", true);
 
     public static final Block SILT = createDirt("silt", true);
-    public static final Block SILTY_LOAM = createDirt("silty_LOAM", true);
-    public static final Block LOAM = createDirt("LOAM", true);
+    public static final Block SILTY_LOAM = createDirt("silty_loam", true);
+    public static final Block LOAM = createDirt("loam", true);
     public static final Block SANDY_LOAM = createDirt("sandy_loam", true);
-    public static final Block PEAT = createDirt("PEAT", true);
+    public static final Block PEAT = createDirt("peat", true);
     public static final Block ACACIA_LOG = createLog("acacia_log", true);
     public static final Block ASH_LOG = createLog("ash_log", true);
     public static final Block ASPEN_LOG = createLog("aspen_log", true);
