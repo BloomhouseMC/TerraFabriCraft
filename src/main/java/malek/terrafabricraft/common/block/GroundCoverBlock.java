@@ -18,26 +18,29 @@ import net.minecraft.world.World;
 
 public class GroundCoverBlock extends Block {
     public Item dropItem;
+
     public GroundCoverBlock(Settings settings) {
         super(settings.nonOpaque());
     }
+
     public GroundCoverBlock(Settings settings, Item dropItem) {
         super(settings.nonOpaque());
         this.dropItem = dropItem;
     }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if(dropItem == null) {
+        if (dropItem == null) {
             dropItem = this.asItem();
             world.breakBlock(pos, true);
             world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(dropItem)));
-        }
-        else {
+        } else {
             world.breakBlock(pos, false);
             world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(dropItem)));
         }
         return ActionResult.PASS;
     }
+
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return Block.createCuboidShape(0, 0, 0, 16, 1, 16);

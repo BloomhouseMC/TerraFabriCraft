@@ -36,12 +36,18 @@ public class TFCObjects {
     public static final TFCGravityBlock DIRT_SILTY_LOAM = createSand("dirt/silty_loam", true);
     public static final TFCGravityBlock DIRT_LOAM = createSand("dirt/loam", true);
     public static final TFCGravityBlock DIRT_SANDY_LOAM = createSand("dirt/sandy_loam", true);
+    //Peat
     public static final TFCGravityBlock PEAT = createSand("peat", true);
     //Farmland
     public static final Block FARMLAND_LOAM = createFarmland("farmland/loam", true);
     public static final Block FARMLAND_SANDY_LOAM = createFarmland("farmland/sandy_loam", true);
     public static final Block FARMLAND_SILT = createFarmland("farmland/silt", true);
     public static final Block FARMLAND_SILTY_LOAM = createFarmland("farmland/silty_loam", true);
+    //Dirt
+    public static final TFCGravityBlock GRASS_PATH_SILTY_LOAM = createSand("grass_path/silty_loam", true);
+    public static final TFCGravityBlock GRASS_PATH_SILT = createSand("grass_path/silt", true);
+    public static final TFCGravityBlock GRASS_PATH_SANDY_LOAM = createSand("grass_path/sandy_loam", true);
+    public static final TFCGravityBlock GRASS_PATH_LOAM = createSand("grass_path/loam", true);
     //Ground Cover
     public static final GroundCoverBlock GROUNDCOVER_BONE = createGroundcover("groundcover/bone", Items.BONE);
     public static final GroundCoverBlock GROUNDCOVER_CLAM = createGroundcover("groundcover/clam");
@@ -71,27 +77,27 @@ public class TFCObjects {
     public static final Block ORE_SMALL_NATIVE_SILVER = createGroundOre("ore/small_native_silver", true, 961);
     public static final Block ORE_SMALL_SPHALERITE = createGroundOre("ore/small_sphalerite", true, 1085);
     public static final Block ORE_SMALL_TETRAHEDRITE = createGroundOre("ore/small_tetrahedrite", true, 1085);
-    //Ore
-    /*public static final Block ORE_AMETHYST_ANDESITE = createRock("ore/amethyst/andesite", true);
-    public static final Block ORE_AMETHYST_BASALT = createRock("ore/amethyst/basalt", true);
-    public static final Block ORE_AMETHYST_CHALK = createRock("ore/amethyst/chalk", true);
-    public static final Block ORE_AMETHYST_CHERT = createRock("ore/amethyst/chert", true);
-    public static final Block ORE_AMETHYST_CLAYSTONE = createRock("ore/amethyst/claystone", true);
-    public static final Block ORE_AMETHYST_CONGLOMERATE = createRock("ore/amethyst/conglomerate", true);
-    public static final Block ORE_AMETHYST_DACITE = createRock("ore/amethyst/dacite", true);
-    public static final Block ORE_AMETHYST_DIORITE = createRock("ore/amethyst/diorite", true);
-    public static final Block ORE_AMETHYST_DOLOMITE = createRock("ore/amethyst/dolomite", true);
-    public static final Block ORE_AMETHYST_GABBRO = createRock("ore/amethyst/gabbro", true);
-    public static final Block ORE_AMETHYST_GNEISS = createRock("ore/amethyst/gneiss", true);
-    public static final Block ORE_AMETHYST_GRANITE = createRock("ore/amethyst/granite", true);
-    public static final Block ORE_AMETHYST_LIMESTONE = createRock("ore/amethyst/limestone", true);
-    public static final Block ORE_AMETHYST_MARBLE = createRock("ore/amethyst/marble", true);
-    public static final Block ORE_AMETHYST_PHYLLITE = createRock("ore/amethyst/phyllite", true);
-    public static final Block ORE_AMETHYST_QUARTZITE = createRock("ore/amethyst/quartzite", true);
-    public static final Block ORE_AMETHYST_RHYOLITE = createRock("ore/amethyst/rhyolite", true);
-    public static final Block ORE_AMETHYST_SCHIST = createRock("ore/amethyst/schist", true);
-    public static final Block ORE_AMETHYST_SHALE = createRock("ore/amethyst/shale", true);
-    public static final Block ORE_AMETHYST_SLATE = createRock("ore/amethyst/slate", true);*/
+    //Ores
+    public static final StoneBlock ANDESITE = new StoneBlock("andesite");
+    public static final StoneBlock BASALT = new StoneBlock("basalt");
+    public static final StoneBlock CHALK = new StoneBlock("chalk");
+    public static final StoneBlock CHERT = new StoneBlock("chert");
+    public static final StoneBlock CLAYSTONE = new StoneBlock("claystone");
+    public static final StoneBlock CONGLOMERATE = new StoneBlock("conglomerate");
+    public static final StoneBlock DACITE = new StoneBlock("dacite");
+    public static final StoneBlock DIORITE = new StoneBlock("diorite");
+    public static final StoneBlock DOLOMITE = new StoneBlock("dolomite");
+    public static final StoneBlock GABBRO = new StoneBlock("gabbro");
+    public static final StoneBlock GNEISS = new StoneBlock("gneiss");
+    public static final StoneBlock GRANITE = new StoneBlock("granite");
+    public static final StoneBlock LIMESTONE = new StoneBlock("limestone");
+    public static final StoneBlock MARBLE = new StoneBlock("marble");
+    public static final StoneBlock PHYLLITE = new StoneBlock("phyllite");
+    public static final StoneBlock QUARTZITE = new StoneBlock("quartzite");
+    public static final StoneBlock RHYOLITE = new StoneBlock("rhyolite");
+    public static final StoneBlock SCHIST = new StoneBlock("schist");
+    public static final StoneBlock SHALE = new StoneBlock("shale");
+    public static final StoneBlock SLATE = new StoneBlock("slate");
     //Peat grass
     public static final TFCGravityBlock PEAT_GRASS = createSand("peat_grass", true);
     //Sand
@@ -119,7 +125,6 @@ public class TFCObjects {
     public static final TFCLeavesBlock WOOD_LEAVES_ROSEWOOD = createLeaves("wood/leaves/rosewood", true);
     public static final TFCLeavesBlock WOOD_LEAVES_SEQUOIA = createLeaves("wood/leaves/sequoia", true);
     public static final TFCLeavesBlock WOOD_LEAVES_SPRUCE = createLeaves("wood/leaves/spruce", true);
-
     //Logs
     public static final TFCLogs WOOD_LOG_ACACIA = createLog("wood/log/acacia", true);
     public static final TFCLogs WOOD_LOG_ASH = createLog("wood/log/ash", true);
@@ -161,29 +166,8 @@ public class TFCObjects {
     public static final TFCLogs WOOD_STRIPPED_LOG_WHITE_CEDAR = createStrippedLog("wood/stripped_log/white_cedar", MapColor.WHITE, true);
     public static final TFCLogs WOOD_STRIPPED_LOG_WILLOW = createStrippedLog("wood/stripped_log/willow", MapColor.WHITE, true);
 
-    public static final StoneBlock ANDESITE = new StoneBlock("andesite");
-    public static final StoneBlock BASALT = new StoneBlock("basalt");
-    public static final StoneBlock CHALK = new StoneBlock("chalk");
-    public static final StoneBlock CHERT = new StoneBlock("chert");
-    public static final StoneBlock CLAYSTONE = new StoneBlock("claystone");
-    public static final StoneBlock CONGLOMERATE = new StoneBlock("conglomerate");
-    public static final StoneBlock DACITE = new StoneBlock("dacite");
-    public static final StoneBlock DIORITE = new StoneBlock("diorite");
-    public static final StoneBlock DOLOMITE = new StoneBlock("dolomite");
-    public static final StoneBlock GABBRO = new StoneBlock("gabbro");
-    public static final StoneBlock GNEISS = new StoneBlock("gneiss");
-    public static final StoneBlock GRANITE = new StoneBlock("granite");
-    public static final StoneBlock LIMESTONE = new StoneBlock("limestone");
-    public static final StoneBlock MARBLE = new StoneBlock("marble");
-    public static final StoneBlock PHYLLITE = new StoneBlock("phyllite");
-    public static final StoneBlock QUARTZITE = new StoneBlock("quartzite");
-    public static final StoneBlock RHYOLITE = new StoneBlock("rhyolite");
-    public static final StoneBlock SCHIST = new StoneBlock("schist");
-    public static final StoneBlock SHALE = new StoneBlock("shale");
-    public static final StoneBlock SLATE = new StoneBlock("slate");
-
     //Saplings
-    //Todo Make generic trees to register saplings.
+    //TODO Make generic trees to register saplings.
 //    public static final SaplingBlock WOOD_SAPLING_ACACIA = createSapling("wood/sapling/acacia", true);
 //    public static final SaplingBlock WOOD_SAPLING_ASH = createSapling("wood/sapling/ash", true);
 //    public static final SaplingBlock WOOD_SAPLING_ASPEN = createSapling("wood/sapling/aspen", true);
@@ -217,6 +201,7 @@ public class TFCObjects {
     }
 
     public static <T extends Block> T register(String id, T block, Item itemId) {
+        //Do something with item id.
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
         return block;
     }
