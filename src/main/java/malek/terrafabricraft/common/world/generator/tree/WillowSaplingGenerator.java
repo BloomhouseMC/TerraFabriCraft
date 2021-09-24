@@ -7,10 +7,10 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 
 import java.util.Random;
 
-public class DouglasFirSaplingGenerator extends SaplingGenerator {
+public class WillowSaplingGenerator extends SaplingGenerator {
     private final ConfiguredFeature<TreeFeatureConfig, ?> feature;
 
-    public DouglasFirSaplingGenerator(ConfiguredFeature<?, ?> feature) {
+    public WillowSaplingGenerator(ConfiguredFeature<?, ?> feature) {
         this.feature = (ConfiguredFeature<TreeFeatureConfig, ?>) feature;
     }
 

@@ -6,7 +6,8 @@
   "mixins": [
     "common.HungerManagerMixin",
     "common.LivingEntityMixin",
-    "common.PlayerEntityMixin"
+    "common.PlayerEntityMixin",
+    "common.TrunkPlacerTypeInvoker"
   ],
   "client": [
     "client.InGameHudMixin"

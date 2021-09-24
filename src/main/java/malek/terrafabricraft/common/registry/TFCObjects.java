@@ -4,6 +4,7 @@ import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.block.entity.RockBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
+import malek.terrafabricraft.common.world.generator.tree.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -21,6 +22,8 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import static malek.terrafabricraft.common.world.worldgen.Tree.*;
 
 public class TFCObjects {
     public static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
@@ -97,26 +100,25 @@ public class TFCObjects {
     public static final TFCGravityBlock SAND_RED = createSand("sand/red", true);
     public static final TFCGravityBlock SAND_WHITE = createSand("sand/white", true);
     public static final TFCGravityBlock SAND_YELLOW = createSand("sand/yellow", true);
-    public static final WoodBlock WOOD_ACACIA = new WoodBlock("acacia");
-    public static final WoodBlock WOOD_ASH = new WoodBlock("ash");
-    public static final WoodBlock WOOD_ASPEN = new WoodBlock("aspen");
-    public static final WoodBlock WOOD_BIRCH = new WoodBlock("birch");
-    public static final WoodBlock WOOD_BLACKWOOD = new WoodBlock("blackwood");
-    public static final WoodBlock WOOD_CHESTNUT = new WoodBlock("chestnut");
-    public static final WoodBlock WOOD_DOUGLAS_FIR = new WoodBlock("douglas_fir");
-    public static final WoodBlock WOOD_HICKORY = new WoodBlock("hickory");
-    public static final WoodBlock WOOD_KAPOK = new WoodBlock("kapok");
-    public static final WoodBlock WOOD_MAPLE = new WoodBlock("maple");
-    public static final WoodBlock WOOD_OAK = new WoodBlock("oak");
-    public static final WoodBlock WOOD_PALM = new WoodBlock("palm");
-    public static final WoodBlock WOOD_PINE = new WoodBlock("pine");
-    public static final WoodBlock WOOD_ROSEWOOD = new WoodBlock("rosewood");
-    public static final WoodBlock WOOD_SEQUOIA = new WoodBlock("sequoia");
-    public static final WoodBlock WOOD_SPRUCE = new WoodBlock("spruce");
-    public static final WoodBlock WOOD_SYCAMORE = new WoodBlock("sycamore");
-    public static final WoodBlock WOOD_WHITE_CEDAR = new WoodBlock("white_cedar");
-    public static final WoodBlock WOOD_WILLOW = new WoodBlock("willow");
-
+    public static final WoodBlock WOOD_ACACIA = new WoodBlock("acacia", new AcaciaSaplingGenerator(TREE_ACACIA));
+    public static final WoodBlock WOOD_ASH = new WoodBlock("ash", new AshSaplingGenerator(TREE_ASH));
+    public static final WoodBlock WOOD_ASPEN = new WoodBlock("aspen", new AspenSaplingGenerator(TREE_ASPEN));
+    public static final WoodBlock WOOD_BIRCH = new WoodBlock("birch", new BirchSaplingGenerator(TREE_BIRCH));
+    public static final WoodBlock WOOD_BLACKWOOD = new WoodBlock("blackwood", new BlackwoodSaplingGenerator(TREE_BLACKWOOD));
+    public static final WoodBlock WOOD_CHESTNUT = new WoodBlock("chestnut", new ChestnutSaplingGenerator(TREE_CHESTNUT));
+    public static final WoodBlock WOOD_DOUGLAS_FIR = new WoodBlock("douglas_fir", new DouglasFirSaplingGenerator(TREE_DOUGLAS_FIR));
+    public static final WoodBlock WOOD_HICKORY = new WoodBlock("hickory", new HickorySaplingGenerator(TREE_HICKORY));
+    public static final WoodBlock WOOD_KAPOK = new WoodBlock("kapok", new KapokSaplingGenerator(TREE_KAPOK));
+    public static final WoodBlock WOOD_MAPLE = new WoodBlock("maple", new MapleSaplingGenerator(TREE_MAPLE));
+    public static final WoodBlock WOOD_OAK = new WoodBlock("oak", new OakSaplingGenerator(TREE_OAK));
+    public static final WoodBlock WOOD_PALM = new WoodBlock("palm", new PalmSaplingGenerator(TREE_PALM));
+    public static final WoodBlock WOOD_PINE = new WoodBlock("pine", new PineSaplingGenerator(TREE_PINE));
+    public static final WoodBlock WOOD_ROSEWOOD = new WoodBlock("rosewood", new RosewoodSaplingGenerator(TREE_ROSEWOOD));
+    public static final WoodBlock WOOD_SEQUOIA = new WoodBlock("sequoia", new SequoiaSaplingGenerator(TREE_SEQUOIA));
+    public static final WoodBlock WOOD_SPRUCE = new WoodBlock("spruce", new SpruceSaplingGenerator(TREE_SPRUCE));
+    public static final WoodBlock WOOD_SYCAMORE = new WoodBlock("sycamore", new SycamoreSaplingGenerator(TREE_SYCAMORE));
+    public static final WoodBlock WOOD_WHITE_CEDAR = new WoodBlock("white_cedar", new WhiteCedarSaplingGenerator(TREE_WHITE_CEDAR));
+    public static final WoodBlock WOOD_WILLOW = new WoodBlock("willow", new WillowSaplingGenerator(TREE_WILLOW));
 
 
 //    //Leaves
@@ -222,28 +224,28 @@ public class TFCObjects {
         return block;
     }
 
-    public static TFCLeavesBlock createLeaves(String id, boolean hasBlockItem) {
-        var block = new TFCLeavesBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
-        register(id, block, hasBlockItem, TerraFabriCraft.TFCWOOD_GROUP);
+    public static TFCLeaves createLeaves(String id, boolean hasBlockItem) {
+        var block = new TFCLeaves(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
 
     public static TFCLog createLog(String id, boolean hasBlockItem) {
         var block = new TFCLog(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
-        register(id, block, hasBlockItem, TerraFabriCraft.TFCWOOD_GROUP);
+        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
 
-    public static TFCSaplingBlock createSapling(String id, boolean hasBlockItem, SaplingGenerator generator) {
+    public static TFCSapling createSapling(String id, boolean hasBlockItem, SaplingGenerator generator) {
         //TODO Give leaves an appropriate sound.
-        var block = new TFCSaplingBlock(generator, FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
-        register(id, block, hasBlockItem, TerraFabriCraft.TFCWOOD_GROUP);
+        var block = new TFCSapling(generator, FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
 
     public static TFCLog createStrippedLog(String id, MapColor color, boolean hasBlockItem) {
         var block = new TFCLog(FabricBlockSettings.of(Material.WOOD, color).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
-        register(id, block, hasBlockItem, TerraFabriCraft.TFCWOOD_GROUP);
+        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
 
@@ -251,27 +253,38 @@ public class TFCObjects {
     public static Block createRock(String id, boolean hasBlockItem) {
         //TODO Fix material settings
         var block = new Block(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
-        register(id, block, hasBlockItem, TerraFabriCraft.TFCROCKETSOIL_GROUP);
-
+        register(id, block, hasBlockItem, TerraFabriCraft.ROCK_GROUP);
         return block;
     }
 
     public static Block createGroundOre(String id, boolean hasBlockItem, int meltingPoint) {
         var block = new GroundCoverOre(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
-        createItem(id, new GroundCoverOreBlockItem(block, gen(TerraFabriCraft.TFCROCK_GROUP), meltingPoint));
-        register(id, block, hasBlockItem, TerraFabriCraft.TFCROCK_GROUP);
+        createItem(id, new GroundCoverOreBlockItem(block, gen(TerraFabriCraft.ROCK_GROUP), meltingPoint));
+        register(id, block);
+        return block;
+    }
+
+    public static TFCTwig createTwig(String id, boolean hasBlockItem) {
+        var block = new TFCTwig(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
+        return block;
+    }
+
+    public static TFCSupport createSupport(String id, boolean hasBlockItem) {
+        var block = new TFCSupport(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
 
     public static TFCGravityBlock createSand(String id, boolean hasBlockItem) {
         var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
-        register(id, block, hasBlockItem, TerraFabriCraft.TFCROCKETSOIL_GROUP);
+        register(id, block, hasBlockItem, TerraFabriCraft.EARTH_GROUP);
         return block;
     }
 
     public static TFCGravityBlock createFarmland(String id, boolean hasItem) {
         var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
-        register(id, block, hasItem, TerraFabriCraft.TFCROCKETSOIL_GROUP);
+        register(id, block, hasItem, TerraFabriCraft.ROCK_GROUP);
         return block;
     }
 
