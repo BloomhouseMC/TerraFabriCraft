@@ -247,10 +247,12 @@ public class TFCObjects {
         return block;
     }
 
+
     public static Block createRock(String id, boolean hasBlockItem) {
         //TODO Fix material settings
         var block = new Block(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         register(id, block, hasBlockItem, TerraFabriCraft.TFCROCKETSOIL_GROUP);
+
         return block;
     }
 

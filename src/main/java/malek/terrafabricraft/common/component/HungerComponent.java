@@ -42,8 +42,10 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         }
     }
 
-    public void decreaseHunger(int sub) {
-        if (getHunger() - sub > 0) {
+
+    public void decreaseHunger(int sub){
+        if(getHunger() - sub >= 0){
+
             setHunger(getHunger() - sub);
             TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
         }
@@ -64,8 +66,9 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
             passiveHungerTicker = 0;
         }
         //SLOW KILLER
-        if (hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0) {
-            healthComponent.decreaseHealth(10);
+
+        if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0){
+
             playerEntity.damage(DamageSource.STARVE, 1.0F);
             hungerTicker = 0;
         }
@@ -74,6 +77,7 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
             hungerComponent.decreaseHunger(1);
             passiveHungerTicker = 0;
         }
+        System.out.println(hungerComponent.getHunger());
     }
 
     @Override
