@@ -18,7 +18,6 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.shape.VoxelShape;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
