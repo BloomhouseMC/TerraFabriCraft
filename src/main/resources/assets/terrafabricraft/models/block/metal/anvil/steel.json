@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/anvil",
+  "parent": "terrafabricraft:block/anvil",
   "textures": {
-    "all": "terrifabricraft:block/metal/steel",
-    "particle": "terrifabricraft:block/metal/steel"
+    "all": "terrafabricraft:block/metal/steel",
+    "particle": "terrafabricraft:block/metal/steel"
   }
 }

@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/plant/branch_side",
+  "parent": "terrafabricraft:block/plant/branch_side",
   "textures": {
-    "bark": "terrifabricraft:block/fruit_tree/lemon_branch"
+    "bark": "terrafabricraft:block/fruit_tree/lemon_branch"
   }
 }

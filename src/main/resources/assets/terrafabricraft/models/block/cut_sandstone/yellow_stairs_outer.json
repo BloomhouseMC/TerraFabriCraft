@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/sandstone/top/yellow",
-    "top": "terrifabricraft:block/sandstone/top/yellow",
-    "side": "terrifabricraft:block/sandstone/cut/yellow"
+    "bottom": "terrafabricraft:block/sandstone/top/yellow",
+    "top": "terrafabricraft:block/sandstone/top/yellow",
+    "side": "terrafabricraft:block/sandstone/cut/yellow"
   }
 }

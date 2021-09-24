@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/plant/berry_bush_2",
+  "parent": "terrafabricraft:block/plant/berry_bush_2",
   "textures": {
-    "cane": "terrifabricraft:block/berry_bush/fruiting_elderberry_cane",
-    "bush": "terrifabricraft:block/berry_bush/fruiting_elderberry_bush"
+    "cane": "terrafabricraft:block/berry_bush/fruiting_elderberry_cane",
+    "bush": "terrafabricraft:block/berry_bush/fruiting_elderberry_bush"
   }
 }

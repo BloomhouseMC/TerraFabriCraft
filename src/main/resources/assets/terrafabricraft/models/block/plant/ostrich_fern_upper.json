@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "upper": "terrifabricraft:blocks/empty",
-    "uppernotint": "terrifabricraft:blocks/empty"
+    "upper": "terrafabricraft:blocks/empty",
+    "uppernotint": "terrafabricraft:blocks/empty"
   },
   "elements": [
     {

@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/block",
   "textures": {
-    "overlay": "terrifabricraft:block/grass_snowy_side",
+    "overlay": "terrafabricraft:block/grass_snowy_side",
     "particle": "#texture"
   },
   "elements": [

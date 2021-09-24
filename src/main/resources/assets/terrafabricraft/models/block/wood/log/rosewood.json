@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_column",
   "textures": {
-    "end": "terrifabricraft:block/wood/log_top/rosewood",
-    "side": "terrifabricraft:block/wood/log/rosewood"
+    "end": "terrafabricraft:block/wood/log_top/rosewood",
+    "side": "terrafabricraft:block/wood/log/rosewood"
   }
 }

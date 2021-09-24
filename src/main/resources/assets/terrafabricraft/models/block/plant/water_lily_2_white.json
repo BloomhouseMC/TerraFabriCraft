@@ -1,10 +1,10 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "terrifabricraft:block/plant/water_lily/water_lily",
-    "flower": "terrifabricraft:block/plant/water_lily/water_lily_2_white",
-    "layer0": "terrifabricraft:block/plant/water_lily/water_lily",
-    "stem": "terrifabricraft:block/plant/water_lily/water_lily_0"
+    "particle": "terrafabricraft:block/plant/water_lily/water_lily",
+    "flower": "terrafabricraft:block/plant/water_lily/water_lily_2_white",
+    "layer0": "terrafabricraft:block/plant/water_lily/water_lily",
+    "stem": "terrafabricraft:block/plant/water_lily/water_lily_0"
   },
   "elements": [
     {

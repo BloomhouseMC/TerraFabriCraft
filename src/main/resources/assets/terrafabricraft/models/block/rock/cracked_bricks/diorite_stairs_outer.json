@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/cracked_bricks/diorite",
-    "top": "terrifabricraft:block/rock/cracked_bricks/diorite",
-    "side": "terrifabricraft:block/rock/cracked_bricks/diorite"
+    "bottom": "terrafabricraft:block/rock/cracked_bricks/diorite",
+    "top": "terrafabricraft:block/rock/cracked_bricks/diorite",
+    "side": "terrafabricraft:block/rock/cracked_bricks/diorite"
   }
 }

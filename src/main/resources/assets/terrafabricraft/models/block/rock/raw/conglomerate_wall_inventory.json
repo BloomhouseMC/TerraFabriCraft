@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/wall_inventory",
   "textures": {
-    "wall": "terrifabricraft:block/rock/raw/conglomerate"
+    "wall": "terrafabricraft:block/rock/raw/conglomerate"
   }
 }

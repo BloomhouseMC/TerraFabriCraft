@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "terrifabricraft:block/sandstone/top/brown",
-    "side": "terrifabricraft:block/sandstone/cut/brown"
+    "end": "terrafabricraft:block/sandstone/top/brown",
+    "side": "terrafabricraft:block/sandstone/cut/brown"
   }
 }

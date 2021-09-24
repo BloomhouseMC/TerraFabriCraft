@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_all",
   "textures": {
-    "all": "terrifabricraft:block/sandstone/top/pink"
+    "all": "terrafabricraft:block/sandstone/top/pink"
   }
 }

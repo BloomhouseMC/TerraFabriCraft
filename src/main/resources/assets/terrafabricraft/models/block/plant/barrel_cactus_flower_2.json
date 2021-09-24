@@ -1,7 +1,7 @@
 {
-  "parent": "terrifabricraft:block/plant/barrel_cactus_flower_0",
+  "parent": "terrafabricraft:block/plant/barrel_cactus_flower_0",
   "textures": {
-    "flower": "terrifabricraft:block/plant/barrel_cactus/flower_2",
-    "particle": "terrifabricraft:block/plant/barrel_cactus/flower_2"
+    "flower": "terrafabricraft:block/plant/barrel_cactus/flower_2",
+    "particle": "terrafabricraft:block/plant/barrel_cactus/flower_2"
   }
 }

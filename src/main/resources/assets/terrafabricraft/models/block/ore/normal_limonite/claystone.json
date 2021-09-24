@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "terrifabricraft:block/rock/raw/claystone",
-    "particle": "terrifabricraft:block/rock/raw/claystone",
-    "overlay": "terrifabricraft:block/ore/normal_limonite"
+    "all": "terrafabricraft:block/rock/raw/claystone",
+    "particle": "terrafabricraft:block/rock/raw/claystone",
+    "overlay": "terrafabricraft:block/ore/normal_limonite"
   }
 }

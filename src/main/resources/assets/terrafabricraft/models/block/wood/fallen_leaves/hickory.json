@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/groundcover/fallen_leaves",
+  "parent": "terrafabricraft:block/groundcover/fallen_leaves",
   "textures": {
-    "all": "terrifabricraft:block/wood/leaves/hickory"
+    "all": "terrafabricraft:block/wood/leaves/hickory"
   }
 }

@@ -28,7 +28,9 @@ public class GroundCoverBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(dropItem == null) {
+            dropItem = this.asItem();
             world.breakBlock(pos, true);
+            world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(dropItem)));
         }
         else {
             world.breakBlock(pos, false);

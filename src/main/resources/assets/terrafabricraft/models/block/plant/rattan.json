@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "terrifabricraft:block/plant/rattan/rattan",
-    "layer0": "terrifabricraft:block/plant/rattan/rattan"
+    "particle": "terrafabricraft:block/plant/rattan/rattan",
+    "layer0": "terrafabricraft:block/plant/rattan/rattan"
   },
   "elements": [
     {

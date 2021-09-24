@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/cracked_bricks/quartzite",
-    "top": "terrifabricraft:block/rock/cracked_bricks/quartzite",
-    "side": "terrifabricraft:block/rock/cracked_bricks/quartzite"
+    "bottom": "terrafabricraft:block/rock/cracked_bricks/quartzite",
+    "top": "terrafabricraft:block/rock/cracked_bricks/quartzite",
+    "side": "terrafabricraft:block/rock/cracked_bricks/quartzite"
   }
 }

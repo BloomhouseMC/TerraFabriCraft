@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "terrifabricraft:block/rock/raw/gabbro",
-    "particle": "terrifabricraft:block/rock/raw/gabbro",
-    "overlay": "terrifabricraft:block/ore/rich_hematite"
+    "all": "terrafabricraft:block/rock/raw/gabbro",
+    "particle": "terrafabricraft:block/rock/raw/gabbro",
+    "overlay": "terrafabricraft:block/ore/rich_hematite"
   }
 }

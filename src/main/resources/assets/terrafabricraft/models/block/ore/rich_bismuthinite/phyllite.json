@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "terrifabricraft:block/rock/raw/phyllite",
-    "particle": "terrifabricraft:block/rock/raw/phyllite",
-    "overlay": "terrifabricraft:block/ore/rich_bismuthinite"
+    "all": "terrafabricraft:block/rock/raw/phyllite",
+    "particle": "terrafabricraft:block/rock/raw/phyllite",
+    "overlay": "terrafabricraft:block/ore/rich_bismuthinite"
   }
 }

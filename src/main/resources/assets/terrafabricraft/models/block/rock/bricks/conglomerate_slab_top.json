@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab_top",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/bricks/conglomerate",
-    "top": "terrifabricraft:block/rock/bricks/conglomerate",
-    "side": "terrifabricraft:block/rock/bricks/conglomerate"
+    "bottom": "terrafabricraft:block/rock/bricks/conglomerate",
+    "top": "terrafabricraft:block/rock/bricks/conglomerate",
+    "side": "terrafabricraft:block/rock/bricks/conglomerate"
   }
 }

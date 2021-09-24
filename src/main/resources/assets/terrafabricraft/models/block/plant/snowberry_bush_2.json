@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/plant/stationary_bush_2",
+  "parent": "terrafabricraft:block/plant/stationary_bush_2",
   "textures": {
-    "bush": "terrifabricraft:block/berry_bush/snowberry_bush"
+    "bush": "terrafabricraft:block/berry_bush/snowberry_bush"
   }
 }

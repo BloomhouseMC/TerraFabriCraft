@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "terrifabricraft:block/thatch",
-		"particle": "terrifabricraft:block/thatch"
+		"0": "terrafabricraft:block/thatch",
+		"particle": "terrafabricraft:block/thatch"
 	},
 	"elements": [
 		{

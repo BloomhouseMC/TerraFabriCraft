@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/plant/branch_down",
+  "parent": "terrafabricraft:block/plant/branch_down",
   "textures": {
-    "bark": "terrifabricraft:block/fruit_tree/olive_branch"
+    "bark": "terrafabricraft:block/fruit_tree/olive_branch"
   }
 }

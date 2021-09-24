@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "terrifabricraft:block/rock/raw/basalt",
-    "particle": "terrifabricraft:block/rock/raw/basalt",
-    "overlay": "terrifabricraft:block/ore/poor_magnetite"
+    "all": "terrafabricraft:block/rock/raw/basalt",
+    "particle": "terrafabricraft:block/rock/raw/basalt",
+    "overlay": "terrafabricraft:block/ore/poor_magnetite"
   }
 }

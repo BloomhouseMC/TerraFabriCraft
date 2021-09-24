@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/anvil",
+  "parent": "terrafabricraft:block/anvil",
   "textures": {
-    "all": "terrifabricraft:block/metal/bismuth_bronze",
-    "particle": "terrifabricraft:block/metal/bismuth_bronze"
+    "all": "terrafabricraft:block/metal/bismuth_bronze",
+    "particle": "terrafabricraft:block/metal/bismuth_bronze"
   }
 }

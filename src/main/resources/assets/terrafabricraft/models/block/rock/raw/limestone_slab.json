@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/raw/limestone",
-    "top": "terrifabricraft:block/rock/raw/limestone",
-    "side": "terrifabricraft:block/rock/raw/limestone"
+    "bottom": "terrafabricraft:block/rock/raw/limestone",
+    "top": "terrafabricraft:block/rock/raw/limestone",
+    "side": "terrafabricraft:block/rock/raw/limestone"
   }
 }

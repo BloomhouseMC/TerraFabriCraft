@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/raw/gabbro",
-    "top": "terrifabricraft:block/rock/raw/gabbro",
-    "side": "terrifabricraft:block/rock/raw/gabbro"
+    "bottom": "terrafabricraft:block/rock/raw/gabbro",
+    "top": "terrafabricraft:block/rock/raw/gabbro",
+    "side": "terrafabricraft:block/rock/raw/gabbro"
   }
 }

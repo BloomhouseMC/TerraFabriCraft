@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/wood/support/inventory",
+  "parent": "terrafabricraft:block/wood/support/inventory",
   "textures": {
-    "texture": "terrifabricraft:block/wood/sheet/ash"
+    "texture": "terrafabricraft:block/wood/sheet/ash"
   }
 }

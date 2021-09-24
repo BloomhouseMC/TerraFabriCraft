@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/rock/anvil",
+  "parent": "terrafabricraft:block/rock/anvil",
   "textures": {
-    "texture": "terrifabricraft:block/rock/raw/granite"
+    "texture": "terrafabricraft:block/rock/raw/granite"
   }
 }

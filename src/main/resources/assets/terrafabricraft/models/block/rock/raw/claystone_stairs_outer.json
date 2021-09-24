@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/raw/claystone",
-    "top": "terrifabricraft:block/rock/raw/claystone",
-    "side": "terrifabricraft:block/rock/raw/claystone"
+    "bottom": "terrafabricraft:block/rock/raw/claystone",
+    "top": "terrafabricraft:block/rock/raw/claystone",
+    "side": "terrafabricraft:block/rock/raw/claystone"
   }
 }

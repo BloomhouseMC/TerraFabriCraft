@@ -1,7 +1,7 @@
 {
-  "parent": "terrifabricraft:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "particle": "terrifabricraft:block/plant/sagebrush/sagebrush_0",
-    "cross": "terrifabricraft:block/plant/sagebrush/sagebrush_0"
+    "particle": "terrafabricraft:block/plant/sagebrush/sagebrush_0",
+    "cross": "terrafabricraft:block/plant/sagebrush/sagebrush_0"
   }
 }

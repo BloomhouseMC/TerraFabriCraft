@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/template_wall_post",
   "textures": {
-    "wall": "terrifabricraft:block/alabaster/stained/magenta_polished_alabaster"
+    "wall": "terrafabricraft:block/alabaster/stained/magenta_polished_alabaster"
   }
 }

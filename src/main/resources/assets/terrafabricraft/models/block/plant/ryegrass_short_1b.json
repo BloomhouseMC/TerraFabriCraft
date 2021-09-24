@@ -1,6 +1,6 @@
 {
-  "parent": "terrifabricraft:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "terrifabricraft:block/plant/ryegrass/ryegrass_short_1b"
+    "cross": "terrafabricraft:block/plant/ryegrass/ryegrass_short_1b"
   }
 }
