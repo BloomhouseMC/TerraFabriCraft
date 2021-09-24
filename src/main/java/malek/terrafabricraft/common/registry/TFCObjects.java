@@ -3,6 +3,7 @@ package malek.terrafabricraft.common.registry;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.block.entity.RockBlockEntity;
+import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -58,18 +59,18 @@ public class TFCObjects {
     //Stone
     public static final Block ROCK_BLOCK = createRock("rock_block", true);
     //TODO Create a class for small ores.
-    public static final Block ORE_SMALL_BISMUTHINITE = createRock("ore/small_bismuthinite", true);
-    public static final Block ORE_SMALL_CASSITERITE = createRock("ore/small_cassiterite", true);
-    public static final Block ORE_SMALL_GARNIERITE = createRock("ore/small_garnierite", true);
-    public static final Block ORE_SMALL_HEMATITE = createRock("ore/small_hematite", true);
-    public static final Block ORE_SMALL_LIMONITE = createRock("ore/small_limonite", true);
-    public static final Block ORE_SMALL_MAGNETITE = createRock("ore/small_magnetite", true);
-    public static final Block ORE_SMALL_MALACHITE = createLog("ore/small_malachite", true);
-    public static final Block ORE_SMALL_NATIVE_COPPPER = createRock("ore/small_native_copper", true);
-    public static final Block ORE_SMALL_NATIVE_GOLD = createRock("ore/small_native_gold", true);
-    public static final Block ORE_SMALL_NATIVE_SILVER = createRock("ore/small_native_silver", true);
-    public static final Block ORE_SMALL_SPHALERITE = createRock("ore/small_sphalerite", true);
-    public static final Block ORE_SMALL_TETRAHEDRITE = createRock("ore/small_tetrahedrite", true);
+    public static final Block ORE_SMALL_BISMUTHINITE = createGroundOre("ore/small_bismuthinite", true, 271);
+    public static final Block ORE_SMALL_CASSITERITE = createGroundOre("ore/small_cassiterite", true, 232);
+    public static final Block ORE_SMALL_GARNIERITE = createGroundOre("ore/small_garnierite", true, 1455);
+    public static final Block ORE_SMALL_HEMATITE = createGroundOre("ore/small_hematite", true, 1538);
+    public static final Block ORE_SMALL_LIMONITE = createGroundOre("ore/small_limonite", true, 1538);
+    public static final Block ORE_SMALL_MAGNETITE = createGroundOre("ore/small_magnetite", true, 1538);
+    public static final Block ORE_SMALL_MALACHITE = createGroundOre("ore/small_malachite", true, 1085);
+    public static final Block ORE_SMALL_NATIVE_COPPPER = createGroundOre("ore/small_native_copper", true, 1085);
+    public static final Block ORE_SMALL_NATIVE_GOLD = createGroundOre("ore/small_native_gold", true, 1064);
+    public static final Block ORE_SMALL_NATIVE_SILVER = createGroundOre("ore/small_native_silver", true, 961);
+    public static final Block ORE_SMALL_SPHALERITE = createGroundOre("ore/small_sphalerite", true, 1085);
+    public static final Block ORE_SMALL_TETRAHEDRITE = createGroundOre("ore/small_tetrahedrite", true, 1085);
     //Ore
     public static final Block ORE_AMETHYST_ANDESITE = createRock("ore/amethyst/andesite", true);
     public static final Block ORE_AMETHYST_BASALT = createRock("ore/amethyst/basalt", true);
@@ -225,8 +226,15 @@ public class TFCObjects {
     }
 
     public static Block createRock(String id, boolean hasItem) {
-        var block = new Block(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        var block = new GroundCoverBlock(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         register(id, block, hasItem);
+        return block;
+    }
+
+    public static Block createGroundOre(String id, boolean hasItem, int meltingPoint) {
+        var block = new GroundCoverOre(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        createItem(id, new GroundCoverOreBlockItem(block, gen(), meltingPoint));
+        register(id, block, false);
         return block;
     }
 
