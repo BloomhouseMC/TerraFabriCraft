@@ -3,7 +3,6 @@ package malek.terrafabricraft.common.component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
-import net.minecraft.block.CactusBlock;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -69,7 +68,7 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
             hungerTicker = 0;
         }
         //IDLE HUNGER DECAY
-        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 15 == 0 && difficulty != Difficulty.PEACEFUL && !playerEntity.isSpectator() && !playerEntity.isCreative()){
+        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 35 == 0 && difficulty != Difficulty.PEACEFUL && !playerEntity.isSpectator() && !playerEntity.isCreative()){
             hungerComponent.decreaseHunger(1);
             passiveHungerTicker = 0;
         }
