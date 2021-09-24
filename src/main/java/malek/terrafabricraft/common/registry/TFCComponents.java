@@ -10,9 +10,7 @@ import dev.onyxstudios.cca.api.v3.item.ItemComponentInitializer;
 import dev.onyxstudios.cca.api.v3.world.WorldComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.world.WorldComponentInitializer;
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.component.HealthComponent;
-import malek.terrafabricraft.common.component.HungerComponent;
-import malek.terrafabricraft.common.component.ThirstComponent;
+import malek.terrafabricraft.common.component.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
@@ -22,11 +20,16 @@ public class TFCComponents implements EntityComponentInitializer, WorldComponent
     public static final ComponentKey<HungerComponent> HUNGER_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "hunger"), HungerComponent.class);
     public static final ComponentKey<ThirstComponent> THIRST_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "thirst"), ThirstComponent.class);
 
+    public static final ComponentKey<ProficiencyComponent> PROFICIENCY_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "proficiency"), ProficiencyComponent.class);
+
+
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
         registry.beginRegistration(LivingEntity.class, HEALTH_COMPONENT).impl(HealthComponent.class).respawnStrategy(RespawnCopyStrategy.LOSSLESS_ONLY).end(HealthComponent::new);
         registry.beginRegistration(PlayerEntity.class, HUNGER_COMPONENT).impl(HungerComponent.class).respawnStrategy(RespawnCopyStrategy.LOSSLESS_ONLY).end(HungerComponent::new);
         registry.beginRegistration(PlayerEntity.class, THIRST_COMPONENT).impl(ThirstComponent.class).respawnStrategy(RespawnCopyStrategy.LOSSLESS_ONLY).end(ThirstComponent::new);
+
+        registry.beginRegistration(PlayerEntity.class, PROFICIENCY_COMPONENT).impl(ProficiencyComponent.class).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(ProficiencyComponent::new);
     }
 
     @Override

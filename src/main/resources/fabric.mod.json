@@ -57,7 +57,8 @@
     "cardinal-components": [
       "terrafabricraft:health",
       "terrafabricraft:hunger",
-      "terrafabricraft:thirst"
+      "terrafabricraft:thirst",
+      "terrafabricraft:proficiency"
     ]
   },
   "suggests": {
