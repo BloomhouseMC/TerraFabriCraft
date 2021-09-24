@@ -98,6 +98,7 @@ public class Tree {
             ).build())
             .spreadHorizontally()
             .applyChance(3);
+
     public static final ConfiguredFeature<?, ?> TREE_HICKORY = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.log.getDefaultState()),
@@ -109,6 +110,7 @@ public class Tree {
             ).build())
             .spreadHorizontally()
             .applyChance(3);
+
     public static final ConfiguredFeature<?, ?> TREE_KAPOK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.log.getDefaultState()),

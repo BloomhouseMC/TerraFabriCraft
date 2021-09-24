@@ -1,5 +1,6 @@
-package malek.terrafabricraft.common.block;
+package malek.terrafabricraft.common.registry;
 
+import malek.terrafabricraft.common.block.TFCGravityBlock;
 import net.minecraft.block.Block;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.createSand;

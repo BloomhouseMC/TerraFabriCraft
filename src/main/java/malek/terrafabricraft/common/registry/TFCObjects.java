@@ -5,6 +5,7 @@ import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.block.entity.RockBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -12,6 +13,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.sapling.SaplingGenerator;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -33,7 +35,10 @@ public class TFCObjects {
     public static final SoilBlock CLAY = new SoilBlock("clay");
     public static final SoilBlock CLAY_GRASS = new SoilBlock("clay_grass");
     public static final SoilBlock DIRT = new SoilBlock("dirt");
-    public static final SoilBlock FARMLAND = new SoilBlock("farmland");
+    public static final TFCGravityBlock FARMLAND_LOAM = createFarmland("farmland/loam", true);
+    public static final TFCGravityBlock FARMLAND_SANDY_LOAM = createFarmland("farmland/sandy_loam", true);
+    public static final TFCGravityBlock FARMLAND_SILT = createFarmland("farmland/silt", true);
+    public static final TFCGravityBlock FARMLAND_SILTY_LOAM = createFarmland("farmland/silty_loam", true);
     public static final SoilBlock GRASS = new SoilBlock("grass");
     public static final SoilBlock GRASS_PATH = new SoilBlock("grass_path");
 
@@ -238,7 +243,8 @@ public class TFCObjects {
 
     public static TFCSapling createSapling(String id, boolean hasBlockItem, SaplingGenerator generator) {
         //TODO Give leaves an appropriate sound.
-        var block = new TFCSapling(generator, FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        var block = new TFCSapling(generator, FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS));
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }

@@ -1,4 +1,4 @@
-package malek.terrafabricraft.common.block;
+package malek.terrafabricraft.common.registry;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.Identifier;

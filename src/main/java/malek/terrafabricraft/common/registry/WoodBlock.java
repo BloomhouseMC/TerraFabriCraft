@@ -1,5 +1,6 @@
-package malek.terrafabricraft.common.block;
+package malek.terrafabricraft.common.registry;
 
+import malek.terrafabricraft.common.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.sapling.SaplingGenerator;
 
