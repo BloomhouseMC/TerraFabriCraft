@@ -10,6 +10,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
+
+//Draw moved to mixin, keeping just in case for a little while
 public class UserHud extends DrawableHelper implements HudRenderCallback {
     @Override
     public void onHudRender(MatrixStack matrixStack, float tickDelta) {

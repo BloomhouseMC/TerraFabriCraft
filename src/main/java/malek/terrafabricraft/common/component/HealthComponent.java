@@ -3,17 +3,13 @@ package malek.terrafabricraft.common.component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
-import malek.terrafabricraft.mixin.common.PlayerEntityMixin;
-import net.fabricmc.fabric.api.event.Event;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.Difficulty;
 
 import java.util.Optional;
 
-import static net.fabricmc.fabric.api.event.EventFactory.createArrayBacked;
 
 public class HealthComponent implements AutoSyncedComponent, ServerTickingComponent {
     public static int MAX_HEALTH = 100;
@@ -33,9 +29,21 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
     }
 
     public void setHealth(int health){
-        HEALTH_SET.invoker().healthSet(livingEntity, this.health);
         this.health = health;
         TFCComponents.HEALTH_COMPONENT.sync(livingEntity);
+    }
+
+    public void increaseHealth(int add){
+        if(getHealth() + add <= getMaxHealth()){
+            setHealth(getHealth() + add);
+            TFCComponents.HEALTH_COMPONENT.sync(livingEntity);
+        }
+    }
+    public void decreaseHealth(int sub){
+        if(getHealth() - sub > 0){
+            setHealth(getHealth() - sub);
+            TFCComponents.HEALTH_COMPONENT.sync(livingEntity);
+        }
     }
 
     @Override
@@ -49,7 +57,7 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
             }
             Difficulty difficulty = livingEntity.world.getDifficulty();
             if(difficulty == Difficulty.PEACEFUL && healthComponent.getHealth() < healthComponent.getMaxHealth()){
-                healthComponent.setHealth(healthComponent.getHealth() + 1);
+                healthComponent.increaseHealth(1);
             }
         }
     }
@@ -65,17 +73,10 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
         tag.putInt("Health", getHealth());
     }
 
-    public interface setHealth {
-        void healthSet(LivingEntity entity, int amount);
-    }
-    public static final Event<setHealth> HEALTH_SET = createArrayBacked(setHealth.class, listeners -> (entity, amount) -> {
-        for (setHealth listener : listeners) {
-            listener.healthSet(entity, amount);
-        }
-    });
     public static HealthComponent get(LivingEntity obj) {
         return TFCComponents.HEALTH_COMPONENT.get(obj);
     }
+
     public static Optional<HealthComponent> maybeGet(LivingEntity obj) {
         return TFCComponents.HEALTH_COMPONENT.maybeGet(obj);
     }

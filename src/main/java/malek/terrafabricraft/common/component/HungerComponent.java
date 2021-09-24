@@ -3,16 +3,12 @@ package malek.terrafabricraft.common.component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
-import net.fabricmc.fabric.api.event.Event;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.Difficulty;
 
 import java.util.Optional;
-
-import static net.fabricmc.fabric.api.event.EventFactory.createArrayBacked;
 
 public class HungerComponent implements AutoSyncedComponent, ServerTickingComponent {
     public static int MAX_HUNGER = 100;
@@ -34,10 +30,24 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
     }
 
     public void setHunger(int hunger){
-        HUNGER_SET.invoker().hungerSet(playerEntity, this.hunger);
         this.hunger = hunger;
         TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
     }
+
+    public void increaseHunger(int add){
+        if(getHunger() + add <= getMaxHunger()){
+            setHunger(getHunger() + add);
+            TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
+        }
+    }
+
+    public void decreaseHunger(int sub){
+        if(getHunger() - sub > 0){
+            setHunger(getHunger() - sub);
+            TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
+        }
+    }
+
     //TODO: fix values
     @Override
     public void serverTick() {
@@ -48,18 +58,19 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         HungerComponent hungerComponent = HungerComponent.get(playerEntity);
         //HEALING
         if (difficulty != Difficulty.PEACEFUL && passiveHungerTicker >= 10 && healthComponent.getHealth() < healthComponent.getMaxHealth() && hungerComponent.getHunger() > (int)hungerComponent.getMaxHunger()*0.8) {
-            healthComponent.setHealth(healthComponent.getHealth() + 1);
-            hungerComponent.setHunger(hungerComponent.getHunger() - 1);
+            healthComponent.increaseHealth(2);
+            hungerComponent.decreaseHunger(1);
             passiveHungerTicker = 0;
         }
         //SLOW KILLER
         if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0){
-            healthComponent.setHealth(healthComponent.getHealth() - 10);
+            healthComponent.decreaseHealth(10);
             playerEntity.damage(DamageSource.STARVE, 1.0F);
+            hungerTicker = 0;
         }
         //IDLE HUNGER DECAY
-        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 15 == 0 && difficulty != Difficulty.PEACEFUL && !playerEntity.isSpectator() && !playerEntity.isCreative()){
-            hungerComponent.setHunger(hungerComponent.getHunger() - 1);
+        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 35 == 0 && difficulty != Difficulty.PEACEFUL && !playerEntity.isSpectator() && !playerEntity.isCreative()){
+            hungerComponent.decreaseHunger(1);
             passiveHungerTicker = 0;
         }
     }
@@ -67,7 +78,6 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
     @Override
     public void readFromNbt(NbtCompound tag) {
         setHunger(tag.getInt("Hunger"));
-
     }
 
     @Override
@@ -75,17 +85,10 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         tag.putInt("Hunger", getHunger());
     }
 
-    public interface setHunger {
-        void hungerSet(PlayerEntity entity, int amount);
-    }
-    public static final Event<setHunger> HUNGER_SET = createArrayBacked(setHunger.class, listeners -> (entity, amount) -> {
-        for (setHunger listener : listeners) {
-            listener.hungerSet(entity, amount);
-        }
-    });
     public static HungerComponent get(PlayerEntity obj) {
         return TFCComponents.HUNGER_COMPONENT.get(obj);
     }
+
     public static Optional<HungerComponent> maybeGet(PlayerEntity obj) {
         return TFCComponents.HUNGER_COMPONENT.maybeGet(obj);
     }
