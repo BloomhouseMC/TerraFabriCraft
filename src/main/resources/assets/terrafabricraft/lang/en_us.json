@@ -1,5 +1,10 @@
 {
   "hud.terrafabricraft.health": "%1$s / %2$s",
+  "hud.terrafabricraft.proficiency.agri": "Agriculture Level: %1$s",
+  "hud.terrafabricraft.proficiency.butch": "Butchering Level: %1$s",
+  "hud.terrafabricraft.proficiency.cook": "Cooking Level: %1$s",
+  "hud.terrafabricraft.proficiency.pros": "Prospecting Level: %1$s",
+  "hud.terrafabricraft.proficiency.smith": "Smithing Level: %1$s",
 
 
 

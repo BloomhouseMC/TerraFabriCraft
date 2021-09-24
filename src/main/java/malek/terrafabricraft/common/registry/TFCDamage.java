@@ -1,6 +1,7 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.common.component.HealthComponent;
+import malek.terrafabricraft.common.component.ProficiencyComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,6 +19,7 @@ public class TFCDamage {
 
     public static float handlePlayerDamage(PlayerEntity entity, DamageSource source, float amount) {
         HealthComponent healthComponent = HealthComponent.get(entity);
+        ProficiencyComponent proficiencyComponent = ProficiencyComponent.get(entity);
         //Convert regular damage to TFC damage by subtrackting amount and doing ealthComponent.setHealth
         while (amount > 0 && healthComponent.getHealth() > 0 && !entity.isDead()) {
             amount--;

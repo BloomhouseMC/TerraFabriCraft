@@ -75,7 +75,6 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
             hungerComponent.decreaseHunger(1);
             passiveHungerTicker = 0;
         }
-        System.out.println(hungerComponent.getHunger());
     }
 
     @Override

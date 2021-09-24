@@ -1,6 +1,7 @@
 package malek.terrafabricraft.client;
 
 import malek.terrafabricraft.common.component.HealthComponent;
+import malek.terrafabricraft.common.component.ProficiencyComponent;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
@@ -19,22 +20,24 @@ public class UserHud extends DrawableHelper implements HudRenderCallback {
         PlayerEntity player = mc.player;
         TextRenderer textRenderer = mc.textRenderer;
         int height = mc.getWindow().getScaledHeight();
-        HealthComponent.maybeGet(player).ifPresent(healthComponent -> {
-            int health = healthComponent.getHealth();
-            int max = healthComponent.getMaxHealth();
+        ProficiencyComponent.maybeGet(player).ifPresent(proficiencyComponent -> {
+            int agri_level = proficiencyComponent.getAgriLevel();
+            int butch_level = proficiencyComponent.getButchLevel();
+            int cook_level = proficiencyComponent.getCookLevel();
+            int pros_level = proficiencyComponent.getProsLevel();
+            int smith_level = proficiencyComponent.getSmithLevel();
             matrixStack.push();
-            //renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.health", new TranslatableText(String.valueOf(health)),new TranslatableText(String.valueOf(max))));
+            renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.agri", new TranslatableText(String.valueOf(agri_level))), height, 7);
+            renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.butch", new TranslatableText(String.valueOf(butch_level))), height, 6);
+            renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.cook", new TranslatableText(String.valueOf(cook_level))), height, 5);
+            renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.pros", new TranslatableText(String.valueOf(pros_level))), height, 4);
+            renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.smith", new TranslatableText(String.valueOf(smith_level))), height, 3);
             matrixStack.pop();
         });
     }
 
-    void renderText(MatrixStack stack, TextRenderer renderer, Text text) {
-        MinecraftClient mc = MinecraftClient.getInstance();
+    void renderText(MatrixStack stack, TextRenderer renderer, Text text, int height, int offset) {
         int textWidth = renderer.getWidth(text);
-        int width = mc.getWindow().getScaledWidth();
-        int height = mc.getWindow().getScaledHeight();
-        stack.scale(0.75F,0.75F,1F);
-        //TODO: Scale text pos with windowsize
-        drawCenteredText(stack, renderer, text, textWidth/2 + 200, height + 29, 0xffffff);
+        drawCenteredText(stack, renderer, text, textWidth/2 + 10, height + 18 - offset*9, 0xffffff);
     }
 }
