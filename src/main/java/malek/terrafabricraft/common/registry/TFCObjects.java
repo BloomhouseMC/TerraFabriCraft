@@ -7,10 +7,7 @@ import malek.terrafabricraft.common.block.entity.RockBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
-import net.minecraft.block.Block;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.SandBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
@@ -50,7 +47,7 @@ public class TFCObjects {
     public static final TFCGravityBlock DIRT_SILTY_LOAM = createSand("dirt/silty_loam", true);
     public static final TFCGravityBlock DIRT_LOAM = createSand("dirt/loam", true);
     public static final TFCGravityBlock DIRT_SANDY_LOAM = createSand("dirt/sandy_loam", true);
-    public static final TFCGravityBlock DIRT_PEAT = createSand("dirt/peat", true);
+    public static final TFCGravityBlock PEAT = createSand("peat", true);
     //Ground Cover
     public static final Block GROUNDCOVER_BONE = createGroundcover("groundcover/bone", Items.BONE);
     public static final Block GROUNDCOVER_CLAM = createGroundcover("groundcover/clam");
@@ -85,6 +82,26 @@ public class TFCObjects {
     public static final TFCLogs WOOD_LOG_SYCAMORE = createLog("wood/log/sycamore", true);
     public static final TFCLogs WOOD_LOG_WHITE_CEDAR = createLog("wood/log/white_cedar", true);
     public static final TFCLogs WOOD_LOG_WILLOW = createLog("wood/log/willow", true);
+//Stripped log
+    public static final TFCLogs WOOD_STRIPPED_LOG_ACACIA = createStrippedLog("wood/stripped_log/acacia", MapColor.RED, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_ASH = createStrippedLog("wood/stripped_log/ash", MapColor.BRIGHT_RED, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_ASPEN = createStrippedLog("wood/stripped_log/aspen", MapColor.LICHEN_GREEN, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_BIRCH = createStrippedLog("wood/stripped_log/birch", MapColor.PALE_YELLOW, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_BLACKWOOD = createStrippedLog("wood/stripped_log/blackwood", MapColor.BLACK, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_CHESTNUT = createStrippedLog("wood/stripped_log/chestnut", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_DOUGLAS_FIR = createStrippedLog("wood/stripped_log/douglas_fir", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_HICKORY = createStrippedLog("wood/stripped_log/hickory", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_KAPOK = createStrippedLog("wood/stripped_log/kapok", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_MAPLE = createStrippedLog("wood/stripped_log/maple", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_OAK = createStrippedLog("wood/stripped_log/oak", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_PALM = createStrippedLog("wood/stripped_log/palm", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_PINE = createStrippedLog("wood/stripped_log/pine", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_ROSEWOOD = createStrippedLog("wood/stripped_log/rosewood", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_SEQUOIA = createStrippedLog("wood/stripped_log/sequoia", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_SPRUCE = createStrippedLog("wood/stripped_log/spruce", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_SYCAMORE = createStrippedLog("wood/stripped_log/sycamore", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_WHITE_CEDAR = createStrippedLog("wood/stripped_log/white_cedar", MapColor.WHITE, true);
+    public static final TFCLogs WOOD_STRIPPED_LOG_WILLOW = createStrippedLog("wood/stripped_log/willow", MapColor.WHITE, true);
     //Sand
     public static final TFCGravityBlock SAND_BLACK = createSand("sand/black", true);
     public static final TFCGravityBlock SAND_BROWN = createSand("sand/brown", true);
@@ -109,12 +126,17 @@ public class TFCObjects {
 
     public static <T extends Block> T register(String id, T block, Item itemId) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
-//Do something with the item id.
         return block;
     }
 
     public static TFCLogs createLog(String id, boolean hasItem) {
         var block = new TFCLogs(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    public static TFCLogs createStrippedLog(String id, MapColor color, boolean hasItem) {
+        var block = new TFCLogs(FabricBlockSettings.of(Material.WOOD, color).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         register(id, block, hasItem);
         return block;
     }
@@ -151,7 +173,6 @@ public class TFCObjects {
 
     public static Block createGroundcover(String id) {
         var block = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(6.0f));
-//Assume drop id is the same as the block id
         register(id, block, true);
         return block;
     }
