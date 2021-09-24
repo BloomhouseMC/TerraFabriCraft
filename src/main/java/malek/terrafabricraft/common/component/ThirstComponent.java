@@ -17,32 +17,35 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
     public int passiveThirstTicker = 0;
 
     private final PlayerEntity playerEntity;
+
     public ThirstComponent(PlayerEntity playerEntity) {
         this.playerEntity = playerEntity;
     }
 
-    public int getThirst(){
+    public int getThirst() {
         return thirst;
     }
 
-    public int getMaxThirst(){
+    public int getMaxThirst() {
         return MAX_THIRST;
     }
 
-    public void setThirst(int thirst){
+    public void setThirst(int thirst) {
         this.thirst = thirst;
         TFCComponents.THIRST_COMPONENT.sync(playerEntity);
     }
 
-    public void increaseThirst(int add){
-        if(getThirst() + add <= getMaxThirst()){
+    public void increaseThirst(int add) {
+        if (getThirst() + add <= getMaxThirst()) {
             setThirst(getThirst() + add);
             TFCComponents.THIRST_COMPONENT.sync(playerEntity);
         }
     }
 
+
     public void decreaseThirst(int sub){
         if(getThirst() - sub >= 0){
+
             setThirst(getThirst() - sub);
             TFCComponents.THIRST_COMPONENT.sync(playerEntity);
         }
@@ -57,14 +60,16 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
         HealthComponent healthComponent = HealthComponent.get(playerEntity);
         ThirstComponent thirstComponent = ThirstComponent.get(playerEntity);
         //SLOW KILLER
+
         if(thirstComponent.getThirst() <= 0 && healthComponent.getHealth() > 0 && thirstTicker % 20 == 0){
+
             playerEntity.damage(TFCDamage.DROUGHT, 1.0F);
             thirstTicker = 0;
         }
 
         //TODO: should be faster than hunger
         //IDLE THIRST DECAY
-        if(difficulty != Difficulty.PEACEFUL && thirstComponent.getThirst() > 0 && passiveThirstTicker % 25 == 0 && !playerEntity.isSpectator() && !playerEntity.isCreative()){
+        if (difficulty != Difficulty.PEACEFUL && thirstComponent.getThirst() > 0 && passiveThirstTicker % 25 == 0 && !playerEntity.isSpectator() && !playerEntity.isCreative()) {
             thirstComponent.decreaseThirst(1);
             passiveThirstTicker = 0;
         }

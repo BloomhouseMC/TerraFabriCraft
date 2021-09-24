@@ -17,32 +17,35 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
     public int passiveHungerTicker = 0;
 
     private final PlayerEntity playerEntity;
+
     public HungerComponent(PlayerEntity playerEntity) {
         this.playerEntity = playerEntity;
     }
 
-    public int getHunger(){
+    public int getHunger() {
         return hunger;
     }
 
-    public int getMaxHunger(){
+    public int getMaxHunger() {
         return MAX_HUNGER;
     }
 
-    public void setHunger(int hunger){
+    public void setHunger(int hunger) {
         this.hunger = hunger;
         TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
     }
 
-    public void increaseHunger(int add){
-        if(getHunger() + add <= getMaxHunger()){
+    public void increaseHunger(int add) {
+        if (getHunger() + add <= getMaxHunger()) {
             setHunger(getHunger() + add);
             TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
         }
     }
 
+
     public void decreaseHunger(int sub){
         if(getHunger() - sub >= 0){
+
             setHunger(getHunger() - sub);
             TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
         }
@@ -57,18 +60,20 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         HealthComponent healthComponent = HealthComponent.get(playerEntity);
         HungerComponent hungerComponent = HungerComponent.get(playerEntity);
         //HEALING
-        if (difficulty != Difficulty.PEACEFUL && passiveHungerTicker >= 10 && healthComponent.getHealth() < healthComponent.getMaxHealth() && hungerComponent.getHunger() > (int)hungerComponent.getMaxHunger()*0.8) {
+        if (difficulty != Difficulty.PEACEFUL && passiveHungerTicker >= 10 && healthComponent.getHealth() < healthComponent.getMaxHealth() && hungerComponent.getHunger() > (int) hungerComponent.getMaxHunger() * 0.8) {
             healthComponent.increaseHealth(2);
             hungerComponent.decreaseHunger(1);
             passiveHungerTicker = 0;
         }
         //SLOW KILLER
+
         if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0){
+
             playerEntity.damage(DamageSource.STARVE, 1.0F);
             hungerTicker = 0;
         }
         //IDLE HUNGER DECAY
-        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 35 == 0 && difficulty != Difficulty.PEACEFUL && !playerEntity.isSpectator() && !playerEntity.isCreative()){
+        if (hungerComponent.getHunger() > 0 && passiveHungerTicker % 35 == 0 && difficulty != Difficulty.PEACEFUL && !playerEntity.isSpectator() && !playerEntity.isCreative()) {
             hungerComponent.decreaseHunger(1);
             passiveHungerTicker = 0;
         }

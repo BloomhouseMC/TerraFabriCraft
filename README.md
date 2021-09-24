@@ -12,7 +12,7 @@ A mod
 [![Downloads](https://img.shields.io/badge/dynamic/json?label=Downloads&style=for-the-badge&color=f16436&query=downloadCount&url=https%3A%2F%2Faddons-ecs.forgesvc.net%2Fapi%2Fv2%2Faddon%2F494721)][curseforge:files]
 </div>
 
-Text here
+Our take on an old mod
 
 It is built on the [Fabric][fabric] mod loader and is available for modern
 versions of [Minecraft][minecraft] Java Edition.
@@ -32,8 +32,8 @@ Discord link: [Maleks Modding Studios][contributing]
 [curseforge:files]: https://curseforge.com/minecraft/mc-mods/modid/files
 [fabric]: https://fabricmc.net/
 [minecraft]: https://minecraft.net/
-[releases]: https://github.com/Maleks-Modding-Studios/Terrafabricraft/releases
 [mrsterner]: https://github.com/mrsterner
 [MalekiRe]: https://github.com/MalekiRe
 [Safrodev]: https://github.com/Safrodev
 [Voleil]: https://github.com/Voleil
+

@@ -6,7 +6,7 @@ import net.minecraft.util.Identifier;
 import static malek.terrafabricraft.common.registry.TFCObjects.createRock;
 
 public class StoneBlock {
-   // public Block groundCover;
+    // public Block groundCover;
     //TODO : Add facing and power varation for the stone button
     public Block button;
     public Block anvil;
@@ -60,7 +60,7 @@ public class StoneBlock {
     public Block topaz;
 
     public StoneBlock(String name) {
-        String id = "rock/";
+        var id = "rock/";
         button = setCreateBlock(name, id, "button");
         anvil = setCreateBlock(name, id, "anvil");
         brick = setCreateBlock(name, id, "bricks");
@@ -111,22 +111,21 @@ public class StoneBlock {
         sulfur = setCreateBlock(name, id, "sulfur");
         sylvite = setCreateBlock(name, id, "sylvite");
         topaz = setCreateBlock(name, id, "topaz");
-
-
-
     }
 
     private static Block setCreateBlock(String name, String id, String special) {
-        return createRock(id+special+"/"+name, true);
+        return createRock(id + special + "/" + name, true);
     }
+
     public class OreStoneBlock {
         public Block poor;
         public Block normal;
         public Block rich;
+
         public OreStoneBlock(String rockType, String oreType) {
-            poor = setCreateBlock(rockType, "ore/poor_"+oreType, "");
-            normal = setCreateBlock(rockType, "ore/normal_"+oreType, "");
-            rich = setCreateBlock(rockType, "ore/rich_"+oreType, "");
+            poor = setCreateBlock(rockType, "ore/poor_" + oreType, "");
+            normal = setCreateBlock(rockType, "ore/normal_" + oreType, "");
+            rich = setCreateBlock(rockType, "ore/rich_" + oreType, "");
         }
     }
 }

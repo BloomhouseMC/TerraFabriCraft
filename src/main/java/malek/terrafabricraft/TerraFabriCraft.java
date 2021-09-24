@@ -11,7 +11,13 @@ import net.minecraft.util.Identifier;
 public class TerraFabriCraft implements ModInitializer {
 
     public static final String MODID = "terrafabricraft";
-    public static final ItemGroup TERRAFABRICRAFT_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.DIRT_SILT));
+    public static final ItemGroup TFCROCKETSOIL_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.ROCK_BLOCK));
+    public static final ItemGroup TFCROCK_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.ORE_SMALL_BISMUTHINITE));
+    public static final ItemGroup TFCWOOD_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
+    public static final ItemGroup TFCMETAL_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
+    public static final ItemGroup TFCGEMS_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
+    public static final ItemGroup TFCPOTTERY_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
+    public static final ItemGroup TFCMISC_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
 
     @Override
     public void onInitialize() {

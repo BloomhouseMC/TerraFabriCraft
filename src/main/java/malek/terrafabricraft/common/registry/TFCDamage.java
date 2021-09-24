@@ -10,8 +10,8 @@ public class TFCDamage {
     public static final DamageSource DROUGHT = new UnblockableDamageSource("drought");
 
     public static float handleDamage(LivingEntity entity, DamageSource source, float amount) {
-        if(entity instanceof PlayerEntity){
-            amount = handlePlayerDamage((PlayerEntity) (Object)entity, source, amount);
+        if (entity instanceof PlayerEntity) {
+            amount = handlePlayerDamage((PlayerEntity) (Object) entity, source, amount);
         }
         return amount;
     }
@@ -27,6 +27,7 @@ public class TFCDamage {
         }
         return amount;
     }
+
     private static class UnblockableDamageSource extends DamageSource {
         protected UnblockableDamageSource(String name) {
             super(name);
