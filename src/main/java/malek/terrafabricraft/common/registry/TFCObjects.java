@@ -247,13 +247,13 @@ public class TFCObjects {
     }
 
     public static Block createRock(String id, boolean hasItem) {
-        var block = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(2.0f).nonOpaque());
+        var block = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.STONE).strength(2.0f).nonOpaque());
         register(id, block, hasItem);
         return block;
     }
 
     public static Block createGroundOre(String id, boolean hasItem, int meltingPoint) {
-        var block = new GroundCoverOre(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(2.0f));
+        var block = new GroundCoverOre(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         createItem(id, new GroundCoverOreBlockItem(block, gen(), meltingPoint));
         register(id, block, false);
         return block;
@@ -266,7 +266,7 @@ public class TFCObjects {
     }
 
     public static TFCGravityBlock createFarmland(String id, boolean hasItem) {
-        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.GOURD).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.GRAVEL).strength(2.0f));
+        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
         register(id, block, hasItem);
         return block;
     }
