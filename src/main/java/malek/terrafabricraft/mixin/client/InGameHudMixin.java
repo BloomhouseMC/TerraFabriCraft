@@ -41,7 +41,6 @@ public abstract class InGameHudMixin extends DrawableHelper {
     private int scaledWidth;
 
 
-    //TODO: Add Oxygen Bubbles
     @Inject(method = "renderStatusBars", at = @At(value = "INVOKE", shift = At.Shift.AFTER, ordinal = 1, target = "Lnet/minecraft/client/MinecraftClient;getProfiler()Lnet/minecraft/util/profiler/Profiler;"))
     private void renderPre(MatrixStack matrices, CallbackInfo callbackInfo) {
         PlayerEntity player = getCameraPlayer();
@@ -51,7 +50,7 @@ public abstract class InGameHudMixin extends DrawableHelper {
         drawHealth(matrices, player, scaledWidth / 2 - 91, scaledHeight - 40);
         RenderSystem.setShaderTexture(0, EMPTY_GUI_ICONS_TEXTURE);
     }
-
+    //Rebind vanilla GUI textures after Health and Hunger has been removed
     @Inject(method = "renderStatusBars", at = @At(value = "INVOKE", shift = At.Shift.AFTER, ordinal = 3, target = "Lnet/minecraft/client/MinecraftClient;getProfiler()Lnet/minecraft/util/profiler/Profiler;"))
     private void renderPost(MatrixStack matrices, CallbackInfo callbackInfo) {
         RenderSystem.setShaderTexture(0, GUI_ICONS_TEXTURE);

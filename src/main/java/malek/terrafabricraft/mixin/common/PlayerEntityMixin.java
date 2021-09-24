@@ -8,9 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
@@ -25,14 +23,5 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             amount = TFCDamage.handleDamage(this, source, amount);
         }
         return amount;
-    }
-
-
-    @Inject(method = "damage", at = @At(value = "HEAD"), cancellable = true)
-    private void canDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir){
-        this.despawnCounter=0;
-        if (this.isDead()) {
-            cir.setReturnValue(false);
-        }
     }
 }
