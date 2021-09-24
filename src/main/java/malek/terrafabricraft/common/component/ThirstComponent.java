@@ -55,7 +55,7 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
 
         //TODO: should be faster than hunger
         //IDLE THIRST DECAY
-        if(difficulty != Difficulty.PEACEFUL && thirstComponent.getThirst() > 0 && passiveThirstTicker % 10 == 0 && !playerEntity.isSpectator() && !playerEntity.isCreative()){
+        if(difficulty != Difficulty.PEACEFUL && thirstComponent.getThirst() > 0 && passiveThirstTicker % 20 == 0 && !playerEntity.isSpectator() && !playerEntity.isCreative()){
             thirstComponent.setThirst(thirstComponent.getThirst() - 1);
             passiveThirstTicker = 0;
         }

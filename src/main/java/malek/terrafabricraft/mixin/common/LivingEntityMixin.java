@@ -31,7 +31,14 @@ public abstract class LivingEntityMixin extends Entity {
     private void computeFallDamage(float fallDistance, float damageMultiplier, CallbackInfoReturnable<Integer> cir){
         StatusEffectInstance statusEffectInstance = this.getStatusEffect(StatusEffects.JUMP_BOOST);
         float f = statusEffectInstance == null ? 0.0F : (float)(statusEffectInstance.getAmplifier() + 1);
-        cir.setReturnValue(10 * MathHelper.ceil((fallDistance - 3.0F - f) * damageMultiplier));
+        cir.setReturnValue(MathHelper.ceil((fallDistance - 3.0F - f) * damageMultiplier));
+    }
+    @ModifyVariable(method = "applyDamage", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, ordinal = 0, target = "Lnet/minecraft/entity/LivingEntity;getHealth()F"))
+    private float modifyDamage(float amount, DamageSource source) {
+        if (!world.isClient) {
+            amount = TFCDamage.handleDamage((LivingEntity) (Object)this, source, amount);
+        }
+        return amount;
     }
 
 

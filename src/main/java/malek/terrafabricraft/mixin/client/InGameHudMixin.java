@@ -41,21 +41,23 @@ public abstract class InGameHudMixin extends DrawableHelper {
     private int scaledWidth;
 
 
-    //TODO: Add Thirst and replace statusbars
+    //TODO: Add Oxygen Bubbles
     @Inject(method = "renderStatusBars", at = @At(value = "INVOKE", shift = At.Shift.AFTER, ordinal = 1, target = "Lnet/minecraft/client/MinecraftClient;getProfiler()Lnet/minecraft/util/profiler/Profiler;"))
     private void renderPre(MatrixStack matrices, CallbackInfo callbackInfo) {
         PlayerEntity player = getCameraPlayer();
-        //To use our textures
         RenderSystem.setShaderTexture(0, TFC_GUI_ICONS_TEXTURE);
         drawHunger(matrices, player, scaledWidth / 2 + 1, scaledHeight - 40);
         drawThirst(matrices, player, scaledWidth / 2 + 1, scaledHeight - 35);
-        matrices.push();
         drawHealth(matrices, player, scaledWidth / 2 - 91, scaledHeight - 40);
-        matrices.pop();
-
-        //To give back minecraft its textures
         RenderSystem.setShaderTexture(0, EMPTY_GUI_ICONS_TEXTURE);
     }
+
+    @Inject(method = "renderStatusBars", at = @At(value = "INVOKE", shift = At.Shift.AFTER, ordinal = 3, target = "Lnet/minecraft/client/MinecraftClient;getProfiler()Lnet/minecraft/util/profiler/Profiler;"))
+    private void renderPost(MatrixStack matrices, CallbackInfo callbackInfo) {
+        RenderSystem.setShaderTexture(0, GUI_ICONS_TEXTURE);
+    }
+
+
     private void drawHealth(MatrixStack matrices, LivingEntity entity, int x, int y) {
         HealthComponent.maybeGet(entity).ifPresent(healthComponent -> {
             MinecraftClient mc = MinecraftClient.getInstance();

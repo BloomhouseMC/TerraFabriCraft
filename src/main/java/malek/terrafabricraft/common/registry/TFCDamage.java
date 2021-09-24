@@ -15,12 +15,11 @@ public class TFCDamage {
         return amount;
     }
 
-
     public static float handlePlayerDamage(PlayerEntity entity, DamageSource source, float amount) {
         HealthComponent healthComponent = HealthComponent.get(entity);
         while (amount >= 0 && healthComponent.getHealth() > 0 && !entity.isDead()) {
             amount--;
-            healthComponent.setHealth(healthComponent.getHealth() - 1);
+            healthComponent.setHealth(healthComponent.getHealth() - 5);
         }
         return amount;
     }
