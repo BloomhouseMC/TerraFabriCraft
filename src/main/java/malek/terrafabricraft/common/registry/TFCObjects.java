@@ -1,13 +1,15 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.block.RotatingBlock;
+import malek.terrafabricraft.common.block.RotatableBlock;
 import malek.terrafabricraft.common.block.entity.RockBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
+import net.minecraft.block.SandBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
@@ -16,6 +18,7 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.shape.VoxelShape;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -24,63 +27,79 @@ public class TFCObjects {
     public static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
     private static final Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
     private static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
-    //Should use leaves sound.
-    public static final FabricBlockSettings LEAVES_TAG = FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f);
-    public static final FabricBlockSettings STONE_TAG = FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(6.0f);
-    public static final FabricBlockSettings DIRT_TAG = FabricBlockSettings.of(Material.SOIL).breakByTool(FabricToolTags.SHOVELS).sounds(BlockSoundGroup.GRAVEL).strength(0.2f);
-    //Should be rotatable block.
-    public static final FabricBlockSettings LOG_TAG = FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f);
-    public static final FabricBlockSettings GROUNDCOVER_TAG = FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(6.0f);
 
+    //Clay
+    public static final Block CLAY_LOAM = createGravel("clay/loam", true);
     //Stone
-    public static final Block ROCK_BLOCK = create("rock_block", new Block(STONE_TAG), true);
-    //Dirt
-    public static final Block DIRT_SILT = create("dirt/silt", new Block(DIRT_TAG), true);
-    public static final Block DIRT_SILTY_LOAM = create("dirt/silty_loam", new Block(DIRT_TAG), true);
-    public static final Block DIRT_LOAM = create("dirt/loam", new Block(DIRT_TAG), true);
-    public static final Block DIRT_SANDY_LOAM = create("dirt/sandy_loam", new Block(DIRT_TAG), true);
-    public static final Block DIRT_PEAT = create("dirt/peat", new Block(DIRT_TAG), true);
-    //Ground Cover
-    public static final Block GROUNDCOVER_STICK = create("groundcover/stick", new Block(GROUNDCOVER_TAG), Items.STICK);
-    public static final Block ORE_SMALL_BISMUTHINITE = create("ore/small_bismuthinite", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_CASSITERITE = create("ore/small_cassiterite", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_GARNIERITE = create("ore/small_garnierite", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_HEMATITE = create("ore/small_hematite", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_LIMONITE = create("ore/small_limonite", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_MAGNETITE = create("ore/small_magnetite", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_MALACHITE = create("ore/small_malachite", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_NATIVE_COPPPER = create("ore/small_native_copper", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_NATIVE_GOLD = create("ore/small_native_gold", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_NATIVE_SILVER = create("ore/small_native_silver", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_SPHALERITE = create("ore/small_sphalerite", new Block(GROUNDCOVER_TAG), true);
-    public static final Block ORE_SMALL_TETRAHEDRITE = create("ore/small_tetrahedrite", new Block(GROUNDCOVER_TAG),true);
+    public static final Block ROCK_BLOCK = createRock("rock_block", true);
+    public static final Block ORE_SMALL_BISMUTHINITE = createRock("ore/small_bismuthinite", true);
+    public static final Block ORE_SMALL_CASSITERITE = createRock("ore/small_cassiterite", true);
+    public static final Block ORE_SMALL_GARNIERITE = createRock("ore/small_garnierite", true);
+    public static final Block ORE_SMALL_HEMATITE = createRock("ore/small_hematite", true);
+    public static final Block ORE_SMALL_LIMONITE = createRock("ore/small_limonite", true);
+    public static final Block ORE_SMALL_MAGNETITE = createRock("ore/small_magnetite", true);
+    public static final Block ORE_SMALL_MALACHITE = createLog("ore/small_malachite", true);
+    public static final Block ORE_SMALL_NATIVE_COPPPER = createRock("ore/small_native_copper", true);
+    public static final Block ORE_SMALL_NATIVE_GOLD = createRock("ore/small_native_gold", true);
+    public static final Block ORE_SMALL_NATIVE_SILVER = createRock("ore/small_native_silver", true);
+    public static final Block ORE_SMALL_SPHALERITE = createRock("ore/small_sphalerite", true);
+    public static final Block ORE_SMALL_TETRAHEDRITE = createRock("ore/small_tetrahedrite", true);
 
+    //Dirt
+    public static final Block DIRT_SILT = createLog("dirt/silt", true);
+    public static final Block DIRT_SILTY_LOAM = createLog("dirt/silty_loam", true);
+    public static final Block DIRT_LOAM = createLog("dirt/loam", true);
+    public static final Block DIRT_SANDY_LOAM = createLog("dirt/sandy_loam", true);
+    public static final Block DIRT_PEAT = createLog("dirt/peat", true);
+    //Ground Cover
+    public static final Block GROUNDCOVER_BONE = createGroundcover("groundcover/bone", Items.BONE);
+    public static final Block GROUNDCOVER_CLAM = createGroundcover("groundcover/clam");
+    public static final Block GROUNDCOVER_DEAD_GRASS = createGroundcover("groundcover/dead_grass");
+    public static final Block GROUNDCOVER_DRIFTWOOD = createGroundcover("groundcover/driftwood");
+    public static final Block GROUNDCOVER_FEATHER = createGroundcover("groundcover/feather", Items.FEATHER);
+    public static final Block GROUNDCOVER_GUANO = createGroundcover("groundcover/guano");
+    public static final Block GROUNDCOVER_MOLLUSK = createGroundcover("groundcover/mollusk");
+    public static final Block GROUNDCOVER_MUSSEL = createGroundcover("groundcover/mussel");
+    public static final Block GROUNDCOVER_PINECONE = createGroundcover("groundcover/pinecone");
+    public static final Block GROUNDCOVER_PODZOL = createGroundcover("groundcover/podzol", Items.PODZOL);
+    public static final Block GROUNDCOVER_ROTTEN_FLESH = createGroundcover("groundcover/rotten_flesh", Items.ROTTEN_FLESH);
+    public static final Block GROUNDCOVER_SALT_LICK = createGroundcover("groundcover/seaweed");
+    public static final Block GROUNDCOVER_STICK = createGroundcover("groundcover/stick", Items.STICK);
     //Logs
-    public static final Block WOOD_LOG_ACACIA = create("wood/log/acacia", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_ASH = create("wood/log/ash", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_ASPEN = create("wood/log/aspen", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_BIRCH = create("wood/log/birch", new Block(LOG_TAG), true);
-    public static final Block WOOD_LOG_BLACKWOOD = create("wood/log/blackwood", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_CHESTNUT = create("wood/log/chestnut", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_DOUGLAS_FIR = create("wood/log/douglas_fir", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_HICKORY = create("wood/log/hickory", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_KAPOK = create("wood/log/kapok", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_MAPLE = create("wood/log/maple", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_OAK = create("wood/log/oak", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_PALM = create("wood/log/palm", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_PINE = create("wood/log/pine", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_ROSEWOOD = create("wood/log/rosewood", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_SEQUOIA = create("wood/log/sequoia", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_SPRUCE = create("wood/log/spruce", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_SYCAMORE = create("wood/log/sycamore", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_WHITE_CEDAR = create("wood/log/white_cedar", new RotatingBlock(LOG_TAG), true);
-    public static final Block WOOD_LOG_WILLOW = create("wood/log/willow", new RotatingBlock(LOG_TAG), true);
+    public static final RotatableBlock WOOD_LOG_ACACIA = createLog("wood/log/acacia", true);
+    public static final RotatableBlock WOOD_LOG_ASH = createLog("wood/log/ash", true);
+    public static final RotatableBlock WOOD_LOG_ASPEN = createLog("wood/log/aspen", true);
+    public static final RotatableBlock WOOD_LOG_BIRCH = createLog("wood/log/birch", true);
+    public static final RotatableBlock WOOD_LOG_BLACKWOOD = createLog("wood/log/blackwood", true);
+    public static final RotatableBlock WOOD_LOG_CHESTNUT = createLog("wood/log/chestnut", true);
+    public static final RotatableBlock WOOD_LOG_DOUGLAS_FIR = createLog("wood/log/douglas_fir", true);
+    public static final RotatableBlock WOOD_LOG_HICKORY = createLog("wood/log/hickory", true);
+    public static final RotatableBlock WOOD_LOG_KAPOK = createLog("wood/log/kapok", true);
+    public static final RotatableBlock WOOD_LOG_MAPLE = createLog("wood/log/maple", true);
+    public static final RotatableBlock WOOD_LOG_OAK = createLog("wood/log/oak", true);
+    public static final RotatableBlock WOOD_LOG_PALM = createLog("wood/log/palm", true);
+    public static final RotatableBlock WOOD_LOG_PINE = createLog("wood/log/pine", true);
+    public static final RotatableBlock WOOD_LOG_ROSEWOOD = createLog("wood/log/rosewood", true);
+    public static final RotatableBlock WOOD_LOG_SEQUOIA = createLog("wood/log/sequoia", true);
+    public static final RotatableBlock WOOD_LOG_SPRUCE = createLog("wood/log/spruce", true);
+    public static final RotatableBlock WOOD_LOG_SYCAMORE = createLog("wood/log/sycamore", true);
+    public static final RotatableBlock WOOD_LOG_WHITE_CEDAR = createLog("wood/log/white_cedar", true);
+    public static final RotatableBlock WOOD_LOG_WILLOW = createLog("wood/log/willow", true);
+    //Sand
+    public static final SandBlock SAND_BLACK = createSand("sand/black", true);
+    public static final SandBlock SAND_BROWN = createSand("sand/brown", true);
+    public static final SandBlock SAND_GREEN = createSand("sand/green", true);
+    public static final SandBlock SAND_PINK = createSand("sand/pink", true);
+    public static final SandBlock SAND_RED = createSand("sand/red", true);
+    public static final SandBlock SAND_WHITE = createSand("sand/white", true);
+    public static final SandBlock SAND_YELLOW = createSand("sand/yellow", true);
+
     //Items
-    public static final Item ROCK = create("rock", new Item(gen()));
+    public static final Item ROCK = createItem("rock", new Item(gen()));
     //Block Entities
     public static final BlockEntityType<RockBlockEntity> ROCK_BLOCK_ENTITY = register("rock_block_entity", FabricBlockEntityTypeBuilder.create(RockBlockEntity::new, TFCObjects.ROCK_BLOCK).build(null));
 
-    public static <T extends Block> T create(String id, T block, boolean hasItem) {
+    public static <T extends Block> T register(String id, T block, boolean hasItem) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
         if (hasItem) {
             ITEMS.put(new BlockItem(block, gen()), BLOCKS.get(block));
@@ -88,14 +107,64 @@ public class TFCObjects {
         return block;
     }
 
-    public static <T extends Block> T create(String id, T block, Item dropId) {
+    public static <T extends Block> T register(String id, T block, Item itemId) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
+//Do something with the item id.
+        return block;
+    }
+
+    public static RotatableBlock createLog(String id, boolean hasItem) {
+        var block = new RotatableBlock(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    public static Block createRock(String id, boolean hasItem) {
+        var block = new Block(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    public static Block createGravel(String id, boolean hasItem) {
+        var block = new Block(FabricBlockSettings.of(Material.SOIL).breakByTool(FabricToolTags.SHOVELS).sounds(BlockSoundGroup.GRAVEL).strength(0.2f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    public static LeavesBlock createLeaves(String id, boolean hasItem) {
+        var block = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    public static SandBlock createSand(String id, boolean hasItem) {
+        var block = new SandBlock(69, FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        register(id, block, hasItem);
+        return block;
+    }
+
+    public static Block createGroundcover(String id, Item dropId) {
+        var block = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(6.0f));
+        register(id, block, dropId);
+        return block;
+    }
+
+    public static Block createGroundcover(String id) {
+        var block = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(6.0f));
+//Assume drop id is the same as the block id
+        register(id, block, true);
+        return block;
+    }
+
+    static RotatableBlock createStrippedLog(String id) {
+        var block = new RotatableBlock(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        register(id, block, true);
         return block;
     }
 
 
-//Register item
-    private static <T extends Item> T create(String id, T item) {
+    //Register item
+    private static <T extends Item> T createItem(String id, T item) {
         ITEMS.put(item, new Identifier(TerraFabriCraft.MODID, id));
         return item;
     }
