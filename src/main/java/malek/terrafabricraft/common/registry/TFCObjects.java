@@ -72,7 +72,7 @@ public class TFCObjects {
     public static final Block ORE_SMALL_SPHALERITE = createGroundOre("ore/small_sphalerite", true, 1085);
     public static final Block ORE_SMALL_TETRAHEDRITE = createGroundOre("ore/small_tetrahedrite", true, 1085);
     //Ore
-    public static final Block ORE_AMETHYST_ANDESITE = createRock("ore/amethyst/andesite", true);
+    /*public static final Block ORE_AMETHYST_ANDESITE = createRock("ore/amethyst/andesite", true);
     public static final Block ORE_AMETHYST_BASALT = createRock("ore/amethyst/basalt", true);
     public static final Block ORE_AMETHYST_CHALK = createRock("ore/amethyst/chalk", true);
     public static final Block ORE_AMETHYST_CHERT = createRock("ore/amethyst/chert", true);
@@ -91,7 +91,7 @@ public class TFCObjects {
     public static final Block ORE_AMETHYST_RHYOLITE = createRock("ore/amethyst/rhyolite", true);
     public static final Block ORE_AMETHYST_SCHIST = createRock("ore/amethyst/schist", true);
     public static final Block ORE_AMETHYST_SHALE = createRock("ore/amethyst/shale", true);
-    public static final Block ORE_AMETHYST_SLATE = createRock("ore/amethyst/slate", true);
+    public static final Block ORE_AMETHYST_SLATE = createRock("ore/amethyst/slate", true);*/
     //Peat grass
     public static final TFCGravityBlock PEAT_GRASS = createSand("peat_grass", true);
     //Sand
@@ -160,6 +160,28 @@ public class TFCObjects {
     public static final TFCLogs WOOD_STRIPPED_LOG_SYCAMORE = createStrippedLog("wood/stripped_log/sycamore", MapColor.WHITE, true);
     public static final TFCLogs WOOD_STRIPPED_LOG_WHITE_CEDAR = createStrippedLog("wood/stripped_log/white_cedar", MapColor.WHITE, true);
     public static final TFCLogs WOOD_STRIPPED_LOG_WILLOW = createStrippedLog("wood/stripped_log/willow", MapColor.WHITE, true);
+
+    public static final StoneBlock ANDESITE = new StoneBlock("andesite");
+    public static final StoneBlock BASALT = new StoneBlock("basalt");
+    public static final StoneBlock CHALK = new StoneBlock("chalk");
+    public static final StoneBlock CHERT = new StoneBlock("chert");
+    public static final StoneBlock CLAYSTONE = new StoneBlock("claystone");
+    public static final StoneBlock CONGLOMERATE = new StoneBlock("conglomerate");
+    public static final StoneBlock DACITE = new StoneBlock("dacite");
+    public static final StoneBlock DIORITE = new StoneBlock("diorite");
+    public static final StoneBlock DOLOMITE = new StoneBlock("dolomite");
+    public static final StoneBlock GABBRO = new StoneBlock("gabbro");
+    public static final StoneBlock GNEISS = new StoneBlock("gneiss");
+    public static final StoneBlock GRANITE = new StoneBlock("granite");
+    public static final StoneBlock LIMESTONE = new StoneBlock("limestone");
+    public static final StoneBlock MARBLE = new StoneBlock("marble");
+    public static final StoneBlock PHYLLITE = new StoneBlock("phyllite");
+    public static final StoneBlock QUARTZITE = new StoneBlock("quartzite");
+    public static final StoneBlock RHYOLITE = new StoneBlock("rhyolite");
+    public static final StoneBlock SCHIST = new StoneBlock("schist");
+    public static final StoneBlock SHALE = new StoneBlock("shale");
+    public static final StoneBlock SLATE = new StoneBlock("slate");
+
     //Saplings
     //Todo Make generic trees to register saplings.
 //    public static final SaplingBlock WOOD_SAPLING_ACACIA = createSapling("wood/sapling/acacia", true);
@@ -182,8 +204,7 @@ public class TFCObjects {
 //    public static final SaplingBlock WOOD_SAPLING_WHITE_CEDAR = createSapling("wood/sapling/white_cedar", true);
 //    public static final SaplingBlock WOOD_SAPLING_WILLOW = createSapling("wood/sapling/willow", true);
 
-    //Items
-    public static final Item ROCK = createItem("rock", new Item(gen()));
+
     //Block Entities
     public static final BlockEntityType<RockBlockEntity> ROCK_BLOCK_ENTITY = register("rock_block_entity", FabricBlockEntityTypeBuilder.create(RockBlockEntity::new, TFCObjects.ROCK_BLOCK).build(null));
 
@@ -226,7 +247,7 @@ public class TFCObjects {
     }
 
     public static Block createRock(String id, boolean hasItem) {
-        var block = new GroundCoverBlock(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        var block = new Block(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         register(id, block, hasItem);
         return block;
     }
