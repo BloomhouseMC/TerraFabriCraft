@@ -66,9 +66,10 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0){
             healthComponent.decreaseHealth(10);
             playerEntity.damage(DamageSource.STARVE, 1.0F);
+            hungerTicker = 0;
         }
         //IDLE HUNGER DECAY
-        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 25 == 0 && difficulty != Difficulty.PEACEFUL && !playerEntity.isSpectator() && !playerEntity.isCreative()){
+        if(hungerComponent.getHunger() > 0 && passiveHungerTicker % 35 == 0 && difficulty != Difficulty.PEACEFUL && !playerEntity.isSpectator() && !playerEntity.isCreative()){
             hungerComponent.decreaseHunger(1);
             passiveHungerTicker = 0;
         }

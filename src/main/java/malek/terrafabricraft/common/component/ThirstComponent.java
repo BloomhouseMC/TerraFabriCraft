@@ -48,6 +48,7 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
         }
     }
 
+    //TODO: fix values
     @Override
     public void serverTick() {
         thirstTicker++;
@@ -59,11 +60,12 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
         if(thirstComponent.getThirst() <= 0 && healthComponent.getHealth() > 0 && thirstTicker % 20 == 0){
             healthComponent.decreaseHealth(10);
             playerEntity.damage(TFCDamage.DROUGHT, 1.0F);
+            thirstTicker = 0;
         }
 
         //TODO: should be faster than hunger
         //IDLE THIRST DECAY
-        if(difficulty != Difficulty.PEACEFUL && thirstComponent.getThirst() > 0 && passiveThirstTicker % 20 == 0 && !playerEntity.isSpectator() && !playerEntity.isCreative()){
+        if(difficulty != Difficulty.PEACEFUL && thirstComponent.getThirst() > 0 && passiveThirstTicker % 25 == 0 && !playerEntity.isSpectator() && !playerEntity.isCreative()){
             thirstComponent.decreaseThirst(1);
             passiveThirstTicker = 0;
         }
