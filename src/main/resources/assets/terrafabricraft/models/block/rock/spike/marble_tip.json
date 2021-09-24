@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/rock/spike_tip",
+  "parent": "terrafabricraft:block/rock/spike_tip",
   "textures": {
-    "texture": "terrifabricraft:block/rock/raw/marble",
-    "particle": "terrifabricraft:block/rock/raw/marble"
+    "texture": "terrafabricraft:block/rock/raw/marble",
+    "particle": "terrafabricraft:block/rock/raw/marble"
   }
 }

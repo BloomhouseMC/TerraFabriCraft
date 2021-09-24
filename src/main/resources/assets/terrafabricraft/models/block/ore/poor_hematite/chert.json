@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "terrifabricraft:block/rock/raw/chert",
-    "particle": "terrifabricraft:block/rock/raw/chert",
-    "overlay": "terrifabricraft:block/ore/poor_hematite"
+    "all": "terrafabricraft:block/rock/raw/chert",
+    "particle": "terrafabricraft:block/rock/raw/chert",
+    "overlay": "terrafabricraft:block/ore/poor_hematite"
   }
 }

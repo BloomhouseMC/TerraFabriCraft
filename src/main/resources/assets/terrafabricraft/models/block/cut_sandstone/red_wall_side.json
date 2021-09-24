@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/template_wall_side",
   "textures": {
-    "wall": "terrifabricraft:block/sandstone/cut/red"
+    "wall": "terrafabricraft:block/sandstone/cut/red"
   }
 }

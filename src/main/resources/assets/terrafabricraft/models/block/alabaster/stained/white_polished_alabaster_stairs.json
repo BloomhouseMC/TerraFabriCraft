@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/alabaster/stained/white_polished_alabaster",
-    "top": "terrifabricraft:block/alabaster/stained/white_polished_alabaster",
-    "side": "terrifabricraft:block/alabaster/stained/white_polished_alabaster"
+    "bottom": "terrafabricraft:block/alabaster/stained/white_polished_alabaster",
+    "top": "terrafabricraft:block/alabaster/stained/white_polished_alabaster",
+    "side": "terrafabricraft:block/alabaster/stained/white_polished_alabaster"
   }
 }

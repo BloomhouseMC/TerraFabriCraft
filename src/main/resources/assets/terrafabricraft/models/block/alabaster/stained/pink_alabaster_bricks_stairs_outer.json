@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/alabaster/stained/pink_alabaster_bricks",
-    "top": "terrifabricraft:block/alabaster/stained/pink_alabaster_bricks",
-    "side": "terrifabricraft:block/alabaster/stained/pink_alabaster_bricks"
+    "bottom": "terrafabricraft:block/alabaster/stained/pink_alabaster_bricks",
+    "top": "terrafabricraft:block/alabaster/stained/pink_alabaster_bricks",
+    "side": "terrafabricraft:block/alabaster/stained/pink_alabaster_bricks"
   }
 }

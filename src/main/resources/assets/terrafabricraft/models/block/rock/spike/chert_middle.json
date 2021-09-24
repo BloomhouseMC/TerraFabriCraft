@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/rock/spike_middle",
+  "parent": "terrafabricraft:block/rock/spike_middle",
   "textures": {
-    "texture": "terrifabricraft:block/rock/raw/chert",
-    "particle": "terrifabricraft:block/rock/raw/chert"
+    "texture": "terrafabricraft:block/rock/raw/chert",
+    "particle": "terrafabricraft:block/rock/raw/chert"
   }
 }

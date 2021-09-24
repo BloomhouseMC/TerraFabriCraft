@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/plant/berry_bush_1",
+  "parent": "terrafabricraft:block/plant/berry_bush_1",
   "textures": {
-    "cane": "terrifabricraft:block/berry_bush/flowering_raspberry_cane",
-    "bush": "terrifabricraft:block/berry_bush/flowering_raspberry_bush"
+    "cane": "terrafabricraft:block/berry_bush/flowering_raspberry_cane",
+    "bush": "terrafabricraft:block/berry_bush/flowering_raspberry_bush"
   }
 }

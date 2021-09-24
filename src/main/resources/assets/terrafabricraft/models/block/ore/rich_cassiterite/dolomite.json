@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "terrifabricraft:block/rock/raw/dolomite",
-    "particle": "terrifabricraft:block/rock/raw/dolomite",
-    "overlay": "terrifabricraft:block/ore/rich_cassiterite"
+    "all": "terrafabricraft:block/rock/raw/dolomite",
+    "particle": "terrafabricraft:block/rock/raw/dolomite",
+    "overlay": "terrafabricraft:block/ore/rich_cassiterite"
   }
 }

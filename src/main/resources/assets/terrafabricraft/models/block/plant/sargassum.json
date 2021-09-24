@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "layer0": "terrifabricraft:block/plant/sargassum/sargassum",
-    "particle": "terrifabricraft:block/plant/sargassum/sargassum"
+    "layer0": "terrafabricraft:block/plant/sargassum/sargassum",
+    "particle": "terrafabricraft:block/plant/sargassum/sargassum"
   },
   "elements": [
     {

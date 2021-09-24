@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/lamp",
+  "parent": "terrafabricraft:block/lamp",
   "textures": {
-    "all": "terrifabricraft:block/metal/bronze",
-    "particle": "terrifabricraft:block/metal/bronze"
+    "all": "terrafabricraft:block/metal/bronze",
+    "particle": "terrafabricraft:block/metal/bronze"
   }
 }

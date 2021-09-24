@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "cross": "terrifabricraft:block/plant/field_horsetail/horsetail_1",
-    "cross1": "terrifabricraft:block/plant/field_horsetail/horsetail_2",
-    "particle": "terrifabricraft:block/plant/field_horsetail/horsetail_1"
+    "cross": "terrafabricraft:block/plant/field_horsetail/horsetail_1",
+    "cross1": "terrafabricraft:block/plant/field_horsetail/horsetail_2",
+    "particle": "terrafabricraft:block/plant/field_horsetail/horsetail_1"
   },
   "elements": [
     {

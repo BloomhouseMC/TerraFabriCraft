@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/cracked_bricks/slate",
-    "top": "terrifabricraft:block/rock/cracked_bricks/slate",
-    "side": "terrifabricraft:block/rock/cracked_bricks/slate"
+    "bottom": "terrafabricraft:block/rock/cracked_bricks/slate",
+    "top": "terrafabricraft:block/rock/cracked_bricks/slate",
+    "side": "terrafabricraft:block/rock/cracked_bricks/slate"
   }
 }

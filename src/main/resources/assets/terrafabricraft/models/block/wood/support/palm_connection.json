@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/wood/support/connection",
+  "parent": "terrafabricraft:block/wood/support/connection",
   "textures": {
-    "texture": "terrifabricraft:block/wood/sheet/palm",
-    "particle": "terrifabricraft:block/wood/sheet/palm"
+    "texture": "terrafabricraft:block/wood/sheet/palm",
+    "particle": "terrafabricraft:block/wood/sheet/palm"
   }
 }

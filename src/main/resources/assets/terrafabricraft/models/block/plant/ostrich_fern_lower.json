@@ -1,13 +1,13 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "lower": "terrifabricraft:blocks/empty",
-    "lowersingle": "terrifabricraft:blocks/empty",
-    "lowernotint": "terrifabricraft:blocks/empty",
-    "fernlow": "terrifabricraft:blocks/empty",
-    "fernhigh": "terrifabricraft:blocks/empty",
-    "fernlownotint": "terrifabricraft:blocks/empty",
-    "fernhighnotint": "terrifabricraft:blocks/empty"
+    "lower": "terrafabricraft:blocks/empty",
+    "lowersingle": "terrafabricraft:blocks/empty",
+    "lowernotint": "terrafabricraft:blocks/empty",
+    "fernlow": "terrafabricraft:blocks/empty",
+    "fernhigh": "terrafabricraft:blocks/empty",
+    "fernlownotint": "terrafabricraft:blocks/empty",
+    "fernhighnotint": "terrafabricraft:blocks/empty"
   },
   "elements": [
     {

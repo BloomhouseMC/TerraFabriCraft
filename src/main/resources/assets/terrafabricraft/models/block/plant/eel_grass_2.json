@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_seagrass",
   "textures": {
-    "texture": "terrifabricraft:block/plant/eel_grass/2"
+    "texture": "terrafabricraft:block/plant/eel_grass/2"
   }
 }

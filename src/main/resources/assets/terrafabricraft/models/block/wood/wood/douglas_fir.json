@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_column",
   "textures": {
-    "end": "terrifabricraft:block/wood/log/douglas_fir",
-    "side": "terrifabricraft:block/wood/log/douglas_fir"
+    "end": "terrafabricraft:block/wood/log/douglas_fir",
+    "side": "terrafabricraft:block/wood/log/douglas_fir"
   }
 }

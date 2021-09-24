@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_column",
   "textures": {
-    "end": "terrifabricraft:block/wood/stripped_log/kapok",
-    "side": "terrifabricraft:block/wood/stripped_log/kapok"
+    "end": "terrafabricraft:block/wood/stripped_log/kapok",
+    "side": "terrafabricraft:block/wood/stripped_log/kapok"
   }
 }

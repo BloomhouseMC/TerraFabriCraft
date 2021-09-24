@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/bricks/dolomite",
-    "top": "terrifabricraft:block/rock/bricks/dolomite",
-    "side": "terrifabricraft:block/rock/bricks/dolomite"
+    "bottom": "terrafabricraft:block/rock/bricks/dolomite",
+    "top": "terrafabricraft:block/rock/bricks/dolomite",
+    "side": "terrafabricraft:block/rock/bricks/dolomite"
   }
 }

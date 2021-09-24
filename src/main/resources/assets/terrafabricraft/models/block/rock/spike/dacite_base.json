@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/rock/spike_base",
+  "parent": "terrafabricraft:block/rock/spike_base",
   "textures": {
-    "texture": "terrifabricraft:block/rock/raw/dacite",
-    "particle": "terrifabricraft:block/rock/raw/dacite"
+    "texture": "terrafabricraft:block/rock/raw/dacite",
+    "particle": "terrafabricraft:block/rock/raw/dacite"
   }
 }

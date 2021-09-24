@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/lamp",
+  "parent": "terrafabricraft:block/lamp",
   "textures": {
-    "all": "terrifabricraft:block/metal/black_steel",
-    "particle": "terrifabricraft:block/metal/black_steel"
+    "all": "terrafabricraft:block/metal/black_steel",
+    "particle": "terrafabricraft:block/metal/black_steel"
   }
 }

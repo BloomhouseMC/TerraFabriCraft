@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_column",
   "textures": {
-    "end": "terrifabricraft:block/wood/log_top/acacia",
-    "side": "terrifabricraft:block/wood/log/acacia"
+    "end": "terrafabricraft:block/wood/log_top/acacia",
+    "side": "terrafabricraft:block/wood/log/acacia"
   }
 }

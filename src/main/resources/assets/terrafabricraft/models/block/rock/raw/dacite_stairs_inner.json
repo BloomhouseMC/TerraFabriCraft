@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/raw/dacite",
-    "top": "terrifabricraft:block/rock/raw/dacite",
-    "side": "terrifabricraft:block/rock/raw/dacite"
+    "bottom": "terrafabricraft:block/rock/raw/dacite",
+    "top": "terrafabricraft:block/rock/raw/dacite",
+    "side": "terrafabricraft:block/rock/raw/dacite"
   }
 }

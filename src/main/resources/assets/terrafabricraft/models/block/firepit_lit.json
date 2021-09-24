@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"lit": "terrifabricraft:block/devices/firepit/base_lit",
-		"particle": "terrifabricraft:block/devices/firepit/base_lit"
+		"lit": "terrafabricraft:block/devices/firepit/base_lit",
+		"particle": "terrafabricraft:block/devices/firepit/base_lit"
 	  },
 	"elements": [
 		{

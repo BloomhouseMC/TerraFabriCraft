@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/raw/marble",
-    "top": "terrifabricraft:block/rock/raw/marble",
-    "side": "terrifabricraft:block/rock/raw/marble"
+    "bottom": "terrafabricraft:block/rock/raw/marble",
+    "top": "terrafabricraft:block/rock/raw/marble",
+    "side": "terrafabricraft:block/rock/raw/marble"
   }
 }

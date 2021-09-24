@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/thin_spike",
+  "parent": "terrafabricraft:block/thin_spike",
   "textures": {
-    "0": "terrifabricraft:block/calcite",
-    "particle": "terrifabricraft:block/calcite"
+    "0": "terrafabricraft:block/calcite",
+    "particle": "terrafabricraft:block/calcite"
   }
 }

@@ -2,6 +2,6 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/cube_all",
   "textures": {
-    "all": "terrifabricraft:block/fire_clay_block"
+    "all": "terrafabricraft:block/fire_clay_block"
   }
 }

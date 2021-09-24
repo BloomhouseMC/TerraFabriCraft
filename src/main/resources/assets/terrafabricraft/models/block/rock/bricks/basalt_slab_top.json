@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab_top",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/bricks/basalt",
-    "top": "terrifabricraft:block/rock/bricks/basalt",
-    "side": "terrifabricraft:block/rock/bricks/basalt"
+    "bottom": "terrafabricraft:block/rock/bricks/basalt",
+    "top": "terrafabricraft:block/rock/bricks/basalt",
+    "side": "terrafabricraft:block/rock/bricks/basalt"
   }
 }

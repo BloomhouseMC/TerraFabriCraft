@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab_top",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/bricks/chalk",
-    "top": "terrifabricraft:block/rock/bricks/chalk",
-    "side": "terrifabricraft:block/rock/bricks/chalk"
+    "bottom": "terrafabricraft:block/rock/bricks/chalk",
+    "top": "terrafabricraft:block/rock/bricks/chalk",
+    "side": "terrafabricraft:block/rock/bricks/chalk"
   }
 }

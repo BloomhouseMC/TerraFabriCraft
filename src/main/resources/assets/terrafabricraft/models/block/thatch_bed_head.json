@@ -1,11 +1,11 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "terrifabricraft:block/thatch_bed/head_end",
-    "1": "terrifabricraft:block/thatch_bed/head_side",
-    "2": "terrifabricraft:block/thatch",
-    "3": "terrifabricraft:block/thatch_bed/head_top",
-    "particle": "terrifabricraft:block/thatch_bed/head_end"
+    "0": "terrafabricraft:block/thatch_bed/head_end",
+    "1": "terrafabricraft:block/thatch_bed/head_side",
+    "2": "terrafabricraft:block/thatch",
+    "3": "terrafabricraft:block/thatch_bed/head_top",
+    "particle": "terrafabricraft:block/thatch_bed/head_end"
   },
   "elements": [
     {

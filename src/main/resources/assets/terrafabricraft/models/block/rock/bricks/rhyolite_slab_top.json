@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab_top",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/bricks/rhyolite",
-    "top": "terrifabricraft:block/rock/bricks/rhyolite",
-    "side": "terrifabricraft:block/rock/bricks/rhyolite"
+    "bottom": "terrafabricraft:block/rock/bricks/rhyolite",
+    "top": "terrafabricraft:block/rock/bricks/rhyolite",
+    "side": "terrafabricraft:block/rock/bricks/rhyolite"
   }
 }

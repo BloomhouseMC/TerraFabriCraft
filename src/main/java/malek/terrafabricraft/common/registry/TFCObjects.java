@@ -45,11 +45,11 @@ public class TFCObjects {
     public static final Block ORE_SMALL_TETRAHEDRITE = createRock("ore/small_tetrahedrite", true);
 
     //Dirt
-    public static final Block DIRT_SILT = createLog("dirt/silt", true);
-    public static final Block DIRT_SILTY_LOAM = createLog("dirt/silty_loam", true);
-    public static final Block DIRT_LOAM = createLog("dirt/loam", true);
-    public static final Block DIRT_SANDY_LOAM = createLog("dirt/sandy_loam", true);
-    public static final Block DIRT_PEAT = createLog("dirt/peat", true);
+    public static final Block DIRT_SILT = createGravel("dirt/silt", true);
+    public static final Block DIRT_SILTY_LOAM = createGravel("dirt/silty_loam", true);
+    public static final Block DIRT_LOAM = createGravel("dirt/loam", true);
+    public static final Block DIRT_SANDY_LOAM = createGravel("dirt/sandy_loam", true);
+    public static final Block DIRT_PEAT = createGravel("dirt/peat", true);
     //Ground Cover
     public static final Block GROUNDCOVER_BONE = createGroundcover("groundcover/bone", Items.BONE);
     public static final Block GROUNDCOVER_CLAM = createGroundcover("groundcover/clam");

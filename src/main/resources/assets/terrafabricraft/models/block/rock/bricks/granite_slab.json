@@ -2,8 +2,8 @@
   "__comment__": "This file was automatically created by mcresources",
   "parent": "block/slab",
   "textures": {
-    "bottom": "terrifabricraft:block/rock/bricks/granite",
-    "top": "terrifabricraft:block/rock/bricks/granite",
-    "side": "terrifabricraft:block/rock/bricks/granite"
+    "bottom": "terrafabricraft:block/rock/bricks/granite",
+    "top": "terrafabricraft:block/rock/bricks/granite",
+    "side": "terrafabricraft:block/rock/bricks/granite"
   }
 }

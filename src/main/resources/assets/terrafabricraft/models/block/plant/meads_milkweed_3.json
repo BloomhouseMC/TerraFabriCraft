@@ -1,7 +1,7 @@
 {
-  "parent": "terrifabricraft:block/cross",
+  "parent": "terrafabricraft:block/cross",
   "textures": {
-    "cross": "terrifabricraft:block/plant/meads_milkweed/meads_milkweed_3",
-    "particle": "terrifabricraft:block/plant/meads_milkweed/meads_milkweed_3"
+    "cross": "terrafabricraft:block/plant/meads_milkweed/meads_milkweed_3",
+    "particle": "terrafabricraft:block/plant/meads_milkweed/meads_milkweed_3"
   }
 }

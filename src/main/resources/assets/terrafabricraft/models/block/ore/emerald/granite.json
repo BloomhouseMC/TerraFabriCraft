@@ -1,9 +1,9 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/ore",
+  "parent": "terrafabricraft:block/ore",
   "textures": {
-    "all": "terrifabricraft:block/rock/raw/granite",
-    "particle": "terrifabricraft:block/rock/raw/granite",
-    "overlay": "terrifabricraft:block/ore/emerald"
+    "all": "terrafabricraft:block/rock/raw/granite",
+    "particle": "terrafabricraft:block/rock/raw/granite",
+    "overlay": "terrafabricraft:block/ore/emerald"
   }
 }

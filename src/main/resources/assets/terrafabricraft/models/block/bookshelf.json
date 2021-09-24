@@ -3,10 +3,10 @@
   "textures": {
     "all": "#planks",
     "particle": "#planks",
-    "north": "terrifabricraft:block/wood/bookshelf",
-    "east": "terrifabricraft:block/wood/bookshelf",
-    "south": "terrifabricraft:block/wood/bookshelf",
-    "west": "terrifabricraft:block/wood/bookshelf"
+    "north": "terrafabricraft:block/wood/bookshelf",
+    "east": "terrafabricraft:block/wood/bookshelf",
+    "south": "terrafabricraft:block/wood/bookshelf",
+    "west": "terrafabricraft:block/wood/bookshelf"
   },
   "elements": [
     {

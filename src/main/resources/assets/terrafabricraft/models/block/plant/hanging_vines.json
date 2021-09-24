@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/tinted_cross",
   "textures": {
-    "cross": "terrifabricraft:block/plant/hanging_vines/tip"
+    "cross": "terrafabricraft:block/plant/hanging_vines/tip"
   }
 }

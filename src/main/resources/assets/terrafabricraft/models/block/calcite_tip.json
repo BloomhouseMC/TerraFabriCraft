@@ -1,8 +1,8 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "terrifabricraft:block/thin_spike_tip",
+  "parent": "terrafabricraft:block/thin_spike_tip",
   "textures": {
-    "0": "terrifabricraft:block/calcite",
-    "particle": "terrifabricraft:block/calcite"
+    "0": "terrafabricraft:block/calcite",
+    "particle": "terrafabricraft:block/calcite"
   }
 }

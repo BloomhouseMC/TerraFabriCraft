@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_seagrass",
   "textures": {
-    "texture": "terrifabricraft:block/plant/turtle_grass/2"
+    "texture": "terrafabricraft:block/plant/turtle_grass/2"
   }
 }
