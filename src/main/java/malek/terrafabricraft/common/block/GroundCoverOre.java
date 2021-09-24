@@ -19,6 +19,6 @@ public class GroundCoverOre extends GroundCoverBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Block.createCuboidShape(5, 0, 5, 11, 1, 11);
+        return Block.createCuboidShape(6, 0, 6, 12, 2, 12);
     }
 }
