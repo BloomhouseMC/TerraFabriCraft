@@ -60,7 +60,7 @@ public class StoneBlock {
     public Block topaz;
 
     public StoneBlock(String name) {
-        String id = "rock/";
+        var id = "rock/";
         button = setCreateBlock(name, id, "button");
         anvil = setCreateBlock(name, id, "anvil");
         brick = setCreateBlock(name, id, "bricks");
@@ -111,8 +111,6 @@ public class StoneBlock {
         sulfur = setCreateBlock(name, id, "sulfur");
         sylvite = setCreateBlock(name, id, "sylvite");
         topaz = setCreateBlock(name, id, "topaz");
-
-
     }
 
     private static Block setCreateBlock(String name, String id, String special) {
