@@ -2,8 +2,8 @@ package malek.terrafabricraft.common.block;
 
 import net.minecraft.block.HorizontalFacingBlock;
 
-public class RotatableBlock extends HorizontalFacingBlock {
-    public RotatableBlock(Settings settings) {
+public class TFCLogs extends HorizontalFacingBlock {
+    public TFCLogs(Settings settings) {
         super(settings);
     }
 }

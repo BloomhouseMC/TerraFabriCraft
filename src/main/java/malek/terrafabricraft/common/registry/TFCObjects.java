@@ -1,7 +1,8 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.block.RotatableBlock;
+import malek.terrafabricraft.common.block.TFCGravityBlock;
+import malek.terrafabricraft.common.block.TFCLogs;
 import malek.terrafabricraft.common.block.entity.RockBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -45,11 +46,11 @@ public class TFCObjects {
     public static final Block ORE_SMALL_TETRAHEDRITE = createRock("ore/small_tetrahedrite", true);
 
     //Dirt
-    public static final Block DIRT_SILT = createGravel("dirt/silt", true);
-    public static final Block DIRT_SILTY_LOAM = createGravel("dirt/silty_loam", true);
-    public static final Block DIRT_LOAM = createGravel("dirt/loam", true);
-    public static final Block DIRT_SANDY_LOAM = createGravel("dirt/sandy_loam", true);
-    public static final Block DIRT_PEAT = createGravel("dirt/peat", true);
+    public static final TFCGravityBlock DIRT_SILT = createSand("dirt/silt", true);
+    public static final TFCGravityBlock DIRT_SILTY_LOAM = createSand("dirt/silty_loam", true);
+    public static final TFCGravityBlock DIRT_LOAM = createSand("dirt/loam", true);
+    public static final TFCGravityBlock DIRT_SANDY_LOAM = createSand("dirt/sandy_loam", true);
+    public static final TFCGravityBlock DIRT_PEAT = createSand("dirt/peat", true);
     //Ground Cover
     public static final Block GROUNDCOVER_BONE = createGroundcover("groundcover/bone", Items.BONE);
     public static final Block GROUNDCOVER_CLAM = createGroundcover("groundcover/clam");
@@ -65,33 +66,33 @@ public class TFCObjects {
     public static final Block GROUNDCOVER_SALT_LICK = createGroundcover("groundcover/seaweed");
     public static final Block GROUNDCOVER_STICK = createGroundcover("groundcover/stick", Items.STICK);
     //Logs
-    public static final RotatableBlock WOOD_LOG_ACACIA = createLog("wood/log/acacia", true);
-    public static final RotatableBlock WOOD_LOG_ASH = createLog("wood/log/ash", true);
-    public static final RotatableBlock WOOD_LOG_ASPEN = createLog("wood/log/aspen", true);
-    public static final RotatableBlock WOOD_LOG_BIRCH = createLog("wood/log/birch", true);
-    public static final RotatableBlock WOOD_LOG_BLACKWOOD = createLog("wood/log/blackwood", true);
-    public static final RotatableBlock WOOD_LOG_CHESTNUT = createLog("wood/log/chestnut", true);
-    public static final RotatableBlock WOOD_LOG_DOUGLAS_FIR = createLog("wood/log/douglas_fir", true);
-    public static final RotatableBlock WOOD_LOG_HICKORY = createLog("wood/log/hickory", true);
-    public static final RotatableBlock WOOD_LOG_KAPOK = createLog("wood/log/kapok", true);
-    public static final RotatableBlock WOOD_LOG_MAPLE = createLog("wood/log/maple", true);
-    public static final RotatableBlock WOOD_LOG_OAK = createLog("wood/log/oak", true);
-    public static final RotatableBlock WOOD_LOG_PALM = createLog("wood/log/palm", true);
-    public static final RotatableBlock WOOD_LOG_PINE = createLog("wood/log/pine", true);
-    public static final RotatableBlock WOOD_LOG_ROSEWOOD = createLog("wood/log/rosewood", true);
-    public static final RotatableBlock WOOD_LOG_SEQUOIA = createLog("wood/log/sequoia", true);
-    public static final RotatableBlock WOOD_LOG_SPRUCE = createLog("wood/log/spruce", true);
-    public static final RotatableBlock WOOD_LOG_SYCAMORE = createLog("wood/log/sycamore", true);
-    public static final RotatableBlock WOOD_LOG_WHITE_CEDAR = createLog("wood/log/white_cedar", true);
-    public static final RotatableBlock WOOD_LOG_WILLOW = createLog("wood/log/willow", true);
+    public static final TFCLogs WOOD_LOG_ACACIA = createLog("wood/log/acacia", true);
+    public static final TFCLogs WOOD_LOG_ASH = createLog("wood/log/ash", true);
+    public static final TFCLogs WOOD_LOG_ASPEN = createLog("wood/log/aspen", true);
+    public static final TFCLogs WOOD_LOG_BIRCH = createLog("wood/log/birch", true);
+    public static final TFCLogs WOOD_LOG_BLACKWOOD = createLog("wood/log/blackwood", true);
+    public static final TFCLogs WOOD_LOG_CHESTNUT = createLog("wood/log/chestnut", true);
+    public static final TFCLogs WOOD_LOG_DOUGLAS_FIR = createLog("wood/log/douglas_fir", true);
+    public static final TFCLogs WOOD_LOG_HICKORY = createLog("wood/log/hickory", true);
+    public static final TFCLogs WOOD_LOG_KAPOK = createLog("wood/log/kapok", true);
+    public static final TFCLogs WOOD_LOG_MAPLE = createLog("wood/log/maple", true);
+    public static final TFCLogs WOOD_LOG_OAK = createLog("wood/log/oak", true);
+    public static final TFCLogs WOOD_LOG_PALM = createLog("wood/log/palm", true);
+    public static final TFCLogs WOOD_LOG_PINE = createLog("wood/log/pine", true);
+    public static final TFCLogs WOOD_LOG_ROSEWOOD = createLog("wood/log/rosewood", true);
+    public static final TFCLogs WOOD_LOG_SEQUOIA = createLog("wood/log/sequoia", true);
+    public static final TFCLogs WOOD_LOG_SPRUCE = createLog("wood/log/spruce", true);
+    public static final TFCLogs WOOD_LOG_SYCAMORE = createLog("wood/log/sycamore", true);
+    public static final TFCLogs WOOD_LOG_WHITE_CEDAR = createLog("wood/log/white_cedar", true);
+    public static final TFCLogs WOOD_LOG_WILLOW = createLog("wood/log/willow", true);
     //Sand
-    public static final SandBlock SAND_BLACK = createSand("sand/black", true);
-    public static final SandBlock SAND_BROWN = createSand("sand/brown", true);
-    public static final SandBlock SAND_GREEN = createSand("sand/green", true);
-    public static final SandBlock SAND_PINK = createSand("sand/pink", true);
-    public static final SandBlock SAND_RED = createSand("sand/red", true);
-    public static final SandBlock SAND_WHITE = createSand("sand/white", true);
-    public static final SandBlock SAND_YELLOW = createSand("sand/yellow", true);
+    public static final TFCGravityBlock SAND_BLACK = createSand("sand/black", true);
+    public static final TFCGravityBlock SAND_BROWN = createSand("sand/brown", true);
+    public static final TFCGravityBlock SAND_GREEN = createSand("sand/green", true);
+    public static final TFCGravityBlock SAND_PINK = createSand("sand/pink", true);
+    public static final TFCGravityBlock SAND_RED = createSand("sand/red", true);
+    public static final TFCGravityBlock SAND_WHITE = createSand("sand/white", true);
+    public static final TFCGravityBlock SAND_YELLOW = createSand("sand/yellow", true);
 
     //Items
     public static final Item ROCK = createItem("rock", new Item(gen()));
@@ -112,8 +113,8 @@ public class TFCObjects {
         return block;
     }
 
-    public static RotatableBlock createLog(String id, boolean hasItem) {
-        var block = new RotatableBlock(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+    public static TFCLogs createLog(String id, boolean hasItem) {
+        var block = new TFCLogs(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         register(id, block, hasItem);
         return block;
     }
@@ -136,8 +137,8 @@ public class TFCObjects {
         return block;
     }
 
-    public static SandBlock createSand(String id, boolean hasItem) {
-        var block = new SandBlock(69, FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+    public static TFCGravityBlock createSand(String id, boolean hasItem) {
+        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
         register(id, block, hasItem);
         return block;
     }
@@ -155,8 +156,8 @@ public class TFCObjects {
         return block;
     }
 
-    static RotatableBlock createStrippedLog(String id) {
-        var block = new RotatableBlock(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+    static TFCLogs createStrippedLog(String id) {
+        var block = new TFCLogs(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         register(id, block, true);
         return block;
     }
