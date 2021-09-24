@@ -24,7 +24,7 @@ Discord link: [Maleks Modding Studios][contributing]
 ## Licence
 
 * Code, textures, models and sounds
-    - (c) 2021, malek, mrsterner, safro
+    - (c) 2021, [mrsterner], [MalekiRe], [Safrodev], [Voleil]
     - [![License](https://img.shields.io/badge/License-CC0%201.0-cyan.svg?style=flat-square)](https://creativecommons.org/publicdomain/zero/1.0)
 
 [contributing]: https://discord.gg/b6UWfp4PUv
@@ -33,3 +33,7 @@ Discord link: [Maleks Modding Studios][contributing]
 [fabric]: https://fabricmc.net/
 [minecraft]: https://minecraft.net/
 [releases]: https://github.com/Maleks-Modding-Studios/Terrafabricraft/releases
+[mrsterner]: https://github.com/mrsterner
+[MalekiRe]: https://github.com/MalekiRe
+[Safrodev]: https://github.com/Safrodev
+[Voleil]: https://github.com/Voleil

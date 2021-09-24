@@ -58,7 +58,7 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
         ThirstComponent thirstComponent = ThirstComponent.get(playerEntity);
         //SLOW KILLER
         if(thirstComponent.getThirst() <= 0 && healthComponent.getHealth() > 0 && thirstTicker % 20 == 0){
-            healthComponent.decreaseHealth(10);
+            healthComponent.decreaseHealth(5);
             playerEntity.damage(TFCDamage.DROUGHT, 1.0F);
             thirstTicker = 0;
         }
