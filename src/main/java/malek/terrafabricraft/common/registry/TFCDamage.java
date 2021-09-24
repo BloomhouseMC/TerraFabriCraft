@@ -19,9 +19,11 @@ public class TFCDamage {
     public static float handlePlayerDamage(PlayerEntity entity, DamageSource source, float amount) {
         HealthComponent healthComponent = HealthComponent.get(entity);
         //Convert regular damage to TFC damage by subtrackting amount and doing ealthComponent.setHealth
-        while (amount >= 0 && healthComponent.getHealth() > 0 && !entity.isDead()) {
+        while (amount > 0 && healthComponent.getHealth() > 0 && !entity.isDead()) {
             amount--;
-            healthComponent.setHealth(healthComponent.getHealth() - 5);
+            for(int i = 0; healthComponent.getHealth() > 0 && i < 5; i++){ //TODO: balance the value of i, the value of is is the damage multiplier to be appropriate for the high amount of health compared to vanilla
+                healthComponent.decreaseHealth(1);
+            }
         }
         return amount;
     }

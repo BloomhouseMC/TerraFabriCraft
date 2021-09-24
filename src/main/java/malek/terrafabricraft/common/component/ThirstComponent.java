@@ -4,6 +4,7 @@ import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
 import malek.terrafabricraft.common.registry.TFCDamage;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.Difficulty;
@@ -42,7 +43,7 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
     }
 
     public void decreaseThirst(int sub){
-        if(getThirst() - sub > 0){
+        if(getThirst() - sub >= 0){
             setThirst(getThirst() - sub);
             TFCComponents.THIRST_COMPONENT.sync(playerEntity);
         }
@@ -58,7 +59,6 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
         ThirstComponent thirstComponent = ThirstComponent.get(playerEntity);
         //SLOW KILLER
         if(thirstComponent.getThirst() <= 0 && healthComponent.getHealth() > 0 && thirstTicker % 20 == 0){
-            healthComponent.decreaseHealth(5);
             playerEntity.damage(TFCDamage.DROUGHT, 1.0F);
             thirstTicker = 0;
         }

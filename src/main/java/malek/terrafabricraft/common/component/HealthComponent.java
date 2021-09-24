@@ -40,7 +40,7 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
         }
     }
     public void decreaseHealth(int sub){
-        if(getHealth() - sub > 0){
+        if(getHealth() - sub >= 0){
             setHealth(getHealth() - sub);
             TFCComponents.HEALTH_COMPONENT.sync(livingEntity);
         }
