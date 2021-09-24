@@ -32,6 +32,7 @@ Discord link: [Maleks Modding Studios][contributing]
 [curseforge:files]: https://curseforge.com/minecraft/mc-mods/modid/files
 [fabric]: https://fabricmc.net/
 [minecraft]: https://minecraft.net/
+[releases]: https://github.com/Maleks-Modding-Studios/Terrafabricraft/releases
 [mrsterner]: https://github.com/mrsterner
 [MalekiRe]: https://github.com/MalekiRe
 [Safrodev]: https://github.com/Safrodev
