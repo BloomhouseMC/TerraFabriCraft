@@ -10,6 +10,7 @@
     "common.TrunkPlacerTypeInvoker"
   ],
   "client": [
+    "client.PlayerScreenHandlerMixin",
     "client.InGameHudMixin"
   ],
   "injectors": {

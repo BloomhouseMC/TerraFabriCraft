@@ -50,8 +50,9 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
     public void serverTick() {
         if(livingEntity instanceof PlayerEntity){
             HealthComponent healthComponent = HealthComponent.get(livingEntity);
-            if(healthComponent.getHealth() <= 0 && livingEntity.isAlive()){
+            if(healthComponent.getHealth() <= 0 && livingEntity.isAlive() && !((PlayerEntity) livingEntity).isCreative() && !livingEntity.isSpectator()){
                 if(livingEntity.getRecentDamageSource() != null){
+
                     livingEntity.damage(livingEntity.getRecentDamageSource(), Float.MAX_VALUE);
                 }
             }
