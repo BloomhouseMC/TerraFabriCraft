@@ -3,6 +3,7 @@ package malek.terrafabricraft;
 import malek.terrafabricraft.common.event.TFCEvents;
 import malek.terrafabricraft.common.registry.TFCEntityTypes;
 import malek.terrafabricraft.common.registry.TFCObjects;
+import malek.terrafabricraft.common.registry.TFCStructures;
 import malek.terrafabricraft.common.world.worldgen.Tree;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -29,6 +30,7 @@ public class TerraFabriCraft implements ModInitializer {
     public void onInitialize() {
         //Must be loaded before TFCObjects.
         Tree.init();
+        TFCStructures.init();
         TFCObjects.init();
         TFCEntityTypes.init();
         TFCEvents.init();

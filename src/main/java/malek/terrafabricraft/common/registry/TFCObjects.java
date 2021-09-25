@@ -239,11 +239,11 @@ public class TFCObjects {
         var block = new TFCLog(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
-    }
+            }
 
     public static TFCSapling createSapling(String id, boolean hasBlockItem, SaplingGenerator generator) {
         //TODO Give leaves an appropriate sound.
-        var block = new TFCSapling(generator, FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS));
+        var block = new TFCSapling(generator, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;

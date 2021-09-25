@@ -13,7 +13,7 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacerType;
 
 public class Tree {
-    public static final TrunkPlacerType<AcaciaTrunkPlacer> ACACIA_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("acacia_trunk_placer", AcaciaTrunkPlacer.CODEC);
+//    Register
 
     public static final ConfiguredFeature<?, ?> TREE_ACACIA = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -125,10 +125,10 @@ public class Tree {
 
     public static final ConfiguredFeature<?, ?> TREE_MAPLE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TFCObjects.WOOD_MAPLE.log.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TFCObjects.WOOD_MAPLE.leaves.getDefaultState()),
+                    new SimpleBlockStateProvider(TFCObjects.WOOD_MAPLE.sapling.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
