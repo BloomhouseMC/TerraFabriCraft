@@ -60,7 +60,7 @@ public class TFCObjects {
     public static final Item JUTE_SEED = createItem("seed/jute_seeds", new AliasedBlockItem(JUTE_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item MAIZE_SEED = createItem("seed/maize_seeds", new AliasedBlockItem(MAIZE_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item OAT_SEED = createItem("seed/oat_seeds", new AliasedBlockItem(OAT_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Item ONOIN_SEED = createItem("seed/onion_seeds", new AliasedBlockItem(ONION_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
+    public static final Item ONION_SEED = createItem("seed/onion_seeds", new AliasedBlockItem(ONION_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item POTATO_SEED = createItem("seed/potato_seeds", new AliasedBlockItem(POTATO_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item RED_BELL_PEPPER_SEED = createItem("seed/red_bell_pepper_seeds", new AliasedBlockItem(RED_BELL_PEPPER_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item RICE_SEED = createItem("seed/rice_seeds", new AliasedBlockItem(RICE_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
