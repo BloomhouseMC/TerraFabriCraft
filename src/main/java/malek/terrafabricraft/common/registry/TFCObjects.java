@@ -350,8 +350,8 @@ public class TFCObjects {
     }
 
     private static Block createCrop(String id, int temp, int speed, boolean hardy, boolean hasBlockItem) {
-        var block = new TFCCrops(FabricBlockSettings.of(Material.LEAVES).sounds(BlockSoundGroup.GRASS).strength(0.5f), temp, speed, hardy);
-        register("block/crop/" + id, block, hasBlockItem, TerraFabriCraft.FLORA_GROUP);
+        var block = new TFCCrops(copyOf(Blocks.WHEAT), temp, speed, hardy);
+        register("crop/" + id, block, hasBlockItem, TerraFabriCraft.FLORA_GROUP);
         return block;
     }
 

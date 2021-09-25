@@ -16,6 +16,8 @@ public class TerraFabriCraftClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         HudRenderCallback.EVENT.register(new UserHud());
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), TFCObjects.BARLEY_CROP);
+
         for(Block block : TFCObjects.BLOCKS.keySet()) {
             if(block instanceof GroundCoverBlock groundCoverBlock) {
                 BlockRenderLayerMap.INSTANCE.putBlock(groundCoverBlock, RenderLayer.getCutout());
