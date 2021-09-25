@@ -2,6 +2,7 @@ package malek.terrafabricraft;
 
 import malek.terrafabricraft.client.UserHud;
 import malek.terrafabricraft.common.block.GroundCoverBlock;
+import malek.terrafabricraft.common.block.TFCCrops;
 import malek.terrafabricraft.common.block.TFCOreBlock;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.fabricmc.api.ClientModInitializer;
@@ -16,12 +17,16 @@ public class TerraFabriCraftClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         HudRenderCallback.EVENT.register(new UserHud());
+
         for(Block block : TFCObjects.BLOCKS.keySet()) {
             if(block instanceof GroundCoverBlock groundCoverBlock) {
                 BlockRenderLayerMap.INSTANCE.putBlock(groundCoverBlock, RenderLayer.getCutout());
             }
             if(block instanceof TFCOreBlock tfcOreBlock) {
                 BlockRenderLayerMap.INSTANCE.putBlock(tfcOreBlock, RenderLayer.getCutout());
+            }
+            if(block instanceof TFCCrops tfcCrops){
+                BlockRenderLayerMap.INSTANCE.putBlock(tfcCrops, RenderLayer.getCutout());
             }
         }
     }
