@@ -22,20 +22,8 @@ public enum Day
 
     static
     {
-        // Original developers, all hail their glorious creation
-        BIRTHDAYS.put("JULY7", "Bioxx");
-        BIRTHDAYS.put("JUNE18", "Kitty");
-        BIRTHDAYS.put("OCTOBER2", "Dunk");
+        BIRTHDAYS.put("APRIL28", "MrSterner");
 
-        // 1.12+ Dev Team and significant contributors
-        BIRTHDAYS.put("MAY1", "Dries");
-        BIRTHDAYS.put("DECEMBER9", "Alcatraz");
-        BIRTHDAYS.put("FEBRUARY31", "Bunsan");
-        BIRTHDAYS.put("MARCH14", "Claycorp");
-        BIRTHDAYS.put("DECEMBER1", "LightningShock");
-        BIRTHDAYS.put("JANUARY20", "Therighthon");
-        BIRTHDAYS.put("FEBRUARY21", "CtrlAltDavid");
-        BIRTHDAYS.put("MARCH10", "Disastermoo");
     }
 
     public static Day valueOf(int i)

@@ -29,7 +29,9 @@ import static net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSetting
 public class TFCObjects {
     public static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
     private static final Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
-    private static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
+    public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
+
+    public static final Item DECAY_FOOD_TEST = createItem("decay_test", new TFCFood(gen(TerraFabriCraft.FOOD_GROUP)));
 
     public static final Block BARLEY_CROP = createCrop("barley_crop", 0,1,false, false);
     public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0,1,false, false);
@@ -349,7 +351,7 @@ public class TFCObjects {
         return block;
     }
 
-    private static Block createCrop(String id, int temp, int speed, boolean tall, boolean hasBlockItem) {
+    public static Block createCrop(String id, int temp, int speed, boolean tall, boolean hasBlockItem) {
         var block = tall ? new TFCCropsTall(copyOf(Blocks.WHEAT), temp, speed) : new TFCCrops(copyOf(Blocks.WHEAT), temp, speed) ;
         register("crop/" + id, block, hasBlockItem, TerraFabriCraft.FLORA_GROUP);
         return block;
