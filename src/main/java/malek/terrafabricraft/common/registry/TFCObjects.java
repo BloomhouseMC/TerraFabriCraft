@@ -36,8 +36,8 @@ public class TFCObjects {
     public static final Block CARROT_CROP = createCrop("carrot_crop", 0,1,false, false);
     public static final Block GARLIC_CROP = createCrop("garlic_crop", 0,1,false, false);
     public static final Block GREENBEAN_CROP = createCrop("greenbean_crop", 0,1,false, false);
-    public static final Block JUTE_CROP = createCrop("jute_crop", 0,1,false, false);
-    public static final Block MAIZE_CROP = createCrop("maize_crop", 0,1,false, false);
+    public static final Block JUTE_CROP = createCrop("jute_crop", 0,1,true, false);
+    public static final Block MAIZE_CROP = createCrop("maize_crop", 0,1,true, false);
     public static final Block OAT_CROP = createCrop("oat_crop", 0,1,false, false);
     public static final Block ONION_CROP = createCrop("onion_crop", 0,1,false, false);
     public static final Block POTATO_CROP = createCrop("potato_crop", 0,1,false, false);
@@ -349,8 +349,8 @@ public class TFCObjects {
         return block;
     }
 
-    private static Block createCrop(String id, int temp, int speed, boolean hardy, boolean hasBlockItem) {
-        var block = new TFCCrops(copyOf(Blocks.WHEAT), temp, speed, hardy);
+    private static Block createCrop(String id, int temp, int speed, boolean tall, boolean hasBlockItem) {
+        var block = tall ? new TFCCropsTall(copyOf(Blocks.WHEAT), temp, speed) : new TFCCrops(copyOf(Blocks.WHEAT), temp, speed) ;
         register("crop/" + id, block, hasBlockItem, TerraFabriCraft.FLORA_GROUP);
         return block;
     }

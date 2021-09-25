@@ -1,28 +1,53 @@
 {
   "variants": {
-    "age=0": {
+    "half=lower,age=0": {
       "model": "terrafabricraft:block/crop/jute_0"
     },
-    "age=1": {
+    "half=lower,age=1": {
       "model": "terrafabricraft:block/crop/jute_1"
     },
-    "age=2": {
+    "half=lower,age=2": {
       "model": "terrafabricraft:block/crop/jute_2"
     },
-    "age=3": {
+    "half=lower,age=3": {
       "model": "terrafabricraft:block/crop/jute_3"
     },
-    "age=4": {
+    "half=lower,age=4": {
       "model": "terrafabricraft:block/crop/jute_4"
     },
-    "age=5": {
+    "half=lower,age=5": {
       "model": "terrafabricraft:block/crop/jute_5"
     },
-    "age=6": {
+    "half=lower,age=6": {
       "model": "terrafabricraft:block/crop/jute_dead"
     },
-    "age=7": {
+    "half=lower,age=7": {
       "model": "terrafabricraft:block/crop/jute_dead_young"
+    },
+
+    "half=upper,age=0": {
+      "model": "minecraft:block/air"
+    },
+    "half=upper,age=1": {
+      "model": "minecraft:block/air"
+    },
+    "half=upper,age=2": {
+      "model": "minecraft:block/air"
+    },
+    "half=upper,age=3": {
+      "model": "terrafabricraft:block/crop/jute_3"
+    },
+    "half=upper,age=4": {
+      "model": "terrafabricraft:block/crop/jute_4"
+    },
+    "half=upper,age=5": {
+      "model": "terrafabricraft:block/crop/jute_5"
+    },
+    "half=upper,age=6": {
+      "model": "minecraft:block/air"
+    },
+    "half=upper,age=7": {
+      "model": "minecraft:block/air"
     }
   }
 }
