@@ -23,7 +23,7 @@ import net.minecraft.util.registry.Registry;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static malek.terrafabricraft.common.registry.TFCStructures.*;
+import static malek.terrafabricraft.common.registry.TFCFeatures.*;
 import static net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings.copyOf;
 
 public class TFCObjects {
@@ -33,25 +33,25 @@ public class TFCObjects {
 
     public static final Item DECAY_FOOD_TEST = createItem("decay_test", new TFCFood(gen(TerraFabriCraft.FOOD_GROUP)));
 
-    public static final Block BARLEY_CROP = createCrop("barley_crop", 0,1,false, false);
-    public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0,1,false, false);
-    public static final Block CARROT_CROP = createCrop("carrot_crop", 0,1,false, false);
-    public static final Block GARLIC_CROP = createCrop("garlic_crop", 0,1,false, false);
-    public static final Block GREENBEAN_CROP = createCrop("greenbean_crop", 0,1,false, false);
-    public static final Block JUTE_CROP = createCrop("jute_crop", 0,1,true, false);
-    public static final Block MAIZE_CROP = createCrop("maize_crop", 0,1,true, false);
-    public static final Block OAT_CROP = createCrop("oat_crop", 0,1,false, false);
-    public static final Block ONION_CROP = createCrop("onion_crop", 0,1,false, false);
-    public static final Block POTATO_CROP = createCrop("potato_crop", 0,1,false, false);
-    public static final Block RED_BELL_PEPPER_CROP = createCrop("red_bell_pepper_crop", 0,1,false, false);
-    public static final Block RICE_CROP = createCrop("rice_crop", 0,1,false, false);
-    public static final Block RUTABAGA_CROP = createCrop("rutabaga_crop", 0,1,false, false);
-    public static final Block RYE_CROP = createCrop("rye_crop", 0,1,false, false);
-    public static final Block SOYBEAN_CROP = createCrop("soybean_crop", 0,1,false, false);
-    public static final Block SQUASH_CROP = createCrop("squash_crop", 0,1,false, false);
-    public static final Block TOMATO_CROP = createCrop("tomato_crop", 0,1,false, false);
-    public static final Block WHEAT_CROP = createCrop("wheat_crop", 0,1,false, false);
-    public static final Block YELLOW_BELL_PEPPER_CROP = createCrop("yellow_bell_pepper_crop", 0,1,false, false);
+    public static final Block BARLEY_CROP = createCrop("barley_crop", 0, 1, false, false);
+    public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0, 1, false, false);
+    public static final Block CARROT_CROP = createCrop("carrot_crop", 0, 1, false, false);
+    public static final Block GARLIC_CROP = createCrop("garlic_crop", 0, 1, false, false);
+    public static final Block GREENBEAN_CROP = createCrop("greenbean_crop", 0, 1, false, false);
+    public static final Block JUTE_CROP = createCrop("jute_crop", 0, 1, true, false);
+    public static final Block MAIZE_CROP = createCrop("maize_crop", 0, 1, true, false);
+    public static final Block OAT_CROP = createCrop("oat_crop", 0, 1, false, false);
+    public static final Block ONION_CROP = createCrop("onion_crop", 0, 1, false, false);
+    public static final Block POTATO_CROP = createCrop("potato_crop", 0, 1, false, false);
+    public static final Block RED_BELL_PEPPER_CROP = createCrop("red_bell_pepper_crop", 0, 1, false, false);
+    public static final Block RICE_CROP = createCrop("rice_crop", 0, 1, false, false);
+    public static final Block RUTABAGA_CROP = createCrop("rutabaga_crop", 0, 1, false, false);
+    public static final Block RYE_CROP = createCrop("rye_crop", 0, 1, false, false);
+    public static final Block SOYBEAN_CROP = createCrop("soybean_crop", 0, 1, false, false);
+    public static final Block SQUASH_CROP = createCrop("squash_crop", 0, 1, false, false);
+    public static final Block TOMATO_CROP = createCrop("tomato_crop", 0, 1, false, false);
+    public static final Block WHEAT_CROP = createCrop("wheat_crop", 0, 1, false, false);
+    public static final Block YELLOW_BELL_PEPPER_CROP = createCrop("yellow_bell_pepper_crop", 0, 1, false, false);
 
     //Seeds
     public static final Item BARLEY_SEED = createItem("seed/barley_seeds", new AliasedBlockItem(BARLEY_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
@@ -78,11 +78,13 @@ public class TFCObjects {
     public static final SoilBlock CLAY = new SoilBlock("clay");
     public static final SoilBlock CLAY_GRASS = new SoilBlock("clay_grass");
     public static final SoilBlock DIRT = new SoilBlock("dirt");
+
     public static final TFCGravityBlock FARMLAND_LOAM = createFarmland("farmland/loam", true);
     public static final TFCGravityBlock FARMLAND_SANDY_LOAM = createFarmland("farmland/sandy_loam", true);
     public static final TFCGravityBlock FARMLAND_SILT = createFarmland("farmland/silt", true);
     public static final TFCGravityBlock FARMLAND_SILTY_LOAM = createFarmland("farmland/silty_loam", true);
     public static final SoilBlock GRASS = new SoilBlock("grass");
+
     public static final SoilBlock GRASS_PATH = new SoilBlock("grass_path");
 
     //Peat
@@ -195,7 +197,6 @@ public class TFCObjects {
 
     public static TFCLeaves createLeaves(String id, boolean hasBlockItem) {
         var block = new TFCLeaves(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f).noCollision());
-        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
@@ -273,7 +274,7 @@ public class TFCObjects {
     }
 
     public static Block createCrop(String id, int temp, int speed, boolean tall, boolean hasBlockItem) {
-        var block = tall ? new TFCCropsTall(copyOf(Blocks.WHEAT), temp, speed) : new TFCCrops(copyOf(Blocks.WHEAT), temp, speed) ;
+        var block = tall ? new TFCCropsTall(copyOf(Blocks.WHEAT), temp, speed) : new TFCCrops(copyOf(Blocks.WHEAT), temp, speed);
         register("crop/" + id, block, hasBlockItem, TerraFabriCraft.FLORA_GROUP);
         return block;
     }
