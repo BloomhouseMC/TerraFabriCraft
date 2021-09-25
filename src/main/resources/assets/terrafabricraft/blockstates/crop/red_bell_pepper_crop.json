@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "terrafabricraft:block/crop/red_bell_pepper_0"
+    },
+    "age=1": {
+      "model": "terrafabricraft:block/crop/red_bell_pepper_1"
+    },
+    "age=2": {
+      "model": "terrafabricraft:block/crop/red_bell_pepper_2"
+    },
+    "age=3": {
+      "model": "terrafabricraft:block/crop/red_bell_pepper_3"
+    },
+    "age=4": {
+      "model": "terrafabricraft:block/crop/red_bell_pepper_4"
+    },
+    "age=5": {
+      "model": "terrafabricraft:block/crop/red_bell_pepper_5"
+    },
+    "age=6": {
+      "model": "terrafabricraft:block/crop/red_bell_pepper_6"
+    },
+    "age=7": {
+      "model": "terrafabricraft:block/crop/red_bell_pepper_dead"
+    },
+    "age=8": {
+      "model": "terrafabricraft:block/crop/red_bell_pepper_dead_young"
+    }
+  }
+}

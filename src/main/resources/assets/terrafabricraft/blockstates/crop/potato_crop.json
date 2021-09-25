@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "terrafabricraft:block/crop/potato_0"
+    },
+    "age=1": {
+      "model": "terrafabricraft:block/crop/potato_1"
+    },
+    "age=2": {
+      "model": "terrafabricraft:block/crop/potato_2"
+    },
+    "age=3": {
+      "model": "terrafabricraft:block/crop/potato_3"
+    },
+    "age=4": {
+      "model": "terrafabricraft:block/crop/potato_4"
+    },
+    "age=5": {
+      "model": "terrafabricraft:block/crop/potato_5"
+    },
+    "age=6": {
+      "model": "terrafabricraft:block/crop/potato_6"
+    },
+    "age=7": {
+      "model": "terrafabricraft:block/crop/potato_dead"
+    },
+    "age=8": {
+      "model": "terrafabricraft:block/crop/potato_dead_young"
+    }
+  }
+}

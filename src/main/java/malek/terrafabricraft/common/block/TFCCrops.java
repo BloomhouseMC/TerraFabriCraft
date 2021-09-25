@@ -18,10 +18,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class TFCCrops extends CropBlock {
-    public static IntProperty CROP_AGE_7;//Barley, Melon, Oat, Pumpkin, Rice, Rye, Squash, Sugarcane, Tomato, Wheat
-    public static IntProperty CROP_AGE_6;//Beet, Greenbean, Onion, Potato, Bell Pepper, Soybean
-    public static IntProperty CROP_AGE_5;//Cabbage, Jute, Maize
-    public static IntProperty CROP_AGE_4;//Carrot, Garlic
+    public static IntProperty CROP_AGE_7 = IntProperty.of("age", 0, 9);//Barley, Melon, Oat, Pumpkin, Rice, Rye, Squash, Sugarcane, Tomato, Wheat
+    //public static IntProperty CROP_AGE_6;//Beet, Greenbean, Onion, Potato, Bell Pepper, Soybean
+    //public static IntProperty CROP_AGE_5;//Cabbage, Jute, Maize
+    //public static IntProperty CROP_AGE_4;//Carrot, Garlic
 
     //TODO: Both temp and hardy is unnecessary
     public TFCCrops(Settings settings, int temp, int speed, boolean hardy) {
@@ -29,10 +29,10 @@ public class TFCCrops extends CropBlock {
 
     }
     static {
-        CROP_AGE_7 = IntProperty.of("age", 0, 9);//Age + 2 for dead stage
-        CROP_AGE_6 = IntProperty.of("age", 0, 8);
-        CROP_AGE_5 = IntProperty.of("age", 0, 7);
-        CROP_AGE_4 = IntProperty.of("age", 0, 6);
+        //CROP_AGE_7 = IntProperty.of("age", 0, 9);//Age + 2 for dead stage
+        //CROP_AGE_6 = IntProperty.of("age", 0, 8);
+        //CROP_AGE_5 = IntProperty.of("age", 0, 7);
+        //CROP_AGE_4 = IntProperty.of("age", 0, 6);
     }
     private static final VoxelShape[] AGE_TO_SHAPE = {
             Block.createCuboidShape(0, 0, 0, 16, 2, 16),
@@ -90,6 +90,11 @@ public class TFCCrops extends CropBlock {
 
     @Override
     public IntProperty getAgeProperty() {
+        return CROP_AGE_7;
+    }
+    /*
+     @Override
+    public IntProperty getAgeProperty() {
         return  this == TFCObjects.GREENBEAN_CROP ? CROP_AGE_6:
                 this == TFCObjects.ONION_CROP ? CROP_AGE_6:
                 this == TFCObjects.RED_BELL_PEPPER_CROP ? CROP_AGE_6:
@@ -104,6 +109,7 @@ public class TFCCrops extends CropBlock {
                 this == TFCObjects.CARROT_CROP ? CROP_AGE_4:
                 this == TFCObjects.GARLIC_CROP ? CROP_AGE_4: CROP_AGE_7;
     }
+     */
 
 
     @Override

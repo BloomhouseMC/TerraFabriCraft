@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "terrafabricraft:block/crop/oat_0"
+    },
+    "age=1": {
+      "model": "terrafabricraft:block/crop/oat_1"
+    },
+    "age=2": {
+      "model": "terrafabricraft:block/crop/oat_2"
+    },
+    "age=3": {
+      "model": "terrafabricraft:block/crop/oat_3"
+    },
+    "age=4": {
+      "model": "terrafabricraft:block/crop/oat_4"
+    },
+    "age=5": {
+      "model": "terrafabricraft:block/crop/oat_5"
+    },
+    "age=6": {
+      "model": "terrafabricraft:block/crop/oat_6"
+    },
+    "age=7": {
+      "model": "terrafabricraft:block/crop/oat_7"
+    },
+    "age=8": {
+      "model": "terrafabricraft:block/crop/oat_dead"
+    },
+    "age=9": {
+      "model": "terrafabricraft:block/crop/oat_dead_young"
+    }
+  }
+}

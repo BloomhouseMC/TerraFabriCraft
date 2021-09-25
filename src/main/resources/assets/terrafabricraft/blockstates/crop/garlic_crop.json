@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "terrafabricraft:block/crop/garlic_0"
+    },
+    "age=1": {
+      "model": "terrafabricraft:block/crop/garlic_1"
+    },
+    "age=2": {
+      "model": "terrafabricraft:block/crop/garlic_2"
+    },
+    "age=3": {
+      "model": "terrafabricraft:block/crop/garlic_3"
+    },
+    "age=4": {
+      "model": "terrafabricraft:block/crop/garlic_4"
+    },
+    "age=5": {
+      "model": "terrafabricraft:block/crop/garlic_dead"
+    },
+    "age=6": {
+      "model": "terrafabricraft:block/crop/garlic_dead_young"
+    }
+  }
+}

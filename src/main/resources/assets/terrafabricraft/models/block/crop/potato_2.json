@@ -1,0 +1,6 @@
+{
+  "parent": "terrafabricraft:block/crop/crop_cross",
+  "textures": {
+    "cross": "terrafabricraft:block/crop/potato_2"
+  }
+}
