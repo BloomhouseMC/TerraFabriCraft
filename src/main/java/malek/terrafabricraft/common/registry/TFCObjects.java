@@ -23,7 +23,7 @@ import net.minecraft.util.registry.Registry;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static malek.terrafabricraft.common.world.worldgen.Tree.*;
+import static malek.terrafabricraft.common.registry.TFCStructures.*;
 import static net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings.copyOf;
 
 public class TFCObjects {
@@ -146,108 +146,28 @@ public class TFCObjects {
     public static final TFCGravityBlock SAND_RED = createSand("sand/red", true);
     public static final TFCGravityBlock SAND_WHITE = createSand("sand/white", true);
     public static final TFCGravityBlock SAND_YELLOW = createSand("sand/yellow", true);
-    public static final WoodBlock WOOD_ACACIA = new WoodBlock("acacia", new AcaciaSaplingGenerator(TREE_ACACIA));
-    public static final WoodBlock WOOD_ASH = new WoodBlock("ash", new AshSaplingGenerator(TREE_ASH));
-    public static final WoodBlock WOOD_ASPEN = new WoodBlock("aspen", new AspenSaplingGenerator(TREE_ASPEN));
-    public static final WoodBlock WOOD_BIRCH = new WoodBlock("birch", new BirchSaplingGenerator(TREE_BIRCH));
-    public static final WoodBlock WOOD_BLACKWOOD = new WoodBlock("blackwood", new BlackwoodSaplingGenerator(TREE_BLACKWOOD));
-    public static final WoodBlock WOOD_CHESTNUT = new WoodBlock("chestnut", new ChestnutSaplingGenerator(TREE_CHESTNUT));
-    public static final WoodBlock WOOD_DOUGLAS_FIR = new WoodBlock("douglas_fir", new DouglasFirSaplingGenerator(TREE_DOUGLAS_FIR));
-    public static final WoodBlock WOOD_HICKORY = new WoodBlock("hickory", new HickorySaplingGenerator(TREE_HICKORY));
-    public static final WoodBlock WOOD_KAPOK = new WoodBlock("kapok", new KapokSaplingGenerator(TREE_KAPOK));
-    public static final WoodBlock WOOD_MAPLE = new WoodBlock("maple", new MapleSaplingGenerator(TREE_MAPLE));
-    public static final WoodBlock WOOD_OAK = new WoodBlock("oak", new OakSaplingGenerator(TREE_OAK));
-    public static final WoodBlock WOOD_PALM = new WoodBlock("palm", new PalmSaplingGenerator(TREE_PALM));
-    public static final WoodBlock WOOD_PINE = new WoodBlock("pine", new PineSaplingGenerator(TREE_PINE));
-    public static final WoodBlock WOOD_ROSEWOOD = new WoodBlock("rosewood", new RosewoodSaplingGenerator(TREE_ROSEWOOD));
-    public static final WoodBlock WOOD_SEQUOIA = new WoodBlock("sequoia", new SequoiaSaplingGenerator(TREE_SEQUOIA));
-    public static final WoodBlock WOOD_SPRUCE = new WoodBlock("spruce", new SpruceSaplingGenerator(TREE_SPRUCE));
-    public static final WoodBlock WOOD_SYCAMORE = new WoodBlock("sycamore", new SycamoreSaplingGenerator(TREE_SYCAMORE));
-    public static final WoodBlock WOOD_WHITE_CEDAR = new WoodBlock("white_cedar", new WhiteCedarSaplingGenerator(TREE_WHITE_CEDAR));
-    public static final WoodBlock WOOD_WILLOW = new WoodBlock("willow", new WillowSaplingGenerator(TREE_WILLOW));
+    //Wood blocks
+    public static final WoodBlock WOOD_ACACIA = new WoodBlock("acacia", new AcaciaSaplingGenerator(TREE_ACACIA), MapColor.RED);
+    public static final WoodBlock WOOD_ASH = new WoodBlock("ash", new AshSaplingGenerator(TREE_ASH), MapColor.BRIGHT_RED);
+    public static final WoodBlock WOOD_ASPEN = new WoodBlock("aspen", new AspenSaplingGenerator(TREE_ASPEN), MapColor.LICHEN_GREEN);
+    public static final WoodBlock WOOD_BIRCH = new WoodBlock("birch", new BirchSaplingGenerator(TREE_BIRCH), MapColor.PALE_YELLOW);
+    public static final WoodBlock WOOD_BLACKWOOD = new WoodBlock("blackwood", new BlackwoodSaplingGenerator(TREE_BLACKWOOD), MapColor.BLACK);
+    public static final WoodBlock WOOD_CHESTNUT = new WoodBlock("chestnut", new ChestnutSaplingGenerator(TREE_CHESTNUT), MapColor.WHITE);
+    public static final WoodBlock WOOD_DOUGLAS_FIR = new WoodBlock("douglas_fir", new DouglasFirSaplingGenerator(TREE_DOUGLAS_FIR), MapColor.WHITE);
+    public static final WoodBlock WOOD_HICKORY = new WoodBlock("hickory", new HickorySaplingGenerator(TREE_HICKORY), MapColor.WHITE);
+    public static final WoodBlock WOOD_KAPOK = new WoodBlock("kapok", new KapokSaplingGenerator(TREE_KAPOK), MapColor.WHITE);
+    public static final WoodBlock WOOD_MAPLE = new WoodBlock("maple", new MapleSaplingGenerator(TREE_MAPLE), MapColor.WHITE);
+    public static final WoodBlock WOOD_OAK = new WoodBlock("oak", new OakSaplingGenerator(TREE_OAK), MapColor.WHITE);
+    public static final WoodBlock WOOD_PALM = new WoodBlock("palm", new PalmSaplingGenerator(TREE_PALM), MapColor.WHITE);
+    public static final WoodBlock WOOD_PINE = new WoodBlock("pine", new PineSaplingGenerator(TREE_PINE), MapColor.WHITE);
+    public static final WoodBlock WOOD_ROSEWOOD = new WoodBlock("rosewood", new RosewoodSaplingGenerator(TREE_ROSEWOOD), MapColor.WHITE);
+    public static final WoodBlock WOOD_SEQUOIA = new WoodBlock("sequoia", new SequoiaSaplingGenerator(TREE_SEQUOIA), MapColor.WHITE);
+    public static final WoodBlock WOOD_SPRUCE = new WoodBlock("spruce", new SpruceSaplingGenerator(TREE_SPRUCE), MapColor.WHITE);
+    public static final WoodBlock WOOD_SYCAMORE = new WoodBlock("sycamore", new SycamoreSaplingGenerator(TREE_SYCAMORE), MapColor.WHITE);
+    public static final WoodBlock WOOD_WHITE_CEDAR = new WoodBlock("white_cedar", new WhiteCedarSaplingGenerator(TREE_WHITE_CEDAR), MapColor.WHITE);
+    public static final WoodBlock WOOD_WILLOW = new WoodBlock("willow", new WillowSaplingGenerator(TREE_WILLOW), MapColor.WHITE);
 
     public static final LogPile LOG_PILE = register("log_pile", new LogPile(FabricBlockSettings.copyOf(Blocks.STONE)));
-
-//    //Leaves
-//    public static final TFCLeavesBlock WOOD_LEAVES_ACACIA = createLeaves("wood/leaves/acacia", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_ASH = createLeaves("wood/leaves/ash", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_ASPEN = createLeaves("wood/leaves/aspen", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_BIRCH = createLeaves("wood/leaves/birch", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_BLACKWOOD = createLeaves("wood/leaves/blackwood", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_CHESTNUT = createLeaves("wood/leaves/chestnut", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_DOUGLAS_FIR = createLeaves("wood/leaves/douglas_fir", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_HICKORY = createLeaves("wood/leaves/hickory", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_KAPOK = createLeaves("wood/leaves/kapok", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_MAPLE = createLeaves("wood/leaves/maple", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_OAK = createLeaves("wood/leaves/oak", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_PALM = createLeaves("wood/leaves/palm", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_PINE = createLeaves("wood/leaves/pine", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_ROSEWOOD = createLeaves("wood/leaves/rosewood", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_SEQUOIA = createLeaves("wood/leaves/sequoia", true);
-//    public static final TFCLeavesBlock WOOD_LEAVES_SPRUCE = createLeaves("wood/leaves/spruce", true);
-//    //Logs
-//    public static final TFCLog WOOD_LOG_ACACIA = createLog("wood/log/acacia", true);
-//    public static final TFCLog WOOD_LOG_ASH = createLog("wood/log/ash", true);
-//    public static final TFCLog WOOD_LOG_ASPEN = createLog("wood/log/aspen", true);
-//    public static final TFCLog WOOD_LOG_BIRCH = createLog("wood/log/birch", true);
-//    public static final TFCLog WOOD_LOG_BLACKWOOD = createLog("wood/log/blackwood", true);
-//    public static final TFCLog WOOD_LOG_CHESTNUT = createLog("wood/log/chestnut", true);
-//    public static final TFCLog WOOD_LOG_DOUGLAS_FIR = createLog("wood/log/douglas_fir", true);
-//    public static final TFCLog WOOD_LOG_HICKORY = createLog("wood/log/hickory", true);
-//    public static final TFCLog WOOD_LOG_KAPOK = createLog("wood/log/kapok", true);
-//    public static final TFCLog WOOD_LOG_MAPLE = createLog("wood/log/maple", true);
-//    public static final TFCLog WOOD_LOG_OAK = createLog("wood/log/oak", true);
-//    public static final TFCLog WOOD_LOG_PALM = createLog("wood/log/palm", true);
-//    public static final TFCLog WOOD_LOG_PINE = createLog("wood/log/pine", true);
-//    public static final TFCLog WOOD_LOG_ROSEWOOD = createLog("wood/log/rosewood", true);
-//    public static final TFCLog WOOD_LOG_SEQUOIA = createLog("wood/log/sequoia", true);
-//    public static final TFCLog WOOD_LOG_SPRUCE = createLog("wood/log/spruce", true);
-//    public static final TFCLog WOOD_LOG_SYCAMORE = createLog("wood/log/sycamore", true);
-//    public static final TFCLog WOOD_LOG_WHITE_CEDAR = createLog("wood/log/white_cedar", true);
-//    public static final TFCLog WOOD_LOG_WILLOW = createLog("wood/log/willow", true);
-//    //Stripped logs
-//    public static final TFCLog WOOD_STRIPPED_LOG_ACACIA = createStrippedLog("wood/stripped_log/acacia", MapColor.RED, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_ASH = createStrippedLog("wood/stripped_log/ash", MapColor.BRIGHT_RED, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_ASPEN = createStrippedLog("wood/stripped_log/aspen", MapColor.LICHEN_GREEN, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_BIRCH = createStrippedLog("wood/stripped_log/birch", MapColor.PALE_YELLOW, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_BLACKWOOD = createStrippedLog("wood/stripped_log/blackwood", MapColor.BLACK, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_CHESTNUT = createStrippedLog("wood/stripped_log/chestnut", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_DOUGLAS_FIR = createStrippedLog("wood/stripped_log/douglas_fir", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_HICKORY = createStrippedLog("wood/stripped_log/hickory", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_KAPOK = createStrippedLog("wood/stripped_log/kapok", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_MAPLE = createStrippedLog("wood/stripped_log/maple", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_OAK = createStrippedLog("wood/stripped_log/oak", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_PALM = createStrippedLog("wood/stripped_log/palm", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_PINE = createStrippedLog("wood/stripped_log/pine", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_ROSEWOOD = createStrippedLog("wood/stripped_log/rosewood", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_SEQUOIA = createStrippedLog("wood/stripped_log/sequoia", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_SPRUCE = createStrippedLog("wood/stripped_log/spruce", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_SYCAMORE = createStrippedLog("wood/stripped_log/sycamore", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_WHITE_CEDAR = createStrippedLog("wood/stripped_log/white_cedar", MapColor.WHITE, true);
-//    public static final TFCLog WOOD_STRIPPED_LOG_WILLOW = createStrippedLog("wood/stripped_log/willow", MapColor.WHITE, true);
-
-    //Saplings
-    //TODO Make generic trees to register saplings.
-//    public static final SaplingBlock WOOD_SAPLING_ACACIA = createSapling("wood/sapling/acacia", true);
-//    public static final SaplingBlock WOOD_SAPLING_ASH = createSapling("wood/sapling/ash", true);
-//    public static final SaplingBlock WOOD_SAPLING_ASPEN = createSapling("wood/sapling/aspen", true);
-//    public static final SaplingBlock WOOD_SAPLING_BIRCH = createSapling("wood/sapling/birch", true);
-//    public static final SaplingBlock WOOD_SAPLING_BLACKWOOD = createSapling("wood/sapling/blackwood", true);
-//    public static final SaplingBlock WOOD_SAPLING_CHESTNUT = createSapling("wood/sapling/chestnut", true);
-//    public static final SaplingBlock WOOD_SAPLING_DOUGLAS_FIR = createSapling("wood/sapling/douglas_fir", new DouglasFirSaplingGenerator(), true)
-//    public static final SaplingBlock WOOD_SAPLING_HICKORY = createSapling("wood/sapling/hickory", true);
-//    public static final SaplingBlock WOOD_SAPLING_KAPOK = createSapling("wood/sapling/kapok", true);
-//    public static final SaplingBlock WOOD_SAPLING_MAPLE = createSapling("wood/sapling/maple", true);
-//    public static final SaplingBlock WOOD_SAPLING_OAK = createSapling("wood/sapling/oak", true);
-//    public static final SaplingBlock WOOD_SAPLING_PALM = createSapling("wood/sapling/palm", true);
-//    public static final SaplingBlock WOOD_SAPLING_PINE = createSapling("wood/sapling/pine", true);
-//    public static final SaplingBlock WOOD_SAPLING_ROSEWOOD = createSapling("wood/sapling/rosewood", true);
-//    public static final SaplingBlock WOOD_SAPLING_SEQUOIA = createSapling("wood/sapling/sequoia", true);
-//    public static final SaplingBlock WOOD_SAPLING_SPRUCE = createSapling("wood/sapling/spruce", true);
-//    public static final SaplingBlock WOOD_SAPLING_SYCAMORE = createSapling("wood/sapling/sycamore", true);
-//    public static final SaplingBlock WOOD_SAPLING_WHITE_CEDAR = createSapling("wood/sapling/white_cedar", true);
-//    public static final SaplingBlock WOOD_SAPLING_WILLOW = createSapling("wood/sapling/willow", true);
-
 
     //Block Entities
     public static final BlockEntityType<RockBlockEntity> ROCK_BLOCK_ENTITY = register("rock_block_entity", FabricBlockEntityTypeBuilder.create(RockBlockEntity::new, TFCObjects.ROCK_BLOCK).build(null));
@@ -272,7 +192,8 @@ public class TFCObjects {
     }
 
     public static TFCLeaves createLeaves(String id, boolean hasBlockItem) {
-        var block = new TFCLeaves(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        var block = new TFCLeaves(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f).noCollision());
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
@@ -282,7 +203,7 @@ public class TFCObjects {
         register(id, block, false, TerraFabriCraft.WOOD_GROUP);
         createItem(id, new TFCLogItem(block, gen(TerraFabriCraft.WOOD_GROUP)));
         return block;
-            }
+    }
 
     public static TFCSapling createSapling(String id, boolean hasBlockItem, SaplingGenerator generator) {
         //TODO Give leaves an appropriate sound.

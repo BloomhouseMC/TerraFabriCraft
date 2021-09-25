@@ -2,6 +2,7 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.common.block.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.MapColor;
 import net.minecraft.block.sapling.SaplingGenerator;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
@@ -15,12 +16,12 @@ public class WoodBlock {
     public TFCTwig twig;
     public TFCSupport vertical_support;
 
-    public WoodBlock(String variantId, SaplingGenerator saplingGenerator) {
+    public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
         leaves = setCreateLeaves(variantId);
-        log = setCreateLog(variantId, "log");
+        log = setCreateLog(variantId);
         planks = setCreateBlock(variantId, "planks");
         sapling = setCreateSapling(variantId, saplingGenerator);
-        stripped_log = setCreateLog(variantId, "stripped_log");
+        stripped_log = setCreateStrippedLog(variantId, color);
         twig = setCreateTwig(variantId);
         vertical_support = setCreateSupport(variantId);
     }
@@ -30,23 +31,27 @@ public class WoodBlock {
         return createLog("wood/" + special + "/" + variantId, true);
     }
 
-    private static TFCTwig setCreateTwig(String variantId) {
-        return createTwig("wood/twig/" + variantId, true);
-    }
-
-    private static TFCLog setCreateLog(String variantId, String special) {
-        return createLog("wood/" + special + "/" + variantId, true);
-    }
-
-    private static TFCSupport setCreateSupport(String variantId) {
-        return createSupport("wood/support/" + variantId, true);
-    }
-
     private static TFCLeaves setCreateLeaves(String variantId) {
         return createLeaves("wood/leaves/" + variantId, true);
     }
 
+    private static TFCTwig setCreateTwig(String variantId) {
+        return createTwig("wood/twig/" + variantId, true);
+    }
+
+    private static TFCLog setCreateLog(String variantId) {
+        return createLog("wood/log/" + variantId, true);
+    }
+
     private static TFCSapling setCreateSapling(String variantId, SaplingGenerator generator) {
         return createSapling("wood/sapling/" + variantId, true, generator);
+    }
+
+    private static TFCLog setCreateStrippedLog(String variantId, MapColor color) {
+        return createStrippedLog("wood/stripped_log/" + variantId, color, true);
+    }
+
+    private static TFCSupport setCreateSupport(String variantId) {
+        return createSupport("wood/support/" + variantId, true);
     }
 }
