@@ -1,0 +1,6 @@
+{
+  "parent": "terrafabricraft:block/crop/crop_cross",
+  "textures": {
+    "cross": "terrafabricraft:block/crop/yellow_bell_pepper_5"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "terrafabricraft:block/crop/maize_0"
+    },
+    "age=1": {
+      "model": "terrafabricraft:block/crop/maize_1"
+    },
+    "age=2": {
+      "model": "terrafabricraft:block/crop/maize_2"
+    },
+    "age=3": {
+      "model": "terrafabricraft:block/crop/maize_3"
+    },
+    "age=4": {
+      "model": "terrafabricraft:block/crop/maize_4"
+    },
+    "age=5": {
+      "model": "terrafabricraft:block/crop/maize_5"
+    },
+    "age=6": {
+      "model": "terrafabricraft:block/crop/maize_dead"
+    },
+    "age=7": {
+      "model": "terrafabricraft:block/crop/maize_dead_young"
+    }
+  }
+}

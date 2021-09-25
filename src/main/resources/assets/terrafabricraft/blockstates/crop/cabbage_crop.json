@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "terrafabricraft:block/crop/cabbage_0"
+    },
+    "age=1": {
+      "model": "terrafabricraft:block/crop/cabbage_1"
+    },
+    "age=2": {
+      "model": "terrafabricraft:block/crop/cabbage_2"
+    },
+    "age=3": {
+      "model": "terrafabricraft:block/crop/cabbage_3"
+    },
+    "age=4": {
+      "model": "terrafabricraft:block/crop/cabbage_4"
+    },
+    "age=5": {
+      "model": "terrafabricraft:block/crop/cabbage_5"
+    },
+    "age=6": {
+      "model": "terrafabricraft:block/crop/cabbage_dead"
+    },
+    "age=7": {
+      "model": "terrafabricraft:block/crop/cabbage_dead_young"
+    }
+  }
+}
