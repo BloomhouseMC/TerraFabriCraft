@@ -126,6 +126,7 @@ public class TFCObjects {
     public static final WoodBlock WOOD_WHITE_CEDAR = new WoodBlock("white_cedar", new WhiteCedarSaplingGenerator(TREE_WHITE_CEDAR));
     public static final WoodBlock WOOD_WILLOW = new WoodBlock("willow", new WillowSaplingGenerator(TREE_WILLOW));
 
+    public static final LogPile LOG_PILE = register("log_pile", new LogPile(FabricBlockSettings.copyOf(Blocks.STONE)));
 
 //    //Leaves
 //    public static final TFCLeavesBlock WOOD_LEAVES_ACACIA = createLeaves("wood/leaves/acacia", true);

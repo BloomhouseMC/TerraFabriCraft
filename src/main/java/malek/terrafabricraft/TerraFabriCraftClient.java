@@ -2,6 +2,7 @@ package malek.terrafabricraft;
 
 import malek.terrafabricraft.client.UserHud;
 import malek.terrafabricraft.common.block.GroundCoverBlock;
+import malek.terrafabricraft.common.block.TFCOreBlock;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -18,6 +19,9 @@ public class TerraFabriCraftClient implements ClientModInitializer {
         for(Block block : TFCObjects.BLOCKS.keySet()) {
             if(block instanceof GroundCoverBlock groundCoverBlock) {
                 BlockRenderLayerMap.INSTANCE.putBlock(groundCoverBlock, RenderLayer.getCutout());
+            }
+            if(block instanceof TFCOreBlock tfcOreBlock) {
+                BlockRenderLayerMap.INSTANCE.putBlock(tfcOreBlock, RenderLayer.getCutout());
             }
         }
     }

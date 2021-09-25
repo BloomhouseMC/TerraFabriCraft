@@ -1,9 +1,14 @@
 package malek.terrafabricraft.common.registry;
 
+import malek.terrafabricraft.TerraFabriCraft;
+import malek.terrafabricraft.common.block.TFCOreBlock;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.createRock;
+import static malek.terrafabricraft.common.registry.TFCObjects.register;
 
 public class StoneBlock {
     // public Block groundCover;
@@ -116,16 +121,19 @@ public class StoneBlock {
     private static Block setCreateBlock(String name, String id, String special) {
         return createRock(id + special + "/" + name, true);
     }
+    private static TFCOreBlock setCreateBlockOre(String name, String id, String special) {
+        return register(id + special + "/" + name, new TFCOreBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE)), true, TerraFabriCraft.ORES_GROUP);
+    }
 
     public class OreStoneBlock {
-        public Block poor;
-        public Block normal;
-        public Block rich;
+        public TFCOreBlock poor;
+        public TFCOreBlock normal;
+        public TFCOreBlock rich;
 
         public OreStoneBlock(String rockType, String oreType) {
-            poor = setCreateBlock(rockType, "ore/poor_" + oreType, "");
-            normal = setCreateBlock(rockType, "ore/normal_" + oreType, "");
-            rich = setCreateBlock(rockType, "ore/rich_" + oreType, "");
+            poor = (TFCOreBlock) setCreateBlockOre(rockType, "ore/poor_" + oreType, "");
+            normal = (TFCOreBlock) setCreateBlockOre(rockType, "ore/normal_" + oreType, "");
+            rich = (TFCOreBlock) setCreateBlockOre(rockType, "ore/rich_" + oreType, "");
         }
     }
 }
