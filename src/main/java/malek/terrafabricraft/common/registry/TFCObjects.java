@@ -4,6 +4,7 @@ import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.block.entity.RockBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
+import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -237,7 +238,8 @@ public class TFCObjects {
 
     public static TFCLog createLog(String id, boolean hasBlockItem) {
         var block = new TFCLog(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
-        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
+        register(id, block, false, TerraFabriCraft.WOOD_GROUP);
+        createItem(id, new TFCLogItem(block, gen(TerraFabriCraft.WOOD_GROUP)));
         return block;
             }
 
