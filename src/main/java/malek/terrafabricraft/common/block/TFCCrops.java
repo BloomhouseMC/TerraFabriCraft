@@ -24,7 +24,7 @@ public class TFCCrops extends CropBlock {
     //public static IntProperty CROP_AGE_4;//Carrot, Garlic
 
     //TODO: Both temp and hardy is unnecessary
-    public TFCCrops(Settings settings, int temp, int speed, boolean hardy) {
+    public TFCCrops(Settings settings, int temp, int speed) {
         super(settings);
 
     }
@@ -53,8 +53,6 @@ public class TFCCrops extends CropBlock {
                this == TFCObjects.CARROT_CROP ? TFCObjects.CARROT_SEED :
                this == TFCObjects.GARLIC_CROP ? TFCObjects.GARLIC_SEED :
                this == TFCObjects.GREENBEAN_CROP ? TFCObjects.GREENBEAN_SEED :
-               this == TFCObjects.JUTE_CROP ? TFCObjects.JUTE_SEED :
-               this == TFCObjects.MAIZE_CROP ? TFCObjects.MAIZE_SEED :
                this == TFCObjects.OAT_CROP ? TFCObjects.OAT_SEED :
                this == TFCObjects.ONION_CROP ? TFCObjects.ONION_SEED :
                this == TFCObjects.POTATO_CROP ? TFCObjects.POTATO_SEED :
@@ -122,8 +120,6 @@ public class TFCCrops extends CropBlock {
                this == TFCObjects.YELLOW_BELL_PEPPER_CROP ? 8:
 
                this == TFCObjects.CABBAGE_CROP ? 7:
-               this == TFCObjects.JUTE_CROP ? 7:
-               this == TFCObjects.MAIZE_CROP ? 7:
 
                this == TFCObjects.CARROT_CROP ? 6:
                this == TFCObjects.GARLIC_CROP ? 6: 9;
