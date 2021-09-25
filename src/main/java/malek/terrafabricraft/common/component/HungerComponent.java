@@ -66,7 +66,7 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
             passiveHungerTicker = 0;
         }
         //SLOW KILLER
-        if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0){
+        if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0 && !playerEntity.isCreative() && !playerEntity.isSpectator()){
             playerEntity.damage(DamageSource.STARVE, 1.0F);
             hungerTicker = 0;
         }

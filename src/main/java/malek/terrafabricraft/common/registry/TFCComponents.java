@@ -11,8 +11,11 @@ import dev.onyxstudios.cca.api.v3.world.WorldComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.world.WorldComponentInitializer;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.component.*;
+import net.minecraft.block.Block;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
 public class TFCComponents implements EntityComponentInitializer, WorldComponentInitializer, ItemComponentInitializer {
@@ -21,6 +24,8 @@ public class TFCComponents implements EntityComponentInitializer, WorldComponent
     public static final ComponentKey<ThirstComponent> THIRST_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "thirst"), ThirstComponent.class);
 
     public static final ComponentKey<ProficiencyComponent> PROFICIENCY_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "proficiency"), ProficiencyComponent.class);
+
+    public static final ComponentKey<DecayComponent> DECAY_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "decay"), DecayComponent.class);
 
 
     @Override
@@ -39,6 +44,18 @@ public class TFCComponents implements EntityComponentInitializer, WorldComponent
 
     @Override
     public void registerItemComponentFactories(ItemComponentFactoryRegistry registry) {
+        //registry.register(item -> item instanceof TFCFood, DECAY_COMPONENT, DecayComponent::new);
+        registry.register(item -> item instanceof TFCFood, DECAY_COMPONENT, DecayComponent::new);
+        /*
+        for(Item item : TFCObjects.ITEMS.keySet()) {
+            if(item instanceof TFCFood) {
+
+                registry.register(item -> item instanceof TFCFood, DECAY_COMPONENT, (stack) -> new DecayComponent());
+            }
+        }
+
+         */
+
 
     }
 }

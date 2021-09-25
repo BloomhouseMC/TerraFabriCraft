@@ -58,7 +58,8 @@
       "terrafabricraft:health",
       "terrafabricraft:hunger",
       "terrafabricraft:thirst",
-      "terrafabricraft:proficiency"
+      "terrafabricraft:proficiency",
+      "terrafabricraft:decay"
     ]
   },
   "suggests": {
