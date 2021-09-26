@@ -1,7 +1,10 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
+import malek.terrafabricraft.common.block.TFCLooseRock;
 import malek.terrafabricraft.common.block.TFCOreBlock;
+import malek.terrafabricraft.common.item.TFCLooseRockItem;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -21,7 +24,7 @@ public class StoneBlock {
     public Block crackedBrick;
     public Block gravel;
     public Block hardened;
-    public Block loose;
+    public TFCLooseRock loose;
     public Block mossyBrick;
     public Block mossyCobble;
     public Block pressurePlate;
@@ -74,7 +77,7 @@ public class StoneBlock {
         crackedBrick = setCreateBlock(name, id, "cracked_bricks");
         gravel = setCreateBlock(name, id, "gravel");
         hardened = setCreateBlock(name, id, "hardened");
-        loose = setCreateBlock(name, id, "loose");
+        loose = setCreateTFCLooseRock(name, id, "loose");
         mossyBrick = setCreateBlock(name, id, "mossy_bricks");
         mossyCobble = setCreateBlock(name, id, "mossy_cobble");
         pressurePlate = setCreateBlock(name, id, "pressure_plate");
@@ -117,7 +120,11 @@ public class StoneBlock {
         sylvite = setCreateBlock(name, id, "sylvite");
         topaz = setCreateBlock(name, id, "topaz");
     }
-
+    private static TFCLooseRock setCreateTFCLooseRock(String name, String id, String special) {
+        TFCLooseRock rock = register(id + special + "/" + name, new TFCLooseRock(FabricBlockSettings.copy(Blocks.STONE)), false, TerraFabriCraft.ROCK_GROUP);
+        TFCObjects.register(id + special + "/" + name, new TFCLooseRockItem(rock, new FabricItemSettings().group(TerraFabriCraft.ROCK_GROUP)));
+        return rock;
+    }
     private static Block setCreateBlock(String name, String id, String special) {
         return createRock(id + special + "/" + name, true);
     }

@@ -26,10 +26,10 @@ public class TerraFabriCraft implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        TFCBiome.init();
         //Must always be loaded before TFCObjects.
         TFCFeatures.init();
         TFCObjects.init();
+        TFCBiome.init();
         TFCEntityTypes.init();
         TFCEvents.init();
         ModScreens.init();
