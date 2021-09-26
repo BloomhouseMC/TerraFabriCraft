@@ -69,7 +69,7 @@ public class StoneBlock {
         button = setCreateBlock(name, id, "button");
         anvil = setCreateBlock(name, id, "anvil");
         brick = setCreateBlock(name, id, "bricks");
-        chiseled = setCreateBlock(name, id, "chisled");
+        chiseled = setCreateBlock(name, id, "chiseled");
         cobble = setCreateBlock(name, id, "cobble");
         crackedBrick = setCreateBlock(name, id, "cracked_bricks");
         gravel = setCreateBlock(name, id, "gravel");

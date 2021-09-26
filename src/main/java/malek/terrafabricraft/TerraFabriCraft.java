@@ -1,6 +1,7 @@
 package malek.terrafabricraft;
 
 import malek.terrafabricraft.common.event.TFCEvents;
+import malek.terrafabricraft.common.registry.TFCBiome;
 import malek.terrafabricraft.common.registry.TFCEntityTypes;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCStructures;
@@ -28,6 +29,7 @@ public class TerraFabriCraft implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        TFCBiome.init();
         //Must always be loaded before TFCObjects.
         TFCStructures.init();
         TFCObjects.init();

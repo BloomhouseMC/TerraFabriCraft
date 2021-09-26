@@ -1,39 +1,56 @@
 package malek.terrafabricraft.common.component;
 
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
+import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import dev.onyxstudios.cca.api.v3.item.ItemComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.world.World;
 
-public class DecayComponent extends ItemComponent {
+public class DecayComponent implements AutoSyncedComponent, ServerTickingComponent {
 
-    private final ItemStack stack;
-    private int bigTick = 0;
-    public DecayComponent(ItemStack stack) {
-        super(stack);
-        this.stack = stack;
-    }
-    public int MAX_DECAY = 100;
-    public int decay = 0;
-
-    public int getDecay() {
-        return decay;
-    }
-    public int getMaxDecay(){
-        return MAX_DECAY;
+    private long bigTick = 0;
+    private final World world;
+    public int interval = 0;
+    public DecayComponent(World world) {
+        this.world = world;
     }
 
-    public void setDecay(int decay) {
-        this.decay = decay;
-        TFCComponents.DECAY_COMPONENT.sync(stack);
+    public long getDecay() {
+        return bigTick;
     }
-    public void increseDecay(int add){
-        if (getDecay() + add <= getMaxDecay()) {
+
+    public void setDecay(long bigTick) {
+        this.bigTick = bigTick;
+        TFCComponents.DECAY_COMPONENT.sync(world);
+    }
+    public void increseDecay(long add){
             setDecay(getDecay() + add);
-            TFCComponents.DECAY_COMPONENT.sync(stack);
-        }
+            TFCComponents.DECAY_COMPONENT.sync(world);
     }
 
     public static <T> DecayComponent get(T provider) {
         return TFCComponents.DECAY_COMPONENT.get(provider);
+    }
+
+    @Override
+    public void serverTick() {
+        interval++;
+        if(interval >= 10){
+            bigTick++;
+            interval=0;
+        }
+    }
+
+    @Override
+    public void readFromNbt(NbtCompound tag) {
+        setDecay(tag.getLong("Decay"));
+    }
+
+    @Override
+    public void writeToNbt(NbtCompound tag) {
+        tag.putLong("Decay", getDecay());
     }
 }
