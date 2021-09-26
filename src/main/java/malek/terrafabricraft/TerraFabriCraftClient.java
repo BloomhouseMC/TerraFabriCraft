@@ -2,10 +2,7 @@ package malek.terrafabricraft;
 
 import malek.terrafabricraft.client.UserHud;
 import malek.terrafabricraft.client.screens.ModScreensClient;
-import malek.terrafabricraft.common.block.GroundCoverBlock;
-import malek.terrafabricraft.common.block.TFCCrops;
-import malek.terrafabricraft.common.block.TFCCropsTall;
-import malek.terrafabricraft.common.block.TFCOreBlock;
+import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -32,6 +29,9 @@ public class TerraFabriCraftClient implements ClientModInitializer {
             }
             if(block instanceof TFCCropsTall tfcCropsTall){
                 BlockRenderLayerMap.INSTANCE.putBlock(tfcCropsTall, RenderLayer.getCutout());
+            }
+            if(block instanceof TFCLooseRock tfcLooseRock) {
+                BlockRenderLayerMap.INSTANCE.putBlock(tfcLooseRock, RenderLayer.getCutout());
             }
         }
     }
