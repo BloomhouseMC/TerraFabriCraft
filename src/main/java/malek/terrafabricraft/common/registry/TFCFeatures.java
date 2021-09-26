@@ -28,7 +28,7 @@ public class TFCFeatures {
 
     private static final Feature<DefaultFeatureConfig> BOULDER = new BoulderFeature(DefaultFeatureConfig.CODEC);
 
-    public static final ConfiguredFeature<?, ?> TREE_ACACIA = Feature.TREE
+    public static final ConfiguredFeature<?, ?> TREE_ACACIA =   Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.log.getDefaultState()),
                     new StraightTrunkPlacer(5, 0, 0),
@@ -125,6 +125,30 @@ public class TFCFeatures {
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_KAPOK = Feature.TREE
+            .configure(new TreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.log.getDefaultState()),
+                    new StraightTrunkPlacer(15, 9, 0),
+                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.leaves.getDefaultState()),
+                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.sapling.getDefaultState()),
+                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new TwoLayersFeatureSize(1, 0, 1)
+            ).build())
+            .applyChance(3)
+            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+
+    public static final ConfiguredFeature<?, ?> TREE_BIG_KAPOK = Feature.TREE
+            .configure(new TreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.log.getDefaultState()),
+                    new StraightTrunkPlacer(30, 9, 0),
+                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.leaves.getDefaultState()),
+                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.sapling.getDefaultState()),
+                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new TwoLayersFeatureSize(1, 0, 1)
+            ).build())
+            .applyChance(3)
+            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+
+    public static final ConfiguredFeature<?, ?> TREE_SMALL_KAPOK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.log.getDefaultState()),
                     new StraightTrunkPlacer(15, 9, 0),
@@ -265,7 +289,7 @@ public class TFCFeatures {
     }
 
     public static final ConfiguredFeature<?, ?> BOULDER_ANDESITE = BOULDER.configure(new DefaultFeatureConfig())
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)))
+            .decorate   (Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)))
             .spreadHorizontally()
             .applyChance(5);
 
@@ -275,7 +299,7 @@ public class TFCFeatures {
         //Register new feature
         Registry.register(Registry.FEATURE, new Identifier("terrafirmacraft", "boulder"), BOULDER);
         //Register configured feature
-        register("tree/acacia", TREE_ACACIA, BiomeSelectors.foundInOverworld(), vegetalGenStep);
+//        register("tree/acacia", TREE_ACACIA, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/ash", TREE_ASH, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/aspen", TREE_ASPEN, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/birch", TREE_BIRCH, BiomeSelectors.categories(Biome.Category.PLAINS), vegetalGenStep);
@@ -283,7 +307,8 @@ public class TFCFeatures {
         register("tree/chestnut", TREE_CHESTNUT, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/douglas_fir", TREE_DOUGLAS_FIR, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/hickory", TREE_HICKORY, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/kapok", TREE_KAPOK, BiomeSelectors.categories(Biome.Category.JUNGLE), vegetalGenStep);
+        register("tree/big_kapok", TREE_BIG_KAPOK, BiomeSelectors.categories(Biome.Category.JUNGLE), vegetalGenStep);
+        register("tree/small_kapok", TREE_SMALL_KAPOK, BiomeSelectors.categories(Biome.Category.JUNGLE), vegetalGenStep);
         register("tree/maple", TREE_MAPLE, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/oak", TREE_OAK, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/palm", TREE_PALM, BiomeSelectors.foundInOverworld(), vegetalGenStep);
@@ -295,6 +320,5 @@ public class TFCFeatures {
         register("tree/white_cedar", TREE_WHITE_CEDAR, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/willow", TREE_WILLOW, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("boulder/andesite", BOULDER_ANDESITE, BiomeSelectors.foundInOverworld(), otherGenStep);
-
     }
 }

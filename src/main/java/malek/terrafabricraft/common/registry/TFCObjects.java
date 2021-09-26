@@ -109,8 +109,9 @@ public class TFCObjects {
     public static final GroundCoverBlock GROUNDCOVER_SALT_LICK = createGroundcover("groundcover/seaweed");
     public static final GroundCoverBlock GROUNDCOVER_STICK = createGroundcover("groundcover/stick", Items.STICK);
     //Stone
+    //Sample rock class :-)
     public static final Block ROCK_BLOCK = createRock("rock_block", true);
-    //TODO Create a class for small ores.
+
     public static final Block ORE_SMALL_BISMUTHINITE = createGroundOre("ore/small_bismuthinite", false, 271);
     public static final Block ORE_SMALL_CASSITERITE = createGroundOre("ore/small_cassiterite", false, 232);
     public static final Block ORE_SMALL_GARNIERITE = createGroundOre("ore/small_garnierite", false, 1455);
@@ -155,25 +156,25 @@ public class TFCObjects {
     public static final TFCGravityBlock SAND_WHITE = createSand("sand/white", true);
     public static final TFCGravityBlock SAND_YELLOW = createSand("sand/yellow", true);
     //Wood blocks
-    public static final WoodBlock WOOD_ACACIA = new WoodBlock("acacia", new AcaciaSaplingGenerator(TREE_ACACIA), MapColor.RED);
-    public static final WoodBlock WOOD_ASH = new WoodBlock("ash", new AshSaplingGenerator(TREE_ASH), MapColor.BRIGHT_RED);
-    public static final WoodBlock WOOD_ASPEN = new WoodBlock("aspen", new AspenSaplingGenerator(TREE_ASPEN), MapColor.LICHEN_GREEN);
-    public static final WoodBlock WOOD_BIRCH = new WoodBlock("birch", new BirchSaplingGenerator(TREE_BIRCH), MapColor.PALE_YELLOW);
-    public static final WoodBlock WOOD_BLACKWOOD = new WoodBlock("blackwood", new BlackwoodSaplingGenerator(TREE_BLACKWOOD), MapColor.BLACK);
-    public static final WoodBlock WOOD_CHESTNUT = new WoodBlock("chestnut", new ChestnutSaplingGenerator(TREE_CHESTNUT), MapColor.WHITE);
-    public static final WoodBlock WOOD_DOUGLAS_FIR = new WoodBlock("douglas_fir", new DouglasFirSaplingGenerator(TREE_DOUGLAS_FIR), MapColor.WHITE);
-    public static final WoodBlock WOOD_HICKORY = new WoodBlock("hickory", new HickorySaplingGenerator(TREE_HICKORY), MapColor.WHITE);
+    public static final WoodBlock WOOD_ACACIA = new WoodBlock("acacia", new GenericSaplingGenerator(TREE_ACACIA), MapColor.RED);
+    public static final WoodBlock WOOD_ASH = new WoodBlock("ash", new GenericSaplingGenerator(TREE_ASH), MapColor.BRIGHT_RED);
+    public static final WoodBlock WOOD_ASPEN = new WoodBlock("aspen", new GenericSaplingGenerator(TREE_ASPEN), MapColor.LICHEN_GREEN);
+    public static final WoodBlock WOOD_BIRCH = new WoodBlock("birch", new GenericSaplingGenerator(TREE_BIRCH), MapColor.PALE_YELLOW);
+    public static final WoodBlock WOOD_BLACKWOOD = new WoodBlock("blackwood", new GenericSaplingGenerator(TREE_BLACKWOOD), MapColor.BLACK);
+    public static final WoodBlock WOOD_CHESTNUT = new WoodBlock("chestnut", new GenericSaplingGenerator(TREE_CHESTNUT), MapColor.WHITE);
+    public static final WoodBlock WOOD_DOUGLAS_FIR = new WoodBlock("douglas_fir", new GenericSaplingGenerator(TREE_DOUGLAS_FIR), MapColor.WHITE);
+    public static final WoodBlock WOOD_HICKORY = new WoodBlock("hickory", new GenericSaplingGenerator(TREE_HICKORY), MapColor.WHITE);
     public static final WoodBlock WOOD_KAPOK = new WoodBlock("kapok", new KapokSaplingGenerator(TREE_KAPOK), MapColor.WHITE);
-    public static final WoodBlock WOOD_MAPLE = new WoodBlock("maple", new MapleSaplingGenerator(TREE_MAPLE), MapColor.WHITE);
-    public static final WoodBlock WOOD_OAK = new WoodBlock("oak", new OakSaplingGenerator(TREE_OAK), MapColor.WHITE);
-    public static final WoodBlock WOOD_PALM = new WoodBlock("palm", new PalmSaplingGenerator(TREE_PALM), MapColor.WHITE);
-    public static final WoodBlock WOOD_PINE = new WoodBlock("pine", new PineSaplingGenerator(TREE_PINE), MapColor.WHITE);
-    public static final WoodBlock WOOD_ROSEWOOD = new WoodBlock("rosewood", new RosewoodSaplingGenerator(TREE_ROSEWOOD), MapColor.WHITE);
-    public static final WoodBlock WOOD_SEQUOIA = new WoodBlock("sequoia", new SequoiaSaplingGenerator(TREE_SEQUOIA), MapColor.WHITE);
-    public static final WoodBlock WOOD_SPRUCE = new WoodBlock("spruce", new SpruceSaplingGenerator(TREE_SPRUCE), MapColor.WHITE);
-    public static final WoodBlock WOOD_SYCAMORE = new WoodBlock("sycamore", new SycamoreSaplingGenerator(TREE_SYCAMORE), MapColor.WHITE);
-    public static final WoodBlock WOOD_WHITE_CEDAR = new WoodBlock("white_cedar", new WhiteCedarSaplingGenerator(TREE_WHITE_CEDAR), MapColor.WHITE);
-    public static final WoodBlock WOOD_WILLOW = new WoodBlock("willow", new WillowSaplingGenerator(TREE_WILLOW), MapColor.WHITE);
+    public static final WoodBlock WOOD_MAPLE = new WoodBlock("maple", new GenericSaplingGenerator(TREE_MAPLE), MapColor.WHITE);
+    public static final WoodBlock WOOD_OAK = new WoodBlock("oak", new GenericSaplingGenerator(TREE_OAK), MapColor.WHITE);
+    public static final WoodBlock WOOD_PALM = new WoodBlock("palm", new GenericSaplingGenerator(TREE_PALM), MapColor.WHITE);
+    public static final WoodBlock WOOD_PINE = new WoodBlock("pine", new GenericSaplingGenerator(TREE_PINE), MapColor.WHITE);
+    public static final WoodBlock WOOD_ROSEWOOD = new WoodBlock("rosewood", new GenericSaplingGenerator(TREE_ROSEWOOD), MapColor.WHITE);
+    public static final WoodBlock WOOD_SEQUOIA = new WoodBlock("sequoia", new GenericSaplingGenerator(TREE_SEQUOIA), MapColor.WHITE);
+    public static final WoodBlock WOOD_SPRUCE = new WoodBlock("spruce", new GenericSaplingGenerator(TREE_SPRUCE), MapColor.WHITE);
+    public static final WoodBlock WOOD_SYCAMORE = new WoodBlock("sycamore", new GenericSaplingGenerator(TREE_SYCAMORE), MapColor.WHITE);
+    public static final WoodBlock WOOD_WHITE_CEDAR = new WoodBlock("white_cedar", new GenericSaplingGenerator(TREE_WHITE_CEDAR), MapColor.WHITE);
+    public static final WoodBlock WOOD_WILLOW = new WoodBlock("willow", new GenericSaplingGenerator(TREE_WILLOW), MapColor.WHITE);
 
     public static final LogPile LOG_PILE = register("log_pile", new LogPile(FabricBlockSettings.copyOf(Blocks.STONE)));
 

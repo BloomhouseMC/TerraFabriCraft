@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class TFCEntityTypes {
     private static final Map<EntityType<?>, Identifier> ENTITY_TYPES = new LinkedHashMap<>();
-
+    //Oh, Deer.
     //public static final EntityType<DeerEntity> DEER = create("deer", DeerEntity.createAttributes(), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DeerEntity::new).dimensions(EntityDimensions.changing(0.5f, 1.75f)).build());
 
     private static <T extends LivingEntity> EntityType<T> create(String name, DefaultAttributeContainer.Builder attributes, EntityType<T> type) {
