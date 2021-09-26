@@ -7,6 +7,7 @@ import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -31,7 +32,7 @@ public class TFCObjects {
     private static final Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
-    public static final Item DECAY_FOOD_TEST = createItem("decay_test", new TFCFood(gen(TerraFabriCraft.FOOD_GROUP)));
+    public static final Item DECAY_FOOD_TEST = createFood("decay_test", 1,1);
 
     public static final Block BARLEY_CROP = createCrop("barley_crop", 0,1,false, false);
     public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0,1,false, false);
@@ -355,6 +356,17 @@ public class TFCObjects {
         var block = tall ? new TFCCropsTall(copyOf(Blocks.WHEAT), temp, speed) : new TFCCrops(copyOf(Blocks.WHEAT), temp, speed) ;
         register("crop/" + id, block, hasBlockItem, TerraFabriCraft.FLORA_GROUP);
         return block;
+    }
+    public static Item createFood(String id, int weigthCategory, int sizeCategory){
+        var item = new TFCFood(gen(TerraFabriCraft.FOOD_GROUP).maxCount(1), weigthCategory, sizeCategory);
+        register("food/" + id, item);
+        return item;
+    }
+
+
+    public static <T extends Item> T register(String id, T item) {
+        ITEMS.put(item, new Identifier(TerraFabriCraft.MODID, id));
+        return item;
     }
 
 
