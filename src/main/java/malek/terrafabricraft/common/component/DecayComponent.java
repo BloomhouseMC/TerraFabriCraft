@@ -12,17 +12,15 @@ import net.minecraft.world.World;
 public class DecayComponent implements AutoSyncedComponent, ServerTickingComponent {
 
     private long bigTick = 0;
-    private World world;
+    private final World world;
     public int interval = 0;
     public DecayComponent(World world) {
         this.world = world;
     }
 
-
     public long getDecay() {
         return bigTick;
     }
-
 
     public void setDecay(long bigTick) {
         this.bigTick = bigTick;
@@ -40,7 +38,7 @@ public class DecayComponent implements AutoSyncedComponent, ServerTickingCompone
     @Override
     public void serverTick() {
         interval++;
-        if(interval >= 100){
+        if(interval >= 10){
             bigTick++;
             interval=0;
         }
