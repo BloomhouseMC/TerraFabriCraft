@@ -33,6 +33,7 @@ public class TFCObjects {
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
     public static final Item DECAY_FOOD_TEST = createFood("decay_test", 1,1);
+    public static final Item DECAY_FOOD_TEST2 = createFood("decay_test2", 1,1);
 
     public static final Block BARLEY_CROP = createCrop("barley_crop", 0, 1, false, false);
     public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0, 1, false, false);

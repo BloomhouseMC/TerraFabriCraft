@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class TFCFood extends Item {
-    public static IntProperty SIZE = IntProperty.of("size", 0, 2);
     public int weigthCategory;
     public int sizeCategory;
     public TFCFood(Settings settings, int weigthCategory, int sizeCategory) {
@@ -29,15 +28,17 @@ public class TFCFood extends Item {
         this.sizeCategory = sizeCategory;
 
     }
-    public long decay;
-    //TODO: add proper logic to handle decay percentage and weight interaction
-    public int weigth = 100;
+    private int decay;
+    private boolean start = true;
 
     public int getWeigth(int weigthCategory){
         return weigthCategory == 0 ? 100 : weigthCategory == 1 ? 150 : 200;
     }
     public String getSize(int sizeCategory){
         return sizeCategory == 0 ? "Small" : sizeCategory == 1 ? "Medium" : "Large";
+    }
+    public int getNewWeigth(int weigth){
+        return (weigth - this.decay);
     }
 
     @Override
@@ -54,10 +55,18 @@ public class TFCFood extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        DecayComponent decayComponent = DecayComponent.get(world);
         if(!world.isClient){
-            DecayComponent decayComponent = DecayComponent.get(world);
-            stack.getOrCreateNbt().putLong("updateTick", decayComponent.getDecay());
-            this.decay = stack.getOrCreateNbt().getLong("updateTick") - stack.getOrCreateNbt().getLong("startTick");
+            if(entity instanceof PlayerEntity player && !player.isCreative()){
+                if(start){
+                    stack.getOrCreateNbt().putLong("startTick", decayComponent.getDecay());
+                    start = false;
+                }
+                if(this.decay <= 100){
+                    stack.getOrCreateNbt().putLong("updateTick", decayComponent.getDecay());
+                    this.decay = (int)(stack.getOrCreateNbt().getLong("updateTick") - stack.getOrCreateNbt().getLong("startTick"));
+                }
+            }
         }
         if(this.decay >= 100){
             stack.decrement(1);
