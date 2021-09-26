@@ -27,6 +27,8 @@ public class TFCComponents implements EntityComponentInitializer, WorldComponent
 
     public static final ComponentKey<DecayComponent> DECAY_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "decay"), DecayComponent.class);
 
+    //public static final ComponentKey<ServerCalendarComponent> CALENDAR_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "calendar"), ServerCalendarComponent.class);
+
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
@@ -39,13 +41,13 @@ public class TFCComponents implements EntityComponentInitializer, WorldComponent
 
     @Override
     public void registerWorldComponentFactories(WorldComponentFactoryRegistry registry) {
-
+        //registry.register(CALENDAR_COMPONENT, world -> new ServerCalendarComponent());
+        registry.register(DECAY_COMPONENT, DecayComponent::new);
     }
 
     @Override
     public void registerItemComponentFactories(ItemComponentFactoryRegistry registry) {
         //registry.register(item -> item instanceof TFCFood, DECAY_COMPONENT, DecayComponent::new);
-        registry.register(item -> item instanceof TFCFood, DECAY_COMPONENT, DecayComponent::new);
         /*
         for(Item item : TFCObjects.ITEMS.keySet()) {
             if(item instanceof TFCFood) {

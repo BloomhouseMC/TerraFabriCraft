@@ -256,4 +256,8 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
     public void applySyncPacket(PacketByteBuf buf) {
         AutoSyncedComponent.super.applySyncPacket(buf);
     }
+
+    public long getCalendarTicks(){
+        return calendarTicks;
+    }
 }
