@@ -41,6 +41,19 @@ repositories {
 		name "jitpack"
 		url "https://jitpack.io"
 	}
+
+	maven {
+		name = "BuildCraft"
+		url = "https://mod-buildcraft.com/maven"
+		content {
+			includeGroup "alexiil.mc.lib"
+		}
+	}
+	maven { url = 'https://server.bbkr.space/artifactory/libs-release'
+		content {
+			includeGroup 'io.github.cottonmc'
+		}
+	}
 }
 
 dependencies {
@@ -70,6 +83,8 @@ dependencies {
 	//REI
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
 	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+
+	modImplementation include("io.github.cottonmc:LibGui:4.1.6+1.17.1")
 
 }
 

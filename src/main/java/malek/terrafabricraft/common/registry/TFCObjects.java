@@ -3,6 +3,8 @@ package malek.terrafabricraft.common.registry;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.block.entity.RockBlockEntity;
+import malek.terrafabricraft.common.block.logpile.LogPile;
+import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
@@ -173,7 +175,7 @@ public class TFCObjects {
 
     //Block Entities
     public static final BlockEntityType<RockBlockEntity> ROCK_BLOCK_ENTITY = register("rock_block_entity", FabricBlockEntityTypeBuilder.create(RockBlockEntity::new, TFCObjects.ROCK_BLOCK).build(null));
-
+    public static final BlockEntityType<LogPileBlockEntity> LOG_PILE_BLOCK_ENTITY = register("log_pile_entity", FabricBlockEntityTypeBuilder.create(LogPileBlockEntity::new, TFCObjects.LOG_PILE).build(null));
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
         return block;

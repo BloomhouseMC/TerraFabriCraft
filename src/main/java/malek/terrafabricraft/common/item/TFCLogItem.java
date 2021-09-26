@@ -1,8 +1,6 @@
 package malek.terrafabricraft.common.item;
 
-import malek.terrafabricraft.common.block.LogPile;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemUsageContext;

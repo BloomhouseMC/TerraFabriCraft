@@ -4,6 +4,7 @@ import malek.terrafabricraft.common.event.TFCEvents;
 import malek.terrafabricraft.common.registry.TFCEntityTypes;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCStructures;
+import malek.terrafabricraft.common.screens.ModScreens;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -32,6 +33,7 @@ public class TerraFabriCraft implements ModInitializer {
         TFCObjects.init();
         TFCEntityTypes.init();
         TFCEvents.init();
+        ModScreens.init();
     }
 
 
