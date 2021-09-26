@@ -10,8 +10,8 @@
     "common.TrunkPlacerTypeInvoker"
   ],
   "client": [
-    "client.PlayerScreenHandlerMixin",
-    "client.InGameHudMixin"
+    "client.InGameHudMixin",
+    "client.PlayerScreenHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
