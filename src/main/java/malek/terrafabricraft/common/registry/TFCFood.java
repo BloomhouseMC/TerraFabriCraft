@@ -13,10 +13,13 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class TFCFood extends Item {
@@ -40,6 +43,12 @@ public class TFCFood extends Item {
     public int getNewWeigth(int weigth){
         return (weigth - this.decay);
     }
+    public int getDecay(){
+        return decay;
+    }
+    public void setDecay(int decay){
+        this.decay = decay;
+    }
 
     @Override
     public void onCraft(ItemStack stack, World world, PlayerEntity player) {
@@ -50,14 +59,13 @@ public class TFCFood extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(new TranslatableText("tooltip.terrafabricraft.decay", new TranslatableText(String.valueOf("Decay: " + (this.decay) + "%"))));
-        tooltip.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText(String.valueOf(getWeigth(this.weigthCategory))+"g"), new TranslatableText(getSize(this.sizeCategory))));
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         DecayComponent decayComponent = DecayComponent.get(world);
-        if(!world.isClient){
-            if(entity instanceof PlayerEntity player && !player.isCreative()){
+        if(!world.isClient) {
+            if ((entity instanceof PlayerEntity player) && !player.isCreative()) {
                 if(start){
                     stack.getOrCreateNbt().putLong("startTick", decayComponent.getDecay());
                     start = false;
@@ -66,10 +74,11 @@ public class TFCFood extends Item {
                     stack.getOrCreateNbt().putLong("updateTick", decayComponent.getDecay());
                     this.decay = (int)(stack.getOrCreateNbt().getLong("updateTick") - stack.getOrCreateNbt().getLong("startTick"));
                 }
+
+                if(this.decay >= 100){
+                    stack.decrement(1);
+                }
             }
-        }
-        if(this.decay >= 100){
-            stack.decrement(1);
         }
     }
 
