@@ -1,7 +1,8 @@
-package malek.terrafabricraft.common.entity;
+package malek.terrafabricraft.client.renderer;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.client.renderer.EntityRenderer;
+import malek.terrafabricraft.common.entity.RoosterEntity;
+import malek.terrafabricraft.client.model.RoosterEntityModel;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;

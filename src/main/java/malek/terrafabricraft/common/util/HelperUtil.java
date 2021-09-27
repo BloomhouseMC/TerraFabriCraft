@@ -7,8 +7,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
 import java.util.Locale;
+import java.util.Random;
 
 public final class HelperUtil {
+    public static final Random RNG = new Random();
 
     public static boolean isClientSide(WorldView world)
     {

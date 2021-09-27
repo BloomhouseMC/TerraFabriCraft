@@ -3,13 +3,12 @@ package malek.terrafabricraft.common.entity;// Made with Blockbench 4.0.0-beta.3
 // Paste this class into your mod and generate all required imports
 
 
-import com.google.common.collect.ImmutableList;
-import malek.terrafabricraft.TerraFabriCraft;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 
 public class RoosterEntityModel extends EntityModel<RoosterEntity> {
