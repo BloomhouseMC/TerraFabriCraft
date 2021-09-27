@@ -1,6 +1,7 @@
 package malek.terrafabricraft.common.item;
 
 import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
+import malek.terrafabricraft.common.temperature.ItemTemperature;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
@@ -16,6 +17,7 @@ public class TFCLogItem extends BlockItem {
     }
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
+        ItemTemperature.setTemperature(context.getStack(), 1);
         if(context.getPlayer().isSneaking())
         {
             if(context.getWorld().getBlockState(context.getBlockPos().add(context.getSide().getVector())).isAir()) {

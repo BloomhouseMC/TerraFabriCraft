@@ -11,6 +11,7 @@
   ],
   "client": [
     "client.InGameHudMixin",
+    "client.ItemRendererMixin",
     "client.PlayerScreenHandlerMixin"
   ],
   "injectors": {
