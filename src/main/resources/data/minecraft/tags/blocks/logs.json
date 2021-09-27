@@ -1,0 +1,25 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:wood/log/acacia",
+    "terrafabricraft:wood/log/ash",
+    "terrafabricraft:wood/log/aspen",
+    "terrafabricraft:wood/log/birch",
+    "terrafabricraft:wood/log/blackwood",
+    "terrafabricraft:wood/log/chestnut",
+    "terrafabricraft:wood/log/douglas_fir",
+    "terrafabricraft:wood/log/hickory",
+    "terrafabricraft:wood/log/kapok",
+    "terrafabricraft:wood/log/maple",
+    "terrafabricraft:wood/log/oak",
+    "terrafabricraft:wood/log/palm",
+    "terrafabricraft:wood/log/pine",
+    "terrafabricraft:wood/log/rosewood",
+    "terrafabricraft:wood/log/sequoia",
+    "terrafabricraft:wood/log/spruce",
+    "terrafabricraft:wood/log/sycamore",
+    "terrafabricraft:wood/log/white_cedar",
+    "terrafabricraft:wood/log/willow"
+
+  ]
+}
