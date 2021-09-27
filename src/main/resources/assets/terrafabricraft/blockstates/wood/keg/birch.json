@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "terrafabricraft:block/wood/keg/birch"
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/wood/keg/birch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/wood/keg/birch",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "terrafabricraft:block/wood/keg/birch",
+      "y": 270
+    }
+  }
+}
