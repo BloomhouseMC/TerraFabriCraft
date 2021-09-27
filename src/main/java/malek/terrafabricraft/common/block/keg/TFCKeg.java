@@ -18,10 +18,13 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class TFCKeg extends BlockWithEntity {
+    /*
     private static final VoxelShape EAST_SHAPE;
     private static final VoxelShape WEST_SHAPE;
     private static final VoxelShape SOUTH_SHAPE;
     private static final VoxelShape NORTH_SHAPE;
+
+     */
     private static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     public TFCKeg(Settings settings) {
@@ -39,7 +42,7 @@ public class TFCKeg extends BlockWithEntity {
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new TFCKegEntity(pos, state);
     }
-
+/*
     static {
         VoxelShape shape = createCuboidShape(0, 0, 0, 16, 16, 16);
 
@@ -49,6 +52,9 @@ public class TFCKeg extends BlockWithEntity {
         WEST_SHAPE = rotate(Direction.EAST, Direction.WEST, shape);
 
     }
+
+ */
+    /*
     private static VoxelShape rotate(Direction from, Direction to, VoxelShape shape) {
         VoxelShape[] buffer = new VoxelShape[]{shape, VoxelShapes.empty()};
 
@@ -61,6 +67,8 @@ public class TFCKeg extends BlockWithEntity {
 
         return buffer[0];
     }
+
+     */
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing());
