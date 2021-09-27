@@ -45,15 +45,15 @@ public class KegGuiDescription extends SyncedGuiDescription {
         int diagonalY = sizeOfSlot;
         int x= 0;
         int y = 0;
-        root.add(itemSlot, 45, 15);
-        root.add(itemSlot1, 75, 15);
-        root.add(itemSlot2, 45, 45);
-        root.add(itemSlot3, 75, 45);
+        root.add(itemSlot, 4 * 9, 2 * 18 - 9);
+        root.add(itemSlot1, 6 * 18 + 4, 2 * 18 - 9);
+        root.add(itemSlot2, 1 * 9, 4 * 18 - 9);
+        root.add(itemSlot3, 15 * 9, 4 * 18 - 9);
 
-        root.add(tankBarLeft, 0, 18, 2 * 18, 3 * 18);
-        root.add(tankBarRight, 7*18, 18, 2 * 18, 3 * 18);
+        root.add(tankBarLeft, 0, 18 - 9, 2 * 18, 3 * 18);
+        root.add(tankBarRight, 7*18, 18 - 9, 2 * 18, 3 * 18);
 
-        root.add(progressBar, 3 * 18, 2 * 18 + 1, 3 * 18, 18);
+        root.add(progressBar, 3 * 18, 2 * 18 + 1 - 9, 3 * 18, 18);
         //root.add(title, 0, -1, 9 * 18, 18);
 
         root.add(this.createPlayerInventoryPanel(WPlayerInvPanel.createInventoryLabel(playerInventory).setHorizontalAlignment(HorizontalAlignment.CENTER)), x, y+80);

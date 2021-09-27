@@ -53,6 +53,7 @@ public class LogPileGuiDescription extends SyncedGuiDescription {
         return (BlockEntity) ctx.get((world, pos) -> {
             BlockState state = world.getBlockState(pos);
             Block b = state.getBlock();
+            System.out.println(world.getBlockEntity(pos));
             blockEntity = world.getBlockEntity(pos);
             return world.getBlockEntity(pos);
 
