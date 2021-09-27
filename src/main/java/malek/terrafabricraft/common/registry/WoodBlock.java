@@ -1,6 +1,8 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.common.block.*;
+import malek.terrafabricraft.common.block.keg.TFCKeg;
+import malek.terrafabricraft.common.block.keg.TFCKegEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.sapling.SaplingGenerator;
@@ -8,6 +10,8 @@ import net.minecraft.block.sapling.SaplingGenerator;
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
 
 public class WoodBlock {
+    private static TFCKegEntity keg_entity;
+    private static TFCKeg keg;
     public TFCLeaves leaves;
     public TFCLog log;
     public Block planks;
@@ -15,6 +19,8 @@ public class WoodBlock {
     public TFCLog stripped_log;
     public TFCTwig twig;
     public TFCSupport vertical_support;
+    //public TFCKeg keg;
+    //public TFCKegEntity keg_entity;
 
     public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
         leaves = setCreateLeaves(variantId);
@@ -24,6 +30,8 @@ public class WoodBlock {
         stripped_log = setCreateStrippedLog(variantId, color);
         twig = setCreateTwig(variantId);
         vertical_support = setCreateSupport(variantId);
+        //keg = setCreateKeg(variantId);
+        keg_entity = setCreateKegEntity(variantId);
     }
 
     //TODO: Refactor unnecessary methods.
@@ -53,5 +61,17 @@ public class WoodBlock {
 
     private static TFCSupport setCreateSupport(String variantId) {
         return createSupport("wood/support/" + variantId, true);
+    }
+    /*
+    private static TFCKeg setCreateKeg(String variantId) {
+        return createKeg("wood/keg/" + variantId, true);
+    }
+
+     */
+    private static TFCKegEntity setCreateKegEntity(String variantId) {
+        keg = createKeg("wood/keg/" + variantId, true);
+        //return createKegEntity("wood/keg/entity/" + variantId);
+        keg_entity = createKegEntity("wood/keg/entity", keg);
+        return keg_entity;
     }
 }

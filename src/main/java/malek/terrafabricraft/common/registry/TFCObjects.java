@@ -2,6 +2,10 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
+
+import malek.terrafabricraft.common.block.keg.TFCKeg;
+import malek.terrafabricraft.common.block.keg.TFCKegEntity;
+
 import malek.terrafabricraft.common.block.logpile.LogPile;
 import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
@@ -116,6 +120,7 @@ public class TFCObjects {
 
     public static final SoilBlock GRASS_PATH = new SoilBlock("grass_path");
 
+
     //Ground Cover
     public static final GroundCoverBlock GROUNDCOVER_BONE = createGroundcover("groundcover/bone", Items.BONE);
     public static final GroundCoverBlock GROUNDCOVER_CLAM = createGroundcover("groundcover/clam");
@@ -200,6 +205,7 @@ public class TFCObjects {
 
     //Make a createBlock method, baldek :P
     public static final LogPile LOG_PILE = register("log_pile", new LogPile(FabricBlockSettings.copyOf(Blocks.STONE)));
+    //public static final TFCKeg KEG = register("keg", new TFCKeg(FabricBlockSettings.copyOf(Blocks.OAK_WOOD)));
 
     public static final SandstoneBlock SANDSTONE_BLACK = new SandstoneBlock("sandstone/black");
     public static final SandstoneBlock SANDSTONE_BROWN = new SandstoneBlock("sandstone/brown");
@@ -224,7 +230,29 @@ public class TFCObjects {
 
     //Block Entities
     public static final BlockEntityType<LogPileBlockEntity> LOG_PILE_BLOCK_ENTITY = register("log_pile_entity", FabricBlockEntityTypeBuilder.create(LogPileBlockEntity::new, TFCObjects.LOG_PILE).build(null));
+    /*
+    public static final BlockEntityType<TFCKegEntity> ACACIA_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_ACACIA.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> ASH_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_ASH.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> ASPEN_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_ASPEN.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> BIRCH_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_BIRCH.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> BLACKWOOD_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_BLACKWOOD.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> CHESTNUT_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_CHESTNUT.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> DOUGLAS_FIR_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_DOUGLAS_FIR.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> HICKORY_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_HICKORY.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> KAPOK_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_KAPOK.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> MAPLE_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_MAPLE.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> OAK_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_OAK.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> PALM_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_PALM.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> PINE_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_PINE.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> ROSEWOOD_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_ROSEWOOD.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> SEQUOIA_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_SEQUOIA.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> SPRUCE_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_SPRUCE.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> SYCAMORE_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_SYCAMORE.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> WHITE_CEDAR_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_WHITE_CEDAR.keg).build(null));
+    public static final BlockEntityType<TFCKegEntity> WILLOW_KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, TFCObjects.WOOD_WILLOW.keg).build(null));
 
+
+     */
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
         return block;
@@ -248,6 +276,19 @@ public class TFCObjects {
         var block = new TFCLeaves(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f).noCollision());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
+    }
+
+    public static TFCKeg createKeg(String id, boolean hasBlockItem) {
+        var block = new TFCKeg(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
+        return block;
+    }
+
+
+    public static TFCKegEntity createKegEntity(String id, TFCKeg keg) {
+        var entity = new TFCKegEntity(FabricBlockEntityTypeBuilder.create(TFCKegEntity::new, keg).build(null));
+        register(id, entity.getType());
+        return entity;
     }
 
     public static TFCLog createLog(String id, boolean hasBlockItem) {
