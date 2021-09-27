@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "terrafabricraft:block/wood/keg/aspen"
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/wood/keg/aspen",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/wood/keg/aspen",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "terrafabricraft:block/wood/keg/aspen",
+      "y": 270
+    }
+  }
+}

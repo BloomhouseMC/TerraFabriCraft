@@ -4,13 +4,12 @@ import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.*;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
-import malek.terrafabricraft.common.screens.ModScreens;
+import malek.terrafabricraft.common.registry.TFCScreens;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.util.Identifier;
 
 public class LogPileGuiDescription extends SyncedGuiDescription {
     private static final int INVENTORY_SIZE = 17;
@@ -19,7 +18,7 @@ public class LogPileGuiDescription extends SyncedGuiDescription {
     int sizeX = 80;
     int sizeY = 80;
     public LogPileGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
-        super(ModScreens.LOG_PILE_SCREEN_HANDLER, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 3));
+        super(TFCScreens.LOG_PILE_SCREEN_HANDLER, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 3));
         root = new WPlainPanel();
         setRootPanel(root);
         root.setSize(sizeX, sizeY);

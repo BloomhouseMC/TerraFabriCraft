@@ -1,8 +1,10 @@
 package malek.terrafabricraft.common.block.keg;
 
+import malek.terrafabricraft.common.registry.TFCObjects;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
@@ -14,10 +16,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class TFCKeg extends BlockWithEntity {
+public class TFCKeg extends BlockWithEntity implements InventoryProvider {
     /*
     private static final VoxelShape EAST_SHAPE;
     private static final VoxelShape WEST_SHAPE;
@@ -32,6 +43,12 @@ public class TFCKeg extends BlockWithEntity {
         this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
 
     }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return Block.createCuboidShape(2, 0, 2, 14, 16, 14);
+    }
+
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
@@ -73,12 +90,13 @@ public class TFCKeg extends BlockWithEntity {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack inHand = player.getStackInHand(hand);
-        BlockEntity blockEntity = world.getBlockEntity(pos);
+        player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
+        System.out.println(state.getBlock().asItem().getTranslationKey());
 
-        return ActionResult.PASS;
+        return ActionResult.SUCCESS;
     }
     @Override
     public BlockRenderType getRenderType(BlockState state) {
@@ -93,5 +111,11 @@ public class TFCKeg extends BlockWithEntity {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         return 0;
     }
+
+    @Override
+    public SidedInventory getInventory(BlockState state, WorldAccess world, BlockPos pos) {
+        return (SidedInventory) world.getBlockEntity(pos);
+    }
+
 
 }

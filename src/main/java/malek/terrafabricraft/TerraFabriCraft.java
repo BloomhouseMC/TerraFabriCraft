@@ -2,7 +2,7 @@ package malek.terrafabricraft;
 
 import malek.terrafabricraft.common.event.TFCEvents;
 import malek.terrafabricraft.common.registry.*;
-import malek.terrafabricraft.common.screens.ModScreens;
+import malek.terrafabricraft.common.registry.TFCScreens;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -34,7 +34,7 @@ public class TerraFabriCraft implements ModInitializer {
         TFCBiome.init();
         TFCEntityTypes.init();
         TFCEvents.init();
-        ModScreens.init();
+        TFCScreens.init();
 
 
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {

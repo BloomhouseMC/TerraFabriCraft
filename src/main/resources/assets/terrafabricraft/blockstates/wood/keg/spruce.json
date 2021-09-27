@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "terrafabricraft:block/wood/keg/spruce"
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/wood/keg/spruce",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/wood/keg/spruce",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "terrafabricraft:block/wood/keg/spruce",
+      "y": 270
+    }
+  }
+}
