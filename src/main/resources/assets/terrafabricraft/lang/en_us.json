@@ -52,6 +52,7 @@
   "terrafabricraft.tooltip.calendar_season": "Season : ",
   "terrafabricraft.tooltip.calendar_day": "Day : ",
   "terrafabricraft.tooltip.calendar_birthday": "%s's Birthday!",
+  "terrafabricraft.tooltip.important_date": "Important Date! Today is %s",
   "terrafabricraft.tooltip.calendar_date": "Date : ",
   "terrafabricraft.tooltip.climate_plate_tectonics_classification": "Region: ",
   "terrafabricraft.tooltip.climate_koppen_climate_classification": "Climate: ",
