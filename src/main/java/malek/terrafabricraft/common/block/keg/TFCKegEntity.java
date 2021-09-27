@@ -35,8 +35,8 @@ public class TFCKegEntity extends BlockEntity implements ImplementedInventory, N
     private boolean on = false;
 
 
-    public TFCKegEntity(WoodBlock wood, BlockPos pos, BlockState state) {
-        super(wood, pos, state);
+    public TFCKegEntity(BlockPos pos, BlockState state) {
+        super(TFCObjects.KEG_BLOCK_ENTITY, pos, state);
         operationTime = 180;
         tankSize = 8000;
         maxProgress = getOperationTime();

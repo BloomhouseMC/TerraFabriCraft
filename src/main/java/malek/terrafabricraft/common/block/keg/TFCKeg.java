@@ -27,6 +27,7 @@ public class TFCKeg extends BlockWithEntity {
     public TFCKeg(Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
+
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
