@@ -37,9 +37,9 @@ public class TFCObjects {
     public static final Item DECAY_FOOD_TEST = createFood("decay_test", 1,1);
     public static final Item DECAY_FOOD_TEST2 = createFood("decay_test2", 1,1);
 
-    public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", true);
-    public static final Block ALABASTER_RAW_ALABASTER_BRICKS = createRock("alabaster/raw/alabaster_bricks", true);
-    public static final Block ALABASTER_RAW_POLISHED_ALABASTER = createRock("alabaster/raw/polished_alabaster", true);
+    public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", TerraFabriCraft.DECORATIONS_GROUP);
+    public static final Block ALABASTER_RAW_ALABASTER_BRICKS = createRock("alabaster/raw/alabaster_bricks", TerraFabriCraft.DECORATIONS_GROUP);
+    public static final Block ALABASTER_RAW_POLISHED_ALABASTER = createRock("alabaster/raw/polished_alabaster", TerraFabriCraft.DECORATIONS_GROUP);
     public static final StainedAlabasterBlock ALABASTER_STAINED_BLACK = new StainedAlabasterBlock("black");
     public static final StainedAlabasterBlock ALABASTER_STAINED_BLUE = new StainedAlabasterBlock("blue");
     public static final StainedAlabasterBlock ALABASTER_STAINED_BROWN = new StainedAlabasterBlock("brown");
@@ -118,7 +118,6 @@ public class TFCObjects {
 
     public static final SoilBlock GRASS_PATH = new SoilBlock("grass_path");
 
-
     //Ground Cover
     public static final GroundCoverBlock GROUNDCOVER_BONE = createGroundcover("groundcover/bone", Items.BONE);
     public static final GroundCoverBlock GROUNDCOVER_CLAM = createGroundcover("groundcover/clam");
@@ -135,7 +134,7 @@ public class TFCObjects {
     public static final GroundCoverBlock GROUNDCOVER_STICK = createGroundcover("groundcover/stick", Items.STICK);
     //Stone
     //Sample rock class :-)
-    public static final Block ROCK_BLOCK = createRock("rock_block", true);
+    public static final Block ROCK_BLOCK = createRock("rock_block", TerraFabriCraft.EARTH_GROUP);
 
     public static final Block ORE_SMALL_BISMUTHINITE = createGroundOre("ore/small_bismuthinite", false, 271);
     public static final Block ORE_SMALL_CASSITERITE = createGroundOre("ore/small_cassiterite", false, 232);
@@ -214,7 +213,7 @@ public class TFCObjects {
     public static final SandstoneBlock SANDSTONE_YELLOW = new SandstoneBlock("sandstone/yellow");
 
     //Peat
-    public static final TFCGravityBlock PEAT = createRock("peat", true);
+    public static final TFCGravityBlock PEAT = createRock("peat", TerraFabriCraft.EARTH_GROUP);
 
     public static final TFCLeaves THATCH = createLeaves("thatch", true);
 
@@ -250,7 +249,7 @@ public class TFCObjects {
     }
 
     public static TFCLeaves createLeaves(String id, boolean hasBlockItem) {
-        var block = new TFCLeaves(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f).noCollision());
+        var block = new TFCLeaves(FabricBlockSettings.copyOf(Blocks.ACACIA_LEAVES).noCollision());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
@@ -269,10 +268,15 @@ public class TFCObjects {
     }
 
     public static TFCSapling createSapling(String id, boolean hasBlockItem, SaplingGenerator generator) {
-        //TODO Give leaves an appropriate sound.
         var block = new TFCSapling(generator, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
+        return block;
+    }
+
+    public static TFCStoneButtonBlock createStoneButton(String id) {
+        var block = new TFCStoneButtonBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(2.0f));
+        register(id, block, true,   TerraFabriCraft.DECORATIONS_GROUP);
         return block;
     }
 
@@ -289,27 +293,27 @@ public class TFCObjects {
         return block;
     }
 
-    public static TFCStairs createStoneStairs(String id, Block fullBlock) {
+    public static TFCStairs createStoneStairs(String id, Block fullBlock, ItemGroup group) {
         var block = new TFCStairs(fullBlock.getDefaultState(), FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(6.0f));
-        register(id, block, true, TerraFabriCraft.ROCK_GROUP);
+        register(id, block, true, group);
         return block;
     }
 
-    public static SlabBlock createStoneSlab(String id) {
+    public static SlabBlock createStoneSlab(String id, ItemGroup group) {
         var block = new SlabBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(6.0f));
-        register(id, block, true, TerraFabriCraft.ROCK_GROUP);
+        register(id, block, true, group);
         return block;
     }
 
-    public static WallBlock createWall(String id) {
+    public static WallBlock createWall(String id, ItemGroup group) {
         var block = new WallBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(6.0f));
-        register(id, block, true, TerraFabriCraft.ROCK_GROUP);
+        register(id, block, true, group);
         return block;
     }
 
-    public static TFCGravityBlock createRock(String id, boolean hasBlockItem) {
+    public static TFCGravityBlock createRock(String id, ItemGroup group) {
         var block = new TFCGravityBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(2.0f));
-        register(id, block, hasBlockItem,   TerraFabriCraft.ROCK_GROUP);
+        register(id, block, true, group);
         return block;
     }
 

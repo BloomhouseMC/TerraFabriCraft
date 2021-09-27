@@ -4,6 +4,7 @@ import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.TFCLooseRock;
 import malek.terrafabricraft.common.block.TFCOreBlock;
 import malek.terrafabricraft.common.block.TFCStairs;
+import malek.terrafabricraft.common.block.TFCStoneButtonBlock;
 import malek.terrafabricraft.common.item.TFCLooseRockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -17,7 +18,7 @@ import static malek.terrafabricraft.common.registry.TFCObjects.*;
 public class RockBlock {
     // public Block groundCover;
     //TODO : Add facing and power varation for the stone button
-    public Block button;
+    public TFCStoneButtonBlock button;
     public Block anvil;
     public BlockVariant brick;
     public Block chiseled;
@@ -72,7 +73,7 @@ public class RockBlock {
 
     public RockBlock(String name) {
         var id = "rock/";
-        button = setCreateBlock(name, id, "button");
+        button = createStoneButton(id + "button/" + name);
         anvil = setCreateBlock(name, id, "anvil");
         brick = new BlockVariant(name, "bricks");
         chiseled = setCreateBlock(name, id, "chiseled");
@@ -131,12 +132,13 @@ public class RockBlock {
     }
 
     private static Block setCreateBlock(String name, String id, String special) {
-        return createRock(id + special + "/" + name, true);
+        return createRock(id + special + "/" + name, TerraFabriCraft.ROCK_GROUP);
     }
 
     private static TFCOreBlock setCreateBlockOre(String name, String id, String special) {
         return register(id + special + "/" + name, new TFCOreBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE)), true, TerraFabriCraft.ORES_GROUP);
     }
+
 
     public class OreStoneBlock {
         public TFCOreBlock poor;
@@ -157,11 +159,12 @@ public class RockBlock {
         public WallBlock wall;
 
         public BlockVariant(String name, String special) {
+            var group = TerraFabriCraft.ROCK_GROUP;
             block = setCreateBlock(name, "rock/", special);
             String variant = "rock/" + special + "/" + name;
-            slab = createStoneSlab(variant + "_slab");
-            stairs = createStoneStairs(variant + "_stairs", block);
-            wall = createWall(variant + "_wall");
+            slab = createStoneSlab(variant + "_slab", group);
+            stairs = createStoneStairs(variant + "_stairs", block, group);
+            wall = createWall(variant + "_wall", group);
         }
     }
 }
