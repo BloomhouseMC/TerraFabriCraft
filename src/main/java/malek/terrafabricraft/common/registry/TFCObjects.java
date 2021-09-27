@@ -2,8 +2,10 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
+
 import malek.terrafabricraft.common.block.keg.TFCKeg;
 import malek.terrafabricraft.common.block.keg.TFCKegEntity;
+
 import malek.terrafabricraft.common.block.logpile.LogPile;
 import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
@@ -56,6 +58,12 @@ public class TFCObjects {
     public static final StainedAlabasterBlock ALABASTER_STAINED_RED = new StainedAlabasterBlock("red");
     public static final StainedAlabasterBlock ALABASTER_STAINED_WHITE = new StainedAlabasterBlock("white");
     public static final StainedAlabasterBlock ALABASTER_STAINED_YELLOW = new StainedAlabasterBlock("yellow");
+
+    public static final CoralBlock CORAL_BRAIN = new CoralBlock("coral/brain");
+    public static final CoralBlock CORAL_BUBBLE = new CoralBlock("coral/bubble");
+    public static final CoralBlock CORAL_FIRE = new CoralBlock("coral/fire");
+    public static final CoralBlock CORAL_HORN = new CoralBlock("coral/horn");
+    public static final CoralBlock CORAL_TUBE = new CoralBlock("coral/tube");
 
 
     public static final Block BARLEY_CROP = createCrop("barley_crop", 0, 1, false, false);
@@ -112,8 +120,6 @@ public class TFCObjects {
 
     public static final SoilBlock GRASS_PATH = new SoilBlock("grass_path");
 
-    //Peat
-    //public static final TFCGravityBlock PEAT = createSand("peat", true);
 
     //Ground Cover
     public static final GroundCoverBlock GROUNDCOVER_BONE = createGroundcover("groundcover/bone", Items.BONE);
@@ -362,6 +368,34 @@ public class TFCObjects {
         register(id, block, hasBlockItem, TerraFabriCraft.EARTH_GROUP);
         return block;
     }
+
+    public static TFCCoralBlock createCoralBlock(String id, TFCDeadCoralBlock deadCoralBlock) {
+        var block = new TFCCoralBlock(deadCoralBlock, FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.CORAL).strength(2.0f).noCollision());
+        register(id, block, true, TerraFabriCraft.FLORA_GROUP);
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
+        return block;
+    }
+
+    public static TFCCoralFanBlock createCoralFanBlock(String id, TFCDeadCoralFanBlock deadCoralFanBlock) {
+        var block = new TFCCoralFanBlock(deadCoralFanBlock, FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.CORAL).strength(2.0f).noCollision());
+        register(id, block, true, TerraFabriCraft.FLORA_GROUP);
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
+        return block;
+    }
+
+    public static TFCDeadCoralBlock createDeadCoralBlock(String id) {
+        var block = new TFCDeadCoralBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.CORAL).strength(2.0f).noCollision());
+        register(id, block, true, TerraFabriCraft.FLORA_GROUP);
+        return block;
+    }
+
+    public static TFCDeadCoralFanBlock createDeadCoralFanBlock(String id) {
+        var block = new TFCDeadCoralFanBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.CORAL).strength(2.0f).noCollision());
+        register(id, block, true, TerraFabriCraft.FLORA_GROUP);
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
+        return block;
+    }
+
 
     public static TFCGravityGrassBlock createGrass(String id, boolean hasBlockItem) {
         var block = new TFCGravityGrassBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));

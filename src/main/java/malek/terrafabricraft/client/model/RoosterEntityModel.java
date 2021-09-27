@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class RoosterEntityModel extends EntityModel<RoosterEntity> {
 	//This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(TerraFabriCraft.MODID, "rooster"), "main");
+	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(TerraFabriCraft.MODID, "entity_animal_rooster"), "main");
 	private final ModelPart bb_main;
 
 	public RoosterEntityModel(ModelPart root) {

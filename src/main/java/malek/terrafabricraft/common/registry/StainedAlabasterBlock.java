@@ -16,7 +16,7 @@ public class StainedAlabasterBlock {
     public StainedAlabasterBlock(String id) {
         brick = new BlockVariant(id, "_alabaster_bricks");
         polished = new BlockVariant(id, "_polished_alabaster");
-        raw = createRock("alabaster/stained/" + id + "_raw_alabaster", true);
+        raw = createRock("alabaster/stained/" + id + "_raw_alabaster", true); 
     }
 
     public class BlockVariant {
