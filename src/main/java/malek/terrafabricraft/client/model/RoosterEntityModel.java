@@ -1,8 +1,10 @@
-package malek.terrafabricraft.common.entity;// Made with Blockbench 4.0.0-beta.3
+package malek.terrafabricraft.client.model;// Made with Blockbench 4.0.0-beta.3
 // Exported for Minecraft version 1.17 with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
 
+import malek.terrafabricraft.TerraFabriCraft;
+import malek.terrafabricraft.common.entity.RoosterEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
@@ -13,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class RoosterEntityModel extends EntityModel<RoosterEntity> {
 	//This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(TerraFabriCraft.MODID, "rooster"), "main");
+	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(TerraFabriCraft.MODID, "entity_animal_rooster"), "main");
 	private final ModelPart bb_main;
 
 	public RoosterEntityModel(ModelPart root) {
