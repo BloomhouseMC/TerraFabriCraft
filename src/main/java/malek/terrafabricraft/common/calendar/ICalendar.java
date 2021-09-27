@@ -88,7 +88,7 @@ public interface ICalendar {
         return new LiteralText(String.format("%d:%02d ", hour, minute))
                 .append(HelperUtil.translateEnum(month))
                 .append(" ")
-                .append(new TranslatableText("tfc.tooltip.calendar_days_years", day, years));
+                .append(new TranslatableText("terrafabricraft.tooltip.calendar_days_years", day, years));
     }
 
     static MutableText getTimeDelta(long ticks, int daysInMonth)

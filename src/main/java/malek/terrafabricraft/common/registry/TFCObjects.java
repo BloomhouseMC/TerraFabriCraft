@@ -6,10 +6,12 @@ import malek.terrafabricraft.common.block.keg.TFCKeg;
 import malek.terrafabricraft.common.block.keg.TFCKegEntity;
 import malek.terrafabricraft.common.block.logpile.LogPile;
 import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
+import malek.terrafabricraft.common.item.CalendarDebug;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -34,8 +36,10 @@ public class TFCObjects {
     private static final Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
+    // Debug + Testing
     public static final Item DECAY_FOOD_TEST = createFood("decay_test", 1,1);
     public static final Item DECAY_FOOD_TEST2 = createFood("decay_test2", 1,1);
+    public static final Item CALENDAR_TEST = register("calendar_debugger", new CalendarDebug(new FabricItemSettings().group(TerraFabriCraft.MISC_GROUP).maxCount(1)));
 
     public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", TerraFabriCraft.DECORATIONS_GROUP);
     public static final Block ALABASTER_RAW_ALABASTER_BRICKS = createRock("alabaster/raw/alabaster_bricks", TerraFabriCraft.DECORATIONS_GROUP);
