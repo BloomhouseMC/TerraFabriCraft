@@ -9,7 +9,6 @@ import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -36,6 +35,27 @@ public class TFCObjects {
 
     public static final Item DECAY_FOOD_TEST = createFood("decay_test", 1,1);
     public static final Item DECAY_FOOD_TEST2 = createFood("decay_test2", 1,1);
+
+    public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", true);
+    public static final Block ALABASTER_RAW_ALABASTER_BRICKS = createRock("alabaster/raw/alabaster_bricks", true);
+    public static final Block ALABASTER_RAW_POLISHED_ALABASTER = createRock("alabaster/raw/polished_alabaster", true);
+    public static final StainedAlabasterBlock ALABASTER_STAINED_BLACK = new StainedAlabasterBlock("black");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_BLUE = new StainedAlabasterBlock("blue");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_BROWN = new StainedAlabasterBlock("brown");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_CYAN = new StainedAlabasterBlock("cyan");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_GRAY = new StainedAlabasterBlock("gray");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_GREEN = new StainedAlabasterBlock("green");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_LIGHT_BLUE = new StainedAlabasterBlock("light_blue");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_LIGHT_GRAY = new StainedAlabasterBlock("light_gray");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_LIME = new StainedAlabasterBlock("lime");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_MAGENTA = new StainedAlabasterBlock("magenta");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_ORANGE = new StainedAlabasterBlock("orange");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_PINK = new StainedAlabasterBlock("pink");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_PURPLE = new StainedAlabasterBlock("purple");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_RED = new StainedAlabasterBlock("red");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_WHITE = new StainedAlabasterBlock("white");
+    public static final StainedAlabasterBlock ALABASTER_STAINED_YELLOW = new StainedAlabasterBlock("yellow");
+
 
     public static final Block BARLEY_CROP = createCrop("barley_crop", 0, 1, false, false);
     public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0, 1, false, false);
@@ -91,9 +111,6 @@ public class TFCObjects {
 
     public static final SoilBlock GRASS_PATH = new SoilBlock("grass_path");
 
-    //Peat
-    public static final TFCGravityBlock PEAT = createSand("peat", true);
-
     //Ground Cover
     public static final GroundCoverBlock GROUNDCOVER_BONE = createGroundcover("groundcover/bone", Items.BONE);
     public static final GroundCoverBlock GROUNDCOVER_CLAM = createGroundcover("groundcover/clam");
@@ -110,7 +127,7 @@ public class TFCObjects {
     public static final GroundCoverBlock GROUNDCOVER_STICK = createGroundcover("groundcover/stick", Items.STICK);
     //Stone
     //Sample rock class :-)
-    public static final Block ROCK_BLOCK = createRock("rock_block", true);
+    public static final Block ROCK_BLOCK = createLooseRock("rock_block", true);
 
     public static final Block ORE_SMALL_BISMUTHINITE = createGroundOre("ore/small_bismuthinite", false, 271);
     public static final Block ORE_SMALL_CASSITERITE = createGroundOre("ore/small_cassiterite", false, 232);
@@ -125,26 +142,26 @@ public class TFCObjects {
     public static final Block ORE_SMALL_SPHALERITE = createGroundOre("ore/small_sphalerite", false, 1085);
     public static final Block ORE_SMALL_TETRAHEDRITE = createGroundOre("ore/small_tetrahedrite", false, 1085);
     //Ores
-    public static final StoneBlock ANDESITE = new StoneBlock("andesite");
-    public static final StoneBlock BASALT = new StoneBlock("basalt");
-    public static final StoneBlock CHALK = new StoneBlock("chalk");
-    public static final StoneBlock CHERT = new StoneBlock("chert");
-    public static final StoneBlock CLAYSTONE = new StoneBlock("claystone");
-    public static final StoneBlock CONGLOMERATE = new StoneBlock("conglomerate");
-    public static final StoneBlock DACITE = new StoneBlock("dacite");
-    public static final StoneBlock DIORITE = new StoneBlock("diorite");
-    public static final StoneBlock DOLOMITE = new StoneBlock("dolomite");
-    public static final StoneBlock GABBRO = new StoneBlock("gabbro");
-    public static final StoneBlock GNEISS = new StoneBlock("gneiss");
-    public static final StoneBlock GRANITE = new StoneBlock("granite");
-    public static final StoneBlock LIMESTONE = new StoneBlock("limestone");
-    public static final StoneBlock MARBLE = new StoneBlock("marble");
-    public static final StoneBlock PHYLLITE = new StoneBlock("phyllite");
-    public static final StoneBlock QUARTZITE = new StoneBlock("quartzite");
-    public static final StoneBlock RHYOLITE = new StoneBlock("rhyolite");
-    public static final StoneBlock SCHIST = new StoneBlock("schist");
-    public static final StoneBlock SHALE = new StoneBlock("shale");
-    public static final StoneBlock SLATE = new StoneBlock("slate");
+    public static final RockBlock ANDESITE = new RockBlock("andesite");
+    public static final RockBlock BASALT = new RockBlock("basalt");
+    public static final RockBlock CHALK = new RockBlock("chalk");
+    public static final RockBlock CHERT = new RockBlock("chert");
+    public static final RockBlock CLAYSTONE = new RockBlock("claystone");
+    public static final RockBlock CONGLOMERATE = new RockBlock("conglomerate");
+    public static final RockBlock DACITE = new RockBlock("dacite");
+    public static final RockBlock DIORITE = new RockBlock("diorite");
+    public static final RockBlock DOLOMITE = new RockBlock("dolomite");
+    public static final RockBlock GABBRO = new RockBlock("gabbro");
+    public static final RockBlock GNEISS = new RockBlock("gneiss");
+    public static final RockBlock GRANITE = new RockBlock("granite");
+    public static final RockBlock LIMESTONE = new RockBlock("limestone");
+    public static final RockBlock MARBLE = new RockBlock("marble");
+    public static final RockBlock PHYLLITE = new RockBlock("phyllite");
+    public static final RockBlock QUARTZITE = new RockBlock("quartzite");
+    public static final RockBlock RHYOLITE = new RockBlock("rhyolite");
+    public static final RockBlock SCHIST = new RockBlock("schist");
+    public static final RockBlock SHALE = new RockBlock("shale");
+    public static final RockBlock SLATE = new RockBlock("slate");
     //Peat grass
     public static final TFCGravityBlock PEAT_GRASS = createSand("peat_grass", true);
     //Sand
@@ -176,11 +193,34 @@ public class TFCObjects {
     public static final WoodBlock WOOD_WHITE_CEDAR = new WoodBlock("white_cedar", new GenericSaplingGenerator(TREE_WHITE_CEDAR), MapColor.WHITE);
     public static final WoodBlock WOOD_WILLOW = new WoodBlock("willow", new GenericSaplingGenerator(TREE_WILLOW), MapColor.WHITE);
 
+    //Make a createBlock method, baldek :P
     public static final LogPile LOG_PILE = register("log_pile", new LogPile(FabricBlockSettings.copyOf(Blocks.STONE)));
+
+    public static final SandstoneBlock SANDSTONE_BLACK = new SandstoneBlock("sandstone/black");
+    public static final SandstoneBlock SANDSTONE_BROWN = new SandstoneBlock("sandstone/brown");
+    public static final SandstoneBlock SANDSTONE_GREEN = new SandstoneBlock("sandstone/green");
+    public static final SandstoneBlock SANDSTONE_PINK = new SandstoneBlock("sandstone/pink");
+    public static final SandstoneBlock SANDSTONE_RED = new SandstoneBlock("sandstone/red");
+    public static final SandstoneBlock SANDSTONE_WHITE = new SandstoneBlock("sandstone/white");
+    public static final SandstoneBlock SANDSTONE_YELLOW = new SandstoneBlock("sandstone/yellow");
+
+    //Peat
+    public static final TFCGravityBlock PEAT = createRock("peat", true);
+
+    public static final TFCLeaves THATCH = createLeaves("thatch", true);
+
+    public static final Block FIRE_BRICKS = createLooseRock("fire_bricks", true);
+
+    public static final Block CALCITE = createLooseRock("calcite", true);
+
+    public static final Block BELLOWS = createLooseRock("bellows", true);
+
+    public static final Block CHARCOAL_PILE = createLooseRock("charcoal_pile", true);
 
     //Block Entities
     public static final BlockEntityType<RockBlockEntity> ROCK_BLOCK_ENTITY = register("rock_block_entity", FabricBlockEntityTypeBuilder.create(RockBlockEntity::new, TFCObjects.ROCK_BLOCK).build(null));
     public static final BlockEntityType<LogPileBlockEntity> LOG_PILE_BLOCK_ENTITY = register("log_pile_entity", FabricBlockEntityTypeBuilder.create(LogPileBlockEntity::new, TFCObjects.LOG_PILE).build(null));
+
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
         return block;
@@ -228,12 +268,36 @@ public class TFCObjects {
     }
 
 
-    public static Block createRock(String id, boolean hasBlockItem) {
-        //TODO Fix material settings
-        var block = new Block(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+    public static TFCLooseRock createLooseRock(String id, boolean hasBlockItem) {
+        var block = new TFCLooseRock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(6.0f));
         register(id, block, hasBlockItem, TerraFabriCraft.ROCK_GROUP);
         return block;
     }
+
+    public static TFCStairs createStoneStairs(String id, Block fullBlock) {
+        var block = new TFCStairs(fullBlock.getDefaultState(), FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(6.0f));
+        register(id, block, true, TerraFabriCraft.ROCK_GROUP);
+        return block;
+    }
+
+    public static SlabBlock createStoneSlab(String id) {
+        var block = new SlabBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(6.0f));
+        register(id, block, true, TerraFabriCraft.ROCK_GROUP);
+        return block;
+    }
+
+    public static WallBlock createWall(String id) {
+        var block = new WallBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(6.0f));
+        register(id, block, true, TerraFabriCraft.ROCK_GROUP);
+        return block;
+    }
+
+    public static TFCGravityBlock createRock(String id, boolean hasBlockItem) {
+        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(2.0f));
+        register(id, block, hasBlockItem,   TerraFabriCraft.ROCK_GROUP);
+        return block;
+    }
+
 
     public static Block createGroundOre(String id, boolean hasBlockItem, int meltingPoint) {
         var block = new GroundCoverOre(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
@@ -255,7 +319,7 @@ public class TFCObjects {
     }
 
     public static TFCGravityBlock createSand(String id, boolean hasBlockItem) {
-        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.SOIL).breakByTool(FabricToolTags.SHOVELS).sounds(BlockSoundGroup.SAND).strength(2.0f));
         register(id, block, hasBlockItem, TerraFabriCraft.EARTH_GROUP);
         return block;
     }

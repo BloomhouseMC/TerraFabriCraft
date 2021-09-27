@@ -3,34 +3,37 @@ package malek.terrafabricraft.common.registry;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.TFCLooseRock;
 import malek.terrafabricraft.common.block.TFCOreBlock;
+import malek.terrafabricraft.common.block.TFCStairs;
 import malek.terrafabricraft.common.item.TFCLooseRockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.Identifier;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.WallBlock;
 
-import static malek.terrafabricraft.common.registry.TFCObjects.createRock;
-import static malek.terrafabricraft.common.registry.TFCObjects.register;
+import static malek.terrafabricraft.common.registry.TFCObjects.*;
 
-public class StoneBlock {
+public class RockBlock {
     // public Block groundCover;
     //TODO : Add facing and power varation for the stone button
     public Block button;
     public Block anvil;
-    public Block brick;
+    public BlockVariant brick;
     public Block chiseled;
-    public Block cobble;
-    public Block crackedBrick;
+    public BlockVariant cobble;
+    public BlockVariant crackedBrick;
     public Block gravel;
     public Block hardened;
     public TFCLooseRock loose;
-    public Block mossyBrick;
-    public Block mossyCobble;
+    public BlockVariant mossyBrick;
+    public BlockVariant mossyCobble;
     public Block pressurePlate;
-    public Block raw;
-    public Block smooth;
+    public BlockVariant raw;
+    public BlockVariant smooth;
     public Block spike;
+
+    public SlabBlock slab;
 
     public OreStoneBlock bismuthinite;
     public OreStoneBlock cassiterite;
@@ -46,7 +49,7 @@ public class StoneBlock {
     public OreStoneBlock tetrahedrite;
 
     public Block amethyst;
-    public Block bitumiousCoal;
+    public Block bituminousCoal;
     public Block borax;
     public Block cinnabar;
     public Block cryolite;
@@ -67,22 +70,22 @@ public class StoneBlock {
     public Block sylvite;
     public Block topaz;
 
-    public StoneBlock(String name) {
+    public RockBlock(String name) {
         var id = "rock/";
         button = setCreateBlock(name, id, "button");
         anvil = setCreateBlock(name, id, "anvil");
-        brick = setCreateBlock(name, id, "bricks");
+        brick = new BlockVariant(name, "bricks");
         chiseled = setCreateBlock(name, id, "chiseled");
-        cobble = setCreateBlock(name, id, "cobble");
-        crackedBrick = setCreateBlock(name, id, "cracked_bricks");
+        cobble = new BlockVariant(name, "cobble");
+        crackedBrick = new BlockVariant(name, "cracked_bricks");
         gravel = setCreateBlock(name, id, "gravel");
         hardened = setCreateBlock(name, id, "hardened");
         loose = setCreateTFCLooseRock(name, id, "loose");
-        mossyBrick = setCreateBlock(name, id, "mossy_bricks");
-        mossyCobble = setCreateBlock(name, id, "mossy_cobble");
+        mossyBrick = new BlockVariant(name, "mossy_bricks");
+        mossyCobble = new BlockVariant(name, "mossy_cobble");
         pressurePlate = setCreateBlock(name, id, "pressure_plate");
-        raw = setCreateBlock(name, id, "raw");
-        smooth = setCreateBlock(name, id, "smooth");
+        raw = new BlockVariant(name, "raw");
+        smooth = new BlockVariant(name, "smooth");
         spike = setCreateBlock(name, id, "spike");
 
         bismuthinite = new OreStoneBlock(name, "bismuthinite");
@@ -99,7 +102,7 @@ public class StoneBlock {
         tetrahedrite = new OreStoneBlock(name, "tetrahedrite");
         id = "ore/";
         amethyst = setCreateBlock(name, id, "amethyst");
-        bitumiousCoal = setCreateBlock(name, id, "bitumious_coal");
+        bituminousCoal = setCreateBlock(name, id, "bituminous_coal");
         borax = setCreateBlock(name, id, "borax");
         cinnabar = setCreateBlock(name, id, "cinnabar");
         cryolite = setCreateBlock(name, id, "cryolite");
@@ -120,14 +123,17 @@ public class StoneBlock {
         sylvite = setCreateBlock(name, id, "sylvite");
         topaz = setCreateBlock(name, id, "topaz");
     }
+
     private static TFCLooseRock setCreateTFCLooseRock(String name, String id, String special) {
         TFCLooseRock rock = register(id + special + "/" + name, new TFCLooseRock(FabricBlockSettings.copy(Blocks.STONE)), false, TerraFabriCraft.ROCK_GROUP);
         TFCObjects.register(id + special + "/" + name, new TFCLooseRockItem(rock, new FabricItemSettings().group(TerraFabriCraft.ROCK_GROUP)));
         return rock;
     }
+
     private static Block setCreateBlock(String name, String id, String special) {
         return createRock(id + special + "/" + name, true);
     }
+
     private static TFCOreBlock setCreateBlockOre(String name, String id, String special) {
         return register(id + special + "/" + name, new TFCOreBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE)), true, TerraFabriCraft.ORES_GROUP);
     }
@@ -138,9 +144,24 @@ public class StoneBlock {
         public TFCOreBlock rich;
 
         public OreStoneBlock(String rockType, String oreType) {
-            poor = (TFCOreBlock) setCreateBlockOre(rockType, "ore/poor_" + oreType, "");
-            normal = (TFCOreBlock) setCreateBlockOre(rockType, "ore/normal_" + oreType, "");
-            rich = (TFCOreBlock) setCreateBlockOre(rockType, "ore/rich_" + oreType, "");
+            poor = setCreateBlockOre(rockType, "ore/poor_" + oreType, "");
+            normal = setCreateBlockOre(rockType, "ore/normal_" + oreType, "");
+            rich = setCreateBlockOre(rockType, "ore/rich_" + oreType, "");
+        }
+    }
+
+    public class BlockVariant {
+        public Block block;
+        public SlabBlock slab;
+        public TFCStairs stairs;
+        public WallBlock wall;
+
+        public BlockVariant(String name, String special) {
+            block = setCreateBlock(name, "rock/", special);
+            String variant = "rock/" + special + "/" + name;
+            slab = createStoneSlab(variant + "_slab");
+            stairs = createStoneStairs(variant + "_stairs", block);
+            wall = createWall(variant + "_wall");
         }
     }
 }

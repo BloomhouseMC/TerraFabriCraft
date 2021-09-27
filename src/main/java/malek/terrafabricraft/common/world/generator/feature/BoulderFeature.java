@@ -32,7 +32,7 @@ public class BoulderFeature extends Feature<DefaultFeatureConfig> {
         for (int x = 0; x < radius; x++)
             for (int y = 0; y < radius; y++)
                 for (int z = 0; z < radius; z++) {
-                    context.getWorld().setBlockState(topPos.add(x, y, z), TFCObjects.ANDESITE.raw.getDefaultState(), 3);
+                    context.getWorld().setBlockState(topPos.add(x, y, z), TFCObjects.ANDESITE.raw.block.getDefaultState(), 3);
                 }
         return true;
     }
