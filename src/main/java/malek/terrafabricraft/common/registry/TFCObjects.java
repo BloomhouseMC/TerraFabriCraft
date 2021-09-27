@@ -255,6 +255,12 @@ public class TFCObjects {
         return block;
     }
 
+    public static TFCGravityGrassBlock createGrass(String id, boolean hasBlockItem) {
+        var block = new TFCGravityGrassBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        register(id, block, hasBlockItem, TerraFabriCraft.EARTH_GROUP);
+        return block;
+    }
+
     public static TFCGravityBlock createFarmland(String id, boolean hasItem) {
         var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
         register(id, block, hasItem, TerraFabriCraft.ROCK_GROUP);

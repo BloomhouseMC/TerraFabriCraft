@@ -1,8 +1,9 @@
-package malek.terrafabricraft.common.entity;// Made with Blockbench 4.0.0-beta.3
+package malek.terrafabricraft.client.model;// Made with Blockbench 4.0.0-beta.3
 // Exported for Minecraft version 1.17 with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
 
+import malek.terrafabricraft.common.entity.RoosterEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
