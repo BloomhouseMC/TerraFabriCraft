@@ -37,6 +37,8 @@ public class TFCObjects {
     public static final Item DECAY_FOOD_TEST = createFood("decay_test", 1,1);
     public static final Item DECAY_FOOD_TEST2 = createFood("decay_test2", 1,1);
 
+    public static final Item ITEM = createItemSimple("w", TerraFabriCraft.FLORA_GROUP);
+
     public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", TerraFabriCraft.DECORATIONS_GROUP);
     public static final Block ALABASTER_RAW_ALABASTER_BRICKS = createRock("alabaster/raw/alabaster_bricks", TerraFabriCraft.DECORATIONS_GROUP);
     public static final Block ALABASTER_RAW_POLISHED_ALABASTER = createRock("alabaster/raw/polished_alabaster", TerraFabriCraft.DECORATIONS_GROUP);
@@ -104,6 +106,34 @@ public class TFCObjects {
     public static final Item TOMATO_SEED = createItem("seed/tomato_seeds", new AliasedBlockItem(TOMATO_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item WHEAT_SEED = createItem("seed/wheat_seeds", new AliasedBlockItem(WHEAT_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item YELLOW_BELL_PEPPER_SEED = createItem("seed/yellow_bell_pepper_seeds", new AliasedBlockItem(YELLOW_BELL_PEPPER_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
+
+    //public static final MetalItem COPPER = new MetalItem("copper");
+
+
+    public static final MetalItem DOUBLE_INGOT = new MetalItem("double_ingot");
+    public static final MetalItem DOUBLE_SHEET = new MetalItem("double_sheet");
+    public static final MetalItem INGOT = new MetalItem("ingot");
+    public static final MetalItem ROD = new MetalItem("rod");
+    public static final MetalItem SHEET = new MetalItem("sheet");
+    public static final MetalItem UN_BOOTS = new MetalItem("unfinished_boots");
+    public static final MetalItem UN_CHEST = new MetalItem("unfinished_chestplate");
+    public static final MetalItem UN_GREAVES = new MetalItem("unfinished_greaves");
+    public static final MetalItem UN_HELMET = new MetalItem("unfinished_helmet");
+    public static final MetalItem AXE_HEAD = new MetalItem("axe_head");
+    public static final MetalItem CHISEL_HEAD = new MetalItem("chisel_head");
+    public static final MetalItem HAMMER_HEAD = new MetalItem("hammer_head");
+    public static final MetalItem JAVELIN_HEAD = new MetalItem("javelin_head");
+    public static final MetalItem HOE_HEAD = new MetalItem("hoe_head");
+    public static final MetalItem KNIFE_HEAD = new MetalItem("knife_blade");
+    public static final MetalItem MACE_HEAD = new MetalItem("mace_head");
+    public static final MetalItem PICKAXE_HEAD = new MetalItem("pickaxe_head");
+    public static final MetalItem PROPICK_HEAD = new MetalItem("propick_head");
+    public static final MetalItem SAW_BLADE = new MetalItem("saw_blade");
+    public static final MetalItem SCYTHE_BLADE = new MetalItem("scythe_blade");
+    public static final MetalItem SHOVEL_HEAD = new MetalItem("shovel_head");
+    public static final MetalItem SWORD_BLADE = new MetalItem("sword_blade");
+    public static final MetalItem TUYERE = new MetalItem("tuyere");
+
 
 
     public static final SoilBlock CLAY = new SoilBlock("clay");
@@ -415,6 +445,11 @@ public class TFCObjects {
     //Register item
     private static <T extends Item> T createItem(String id, T item) {
         ITEMS.put(item, new Identifier(TerraFabriCraft.MODID, id));
+        return item;
+    }
+    public static Item createItemSimple(String id, ItemGroup group) {
+        var item = new Item(gen(group));
+        register("metal/" + id, item);
         return item;
     }
 
