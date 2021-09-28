@@ -1,9 +1,11 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
+import malek.terrafabricraft.common.util.HelperUtil;
 import malek.terrafabricraft.common.world.generator.feature.BoulderFeature;
+import malek.terrafabricraft.common.world.generator.feature.TestBoulderFeature;
 import net.fabricmc.fabric.api.biome.v1.*;
-import net.minecraft.block.Blocks;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -13,10 +15,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.HeightmapDecoratorConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
@@ -293,11 +292,16 @@ public class TFCFeatures {
             .spreadHorizontally()
             .applyChance(5);
 
+    public static final Feature<SingleStateFeatureConfig> TEST_BOULDER = new TestBoulderFeature(SingleStateFeatureConfig.CODEC);
+    public static final ConfiguredFeature<?, ?> TEST_BOULDER_CONFIGURED = TEST_BOULDER.configure(new SingleStateFeatureConfig(HelperUtil.getRandomRawStone(HelperUtil.RNG))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).applyChance(10);
+
     public static void init() {
         var vegetalGenStep = GenerationStep.Feature.VEGETAL_DECORATION;
         var otherGenStep = GenerationStep.Feature.TOP_LAYER_MODIFICATION;
         //Register new feature
         Registry.register(Registry.FEATURE, new Identifier("terrafirmacraft", "boulder"), BOULDER);
+     //   Registry.register(Registry.FEATURE, new Identifier(TerraFabriCraft.MODID, "test_boulder"), TEST_BOULDER);
+     //   Registry.register(Registry.CONFIGURED_FEATURE_KEY, new Identifier(TerraFabriCraft.MODID, "test_boulder"), BuiltinRegistries.CONFIGURED_FEATURE.getKey(TEST_BOULDER_CONFIGURED));
         //Register configured feature
 //        register("tree/acacia", TREE_ACACIA, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/ash", TREE_ASH, BiomeSelectors.foundInOverworld(), vegetalGenStep);
@@ -319,6 +323,7 @@ public class TFCFeatures {
         register("tree/sycamore", TREE_SYCAMORE, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/white_cedar", TREE_WHITE_CEDAR, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/willow", TREE_WILLOW, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("boulder/andesite", BOULDER_ANDESITE, BiomeSelectors.foundInOverworld(), otherGenStep);
+    //    register("boulder/andesite", BOULDER_ANDESITE, BiomeSelectors.foundInOverworld(), otherGenStep);
+    //    BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), otherGenStep, BuiltinRegistries.CONFIGURED_FEATURE.getKey(TEST_BOULDER_CONFIGURED).get());
     }
 }

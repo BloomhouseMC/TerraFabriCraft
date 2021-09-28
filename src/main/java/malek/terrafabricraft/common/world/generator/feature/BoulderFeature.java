@@ -1,16 +1,12 @@
 package malek.terrafabricraft.common.world.generator.feature;
 
 import com.mojang.serialization.Codec;
-import malek.terrafabricraft.common.registry.TFCObjects;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
+import malek.terrafabricraft.common.util.HelperUtil;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
-
-import java.util.Random;
 
 public class BoulderFeature extends Feature<DefaultFeatureConfig> {
     public BoulderFeature(Codec<DefaultFeatureConfig> configCodec) {
@@ -32,7 +28,7 @@ public class BoulderFeature extends Feature<DefaultFeatureConfig> {
         for (int x = 0; x < radius; x++)
             for (int y = 0; y < radius; y++)
                 for (int z = 0; z < radius; z++) {
-                    context.getWorld().setBlockState(topPos.add(x, y, z), TFCObjects.ANDESITE.raw.block.getDefaultState(), 3);
+                    context.getWorld().setBlockState(topPos.add(x, y, z), HelperUtil.getRandomRawStone(context.getRandom()), 3);
                 }
         return true;
     }
