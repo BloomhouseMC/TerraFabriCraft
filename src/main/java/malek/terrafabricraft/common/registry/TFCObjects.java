@@ -187,16 +187,66 @@ public class TFCObjects {
     public static final Item RYE_GRAIN = createFood("rye_grain", 1, 1);
     public static final Item WHEAT_BREAD = createFood("wheat_bread", 1, 1);
     public static final Item WHEAT_GRAIN = createFood("wheat_grain", 1, 1);
+    //Grain Simple Items
+    public static final Item BARLEY = createItemSimple("food/barley", TerraFabriCraft.FOOD_GROUP);
+    public static final Item BARLEY_FLOUR = createItemSimple("food/barley_flour", TerraFabriCraft.FOOD_GROUP);
+    public static final Item BARLEY_DOUGH = createItemSimple("food/barley_dough", TerraFabriCraft.FOOD_GROUP);
+
+    public static final Item MAIZE = createItemSimple("food/maize", TerraFabriCraft.FOOD_GROUP);
+    public static final Item MAIZE_FLOUR = createItemSimple("food/maize_flour", TerraFabriCraft.FOOD_GROUP);
+    public static final Item MAIZE_DOUGH = createItemSimple("food/maize_dough", TerraFabriCraft.FOOD_GROUP);
+
+    public static final Item OAT = createItemSimple("food/oat", TerraFabriCraft.FOOD_GROUP);
+    public static final Item OAT_FLOUR = createItemSimple("food/oat_flour", TerraFabriCraft.FOOD_GROUP);
+    public static final Item OAT_DOUGH = createItemSimple("food/oat_dough", TerraFabriCraft.FOOD_GROUP);
+
+    public static final Item RYE = createItemSimple("food/rye", TerraFabriCraft.FOOD_GROUP);
+    public static final Item RYE_FLOUR = createItemSimple("food/rye_flour", TerraFabriCraft.FOOD_GROUP);
+    public static final Item RYE_DOUGH = createItemSimple("food/rye_dough", TerraFabriCraft.FOOD_GROUP);
+
+    public static final Item RICE = createItemSimple("food/rice", TerraFabriCraft.FOOD_GROUP);
+    public static final Item RICE_FLOUR = createItemSimple("food/rice_flour", TerraFabriCraft.FOOD_GROUP);
+    public static final Item RICE_DOUGH = createItemSimple("food/rice_dough", TerraFabriCraft.FOOD_GROUP);
+
+    public static final Item WHEAT = createItemSimple("food/wheat", TerraFabriCraft.FOOD_GROUP);
+    public static final Item WHEAT_FLOUR = createItemSimple("food/wheat_flour", TerraFabriCraft.FOOD_GROUP);
+    public static final Item WHEAT_DOUGH = createItemSimple("food/wheat_dough", TerraFabriCraft.FOOD_GROUP);
     //Protein
+    public static final Item RAW_BEAR = createFood("bear", 1, 1);
+    public static final Item COOKED_BEAR = createFood("cooked_bear", 1, 1);
+    public static final Item RAW_BEEF = createFood("beef", 1, 1);
     public static final Item COOKED_BEEF = createFood("cooked_beef", 1, 1);
+    public static final Item RAW_CALAMARI = createFood("calamari", 1, 1);
     public static final Item COOKED_CALAMARI = createFood("cooked_calamari", 1, 1);
+    public static final Item RAW_CAMELIDAE = createFood("camelidae", 1, 1);
+    public static final Item COOKED_CAMELIDAE = createFood("cooked_camelidae", 1, 1);
+    public static final Item RAW_CHEVON = createFood("chevon", 1, 1);
+    public static final Item COOKED_CHEVNON = createFood("cooked_chevon", 1, 1);
+    public static final Item RAW_DUCK = createFood("duck", 1, 1);
+    public static final Item COOKED_DUCK = createFood("cooked_duck", 1, 1);
     public static final Item COOKED_EGG = createFood("cooked_egg", 1, 1);
+    public static final Item RAW_FISH = createFood("fish", 1, 1);
     public static final Item COOKED_FISH = createFood("cooked_fish", 1, 1);
+    public static final Item RAW_GRAN_FELINE = createFood("gran_feline", 1, 1);
+    public static final Item COOKED_GRAN_FELINE = createFood("cooked_gran_feline", 1, 1);
+    public static final Item RAW_HORSE_MEAT = createFood("horse_meat", 1, 1);
     public static final Item COOKED_HORSE_MEAT = createFood("cooked_horse_meat", 1, 1);
+    public static final Item RAW_HYENA = createFood("hyena", 1, 1);
+    public static final Item COOKED_HYENA = createFood("cooked_hyena", 1, 1);
+    public static final Item RAW_MUTTON = createFood("mutton", 1, 1);
     public static final Item COOKED_MUTTON = createFood("cooked_mutton", 1, 1);
+    public static final Item RAW_PHEASANT = createFood("pheasant", 1, 1);
+    public static final Item COOKED_PHEASANT = createFood("cooked_pheasant", 1, 1);
+    public static final Item RAW_PORK = createFood("pork", 1, 1);
     public static final Item COOKED_PORK = createFood("cooked_pork", 1, 1);
-    public static final Item COOKED_POULTRY = createFood("cooked_poultry",1, 1);
+    public static final Item RAW_RABBIT = createFood("rabbit", 1, 1);
+    public static final Item COOKED_RABBIT = createFood("cooked_rabbit", 1, 1);
+    public static final Item RAW_CHICKEN = createFood("chicken",1, 1);
+    public static final Item COOKED_CHICKEN = createFood("cooked_chicken",1, 1);
+    public static final Item RAW_VENISON = createFood("venison", 1, 1);
     public static final Item COOKED_VENISON = createFood("cooked_venison", 1, 1);
+    public static final Item RAW_WOLF = createFood("wolf", 1, 1);
+    public static final Item COOKED_WOLF = createFood("cooked_wolf", 1, 1);
     public static final Item SOYBEAN = createFood("soybean",1, 1);
     //Dairy
     public static final Item CHEESE = createFood("cheese", 1, 1);
@@ -516,7 +566,7 @@ public class TFCObjects {
     }
     public static Item createItemSimple(String id, ItemGroup group) {
         var item = new Item(gen(group));
-        register("metal/" + id, item);
+        register(id, item);
         return item;
     }
 
