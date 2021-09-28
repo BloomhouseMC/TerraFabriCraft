@@ -37,11 +37,8 @@ public class TFCObjects {
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
     // Debug + Testing
-    public static final Item DECAY_FOOD_TEST = createFood("decay_test", 1,1);
-    public static final Item DECAY_FOOD_TEST2 = createFood("decay_test2", 1,1);
     public static final Item CALENDAR_TEST = register("calendar_debugger", new CalendarDebug(new FabricItemSettings().group(TerraFabriCraft.MISC_GROUP).maxCount(1)));
 
-    public static final Item ITEM = createItemSimple("w", TerraFabriCraft.FLORA_GROUP);
 
     public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", TerraFabriCraft.DECORATIONS_GROUP);
     public static final Block ALABASTER_RAW_ALABASTER_BRICKS = createRock("alabaster/raw/alabaster_bricks", TerraFabriCraft.DECORATIONS_GROUP);
@@ -137,6 +134,7 @@ public class TFCObjects {
     public static final OreItem NORMAL_ORE_ITEM = new OreItem("normal");
     public static final OreItem POOR_ORE_ITEM = new OreItem("poor");
 
+    public static final StoneItem STONE_HEAD = new StoneItem("stone");
 
 
     public static final MetalItem DOUBLE_INGOT = new MetalItem("double_ingot");
@@ -203,8 +201,8 @@ public class TFCObjects {
     //Grain
     public static final Item BARLEY_BREAD = createFood("barley_bread", 1, 1);
     public static final Item BARLEY_GRAIN = createFood("barley_grain", 1, 1);
-    public static final Item CORN_BREAD = createFood("corn_bread", 1, 1);
-    public static final Item MAIZE_EAR = createFood("maize_ear", 1, 1);
+    public static final Item MAIZE_BREAD = createFood("maize_bread", 1, 1);
+    //public static final Item MAIZE_EAR = createFood("maize_ear", 1, 1);
     public static final Item OAT_BREAD = createFood("oat_bread", 1, 1);
     public static final Item OAT_GRAIN = createFood("oat_grain", 1, 1);
     public static final Item RICE_BREAD = createFood("rice_bread", 1, 1);
