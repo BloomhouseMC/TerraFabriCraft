@@ -24,6 +24,7 @@ import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import org.lwjgl.opengl.ARBProgramInterfaceQuery;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -111,8 +112,6 @@ public class TFCObjects {
     public static final Item WHEAT_SEED = createItem("seed/wheat_seeds", new AliasedBlockItem(WHEAT_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item YELLOW_BELL_PEPPER_SEED = createItem("seed/yellow_bell_pepper_seeds", new AliasedBlockItem(YELLOW_BELL_PEPPER_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
 
-    //public static final MetalItem COPPER = new MetalItem("copper");
-
 
     public static final MetalItem DOUBLE_INGOT = new MetalItem("double_ingot");
     public static final MetalItem DOUBLE_SHEET = new MetalItem("double_sheet");
@@ -138,6 +137,70 @@ public class TFCObjects {
     public static final MetalItem SWORD_BLADE = new MetalItem("sword_blade");
     public static final MetalItem TUYERE = new MetalItem("tuyere");
 
+    //Fruit
+    public static final Item BANANA = createFood("banana", 1, 1);
+    public static final Item BLACKBERRY = createFood("blackberry", 1, 1);
+    public static final Item BLUEBERRY = createFood("blueberry", 1, 1);
+    public static final Item BUNCHBERRY = createFood("bunchberry", 1, 1);
+    public static final Item CHERRY = createFood("cherry", 1, 1);
+    public static final Item CLOUDBERRY = createFood("cloudberry", 1, 1);
+    public static final Item CRANBERRY = createFood("cranberry", 1, 1);
+    public static final Item ELDERBERRY = createFood("elderberry", 1, 1);
+    public static final Item GOOSEBERRY = createFood("gooseberry", 1, 1);
+    public static final Item GREEN_APPLE = createFood("green_apple", 1, 1);
+    public static final Item LEMON = createFood("lemon", 1, 1);
+    public static final Item OLIVE = createFood("olive", 1, 1);
+    public static final Item ORANGE = createFood("orange", 1, 1);
+    public static final Item PEACH = createFood("peach", 1, 1);
+    public static final Item PLUM = createFood("plum", 1, 1);
+    public static final Item RASPBERRY = createFood("raspberry", 1, 1);
+    public static final Item RED_APPLE = createFood("red_apple", 1, 1);
+    public static final Item SNOWBERRY = createFood("snowberry", 1, 1);
+    public static final Item STRAWBERRY = createFood("strawberry", 1, 1);
+    public static final Item WINTERGREEN_BERRY = createFood("wintergreen_berry", 1, 1);
+
+    //Vegetable
+    public static final Item CABBAGE = createFood("cabbage", 1, 1);
+    public static final Item CARROT = createFood("carrot", 1, 1);
+    public static final Item GARLIC = createFood("garlic", 1, 1);
+    public static final Item GREEN_BEAN = createFood("green_bean", 1, 1);
+    public static final Item GREEN_BELL_PEPPER = createFood("green_bell_pepper", 1, 1);
+    public static final Item ONION = createFood("onion", 1, 1);
+    public static final Item POTATO = createFood("potato", 1, 1);
+    public static final Item RED_BELL_PEPPER = createFood("red_bell_pepper", 1, 1);
+    public static final Item RUTABAGA = createFood("rutabaga", 1, 1);
+    public static final Item SEA_WEED = createFood("sea_weed", 1, 1);
+    public static final Item SQUASH = createFood("squash", 1, 1);
+    public static final Item TOMATO = createFood("tomato", 1, 1);
+    public static final Item YELLOW_BELL_PEPPER = createFood("yellow_bell_pepper", 1, 1);
+
+    //Grain
+    public static final Item BARLEY_BREAD = createFood("barley_bread", 1, 1);
+    public static final Item BARLEY_GRAIN = createFood("barley_grain", 1, 1);
+    public static final Item CORN_BREAD = createFood("corn_bread", 1, 1);
+    public static final Item MAIZE_EAR = createFood("maize_ear", 1, 1);
+    public static final Item OAT_BREAD = createFood("oat_bread", 1, 1);
+    public static final Item OAT_GRAIN = createFood("oat_grain", 1, 1);
+    public static final Item RICE_BREAD = createFood("rice_bread", 1, 1);
+    public static final Item RICE_GRAIN = createFood("rice_grain", 1, 1);
+    public static final Item RYE_BREAD = createFood("rye_bread", 1, 1);
+    public static final Item RYE_GRAIN = createFood("rye_grain", 1, 1);
+    public static final Item WHEAT_BREAD = createFood("wheat_bread", 1, 1);
+    public static final Item WHEAT_GRAIN = createFood("wheat_grain", 1, 1);
+    //Protein
+    public static final Item COOKED_BEEF = createFood("cooked_beef", 1, 1);
+    public static final Item COOKED_CALAMARI = createFood("cooked_calamari", 1, 1);
+    public static final Item COOKED_EGG = createFood("cooked_egg", 1, 1);
+    public static final Item COOKED_FISH = createFood("cooked_fish", 1, 1);
+    public static final Item COOKED_HORSE_MEAT = createFood("cooked_horse_meat", 1, 1);
+    public static final Item COOKED_MUTTON = createFood("cooked_mutton", 1, 1);
+    public static final Item COOKED_PORK = createFood("cooked_pork", 1, 1);
+    public static final Item COOKED_POULTRY = createFood("cooked_poultry",1, 1);
+    public static final Item COOKED_VENISON = createFood("cooked_venison", 1, 1);
+    public static final Item SOYBEAN = createFood("soybean",1, 1);
+    //Dairy
+    public static final Item CHEESE = createFood("cheese", 1, 1);
+    //public static final TFCFood MILK = new TFCFood("barley_bread", new FabricItemSettings(), 1, 1);
 
 
     public static final SoilBlock CLAY = new SoilBlock("clay");
@@ -434,7 +497,7 @@ public class TFCObjects {
         return block;
     }
     public static Item createFood(String id, int weigthCategory, int sizeCategory){
-        var item = new TFCFood(gen(TerraFabriCraft.FOOD_GROUP).maxCount(1), weigthCategory, sizeCategory);
+        var item = new TFCFood(id, gen(TerraFabriCraft.FOOD_GROUP), weigthCategory, sizeCategory);
         register("food/" + id, item);
         return item;
     }
