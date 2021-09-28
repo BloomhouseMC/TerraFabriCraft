@@ -32,6 +32,6 @@ public class MetalItem {
     }
 
     private static Item setCreateItemSimple(String variantId, String special) {
-        return createItemSimple(variantId + "/" + special, TerraFabriCraft.METAL_GROUP);
+        return createItemSimple("metal/"+variantId + "/" + special, TerraFabriCraft.METAL_GROUP);
     }
 }
