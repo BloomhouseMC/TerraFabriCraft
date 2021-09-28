@@ -24,7 +24,6 @@ import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import org.lwjgl.opengl.ARBProgramInterfaceQuery;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -111,6 +110,33 @@ public class TFCObjects {
     public static final Item TOMATO_SEED = createItem("seed/tomato_seeds", new AliasedBlockItem(TOMATO_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item WHEAT_SEED = createItem("seed/wheat_seeds", new AliasedBlockItem(WHEAT_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item YELLOW_BELL_PEPPER_SEED = createItem("seed/yellow_bell_pepper_seeds", new AliasedBlockItem(YELLOW_BELL_PEPPER_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
+
+    public static final Item BITUMINOUSE_COAL = createItemSimple("ore/bituminous_coal",TerraFabriCraft.ORES_GROUP);
+    public static final Item LIGNITE = createItemSimple("ore/lignite",TerraFabriCraft.ORES_GROUP);
+    public static final Item KAOLINITE = createItemSimple("ore/kaolinite",TerraFabriCraft.ORES_GROUP);
+    public static final Item GYPSUM = createItemSimple("ore/gypsum",TerraFabriCraft.ORES_GROUP);
+    public static final Item GRAPHITE = createItemSimple("ore/graphite",TerraFabriCraft.ORES_GROUP);
+    public static final Item SULFUR = createItemSimple("ore/sulfur",TerraFabriCraft.ORES_GROUP);
+    public static final Item CINNABAR = createItemSimple("ore/cinnabar",TerraFabriCraft.ORES_GROUP);
+    public static final Item CRYOLITE = createItemSimple("ore/cryolite",TerraFabriCraft.ORES_GROUP);
+    public static final Item SALPETER = createItemSimple("ore/saltpeter",TerraFabriCraft.ORES_GROUP);
+    public static final Item SYLVITE = createItemSimple("ore/sylvite",TerraFabriCraft.ORES_GROUP);
+    public static final Item BORAX = createItemSimple("ore/borax",TerraFabriCraft.ORES_GROUP);
+    public static final Item HALITE = createItemSimple("ore/halite",TerraFabriCraft.ORES_GROUP);
+    public static final Item AMETHYST = createItemSimple("ore/amethyst",TerraFabriCraft.ORES_GROUP);
+    public static final Item DIAMOND = createItemSimple("ore/diamond",TerraFabriCraft.ORES_GROUP);
+    public static final Item EMERALD = createItemSimple("ore/emerald",TerraFabriCraft.ORES_GROUP);
+    public static final Item LAPIS_LAZULI = createItemSimple("ore/lapis_lazuli",TerraFabriCraft.ORES_GROUP);
+    public static final Item OPAL = createItemSimple("ore/opal",TerraFabriCraft.ORES_GROUP);
+    public static final Item PYRITE = createItemSimple("ore/pyrite",TerraFabriCraft.ORES_GROUP);
+    public static final Item RUBY = createItemSimple("ore/ruby",TerraFabriCraft.ORES_GROUP);
+    public static final Item SAPPHIRE = createItemSimple("ore/sapphire",TerraFabriCraft.ORES_GROUP);
+    public static final Item TOPAZ = createItemSimple("ore/topaz",TerraFabriCraft.ORES_GROUP);
+
+    public static final OreItem RICH_ORE_ITEM = new OreItem("rich");
+    public static final OreItem NORMAL_ORE_ITEM = new OreItem("normal");
+    public static final OreItem POOR_ORE_ITEM = new OreItem("poor");
+
 
 
     public static final MetalItem DOUBLE_INGOT = new MetalItem("double_ingot");
