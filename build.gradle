@@ -88,6 +88,10 @@ dependencies {
 
 }
 
+loom {
+	accessWidenerPath = file("src/main/resources/terrafabricraft.aw")
+}
+
 processResources {
 	inputs.property "version", project.version
 
