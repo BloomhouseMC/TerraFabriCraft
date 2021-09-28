@@ -102,7 +102,7 @@ public interface IAnimal extends ICreature {
      *
      * @return the Age enum of this entity
      */
-    default Age getAge()
+    default Age getAgeGroup()
     {
         long deltaDays = Calendars.SERVER.getTotalDays() - this.getBirthDay();
         long adulthoodDay = this.getDaysToAdulthood();
@@ -142,7 +142,7 @@ public interface IAnimal extends ICreature {
      */
     default boolean isReadyToMate()
     {
-        return this.getAge() == Age.ADULT && !(this.getFamiliarity() < 0.3f) && !this.isFertilized() && !this.isHungry();
+        return this.getAgeGroup() == Age.ADULT && !(this.getFamiliarity() < 0.3f) && !this.isFertilized() && !this.isHungry();
     }
 
     /**
