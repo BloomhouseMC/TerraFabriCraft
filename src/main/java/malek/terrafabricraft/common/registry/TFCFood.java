@@ -17,8 +17,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import static malek.terrafabricraft.common.registry.TFCObjects.createItemSimple;
-
 public class TFCFood extends Item {
     public int weigthCategory;
     public int sizeCategory;
@@ -29,6 +27,12 @@ public class TFCFood extends Item {
 
 
     }
+    public int getWeigth(int weigthCategory){
+        return weigthCategory == 0 ? 100 : weigthCategory == 1 ? 150 : 200;
+    }
+    public String getSize(int sizeCategory){
+        return sizeCategory == 0 ? "Small" : sizeCategory == 1 ? "Medium" : "Large";
+    }
 
 
     @Override
@@ -37,7 +41,7 @@ public class TFCFood extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText(String.valueOf(this.weigthCategory)+"g"), new TranslatableText(String.valueOf(this.sizeCategory))));
+        tooltip.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText(String.valueOf(getWeigth(this.weigthCategory))+"g"), new TranslatableText(String.valueOf(getSize(this.sizeCategory)))));
     }
 
     @Override
