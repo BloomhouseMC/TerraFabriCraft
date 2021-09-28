@@ -2,15 +2,15 @@ package malek.terrafabricraft.mixin.common;
 
 import malek.terrafabricraft.common.component.HealthComponent;
 import malek.terrafabricraft.common.registry.TFCDamage;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,22 +20,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
-    public LivingEntityMixin(EntityType<?> type, World world) {
+    public LivingEntityMixin(EntityType<?> type, Level world) {
         super(type, world);
     }
 
     @Shadow
-    public abstract StatusEffectInstance getStatusEffect(StatusEffect effect);
+    public abstract MobEffectInstance getEffect(MobEffect effect);
 
-    @Inject(method = "computeFallDamage", at = @At("RETURN"), cancellable = true)
-    private void computeFallDamage(float fallDistance, float damageMultiplier, CallbackInfoReturnable<Integer> cir){
-        StatusEffectInstance statusEffectInstance = this.getStatusEffect(StatusEffects.JUMP_BOOST);
+    @Inject(method = "calculateFallDamage", at = @At("RETURN"), cancellable = true)
+    private void calculateFallDamage(float fallDistance, float damageMultiplier, CallbackInfoReturnable<Integer> cir){
+        MobEffectInstance statusEffectInstance = this.getEffect(MobEffects.JUMP);
         float f = statusEffectInstance == null ? 0.0F : (float)(statusEffectInstance.getAmplifier() + 1);
-        cir.setReturnValue(MathHelper.ceil((fallDistance - 3.0F - f) * damageMultiplier));
+        cir.setReturnValue(Mth.ceil((fallDistance - 3.0F - f) * damageMultiplier));
     }
-    @ModifyVariable(method = "applyDamage", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, ordinal = 0, target = "Lnet/minecraft/entity/LivingEntity;getHealth()F"))
+    @ModifyVariable(method = "actuallyHurt", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, ordinal = 0, target = "Lnet/minecraft/world/entity/LivingEntity;getHealth()F"))
     private float modifyDamage(float amount, DamageSource source) {
-        if (!world.isClient) {
+        if (!level.isClientSide) {
             amount = TFCDamage.handleDamage((LivingEntity) (Object)this, source, amount);
         }
         return amount;

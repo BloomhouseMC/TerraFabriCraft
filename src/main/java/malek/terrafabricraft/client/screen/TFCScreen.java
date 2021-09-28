@@ -1,30 +1,30 @@
 package malek.terrafabricraft.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 import malek.terrafabricraft.TerraFabriCraft;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.render.GameRenderer;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 
-public class TFCScreen<C extends ScreenHandler> extends HandledScreen<C> {
-    public static final Identifier INVENTORY_1x1 = new Identifier(TerraFabriCraft.MODID, "textures/gui/single_inventory.png");
-    public static final Identifier INVENTORY_2x2 = new Identifier(TerraFabriCraft.MODID, "textures/gui/small_inventory.png");
+public class TFCScreen<C extends AbstractContainerMenu> extends AbstractContainerScreen<C> {
+    public static final ResourceLocation INVENTORY_1x1 = new ResourceLocation(TerraFabriCraft.MODID, "textures/gui/single_inventory.png");
+    public static final ResourceLocation INVENTORY_2x2 = new ResourceLocation(TerraFabriCraft.MODID, "textures/gui/small_inventory.png");
 
-    protected final Identifier texture;
-    protected final PlayerInventory playerInventory;
+    protected final ResourceLocation texture;
+    protected final Inventory playerInventory;
 
-    public TFCScreen(C container, PlayerInventory playerInventory, Text name, Identifier texture) {
+    public TFCScreen(C container, Inventory playerInventory, Component name, ResourceLocation texture) {
         super(container, playerInventory, name);
         this.texture = texture;
         this.playerInventory = playerInventory;
     }
 
     @Override
-    public void render(MatrixStack poseStack, int mouseX, int mouseY, float partialTicks)
+    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTicks)
     {
         renderBackground(poseStack);
         super.render(poseStack, mouseX, mouseY, partialTicks);
@@ -32,20 +32,20 @@ public class TFCScreen<C extends ScreenHandler> extends HandledScreen<C> {
     }
 
     @Override
-    protected void drawBackground(MatrixStack matrixStack, float partialTicks, int mouseX, int mouseY) {
+    protected void renderBg(PoseStack matrixStack, float partialTicks, int mouseX, int mouseY) {
         drawDefaultBackground(matrixStack);
     }
 
-    protected void drawDefaultBackground(MatrixStack poseStack) {
+    protected void drawDefaultBackground(PoseStack poseStack) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         RenderSystem.setShaderTexture(0, this.texture);
 
-        drawTexture(poseStack, titleX, titleY, 0, 0, 0, backgroundWidth, backgroundHeight, 256, 256);
+        blit(poseStack, titleLabelX, titleLabelY, 0, 0, 0, imageWidth, imageHeight, 256, 256);
     }
 
-    protected void drawCenteredLine(MatrixStack stack, String text, int y) {
-        final int x = (backgroundWidth - textRenderer.getWidth(text)) / 2;
-        textRenderer.draw(stack, text, x, y, 0x404040);
+    protected void drawCenteredLine(PoseStack stack, String text, int y) {
+        final int x = (imageWidth - font.width(text)) / 2;
+        font.draw(stack, text, x, y, 0x404040);
     }
 }

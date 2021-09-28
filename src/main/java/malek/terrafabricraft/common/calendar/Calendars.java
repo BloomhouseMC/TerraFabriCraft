@@ -3,7 +3,7 @@ package malek.terrafabricraft.common.calendar;
 import malek.terrafabricraft.client.ClientCalendar;
 import malek.terrafabricraft.common.component.ServerCalendarComponent;
 import malek.terrafabricraft.common.util.HelperUtil;
-import net.minecraft.world.WorldView;
+import net.minecraft.world.level.LevelReader;
 
 public final class Calendars
 {
@@ -17,7 +17,7 @@ public final class Calendars
     /**
      * Gets the correct calendar for the current world context
      */
-    public static ICalendar get(WorldView world)
+    public static ICalendar get(LevelReader world)
     {
         return HelperUtil.isClientSide(world) ? CLIENT : SERVER;
     }

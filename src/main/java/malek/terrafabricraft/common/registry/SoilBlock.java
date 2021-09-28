@@ -2,7 +2,7 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.common.block.TFCGravityBlock;
 import malek.terrafabricraft.common.block.TFCGravityGrassBlock;
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.createSand;
 import static malek.terrafabricraft.common.registry.TFCObjects.createGrass;

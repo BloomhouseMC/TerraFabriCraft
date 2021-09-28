@@ -2,10 +2,9 @@ package malek.terrafabricraft.common.api.entity;
 
 import malek.terrafabricraft.common.calendar.Calendar;
 import malek.terrafabricraft.common.calendar.Calendars;
-import net.minecraft.entity.Entity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.TranslatableText;
-
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.ItemStack;
 import javax.annotation.Nonnull;
 import java.util.Collections;
 import java.util.List;
@@ -102,7 +101,7 @@ public interface IAnimal extends ICreature {
      *
      * @return the Age enum of this entity
      */
-    default Age getAge()
+    default Age getAgeGroup()
     {
         long deltaDays = Calendars.SERVER.getTotalDays() - this.getBirthDay();
         long adulthoodDay = this.getDaysToAdulthood();
@@ -142,7 +141,7 @@ public interface IAnimal extends ICreature {
      */
     default boolean isReadyToMate()
     {
-        return this.getAge() == Age.ADULT && !(this.getFamiliarity() < 0.3f) && !this.isFertilized() && !this.isHungry();
+        return this.getAgeGroup() == Age.ADULT && !(this.getFamiliarity() < 0.3f) && !this.isFertilized() && !this.isHungry();
     }
 
     /**
@@ -232,7 +231,7 @@ public interface IAnimal extends ICreature {
      *
      * @return null if you don't want for a tooltip to be shown, any TextComponentTranslation object if you want it to.
      */
-    default TranslatableText getTooltip() { return null; }
+    default TranslatableComponent getTooltip() { return null; }
 
     /**
      * Get the animal name, which can be determined by male / female
@@ -240,7 +239,7 @@ public interface IAnimal extends ICreature {
      *
      * @return the TextComponentTranslation for localized name
      */
-    TranslatableText getAnimalName();
+    TranslatableComponent getAnimalName();
 
     enum Age
     {

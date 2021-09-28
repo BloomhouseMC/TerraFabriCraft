@@ -4,17 +4,15 @@ import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import dev.onyxstudios.cca.api.v3.item.ItemComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.world.World;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.Level;
 
 public class DecayComponent implements AutoSyncedComponent, ServerTickingComponent {
 
     private long bigTick = 0;
-    private final World world;
+    private final Level world;
     public int interval = 0;
-    public DecayComponent(World world) {
+    public DecayComponent(Level world) {
         this.world = world;
     }
 
@@ -45,12 +43,12 @@ public class DecayComponent implements AutoSyncedComponent, ServerTickingCompone
     }
 
     @Override
-    public void readFromNbt(NbtCompound tag) {
+    public void readFromNbt(CompoundTag tag) {
         setDecay(tag.getLong("Decay"));
     }
 
     @Override
-    public void writeToNbt(NbtCompound tag) {
+    public void writeToNbt(CompoundTag tag) {
         tag.putLong("Decay", getDecay());
     }
 }

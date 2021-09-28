@@ -2,17 +2,16 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.component.DecayComponent;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -20,7 +19,7 @@ import java.util.List;
 public class TFCFood extends Item {
     public int weigthCategory;
     public int sizeCategory;
-    public TFCFood(String id, Settings settings, int weigthCategory, int sizeCategory) {
+    public TFCFood(String id, Properties settings, int weigthCategory, int sizeCategory) {
         super(settings);
         this.weigthCategory = weigthCategory;
         this.sizeCategory = sizeCategory;
@@ -36,22 +35,22 @@ public class TFCFood extends Item {
 
 
     @Override
-    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
+    public void onCraftedBy(ItemStack stack, Level world, Player player) {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText(String.valueOf(getWeigth(this.weigthCategory))+"g"), new TranslatableText(String.valueOf(getSize(this.sizeCategory)))));
+    public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
+        tooltip.add(new TranslatableComponent("tooltip.terrafabricraft.itemprop", new TranslatableComponent(String.valueOf(getWeigth(this.weigthCategory))+"g"), new TranslatableComponent(String.valueOf(getSize(this.sizeCategory)))));
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+    public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
 
     }
 
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        return TypedActionResult.fail(user.getStackInHand(hand));
+    public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
+        return InteractionResultHolder.fail(user.getItemInHand(hand));
     }
 }

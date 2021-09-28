@@ -5,11 +5,11 @@ import io.github.cottonmc.cotton.gui.widget.*;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import malek.terrafabricraft.common.registry.TFCScreens;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class LogPileGuiDescription extends SyncedGuiDescription {
     private static final int INVENTORY_SIZE = 17;
@@ -17,7 +17,7 @@ public class LogPileGuiDescription extends SyncedGuiDescription {
     WPlainPanel root;
     int sizeX = 80;
     int sizeY = 80;
-    public LogPileGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
+    public LogPileGuiDescription(int syncId, Inventory playerInventory, ContainerLevelAccess context) {
         super(TFCScreens.LOG_PILE_SCREEN_HANDLER, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 3));
         root = new WPlainPanel();
         setRootPanel(root);
@@ -49,8 +49,8 @@ public class LogPileGuiDescription extends SyncedGuiDescription {
 
         root.validate(this);
     }
-    private BlockEntity getBlockEntity(ScreenHandlerContext ctx) {
-        return (BlockEntity) ctx.get((world, pos) -> {
+    private BlockEntity getBlockEntity(ContainerLevelAccess ctx) {
+        return (BlockEntity) ctx.evaluate((world, pos) -> {
             BlockState state = world.getBlockState(pos);
             Block b = state.getBlock();
             System.out.println(world.getBlockEntity(pos));

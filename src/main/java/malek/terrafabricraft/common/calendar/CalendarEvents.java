@@ -1,16 +1,15 @@
 package malek.terrafabricraft.common.calendar;
 
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.network.ServerPlayerEntity;
-
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import java.util.List;
 
 public class CalendarEvents {
 
-    public static void onPlayerLoggedIn(PlayerEntity initialplayer)
+    public static void onPlayerLoggedIn(Player initialplayer)
     {
-        if (initialplayer instanceof ServerPlayerEntity player)
+        if (initialplayer instanceof ServerPlayer player)
         {
             // Check total players and reset player / calendar time ticking
             MinecraftServer server = player.getServer();
@@ -21,15 +20,15 @@ public class CalendarEvents {
         }
     }
 
-    public static void onPlayerLoggedOut(PlayerEntity initialPlayer)
+    public static void onPlayerLoggedOut(Player initialPlayer)
     {
-        if (initialPlayer instanceof ServerPlayerEntity player)
+        if (initialPlayer instanceof ServerPlayer player)
         {
             // Check total players and reset player / calendar time ticking
             MinecraftServer server = player.getServer();
             if (server != null)
             {
-                List<ServerPlayerEntity> players = server.getPlayerManager().getPlayerList();
+                List<ServerPlayer> players = server.getPlayerList().getPlayers();
                 int playerCount = players.size();
                 // The player logging out doesn't count
                 if (players.contains(player))

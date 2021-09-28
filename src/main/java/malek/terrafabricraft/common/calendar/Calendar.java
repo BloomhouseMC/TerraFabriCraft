@@ -1,7 +1,7 @@
 package malek.terrafabricraft.common.calendar;
 
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.FriendlyByteBuf;
 import org.jetbrains.annotations.Nullable;
 
 public class Calendar implements ICalendar {
@@ -37,9 +37,9 @@ public class Calendar implements ICalendar {
         return daysInMonth;
     }
 
-    public NbtCompound write()
+    public CompoundTag write()
     {
-        NbtCompound nbt = new NbtCompound();
+        CompoundTag nbt = new CompoundTag();
 
         nbt.putInt("daysInMonth", daysInMonth);
 
@@ -52,7 +52,7 @@ public class Calendar implements ICalendar {
         return nbt;
     }
 
-    public void read(@Nullable NbtCompound nbt)
+    public void read(@Nullable CompoundTag nbt)
     {
         if (nbt != null)
         {
@@ -66,7 +66,7 @@ public class Calendar implements ICalendar {
         }
     }
 
-    public void write(PacketByteBuf buffer)
+    public void write(FriendlyByteBuf buffer)
     {
         buffer.writeVarInt(daysInMonth);
 
@@ -77,7 +77,7 @@ public class Calendar implements ICalendar {
         buffer.writeBoolean(arePlayersLoggedOn);
     }
 
-    public void read(PacketByteBuf buffer)
+    public void read(FriendlyByteBuf buffer)
     {
         daysInMonth = buffer.readVarInt();
 

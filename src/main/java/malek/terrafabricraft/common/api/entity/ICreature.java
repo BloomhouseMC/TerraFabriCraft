@@ -1,11 +1,10 @@
 package malek.terrafabricraft.common.api.entity;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.world.biome.Biome;
-
 import java.util.List;
 import java.util.Random;
 import java.util.function.BiConsumer;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.biome.Biome;
 
 public interface ICreature {
 

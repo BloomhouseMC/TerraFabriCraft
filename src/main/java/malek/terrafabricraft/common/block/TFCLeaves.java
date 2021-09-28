@@ -1,24 +1,24 @@
 package malek.terrafabricraft.common.block;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 public class TFCLeaves extends LeavesBlock {
-    public TFCLeaves(Settings settings) {
+    public TFCLeaves(Properties settings) {
         super(settings);
     }
 
     @Override
-    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (entity.isPlayer()) {
-            PlayerEntity player = (PlayerEntity) entity;
+    public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
+        if (entity.isAlwaysTicking()) {
+            Player player = (Player) entity;
             if (!player.isCreative())
-                player.slowMovement(state, new Vec3d(1.7D, 1.7D, 1.7D));
+                player.makeStuckInBlock(state, new Vec3(1.7D, 1.7D, 1.7D));
         }
     }
 

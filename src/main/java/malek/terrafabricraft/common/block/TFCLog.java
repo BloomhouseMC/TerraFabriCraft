@@ -1,10 +1,9 @@
 package malek.terrafabricraft.common.block;
 
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.PillarBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 
-public class TFCLog extends PillarBlock {
-    public TFCLog(Settings settings) {
+public class TFCLog extends RotatedPillarBlock {
+    public TFCLog(Properties settings) {
         super(settings);
     }
 }

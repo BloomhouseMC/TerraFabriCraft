@@ -1,9 +1,9 @@
 package malek.terrafabricraft.common.calendar;
 
 import malek.terrafabricraft.common.util.HelperUtil;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 
 public interface ICalendar {
     /* Constants */
@@ -78,42 +78,42 @@ public interface ICalendar {
 
     /* Format Methods */
 
-    static MutableText getTimeAndDate(long time, long daysInMonth)
+    static MutableComponent getTimeAndDate(long time, long daysInMonth)
     {
         return ICalendar.getTimeAndDate(ICalendar.getHourOfDay(time), ICalendar.getMinuteOfHour(time), ICalendar.getMonthOfYear(time, daysInMonth), ICalendar.getDayOfMonth(time, daysInMonth), ICalendar.getTotalYears(time, daysInMonth));
     }
 
-    static MutableText getTimeAndDate(int hour, int minute, Month month, int day, long years)
+    static MutableComponent getTimeAndDate(int hour, int minute, Month month, int day, long years)
     {
-        return new LiteralText(String.format("%d:%02d ", hour, minute))
+        return new TextComponent(String.format("%d:%02d ", hour, minute))
                 .append(HelperUtil.translateEnum(month))
                 .append(" ")
-                .append(new TranslatableText("terrafabricraft.tooltip.calendar_days_years", day, years));
+                .append(new TranslatableComponent("terrafabricraft.tooltip.calendar_days_years", day, years));
     }
 
-    static MutableText getTimeDelta(long ticks, int daysInMonth)
+    static MutableComponent getTimeDelta(long ticks, int daysInMonth)
     {
         final long hours = getTotalHours(ticks);
         if (hours < 1)
         {
-            return new TranslatableText("tfc.tooltip.time_delta_hours_minutes", "00", String.format("%02d", getMinuteOfHour(ticks)));
+            return new TranslatableComponent("tfc.tooltip.time_delta_hours_minutes", "00", String.format("%02d", getMinuteOfHour(ticks)));
         }
         final long days = getTotalDays(ticks);
         if (days < 1)
         {
-            return new TranslatableText("tfc.tooltip.time_delta_hours_minutes", hours, String.format("%02d", getMinuteOfHour(ticks)));
+            return new TranslatableComponent("tfc.tooltip.time_delta_hours_minutes", hours, String.format("%02d", getMinuteOfHour(ticks)));
         }
         final long months = getTotalMonths(ticks, daysInMonth);
         if (months < 1)
         {
-            return new TranslatableText("tfc.tooltip.time_delta_days", days);
+            return new TranslatableComponent("tfc.tooltip.time_delta_days", days);
         }
         final long years = getTotalYears(ticks, daysInMonth) - 1000; // Since years starts at 1k
         if (years < 1)
         {
-            return new TranslatableText("tfc.tooltip.time_delta_months_days", months, days % daysInMonth);
+            return new TranslatableComponent("tfc.tooltip.time_delta_months_days", months, days % daysInMonth);
         }
-        return new TranslatableText("tfc.tooltip.time_delta_years_months_days", years, months % MONTHS_IN_YEAR, days % daysInMonth);
+        return new TranslatableComponent("tfc.tooltip.time_delta_years_months_days", years, months % MONTHS_IN_YEAR, days % daysInMonth);
     }
 
     /**
@@ -239,7 +239,7 @@ public interface ICalendar {
     /**
      * Calculates the current day from a calendar time.
      */
-    default MutableText getCalendarDayOfYear()
+    default MutableComponent getCalendarDayOfYear()
     {
         return Day.getDayName(getTotalCalendarDays(), getCalendarMonthOfYear(), getCalendarDayOfMonth());
     }
@@ -268,12 +268,12 @@ public interface ICalendar {
         return (long) getCalendarDaysInMonth() * MONTHS_IN_YEAR * TICKS_IN_DAY;
     }
 
-    default MutableText getCalendarTimeAndDate()
+    default MutableComponent getCalendarTimeAndDate()
     {
         return ICalendar.getTimeAndDate(getCalendarTicks(), getCalendarDaysInMonth());
     }
 
-    default MutableText getTimeDelta(long ticks)
+    default MutableComponent getTimeDelta(long ticks)
     {
         return ICalendar.getTimeDelta(ticks, getCalendarDaysInMonth());
     }

@@ -3,312 +3,311 @@ package malek.terrafabricraft.common.registry;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.world.generator.feature.BoulderFeature;
 import net.fabricmc.fabric.api.biome.v1.*;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.HeightmapDecoratorConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
-
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.HeightmapConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
 import java.util.function.Predicate;
 
 public class TFCFeatures {
 
-    private static final Feature<DefaultFeatureConfig> BOULDER = new BoulderFeature(DefaultFeatureConfig.CODEC);
+    private static final Feature<NoneFeatureConfiguration> BOULDER = new BoulderFeature(NoneFeatureConfiguration.CODEC);
 
     public static final ConfiguredFeature<?, ?> TREE_ACACIA =   Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_ACACIA.log.defaultBlockState()),
                     new StraightTrunkPlacer(5, 0, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_ACACIA.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_ACACIA.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(0, 0, 0)
             ).ignoreVines().build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_ASH = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ASH.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_ASH.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ASH.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ASH.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_ASH.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_ASH.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).ignoreVines().build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_ASPEN = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ASPEN.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_ASPEN.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ASPEN.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ASPEN.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_ASPEN.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_ASPEN.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).ignoreVines().build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_BIRCH = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_BIRCH.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_BIRCH.log.defaultBlockState()),
                     new StraightTrunkPlacer(12, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_BIRCH.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_BIRCH.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_BIRCH.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_BIRCH.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_BLACKWOOD = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_BLACKWOOD.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_BLACKWOOD.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_BLACKWOOD.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_BLACKWOOD.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_BLACKWOOD.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_BLACKWOOD.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_CHESTNUT = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_CHESTNUT.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_CHESTNUT.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_CHESTNUT.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_CHESTNUT.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_CHESTNUT.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_CHESTNUT.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_DOUGLAS_FIR = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_DOUGLAS_FIR.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_DOUGLAS_FIR.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_DOUGLAS_FIR.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_DOUGLAS_FIR.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_DOUGLAS_FIR.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_DOUGLAS_FIR.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_HICKORY = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_HICKORY.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_HICKORY.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_HICKORY.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_HICKORY.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_HICKORY.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_HICKORY.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_KAPOK = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_KAPOK.log.defaultBlockState()),
                     new StraightTrunkPlacer(15, 9, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_KAPOK.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_KAPOK.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_BIG_KAPOK = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_KAPOK.log.defaultBlockState()),
                     new StraightTrunkPlacer(30, 9, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_KAPOK.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_KAPOK.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_SMALL_KAPOK = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_KAPOK.log.defaultBlockState()),
                     new StraightTrunkPlacer(15, 9, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_KAPOK.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_KAPOK.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_KAPOK.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_MAPLE = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_MAPLE.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_MAPLE.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_MAPLE.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_MAPLE.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_MAPLE.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_MAPLE.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_OAK = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_OAK.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_OAK.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_OAK.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_OAK.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_OAK.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_OAK.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_PALM = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_PALM.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_PALM.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_PALM.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_PALM.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_PALM.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_PALM.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_PINE = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_PINE.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_PINE.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_PINE.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_PINE.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_PINE.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_PINE.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_ROSEWOOD = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ROSEWOOD.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_ROSEWOOD.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ROSEWOOD.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_ROSEWOOD.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_ROSEWOOD.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_ROSEWOOD.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_SEQUOIA = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_SEQUOIA.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_SEQUOIA.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_SEQUOIA.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_SEQUOIA.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_SEQUOIA.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_SEQUOIA.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_SPRUCE = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_SPRUCE.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_SPRUCE.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_SPRUCE.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_SPRUCE.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_SPRUCE.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_SPRUCE.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_SYCAMORE = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_SYCAMORE.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_SYCAMORE.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_SYCAMORE.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_SYCAMORE.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_SYCAMORE.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_SYCAMORE.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_WHITE_CEDAR = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_WHITE_CEDAR.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_WHITE_CEDAR.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_WHITE_CEDAR.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_WHITE_CEDAR.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_WHITE_CEDAR.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_WHITE_CEDAR.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
     public static final ConfiguredFeature<?, ?> TREE_WILLOW = Feature.TREE
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_WILLOW.log.getDefaultState()),
+            .configured(new TreeConfiguration.TreeConfigurationBuilder(
+                    new SimpleStateProvider(TFCObjects.WOOD_WILLOW.log.defaultBlockState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_WILLOW.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TFCObjects.WOOD_WILLOW.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new SimpleStateProvider(TFCObjects.WOOD_WILLOW.leaves.defaultBlockState()),
+                    new SimpleStateProvider(TFCObjects.WOOD_WILLOW.sapling.defaultBlockState()),
+                    new BlobFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .rarity(3)
+            .decorated(FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.MOTION_BLOCKING)));
 
-    public static void register(String id, ConfiguredFeature<?, ?> feature, Predicate<BiomeSelectionContext> biome, GenerationStep.Feature generationStep) {
+    public static void register(String id, ConfiguredFeature<?, ?> feature, Predicate<BiomeSelectionContext> biome, GenerationStep.Decoration generationStep) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new
-                Identifier(TerraFabriCraft.MODID, id), feature);
-        BiomeModification worldGen = BiomeModifications.create(new Identifier(TerraFabriCraft.MODID, "world_features"));
+                ResourceLocation(TerraFabriCraft.MODID, id), feature);
+        BiomeModification worldGen = BiomeModifications.create(new ResourceLocation(TerraFabriCraft.MODID, "world_features"));
         worldGen.add(ModificationPhase.ADDITIONS, biome, context -> context.getGenerationSettings().
-                addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, feature));
+                addBuiltInFeature(GenerationStep.Decoration.VEGETAL_DECORATION, feature));
     }
 
-    public static final ConfiguredFeature<?, ?> BOULDER_ANDESITE = BOULDER.configure(new DefaultFeatureConfig())
-            .decorate   (Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)))
-            .spreadHorizontally()
-            .applyChance(5);
+    public static final ConfiguredFeature<?, ?> BOULDER_ANDESITE = BOULDER.configured(new NoneFeatureConfiguration())
+            .decorated   (FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.OCEAN_FLOOR_WG)))
+            .squared()
+            .rarity(5);
 
     public static void init() {
-        var vegetalGenStep = GenerationStep.Feature.VEGETAL_DECORATION;
-        var otherGenStep = GenerationStep.Feature.TOP_LAYER_MODIFICATION;
+        var vegetalGenStep = GenerationStep.Decoration.VEGETAL_DECORATION;
+        var otherGenStep = GenerationStep.Decoration.TOP_LAYER_MODIFICATION;
         //Register new feature
-        Registry.register(Registry.FEATURE, new Identifier("terrafirmacraft", "boulder"), BOULDER);
+        Registry.register(Registry.FEATURE, new ResourceLocation("terrafirmacraft", "boulder"), BOULDER);
         //Register configured feature
 //        register("tree/acacia", TREE_ACACIA, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/ash", TREE_ASH, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/aspen", TREE_ASPEN, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/birch", TREE_BIRCH, BiomeSelectors.categories(Biome.Category.PLAINS), vegetalGenStep);
+        register("tree/birch", TREE_BIRCH, BiomeSelectors.categories(Biome.BiomeCategory.PLAINS), vegetalGenStep);
         register("tree/blackwood", TREE_BLACKWOOD, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/chestnut", TREE_CHESTNUT, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/douglas_fir", TREE_DOUGLAS_FIR, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/hickory", TREE_HICKORY, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/big_kapok", TREE_BIG_KAPOK, BiomeSelectors.categories(Biome.Category.JUNGLE), vegetalGenStep);
-        register("tree/small_kapok", TREE_SMALL_KAPOK, BiomeSelectors.categories(Biome.Category.JUNGLE), vegetalGenStep);
+        register("tree/big_kapok", TREE_BIG_KAPOK, BiomeSelectors.categories(Biome.BiomeCategory.JUNGLE), vegetalGenStep);
+        register("tree/small_kapok", TREE_SMALL_KAPOK, BiomeSelectors.categories(Biome.BiomeCategory.JUNGLE), vegetalGenStep);
         register("tree/maple", TREE_MAPLE, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/oak", TREE_OAK, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/palm", TREE_PALM, BiomeSelectors.foundInOverworld(), vegetalGenStep);

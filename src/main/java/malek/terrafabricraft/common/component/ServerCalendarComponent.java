@@ -14,16 +14,16 @@ import malek.terrafabricraft.common.calendar.ICalendar;
 import malek.terrafabricraft.common.event.TFCEvents;
 import malek.terrafabricraft.common.network.CalendarUpdatePacket;
 import malek.terrafabricraft.common.util.ReentrantRunnable;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.GameRules;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.GameRules;
 
 public class ServerCalendarComponent extends Calendar implements AutoSyncedComponent, ServerTickingComponent, WorldComponentInitializer {
-    public static final ComponentKey<ServerCalendarComponent> CALENDAR_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "calendar"), ServerCalendarComponent.class);
+    public static final ComponentKey<ServerCalendarComponent> CALENDAR_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new ResourceLocation(TerraFabriCraft.MODID, "calendar"), ServerCalendarComponent.class);
 
     public static final int SYNC_INTERVAL = 20; // Number of ticks between sync attempts. This mimics vanilla's time sync
     public static final int TIME_DESYNC_THRESHOLD = 5;
@@ -37,7 +37,7 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
     } */
 
     private int syncCounter;
-    public ServerPlayerEntity packetPlayer;
+    public ServerPlayer packetPlayer;
     public CalendarUpdatePacket calendarPacket = new CalendarUpdatePacket(this);
 
     /**
@@ -78,10 +78,10 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
         playerTicks += timeJump;
 
         // Update the actual world times
-        for (ServerWorld world : getServer().getWorlds())
+        for (ServerLevel world : getServer().getAllLevels())
         {
-            long currentDayTime = world.getTimeOfDay();
-            world.setTimeOfDay(currentDayTime + timeJump);
+            long currentDayTime = world.getDayTime();
+            world.setDayTime(currentDayTime + timeJump);
         }
 
         CALENDAR_COMPONENT.sync(packetPlayer);
@@ -126,15 +126,15 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
 
     public void setPlayersLoggedOn(boolean arePlayersLoggedOn)
     {
-        GameRules rules = getServer().getOverworld().getGameRules();
+        GameRules rules = getServer().overworld().getGameRules();
         this.arePlayersLoggedOn = arePlayersLoggedOn;
         if (arePlayersLoggedOn)
         {
-            DO_DAYLIGHT_CYCLE.runBlocking(() -> rules.get(GameRules.DO_DAYLIGHT_CYCLE).set(doDaylightCycle, getServer()));
+            DO_DAYLIGHT_CYCLE.runBlocking(() -> rules.getRule(GameRules.RULE_DAYLIGHT).set(doDaylightCycle, getServer()));
         }
         else
         {
-            DO_DAYLIGHT_CYCLE.runBlocking(() -> rules.get(GameRules.DO_DAYLIGHT_CYCLE).set(false, getServer()));
+            DO_DAYLIGHT_CYCLE.runBlocking(() -> rules.getRule(GameRules.RULE_DAYLIGHT).set(false, getServer()));
         }
 
         CALENDAR_COMPONENT.sync(packetPlayer);
@@ -143,10 +143,10 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
     public void setDoDaylightCycle()
     {
         GameRules rules = getServer().getGameRules();
-        doDaylightCycle = rules.getBoolean(GameRules.DO_DAYLIGHT_CYCLE);
+        doDaylightCycle = rules.getBoolean(GameRules.RULE_DAYLIGHT);
         if (!arePlayersLoggedOn)
         {
-            DO_DAYLIGHT_CYCLE.runBlocking(() -> rules.get(GameRules.DO_DAYLIGHT_CYCLE).set(false, getServer()));
+            DO_DAYLIGHT_CYCLE.runBlocking(() -> rules.getRule(GameRules.RULE_DAYLIGHT).set(false, getServer()));
         }
 
         CALENDAR_COMPONENT.sync(packetPlayer);
@@ -157,10 +157,10 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
      */
     void onServerStart(MinecraftServer server)
     {
-        GameRules rules = server.getOverworld().getGameRules();
-        DO_DAYLIGHT_CYCLE.runBlocking(() -> rules.get(GameRules.DO_DAYLIGHT_CYCLE).set(false, server));
+        GameRules rules = server.overworld().getGameRules();
+        DO_DAYLIGHT_CYCLE.runBlocking(() -> rules.getRule(GameRules.RULE_DAYLIGHT).set(false, server));
 
-        reset(CalendarWorldData.get(server.getOverworld()).getCalendar());
+        reset(CalendarWorldData.get(server.overworld()).getCalendar());
         CALENDAR_COMPONENT.sync(packetPlayer);
     }
 
@@ -185,23 +185,23 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
     /**
      * Called on each overworld tick, increments and syncs calendar time
      */
-    void onOverworldTick(ServerWorld world)
+    void onOverworldTick(ServerLevel world)
     {
         if (doDaylightCycle && arePlayersLoggedOn)
         {
             calendarTicks++;
         }
-        long deltaWorldTime = (world.getTimeOfDay() % ICalendar.TICKS_IN_DAY) - getCalendarDayTime();
+        long deltaWorldTime = (world.getDayTime() % ICalendar.TICKS_IN_DAY) - getCalendarDayTime();
         if (deltaWorldTime > TIME_DESYNC_THRESHOLD || deltaWorldTime < -TIME_DESYNC_THRESHOLD)
         {
             // Check if tracking values are wrong
-            boolean checkArePlayersLoggedOn = getServer().getCurrentPlayerCount() > 0;
+            boolean checkArePlayersLoggedOn = getServer().getPlayerCount() > 0;
             if (arePlayersLoggedOn != checkArePlayersLoggedOn)
             {
                 // Whoops, somehow we missed this.
                 setPlayersLoggedOn(checkArePlayersLoggedOn);
             }
-            if (arePlayersLoggedOn && doDaylightCycle != getServer().getGameRules().getBoolean(GameRules.DO_DAYLIGHT_CYCLE))
+            if (arePlayersLoggedOn && doDaylightCycle != getServer().getGameRules().getBoolean(GameRules.RULE_DAYLIGHT))
             {
                 // Do daylight cycle should match
                 setDoDaylightCycle();
@@ -209,7 +209,7 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
             if (deltaWorldTime < 0)
             {
                 // Calendar is ahead, so jump world time
-                world.setTimeOfDay(world.getTimeOfDay() - deltaWorldTime);
+                world.setDayTime(world.getDayTime() - deltaWorldTime);
             }
             else
             {
@@ -226,12 +226,12 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
     }
 
     @Override
-    public void readFromNbt(NbtCompound tag) {
+    public void readFromNbt(CompoundTag tag) {
 
     }
 
     @Override
-    public void writeToNbt(NbtCompound tag) {
+    public void writeToNbt(CompoundTag tag) {
 
     }
 
@@ -241,19 +241,19 @@ public class ServerCalendarComponent extends Calendar implements AutoSyncedCompo
     }
 
     @Override
-    public boolean shouldSyncWith(ServerPlayerEntity player) {
+    public boolean shouldSyncWith(ServerPlayer player) {
         packetPlayer = player;
         return true;
     }
 
     @Override
-    public void writeSyncPacket(PacketByteBuf buf, ServerPlayerEntity recipient) {
+    public void writeSyncPacket(FriendlyByteBuf buf, ServerPlayer recipient) {
         calendarPacket.encode(buf);
         AutoSyncedComponent.super.writeSyncPacket(buf, recipient);
     }
 
     @Override
-    public void applySyncPacket(PacketByteBuf buf) {
+    public void applySyncPacket(FriendlyByteBuf buf) {
         AutoSyncedComponent.super.applySyncPacket(buf);
     }
 

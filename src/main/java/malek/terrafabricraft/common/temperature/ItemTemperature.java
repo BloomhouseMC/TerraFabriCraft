@@ -1,24 +1,24 @@
 package malek.terrafabricraft.common.temperature;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.ItemStack;
 
 public class ItemTemperature {
     public static String temperature = "temperature";
     public static int getTemperature(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getNbt();
+        CompoundTag nbtCompound = stack.getTag();
         return nbtCompound == null ? 0 : nbtCompound.getInt(temperature);
     }
     public static void setTemperature(ItemStack stack, int temperatureAmount) {
-        NbtCompound nbtCompound = stack.getOrCreateNbt();
+        CompoundTag nbtCompound = stack.getOrCreateTag();
         nbtCompound.putInt(temperature, temperatureAmount);
     }
     public static void incrementTemperature(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getOrCreateNbt();
+        CompoundTag nbtCompound = stack.getOrCreateTag();
         nbtCompound.putInt(temperature, getTemperature(stack)+1);
     }
     public static void decrementTemperature(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getOrCreateNbt();
+        CompoundTag nbtCompound = stack.getOrCreateTag();
         nbtCompound.putInt(temperature, getTemperature(stack)-1);
     }
 }

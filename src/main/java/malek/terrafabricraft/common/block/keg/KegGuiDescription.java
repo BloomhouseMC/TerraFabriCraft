@@ -6,13 +6,12 @@ import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.registry.TFCScreens;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class KegGuiDescription extends SyncedGuiDescription {
     private static final int INVENTORY_SIZE = 17;
@@ -20,7 +19,7 @@ public class KegGuiDescription extends SyncedGuiDescription {
     WPlainPanel root;
     int sizeX = 80;
     int sizeY = 80;
-    public KegGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
+    public KegGuiDescription(int syncId, Inventory playerInventory, ContainerLevelAccess context) {
         super(TFCScreens.KEG_SCREEN_HANDLER, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 6));
 
         root = new WPlainPanel();
@@ -32,9 +31,9 @@ public class KegGuiDescription extends SyncedGuiDescription {
         WItemSlot itemSlot1 = WItemSlot.of(blockInventory, 1);
         WItemSlot itemSlot2 = WItemSlot.of(blockInventory, 2);
         WItemSlot itemSlot3 = WItemSlot.of(blockInventory, 3);
-        WBar tankBarLeft = new WBar(new Identifier(TerraFabriCraft.MODID, "textures/gui/tank_empty.png"), new Identifier(TerraFabriCraft.MODID, "textures/gui/tank_full.png"), 0, 1, WBar.Direction.UP);
-        WBar tankBarRight = new WBar(new Identifier(TerraFabriCraft.MODID, "textures/gui/tank_empty.png"), new Identifier(TerraFabriCraft.MODID, "textures/gui/tank_full.png"), 4, 5, WBar.Direction.UP);
-        WBar progressBar = new WBar(new Identifier(TerraFabriCraft.MODID, "textures/gui/progress_off.png"), new Identifier(TerraFabriCraft.MODID, "textures/gui/progress_green.png"), 2, 3, WBar.Direction.RIGHT);
+        WBar tankBarLeft = new WBar(new ResourceLocation(TerraFabriCraft.MODID, "textures/gui/tank_empty.png"), new ResourceLocation(TerraFabriCraft.MODID, "textures/gui/tank_full.png"), 0, 1, WBar.Direction.UP);
+        WBar tankBarRight = new WBar(new ResourceLocation(TerraFabriCraft.MODID, "textures/gui/tank_empty.png"), new ResourceLocation(TerraFabriCraft.MODID, "textures/gui/tank_full.png"), 4, 5, WBar.Direction.UP);
+        WBar progressBar = new WBar(new ResourceLocation(TerraFabriCraft.MODID, "textures/gui/progress_off.png"), new ResourceLocation(TerraFabriCraft.MODID, "textures/gui/progress_green.png"), 2, 3, WBar.Direction.RIGHT);
         //WLabel title = new WLabel(new TranslatableText("block.terrafabricraft.keg"), WLabel.DEFAULT_TEXT_COLOR);
         //title.setHorizontalAlignment(HorizontalAlignment.CENTER);
 
@@ -97,8 +96,8 @@ public class KegGuiDescription extends SyncedGuiDescription {
 
          */
     }
-    private BlockEntity getBlockEntity(ScreenHandlerContext ctx) {
-        return (BlockEntity) ctx.get((world, pos) -> {
+    private BlockEntity getBlockEntity(ContainerLevelAccess ctx) {
+        return (BlockEntity) ctx.evaluate((world, pos) -> {
             BlockState state = world.getBlockState(pos);
             Block b = state.getBlock();
             System.out.println(world.getBlockEntity(pos));

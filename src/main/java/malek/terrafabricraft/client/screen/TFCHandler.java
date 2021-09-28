@@ -1,22 +1,22 @@
 package malek.terrafabricraft.client.screen;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.screen.slot.Slot;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 
-public class TFCHandler extends ScreenHandler {
+public class TFCHandler extends AbstractContainerMenu {
 
-    public static TFCHandler create(ScreenHandlerType<?> type, int windowId, PlayerInventory playerInv)
+    public static TFCHandler create(MenuType<?> type, int windowId, Inventory playerInv)
     {
         return new TFCHandler(type, windowId).init(playerInv);
     }
 
     protected int containerSlots; // The number of slots in the container (not including the player inventory)
 
-    protected TFCHandler(ScreenHandlerType<?> type, int windowId)
+    protected TFCHandler(MenuType<?> type, int windowId)
     {
         super(type, windowId);
     }
@@ -29,7 +29,7 @@ public class TFCHandler extends ScreenHandler {
      * @return The current container, casted down as required.
      */
     @SuppressWarnings("unchecked")
-    public <C extends ScreenHandler> C init(PlayerInventory playerInventory, int yOffset)
+    public <C extends AbstractContainerMenu> C init(Inventory playerInventory, int yOffset)
     {
         addContainerSlots();
         containerSlots = slots.size();
@@ -37,18 +37,18 @@ public class TFCHandler extends ScreenHandler {
         return (C) this;
     }
 
-    public <C extends ScreenHandler> C init(PlayerInventory playerInventory)
+    public <C extends AbstractContainerMenu> C init(Inventory playerInventory)
     {
         return init(playerInventory, 0);
     }
 
     @Override
-    public ItemStack transferSlot(PlayerEntity player, int index)
+    public ItemStack quickMoveStack(Player player, int index)
     {
         final Slot slot = slots.get(index);
-        if (slot.hasStack()) // Only move a stack when the index clicked has any contents
+        if (slot.hasItem()) // Only move a stack when the index clicked has any contents
         {
-            final ItemStack stack = slot.getStack(); // The stack in the current slot
+            final ItemStack stack = slot.getItem(); // The stack in the current slot
             final ItemStack original = stack.copy(); // The original amount in the slot
             if (moveStack(stack, index))
             {
@@ -63,21 +63,21 @@ public class TFCHandler extends ScreenHandler {
             // Handle updates,
             if (stack.isEmpty())
             {
-                slot.setStack(ItemStack.EMPTY);
+                slot.set(ItemStack.EMPTY);
             }
             else
             {
-                slot.markDirty();
+                slot.setChanged();
             }
 
-            slot.onTakeItem(player, stack);
+            slot.onTake(player, stack);
             return original;
         }
         return ItemStack.EMPTY;
     }
 
     @Override
-    public boolean canUse(PlayerEntity playerIn)
+    public boolean stillValid(Player playerIn)
     {
         return true;
     }
@@ -93,8 +93,8 @@ public class TFCHandler extends ScreenHandler {
         return switch (typeOf(slotIndex))
                 {
                     case CONTAINER -> true;
-                    case HOTBAR -> !insertItem(stack, containerSlots, containerSlots + 27, false);
-                    case MAIN_INVENTORY -> !insertItem(stack, containerSlots + 27, containerSlots + 36, false);
+                    case HOTBAR -> !moveItemStackTo(stack, containerSlots, containerSlots + 27, false);
+                    case MAIN_INVENTORY -> !moveItemStackTo(stack, containerSlots + 27, containerSlots + 36, false);
                 };
     }
 
@@ -107,7 +107,7 @@ public class TFCHandler extends ScreenHandler {
     /**
      * Adds the player inventory slots to the container.
      */
-    protected final void addPlayerInventorySlots(PlayerInventory playerInv, int yOffset)
+    protected final void addPlayerInventorySlots(Inventory playerInv, int yOffset)
     {
         // Main Inventory. Indexes [0, 27)
         for (int i = 0; i < 3; i++)

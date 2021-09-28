@@ -3,67 +3,66 @@ package malek.terrafabricraft.common.block.logpile;
 import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
 import malek.terrafabricraft.common.ImplementedInventory;
 import malek.terrafabricraft.common.registry.TFCObjects;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.SidedInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class LogPileBlockEntity extends BlockEntity implements ImplementedInventory, NamedScreenHandlerFactory, SidedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
+public class LogPileBlockEntity extends BlockEntity implements ImplementedInventory, MenuProvider, WorldlyContainer {
+    private final NonNullList<ItemStack> inventory = NonNullList.withSize(4, ItemStack.EMPTY);
     public LogPileBlockEntity(BlockPos pos, BlockState state) {
         super(TFCObjects.LOG_PILE_BLOCK_ENTITY, pos, state);
     }
 
-    public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state, T t) {
+    public static <T extends BlockEntity> void tick(Level world, BlockPos blockPos, BlockState state, T t) {
         ((LogPileBlockEntity)t).tick(world, blockPos, state);
     }
-    private void tick(World world, BlockPos pos, BlockState state) {
+    private void tick(Level world, BlockPos pos, BlockState state) {
        // System.out.println("hi");
     }
     @Nullable
     @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new LogPileGuiDescription(syncId, inv, ScreenHandlerContext.create(world, pos));
+    public AbstractContainerMenu createMenu(int syncId, Inventory inv, Player player) {
+        return new LogPileGuiDescription(syncId, inv, ContainerLevelAccess.create(level, worldPosition));
     }
-    public DefaultedList<ItemStack> getItems() {
+    public NonNullList<ItemStack> getItems() {
         return inventory;
     }
     @Override
-    public Text getDisplayName() {
-        return new LiteralText("Log Pile");
+    public Component getDisplayName() {
+        return new TextComponent("Log Pile");
     }
 
     @Override
-    public void readNbt(NbtCompound tag) {
-        super.readNbt(tag);
-        clear();
-        Inventories.readNbt(tag, this.inventory);
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        clearContent();
+        ContainerHelper.loadAllItems(tag, this.inventory);
     }
     @Override
-    public NbtCompound writeNbt(NbtCompound tag) {
-        super.writeNbt(tag);
-        tag = super.writeNbt(tag);
-        Inventories.writeNbt(tag, this.inventory);
+    public CompoundTag save(CompoundTag tag) {
+        super.save(tag);
+        tag = super.save(tag);
+        ContainerHelper.saveAllItems(tag, this.inventory);
         return tag;
     }
 
     @Override
-    public int[] getAvailableSlots(Direction var1) {
+    public int[] getSlotsForFace(Direction var1) {
         // Just return an array of all slots
         int[] result = new int[getItems().size()];
         for (int i = 0; i < result.length; i++) {
@@ -74,12 +73,12 @@ public class LogPileBlockEntity extends BlockEntity implements ImplementedInvent
     }
 
     @Override
-    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction dir) {
         return true;
     }
 
     @Override
-    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction dir) {
         return true;
     }
 

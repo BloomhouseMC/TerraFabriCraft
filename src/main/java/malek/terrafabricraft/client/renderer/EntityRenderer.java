@@ -8,12 +8,12 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.resources.ResourceLocation;
 
 @Environment(EnvType.CLIENT)
 public class EntityRenderer implements ClientModInitializer {
-    public static final EntityModelLayer MODEL_ROOSTER_LAYER = new EntityModelLayer(new Identifier(TerraFabriCraft.MODID, "rooster"), "main");
+    public static final ModelLayerLocation MODEL_ROOSTER_LAYER = new ModelLayerLocation(new ResourceLocation(TerraFabriCraft.MODID, "rooster"), "main");
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.INSTANCE.register(TFCEntityTypes.ROOSTER, RoosterRenderer::new);

@@ -1,7 +1,7 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.createItemSimple;
 

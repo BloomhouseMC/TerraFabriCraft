@@ -3,9 +3,9 @@ package malek.terrafabricraft.common.registry;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.TFCGravityBlock;
 import malek.terrafabricraft.common.block.TFCStairs;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.WallBlock;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.WallBlock;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
 
@@ -14,7 +14,7 @@ public class StainedAlabasterBlock {
     public BlockVariant brick;
     public BlockVariant polished;
     public TFCGravityBlock raw;
-    public ItemGroup group = TerraFabriCraft.DECORATIONS_GROUP;
+    public CreativeModeTab group = TerraFabriCraft.DECORATIONS_GROUP;
 
 
     public StainedAlabasterBlock(String id) {

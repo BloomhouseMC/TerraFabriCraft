@@ -1,8 +1,7 @@
 package malek.terrafabricraft.common.api;
 
-import net.minecraft.item.ItemStack;
-
 import javax.annotation.Nonnull;
+import net.minecraft.world.item.ItemStack;
 import java.util.EnumMap;
 
 public class ItemSizeHandler implements IItemSize {

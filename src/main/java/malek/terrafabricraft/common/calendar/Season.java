@@ -1,10 +1,9 @@
 package malek.terrafabricraft.common.calendar;
 
-import net.minecraft.util.StringIdentifiable;
-
 import java.util.Locale;
+import net.minecraft.util.StringRepresentable;
 
-public enum Season implements StringIdentifiable {
+public enum Season implements StringRepresentable {
     SPRING,
     SUMMER,
     FALL,
@@ -30,7 +29,7 @@ public enum Season implements StringIdentifiable {
     }
 
     @Override
-    public String asString()
+    public String getSerializedName()
     {
         return serializedName;
     }

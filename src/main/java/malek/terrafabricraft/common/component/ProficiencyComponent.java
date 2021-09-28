@@ -3,9 +3,8 @@ package malek.terrafabricraft.common.component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
-
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.player.Player;
 import java.util.Optional;
 
 public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingComponent {
@@ -22,8 +21,8 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
     public int smith_level = 0;
     public int smith_xp = 0;
 
-    private final PlayerEntity playerEntity;
-    public ProficiencyComponent(PlayerEntity playerEntity) {
+    private final Player playerEntity;
+    public ProficiencyComponent(Player playerEntity) {
         this.playerEntity = playerEntity;
     }
     //Agriculture
@@ -157,7 +156,7 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
     }
 
     @Override
-    public void readFromNbt(NbtCompound tag) {
+    public void readFromNbt(CompoundTag tag) {
         setAgriLevel(tag.getInt("agriculture_lvl"));
         setAgriXp(tag.getInt("agriculture_xp"));
 
@@ -175,7 +174,7 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
     }
 
     @Override
-    public void writeToNbt(NbtCompound tag) {
+    public void writeToNbt(CompoundTag tag) {
         tag.putInt("agriculture_lvl", getAgriLevel());
         tag.putInt("agriculture_xp", getAgriXp());
 
@@ -191,11 +190,11 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
         tag.putInt("smithing_lvl", getSmithLevel());
         tag.putInt("smithing_xp", getSmithXp());
     }
-    public static ProficiencyComponent get(PlayerEntity obj) {
+    public static ProficiencyComponent get(Player obj) {
         return TFCComponents.PROFICIENCY_COMPONENT.get(obj);
     }
 
-    public static Optional<ProficiencyComponent> maybeGet(PlayerEntity obj) {
+    public static Optional<ProficiencyComponent> maybeGet(Player obj) {
         return TFCComponents.PROFICIENCY_COMPONENT.maybeGet(obj);
     }
 }

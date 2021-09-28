@@ -1,25 +1,24 @@
 package malek.terrafabricraft.common.util;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import java.util.Locale;
 import java.util.Random;
 
 public final class HelperUtil {
     public static final Random RNG = new Random();
 
-    public static boolean isClientSide(WorldView world)
+    public static boolean isClientSide(LevelReader world)
     {
-        return world instanceof World ? !(world instanceof ServerWorld) : world.isClient();
+        return world instanceof Level ? !(world instanceof ServerLevel) : world.isClientSide();
     }
 
-    public static TranslatableText translateEnum(Enum<?> anEnum)
+    public static TranslatableComponent translateEnum(Enum<?> anEnum)
     {
-        return new TranslatableText(getEnumTranslationKey(anEnum));
+        return new TranslatableComponent(getEnumTranslationKey(anEnum));
     }
 
     public static String getEnumTranslationKey(Enum<?> anEnum)

@@ -1,10 +1,10 @@
 package malek.terrafabricraft.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.CoralBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CoralPlantBlock;
 
-public class TFCCoralBlock extends CoralBlock {
-    public TFCCoralBlock(Block deadCoralBlock, Settings settings) {
+public class TFCCoralBlock extends CoralPlantBlock {
+    public TFCCoralBlock(Block deadCoralBlock, Properties settings) {
         super(deadCoralBlock, settings);
     }
 }

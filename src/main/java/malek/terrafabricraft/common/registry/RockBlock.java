@@ -8,10 +8,11 @@ import malek.terrafabricraft.common.block.TFCStoneButtonBlock;
 import malek.terrafabricraft.common.item.TFCLooseRockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.WallBlock;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.WallBlock;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
 
@@ -127,7 +128,7 @@ public class RockBlock {
 
     private static TFCLooseRock setCreateTFCLooseRock(String name, String id, String special) {
         TFCLooseRock rock = register(id + special + "/" + name, new TFCLooseRock(FabricBlockSettings.copy(Blocks.STONE)), false, TerraFabriCraft.ROCK_GROUP);
-        TFCObjects.register(id + special + "/" + name, new TFCLooseRockItem(rock, new FabricItemSettings().group(TerraFabriCraft.ROCK_GROUP)));
+        TFCObjects.register(id + special + "/" + name, new TFCLooseRockItem(rock, new FabricItemSettings().tab(TerraFabriCraft.ROCK_GROUP)));
         return rock;
     }
 

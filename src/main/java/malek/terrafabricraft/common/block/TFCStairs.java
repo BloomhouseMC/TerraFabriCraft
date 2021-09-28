@@ -1,10 +1,10 @@
 package malek.terrafabricraft.common.block;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.StairsBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class TFCStairs extends StairsBlock {
-    public TFCStairs(BlockState baseBlockState, Settings settings) {
+public class TFCStairs extends StairBlock {
+    public TFCStairs(BlockState baseBlockState, Properties settings) {
         super(baseBlockState, settings);
     }
 }

@@ -11,21 +11,18 @@ import dev.onyxstudios.cca.api.v3.world.WorldComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.world.WorldComponentInitializer;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.component.*;
-import net.minecraft.block.Block;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
 public class TFCComponents implements EntityComponentInitializer, WorldComponentInitializer, ItemComponentInitializer {
-    public static final ComponentKey<HealthComponent> HEALTH_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "health"), HealthComponent.class);
-    public static final ComponentKey<HungerComponent> HUNGER_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "hunger"), HungerComponent.class);
-    public static final ComponentKey<ThirstComponent> THIRST_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "thirst"), ThirstComponent.class);
+    public static final ComponentKey<HealthComponent> HEALTH_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new ResourceLocation(TerraFabriCraft.MODID, "health"), HealthComponent.class);
+    public static final ComponentKey<HungerComponent> HUNGER_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new ResourceLocation(TerraFabriCraft.MODID, "hunger"), HungerComponent.class);
+    public static final ComponentKey<ThirstComponent> THIRST_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new ResourceLocation(TerraFabriCraft.MODID, "thirst"), ThirstComponent.class);
 
-    public static final ComponentKey<ProficiencyComponent> PROFICIENCY_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "proficiency"), ProficiencyComponent.class);
+    public static final ComponentKey<ProficiencyComponent> PROFICIENCY_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new ResourceLocation(TerraFabriCraft.MODID, "proficiency"), ProficiencyComponent.class);
 
-    public static final ComponentKey<DecayComponent> DECAY_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "decay"), DecayComponent.class);
+    public static final ComponentKey<DecayComponent> DECAY_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new ResourceLocation(TerraFabriCraft.MODID, "decay"), DecayComponent.class);
 
     //public static final ComponentKey<ServerCalendarComponent> CALENDAR_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "calendar"), ServerCalendarComponent.class);
 
@@ -33,10 +30,10 @@ public class TFCComponents implements EntityComponentInitializer, WorldComponent
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
         registry.beginRegistration(LivingEntity.class, HEALTH_COMPONENT).impl(HealthComponent.class).respawnStrategy(RespawnCopyStrategy.LOSSLESS_ONLY).end(HealthComponent::new);
-        registry.beginRegistration(PlayerEntity.class, HUNGER_COMPONENT).impl(HungerComponent.class).respawnStrategy(RespawnCopyStrategy.LOSSLESS_ONLY).end(HungerComponent::new);
-        registry.beginRegistration(PlayerEntity.class, THIRST_COMPONENT).impl(ThirstComponent.class).respawnStrategy(RespawnCopyStrategy.LOSSLESS_ONLY).end(ThirstComponent::new);
+        registry.beginRegistration(Player.class, HUNGER_COMPONENT).impl(HungerComponent.class).respawnStrategy(RespawnCopyStrategy.LOSSLESS_ONLY).end(HungerComponent::new);
+        registry.beginRegistration(Player.class, THIRST_COMPONENT).impl(ThirstComponent.class).respawnStrategy(RespawnCopyStrategy.LOSSLESS_ONLY).end(ThirstComponent::new);
 
-        registry.beginRegistration(PlayerEntity.class, PROFICIENCY_COMPONENT).impl(ProficiencyComponent.class).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(ProficiencyComponent::new);
+        registry.beginRegistration(Player.class, PROFICIENCY_COMPONENT).impl(ProficiencyComponent.class).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(ProficiencyComponent::new);
     }
 
     @Override

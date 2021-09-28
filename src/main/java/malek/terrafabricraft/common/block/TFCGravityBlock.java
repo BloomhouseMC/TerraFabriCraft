@@ -1,9 +1,9 @@
 package malek.terrafabricraft.common.block;
 
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 
 public class TFCGravityBlock extends Block {
-    public TFCGravityBlock(Settings settings) {
+    public TFCGravityBlock(Properties settings) {
         super(settings);
     }
 }

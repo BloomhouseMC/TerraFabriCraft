@@ -2,33 +2,32 @@ package malek.terrafabricraft.common.item;
 
 import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
 import malek.terrafabricraft.common.temperature.ItemTemperature;
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
-import net.minecraft.util.ActionResult;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.Block;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.LOG_PILE;
 
 public class TFCLogItem extends BlockItem {
-    public TFCLogItem(Block block, Settings settings) {
+    public TFCLogItem(Block block, Properties settings) {
         super(block, settings);
     }
     @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        ItemTemperature.setTemperature(context.getStack(), 1);
-        if(context.getPlayer().isSneaking())
+    public InteractionResult useOn(UseOnContext context) {
+        ItemTemperature.setTemperature(context.getItemInHand(), 1);
+        if(context.getPlayer().isShiftKeyDown())
         {
-            if(context.getWorld().getBlockState(context.getBlockPos().add(context.getSide().getVector())).isAir()) {
-                context.getWorld().setBlockState(context.getBlockPos().add(context.getSide().getVector()), LOG_PILE.getDefaultState());
+            if(context.getLevel().getBlockState(context.getClickedPos().offset(context.getClickedFace().getNormal())).isAir()) {
+                context.getLevel().setBlockAndUpdate(context.getClickedPos().offset(context.getClickedFace().getNormal()), LOG_PILE.defaultBlockState());
                 //((LogPileBlockEntity)context.getWorld().getBlockEntity(context.getBlockPos())).getItems().set(0, new ItemStack(context.getStack().getItem()));
-                context.getPlayer().getMainHandStack().setCount(context.getPlayer().getMainHandStack().getCount()-1);
+                context.getPlayer().getMainHandItem().setCount(context.getPlayer().getMainHandItem().getCount()-1);
             }
-            return ActionResult.PASS;
+            return InteractionResult.PASS;
         }
         else {
-            ActionResult actionResult = this.place(new ItemPlacementContext(context));
+            InteractionResult actionResult = this.place(new BlockPlaceContext(context));
             return actionResult;
         }
     }

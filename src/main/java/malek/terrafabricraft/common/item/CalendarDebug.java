@@ -1,26 +1,26 @@
 package malek.terrafabricraft.common.item;
 
 import malek.terrafabricraft.common.calendar.CalendarWorldData;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 public class CalendarDebug extends Item {
-    public CalendarDebug(Settings settings) {
+    public CalendarDebug(Properties settings) {
         super(settings);
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack stack = user.getStackInHand(hand);
-        if (world instanceof ServerWorld serverWorld) {
-            user.sendMessage(CalendarWorldData.get(serverWorld).getCalendar().getCalendarDayOfYear(), false);
-            user.sendMessage(CalendarWorldData.get(serverWorld).getCalendar().getCalendarTimeAndDate(), false);
+    public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
+        ItemStack stack = user.getItemInHand(hand);
+        if (world instanceof ServerLevel serverWorld) {
+            user.displayClientMessage(CalendarWorldData.get(serverWorld).getCalendar().getCalendarDayOfYear(), false);
+            user.displayClientMessage(CalendarWorldData.get(serverWorld).getCalendar().getCalendarTimeAndDate(), false);
         }
-        return TypedActionResult.success(stack);
+        return InteractionResultHolder.success(stack);
     }
 }

@@ -3,28 +3,26 @@ package malek.terrafabricraft.common.block;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TFCCrops extends CropBlock {
-    public static IntProperty CROP_AGE_7 = IntProperty.of("age", 0, 9);//Barley, Melon, Oat, Pumpkin, Rice, Rye, Squash, Sugarcane, Tomato, Wheat
+    public static IntegerProperty CROP_AGE_7 = IntegerProperty.create("age", 0, 9);//Barley, Melon, Oat, Pumpkin, Rice, Rye, Squash, Sugarcane, Tomato, Wheat
     //public static IntProperty CROP_AGE_6;//Beet, Greenbean, Onion, Potato, Bell Pepper, Soybean
     //public static IntProperty CROP_AGE_5;//Cabbage, Jute, Maize
     //public static IntProperty CROP_AGE_4;//Carrot, Garlic
 
     //TODO: Both temp and hardy is unnecessary
-    public TFCCrops(Settings settings, int temp, int speed) {
+    public TFCCrops(Properties settings, int temp, int speed) {
         super(settings);
 
     }
@@ -35,19 +33,19 @@ public class TFCCrops extends CropBlock {
         //CROP_AGE_4 = IntProperty.of("age", 0, 6);
     }
     private static final VoxelShape[] AGE_TO_SHAPE = {
-            Block.createCuboidShape(0, 0, 0, 16, 2, 16),
-            Block.createCuboidShape(0, 0, 0, 16, 4, 16),
-            Block.createCuboidShape(0, 0, 0, 16, 6, 16),
-            Block.createCuboidShape(0, 0, 0, 16, 8, 16),
-            Block.createCuboidShape(0, 0, 0, 16, 10, 16),
-            Block.createCuboidShape(0, 0, 0, 16, 12, 16),
-            Block.createCuboidShape(0, 0, 0, 16, 14, 16),
-            Block.createCuboidShape(0, 0, 0, 16, 16, 16)};
+            Block.box(0, 0, 0, 16, 2, 16),
+            Block.box(0, 0, 0, 16, 4, 16),
+            Block.box(0, 0, 0, 16, 6, 16),
+            Block.box(0, 0, 0, 16, 8, 16),
+            Block.box(0, 0, 0, 16, 10, 16),
+            Block.box(0, 0, 0, 16, 12, 16),
+            Block.box(0, 0, 0, 16, 14, 16),
+            Block.box(0, 0, 0, 16, 16, 16)};
 
 
     @Environment(EnvType.CLIENT)
     @Override
-    protected ItemConvertible getSeedsItem() {
+    protected ItemLike getBaseSeedId() {
         return this == TFCObjects.BARLEY_CROP ? TFCObjects.BARLEY_SEED :
                this == TFCObjects.CABBAGE_CROP ? TFCObjects.CABBAGE_SEED :
                this == TFCObjects.CARROT_CROP ? TFCObjects.CARROT_SEED :
@@ -68,7 +66,7 @@ public class TFCCrops extends CropBlock {
 
     }
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         int age = getAge(state);
         int modelAge = 0;
         //The last 2 ages are Dead and small Dead
@@ -87,7 +85,7 @@ public class TFCCrops extends CropBlock {
     }
 
     @Override
-    public IntProperty getAgeProperty() {
+    public IntegerProperty getAgeProperty() {
         return CROP_AGE_7;
     }
     /*
@@ -126,24 +124,24 @@ public class TFCCrops extends CropBlock {
     }
 
     @Override
-    protected int getGrowthAmount(World world) {
+    protected int getBonemealAgeIncrease(Level world) {
         return 1;
     }
     //TODO: This method stops the crop from growing to the last two stages, the dead stages
     @Override
-    public void applyGrowth(World world, BlockPos pos, BlockState state) {
-        int i = this.getAge(state) + this.getGrowthAmount(world);
+    public void growCrops(Level world, BlockPos pos, BlockState state) {
+        int i = this.getAge(state) + this.getBonemealAgeIncrease(world);
         int j = this.getMaxAge();
         if (i > j) {
             i = j;
         }
         if(this.getAge(state) + 1 < this.getMaxAge() - 1){
-            world.setBlockState(pos, this.withAge(i), 2);
+            world.setBlock(pos, this.getStateForAge(i), 2);
         }
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(getAgeProperty());
     }
 

@@ -1,11 +1,11 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.common.block.*;
-import malek.terrafabricraft.common.block.keg.TFCKeg;
-import malek.terrafabricraft.common.block.keg.TFCKegEntity;
-import net.minecraft.block.Block;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.sapling.SaplingGenerator;
+//import malek.terrafabricraft.common.block.keg.TFCKeg;
+//import malek.terrafabricraft.common.block.keg.TFCKegEntity;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.material.MaterialColor;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
 
@@ -17,9 +17,9 @@ public class WoodBlock {
     public TFCLog stripped_log;
     public TFCTwig twig;
     public TFCSupport vertical_support;
-    public TFCKeg keg;
+//    public TFCKeg keg;
 
-    public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
+    public WoodBlock(String variantId, AbstractTreeGrower saplingGenerator, MaterialColor color) {
         leaves = setCreateLeaves(variantId);
         log = setCreateLog(variantId);
         planks = setCreateBlock(variantId, "planks");
@@ -27,7 +27,7 @@ public class WoodBlock {
         stripped_log = setCreateStrippedLog(variantId, color);
         twig = setCreateTwig(variantId);
         vertical_support = setCreateSupport(variantId);
-        keg = setCreateKeg(variantId);
+//        keg = setCreateKeg(variantId);
     }
 
     //TODO: Refactor unnecessary methods.
@@ -47,18 +47,18 @@ public class WoodBlock {
         return createLog("wood/log/" + variantId, true);
     }
 
-    private static TFCSapling setCreateSapling(String variantId, SaplingGenerator generator) {
+    private static TFCSapling setCreateSapling(String variantId, AbstractTreeGrower generator) {
         return createSapling("wood/sapling/" + variantId, true, generator);
     }
 
-    private static TFCLog setCreateStrippedLog(String variantId, MapColor color) {
+    private static TFCLog setCreateStrippedLog(String variantId, MaterialColor color) {
         return createStrippedLog("wood/stripped_log/" + variantId, color, true);
     }
 
     private static TFCSupport setCreateSupport(String variantId) {
         return createSupport("wood/support/" + variantId, true);
     }
-    private static TFCKeg setCreateKeg(String variantId) {
-        return createKeg("wood/keg/" + variantId, true);
-    }
+//    private static TFCKeg setCreateKeg(String variantId) {
+//        return createKeg("wood/keg/" + variantId, true);
+//    }
 }

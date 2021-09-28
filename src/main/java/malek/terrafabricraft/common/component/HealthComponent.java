@@ -3,11 +3,10 @@ package malek.terrafabricraft.common.component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Difficulty;
-
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import java.util.Optional;
 
 
@@ -48,15 +47,15 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
 
     @Override
     public void serverTick() {
-        if(livingEntity instanceof PlayerEntity){
+        if(livingEntity instanceof Player){
             HealthComponent healthComponent = HealthComponent.get(livingEntity);
-            if(healthComponent.getHealth() <= 0 && livingEntity.isAlive() && !((PlayerEntity) livingEntity).isCreative() && !livingEntity.isSpectator()){
-                if(livingEntity.getRecentDamageSource() != null){
+            if(healthComponent.getHealth() <= 0 && livingEntity.isAlive() && !((Player) livingEntity).isCreative() && !livingEntity.isSpectator()){
+                if(livingEntity.getLastDamageSource() != null){
 
-                    livingEntity.damage(livingEntity.getRecentDamageSource(), Float.MAX_VALUE);
+                    livingEntity.hurt(livingEntity.getLastDamageSource(), Float.MAX_VALUE);
                 }
             }
-            Difficulty difficulty = livingEntity.world.getDifficulty();
+            Difficulty difficulty = livingEntity.level.getDifficulty();
             if(difficulty == Difficulty.PEACEFUL && healthComponent.getHealth() < healthComponent.getMaxHealth()){
                 healthComponent.increaseHealth(1);
             }
@@ -64,13 +63,13 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
     }
 
     @Override
-    public void readFromNbt(NbtCompound tag) {
+    public void readFromNbt(CompoundTag tag) {
         setHealth(tag.getInt("Health"));
 
     }
 
     @Override
-    public void writeToNbt(NbtCompound tag) {
+    public void writeToNbt(CompoundTag tag) {
         tag.putInt("Health", getHealth());
     }
 

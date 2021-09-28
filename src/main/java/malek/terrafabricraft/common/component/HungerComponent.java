@@ -3,11 +3,10 @@ package malek.terrafabricraft.common.component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Difficulty;
-
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.player.Player;
 import java.util.Optional;
 
 public class HungerComponent implements AutoSyncedComponent, ServerTickingComponent {
@@ -16,9 +15,9 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
     public int hungerTicker = 0;
     public int passiveHungerTicker = 0;
 
-    private final PlayerEntity playerEntity;
+    private final Player playerEntity;
 
-    public HungerComponent(PlayerEntity playerEntity) {
+    public HungerComponent(Player playerEntity) {
         this.playerEntity = playerEntity;
     }
 
@@ -56,7 +55,7 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
     public void serverTick() {
         hungerTicker++;
         passiveHungerTicker++;
-        Difficulty difficulty = playerEntity.world.getDifficulty();
+        Difficulty difficulty = playerEntity.level.getDifficulty();
         HealthComponent healthComponent = HealthComponent.get(playerEntity);
         HungerComponent hungerComponent = HungerComponent.get(playerEntity);
         //HEALING
@@ -67,7 +66,7 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         }
         //SLOW KILLER
         if(hungerComponent.getHunger() <= 0 && healthComponent.getHealth() > 0 && hungerTicker % 20 == 0 && !playerEntity.isCreative() && !playerEntity.isSpectator()){
-            playerEntity.damage(DamageSource.STARVE, 1.0F);
+            playerEntity.hurt(DamageSource.STARVE, 1.0F);
             hungerTicker = 0;
         }
         //IDLE HUNGER DECAY
@@ -78,20 +77,20 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
     }
 
     @Override
-    public void readFromNbt(NbtCompound tag) {
+    public void readFromNbt(CompoundTag tag) {
         setHunger(tag.getInt("Hunger"));
     }
 
     @Override
-    public void writeToNbt(NbtCompound tag) {
+    public void writeToNbt(CompoundTag tag) {
         tag.putInt("Hunger", getHunger());
     }
 
-    public static HungerComponent get(PlayerEntity obj) {
+    public static HungerComponent get(Player obj) {
         return TFCComponents.HUNGER_COMPONENT.get(obj);
     }
 
-    public static Optional<HungerComponent> maybeGet(PlayerEntity obj) {
+    public static Optional<HungerComponent> maybeGet(Player obj) {
         return TFCComponents.HUNGER_COMPONENT.maybeGet(obj);
     }
 }

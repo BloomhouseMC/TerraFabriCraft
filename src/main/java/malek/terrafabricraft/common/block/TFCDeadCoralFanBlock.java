@@ -1,9 +1,9 @@
 package malek.terrafabricraft.common.block;
 
-import net.minecraft.block.DeadCoralFanBlock;
+import net.minecraft.world.level.block.BaseCoralFanBlock;
 
-public class TFCDeadCoralFanBlock extends DeadCoralFanBlock {
-    public TFCDeadCoralFanBlock(Settings settings) {
+public class TFCDeadCoralFanBlock extends BaseCoralFanBlock {
+    public TFCDeadCoralFanBlock(Properties settings) {
         super(settings);
     }
 }

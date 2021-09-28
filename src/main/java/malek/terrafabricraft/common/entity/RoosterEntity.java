@@ -1,12 +1,12 @@
 package malek.terrafabricraft.common.entity;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.level.Level;
 
-public class RoosterEntity extends PathAwareEntity {
+public class RoosterEntity extends PathfinderMob {
 
-    public RoosterEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
+    public RoosterEntity(EntityType<? extends PathfinderMob> entityType, Level world) {
         super(entityType, world);
     }
 }

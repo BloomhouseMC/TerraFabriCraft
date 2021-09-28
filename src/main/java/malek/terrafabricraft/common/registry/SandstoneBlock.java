@@ -2,10 +2,10 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
-import net.minecraft.block.Block;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.WallBlock;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.WallBlock;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
 
@@ -22,7 +22,7 @@ public class SandstoneBlock {
     public SlabBlock smoothSlab;
     public Block smoothStairs;
     public Block smoothWall;
-    public static ItemGroup group = TerraFabriCraft.EARTH_GROUP;
+    public static CreativeModeTab group = TerraFabriCraft.EARTH_GROUP;
 
     public SandstoneBlock(String variantId) {
         var cut = "cut_" + variantId;

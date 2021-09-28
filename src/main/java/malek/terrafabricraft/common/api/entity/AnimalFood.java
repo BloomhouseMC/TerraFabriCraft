@@ -1,13 +1,13 @@
 package malek.terrafabricraft.common.api.entity;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 
 public class AnimalFood {
     private static final HashMap<Class<? extends Entity>, AnimalFood> ANIMAL_FOOD_MAP = new HashMap<>();
@@ -40,7 +40,7 @@ public class AnimalFood {
             {
                 if (!eatRotten)
                 {
-                    return stack.isFood();
+                    return stack.isEdible();
                 }
                 return true;
             }
