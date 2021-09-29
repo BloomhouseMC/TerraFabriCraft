@@ -12,7 +12,8 @@
   "client": [
     "client.InGameHudMixin",
     "client.ItemRendererMixin",
-    "client.PlayerScreenHandlerMixin"
+    "client.PlayerScreenHandlerMixin",
+    "client.RenderLayerAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
