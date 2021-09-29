@@ -21,6 +21,16 @@
 					}
 				}
 			}
+		},
+		"animation.keg.idle": {
+			"loop": true,
+			"bones": {
+				"lid": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

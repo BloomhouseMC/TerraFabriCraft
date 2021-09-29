@@ -196,6 +196,16 @@ public class TFCObjects {
     public static final Item TOMATO = createFood("tomato", 1, 1);
     public static final Item YELLOW_BELL_PEPPER = createFood("yellow_bell_pepper", 1, 1);
 
+    //Brewing
+    public static final Item YEAST_BREWERS = createItemSimple("food/yeast_brewers", TerraFabriCraft.FOOD_GROUP);
+    public static final Item YEAST_LAGER = createItemSimple("food/yeast_lager", TerraFabriCraft.FOOD_GROUP);
+    public static final Item YEAST_ALE = createItemSimple("food/yeast_ale", TerraFabriCraft.FOOD_GROUP);
+
+    public static final Item HOP_CENTENNIAL = createItemSimple("food/hop_centennial", TerraFabriCraft.FOOD_GROUP);
+    public static final Item HOP_CASCADE = createItemSimple("food/hop_cascade", TerraFabriCraft.FOOD_GROUP);
+    public static final Item HOP_CITRA = createItemSimple("food/hop_citra", TerraFabriCraft.FOOD_GROUP);
+    public static final Item HOP_MOSAIC = createItemSimple("food/hop_mosaic", TerraFabriCraft.FOOD_GROUP);
+
     //Grain
     public static final Item BARLEY_BREAD = createFood("barley_bread", 1, 1);
     public static final Item BARLEY_GRAIN = createFood("barley_grain", 1, 1);

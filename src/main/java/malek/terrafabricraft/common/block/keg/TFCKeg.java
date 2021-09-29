@@ -1,14 +1,22 @@
 package malek.terrafabricraft.common.block.keg;
 
-import malek.terrafabricraft.common.registry.TFCObjects;
+import malek.terrafabricraft.common.recipes.BeerBrewingRecipe;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.potion.PotionUtil;
+import net.minecraft.potion.Potions;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -18,40 +26,48 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class TFCKeg extends BlockWithEntity implements InventoryProvider {
-    /*
-    private static final VoxelShape EAST_SHAPE;
-    private static final VoxelShape WEST_SHAPE;
-    private static final VoxelShape SOUTH_SHAPE;
-    private static final VoxelShape NORTH_SHAPE;
+import static malek.terrafabricraft.common.util.HelperUtil.addItemToInventoryAndConsume;
 
-     */
+public class TFCKeg extends BlockWithEntity {
+    public static final IntProperty LEVEL = IntProperty.of("level", 0, 3);
     private static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+    private static final VoxelShape[] SHAPE = {
+            VoxelShapes.union(
+                createCuboidShape(2, 0, 2, 14, 16, 3),
+                createCuboidShape(2, 0, 13, 14, 16, 14),
+                createCuboidShape(2, 0, 2, 3, 16, 14),
+                createCuboidShape(13, 0, 2, 14, 16, 14),
+                createCuboidShape(2, 0, 2, 14, 4, 14)),
+            VoxelShapes.union(
+                createCuboidShape(2, 0, 2, 14, 16, 3),
+                createCuboidShape(2, 0, 13, 14, 16, 14),
+                createCuboidShape(2, 0, 2, 3, 16, 14),
+                createCuboidShape(13, 0, 2, 14, 16, 14),
+                createCuboidShape(2, 0, 2, 14, 4, 14),
+                createCuboidShape(2, 14, 2, 14, 16, 14))};
+    public static BooleanProperty WORKING = BooleanProperty.of("working");
 
     public TFCKeg(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
+        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(LEVEL, 0).with(WORKING, false));
 
+    }
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return (tickerWorld, pos, tickerState, blockEntity) -> TFCKegEntity.tick(tickerWorld, pos, tickerState, (TFCKegEntity) blockEntity);
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Block.createCuboidShape(2, 0, 2, 14, 16, 14);
+        return state.get(WORKING) ? SHAPE[1] : SHAPE[0];
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(FACING, LEVEL, WORKING);
     }
 
     @Nullable
@@ -59,44 +75,70 @@ public class TFCKeg extends BlockWithEntity implements InventoryProvider {
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new TFCKegEntity(pos, state);
     }
-/*
-    static {
-        VoxelShape shape = createCuboidShape(0, 0, 0, 16, 16, 16);
 
-        EAST_SHAPE = shape;
-        NORTH_SHAPE = rotate(Direction.EAST, Direction.NORTH, shape);
-        SOUTH_SHAPE = rotate(Direction.EAST, Direction.SOUTH, shape);
-        WEST_SHAPE = rotate(Direction.EAST, Direction.WEST, shape);
-
-    }
-
- */
-    /*
-    private static VoxelShape rotate(Direction from, Direction to, VoxelShape shape) {
-        VoxelShape[] buffer = new VoxelShape[]{shape, VoxelShapes.empty()};
-
-        int times = (to.getHorizontal() - from.getHorizontal() + 4) % 4;
-        for (int i = 0; i < times; i++) {
-            buffer[0].forEachBox((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] = VoxelShapes.union(buffer[1], VoxelShapes.cuboid(maxZ, minY, minX, minZ, maxY, maxX)));
-            buffer[0] = buffer[1];
-            buffer[1] = VoxelShapes.empty();
-        }
-
-        return buffer[0];
-    }
-
-     */
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing());
+
     }
+
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
-        System.out.println(state.getBlock().asItem().getTranslationKey());
+        if (world.getBlockEntity(pos) instanceof TFCKegEntity tfcKegEntity) {
+            Boolean isWorking = world.getBlockState(pos).get(TFCKeg.WORKING);
+            ItemStack stack = player.getStackInHand(hand);
+                boolean bucket = stack.getItem() == Items.BUCKET, waterBucket = stack.getItem() == Items.WATER_BUCKET, glassBottle = stack.getItem() == Items.GLASS_BOTTLE;
+            if ((bucket || waterBucket || glassBottle) && !isWorking) {
+                if (!world.isClient) {
+                        int targetLevel = tfcKegEntity.getTargetLevel(stack);
+                        if (targetLevel > -1) {
+                            if (bucket) {
+                                addItemToInventoryAndConsume(player, hand, new ItemStack(Items.WATER_BUCKET));
+                            }
+                            else if (waterBucket) {
+                                addItemToInventoryAndConsume(player, hand, new ItemStack(Items.BUCKET));
+                            }
+                            else if (glassBottle) {
+                                ItemStack bottle = null;
+                                if (tfcKegEntity.mode == TFCKegEntity.Mode.NORMAL) {
+                                    bottle = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.WATER);
+                                }
+                                else if (tfcKegEntity.mode == TFCKegEntity.Mode.BEER_BREWING) {
+                                    BeerBrewingRecipe recipe = tfcKegEntity.brewRecipe;
+                                    if (recipe != null) {
+                                        bottle = recipe.getOutput().copy();
+                                        System.out.println("Copy"+bottle);
+                                    }
+                                }
+                                else {
+                                    if (targetLevel == 2) {
+                                        boolean failed = true;
+                                        if (failed) {
+                                            tfcKegEntity.mode = tfcKegEntity.fail();
+                                            tfcKegEntity.syncKeg();
+                                            return ActionResult.FAIL;
+                                        }
+                                    }
+                                }
+                                if (bottle != null) {
+                                    System.out.println("Result"+bottle);
+                                    addItemToInventoryAndConsume(player, hand, bottle);
+                                }
+                            }
+                            if (targetLevel == 0) {
+                                tfcKegEntity.mode = tfcKegEntity.reset();
+                            }
+                            world.setBlockState(pos, state.with(LEVEL, targetLevel));
+                            world.playSound(null, pos, bucket ? SoundEvents.ITEM_BUCKET_FILL : waterBucket ? SoundEvents.ITEM_BUCKET_EMPTY : glassBottle ? SoundEvents.ITEM_BOTTLE_FILL : SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1, 1);
+                        }
 
-        return ActionResult.SUCCESS;
+                    tfcKegEntity.syncKeg();
+                }
+            }
+            return ActionResult.success(world.isClient);
+        }
+        return super.onUse(state, world, pos, player, hand, hit);
     }
     @Override
     public BlockRenderType getRenderType(BlockState state) {
@@ -108,14 +150,6 @@ public class TFCKeg extends BlockWithEntity implements InventoryProvider {
     }
     @Override
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
-        BlockEntity blockEntity = world.getBlockEntity(pos);
-        return 0;
+        return state.get(LEVEL);
     }
-
-    @Override
-    public SidedInventory getInventory(BlockState state, WorldAccess world, BlockPos pos) {
-        return (SidedInventory) world.getBlockEntity(pos);
-    }
-
-
 }

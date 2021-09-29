@@ -35,6 +35,8 @@ public class TerraFabriCraft implements ModInitializer {
         TFCEntityTypes.init();
         TFCEvents.init();
         TFCScreens.init();
+        TFCParticleTypes.init();
+        TFCRecipeTypes.init();
 
 
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {

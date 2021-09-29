@@ -1,6 +1,11 @@
 package malek.terrafabricraft.common.util;
 
 import malek.terrafabricraft.TerraFabriCraft;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Hand;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;
@@ -35,6 +40,28 @@ public final class HelperUtil {
         return String.join(".", TerraFabriCraft.MODID, "enum", enumName, anEnum.name()).toLowerCase(Locale.ROOT);
     }
 
+    public static void addItemToInventoryAndConsume(PlayerEntity player, Hand hand, ItemStack toAdd) {
+        boolean shouldAdd = false;
+        ItemStack stack = player.getStackInHand(hand);
+        if (stack.getCount() == 1) {
+            if (player.isCreative()) {
+                shouldAdd = true;
+            }
+            else {
+                player.setStackInHand(hand, toAdd);
+            }
+        }
+        else {
+            stack.decrement(1);
+            shouldAdd = true;
+        }
+        if (shouldAdd) {
+            if (!player.getInventory().insertStack(toAdd)) {
+                player.dropItem(toAdd, false, true);
+            }
+        }
+
+
     public static BlockState getRandomRawStone(Random random) {
         if (MathHelper.nextInt(random, 1, 7) == 1) {
             return TFCObjects.ANDESITE.raw.block.getDefaultState();
@@ -52,5 +79,6 @@ public final class HelperUtil {
             return TFCObjects.SHALE.raw.block.getDefaultState();
         } else
         return TFCObjects.CLAYSTONE.raw.block.getDefaultState();
+
     }
 }
