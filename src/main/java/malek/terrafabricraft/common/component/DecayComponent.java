@@ -2,7 +2,6 @@ package malek.terrafabricraft.common.component;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
-import dev.onyxstudios.cca.api.v3.item.ItemComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
@@ -33,14 +32,6 @@ public class DecayComponent implements AutoSyncedComponent, ServerTickingCompone
         return TFCComponents.DECAY_COMPONENT.get(provider);
     }
 
-    @Override
-    public void serverTick() {
-        interval++;
-        if(interval >= 10){
-            bigTick++;
-            interval=0;
-        }
-    }
 
     @Override
     public void readFromNbt(CompoundTag tag) {
@@ -50,5 +41,10 @@ public class DecayComponent implements AutoSyncedComponent, ServerTickingCompone
     @Override
     public void writeToNbt(CompoundTag tag) {
         tag.putLong("Decay", getDecay());
+    }
+
+    @Override
+    public void serverTick() {
+
     }
 }
