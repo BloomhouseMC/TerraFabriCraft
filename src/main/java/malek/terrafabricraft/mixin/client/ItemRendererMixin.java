@@ -1,11 +1,10 @@
 package malek.terrafabricraft.mixin.client;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
+import malek.terrafabricraft.TerraFabriCraftClient;
+import malek.terrafabricraft.client.TextureTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.StainedGlassPaneBlock;
 import net.minecraft.block.TransparentBlock;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.*;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;
@@ -17,7 +16,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,10 +27,9 @@ import static malek.terrafabricraft.mixin.client.RenderLayerAccessor.*;
 @Mixin(ItemRenderer.class)
 public class ItemRendererMixin {
     private static RenderLayer GLINT;
-
+    private static TextureTwo textureTwo = new TextureTwo(ItemRenderer.ENCHANTED_ITEM_GLINT, true, false);
     static {
-        GLINT = RenderLayer.of("glint", VertexFormats.POSITION_COLOR_TEXTURE, VertexFormat.DrawMode.QUADS, 262144, RenderLayer.MultiPhaseParameters.builder().shader(GLINT_SHADER()).texture(new RenderPhase.Texture(ItemRenderer.ENCHANTED_ITEM_GLINT, true, false)).writeMaskState(COLOR_MASK()).cull(DISABLE_CULLING()).depthTest(EQUAL_DEPTH_TEST()).transparency(GLINT_TRANSPARENCY()).texturing(GLINT_TEXTURING()).build(false));
-
+        GLINT = RenderLayer.of("my_glint", VertexFormats.POSITION_TEXTURE, VertexFormat.DrawMode.QUADS, 256, RenderLayer.MultiPhaseParameters.builder().shader(GLINT_SHADER()).texture(textureTwo).writeMaskState(COLOR_MASK()).cull(DISABLE_CULLING()).depthTest(EQUAL_DEPTH_TEST()).transparency(GLINT_TRANSPARENCY()).texturing(GLINT_TEXTURING()).build(false));
     }
     @Shadow
     private TextureManager textureManager;
@@ -75,11 +72,14 @@ public class ItemRendererMixin {
                             }
 
                              */
-                            //VertexConsumer vertexConsumer2 = vertexConsumers.getBuffer(RenderLayer.getCutout());
-                                //    vertexConsumer4 = VertexConsumers.union(new OverlayVertexConsumer(vertexConsumer2, entry.getModel(), entry.getNormal()), vertexConsumers.getBuffer(renderLayer));
+                            TerraFabriCraftClient.customLightmapTextureManager.enable();
+                            VertexConsumer vertexConsumer2 = vertexConsumers.getBuffer(GLINT);
+                             vertexConsumer2 = vertexConsumers.getBuffer(RenderLayer.getGlint());
+                                    vertexConsumer4 = VertexConsumers.union(new OverlayVertexConsumer(vertexConsumer2, entry.getModel(), entry.getNormal()), vertexConsumers.getBuffer(renderLayer));
                                     //vertexConsumer4.fixedColor(255, 0, 0, 255);
                            // vertexConsumer4.color(0, 1, 1, 1);
-                            vertexConsumer4 = vertexConsumers.getBuffer(renderLayer).color(255, 255, 255, 255);
+                            //vertexConsumer4 = vertexConsumers.getBuffer(renderLayer);
+                            TerraFabriCraftClient.customLightmapTextureManager.enable();
 
                             this.renderBakedItemModel(model, stack, light, overlay, matrices, vertexConsumer4);
                             matrices.pop();
