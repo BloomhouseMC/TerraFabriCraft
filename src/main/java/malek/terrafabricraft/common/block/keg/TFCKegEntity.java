@@ -2,7 +2,6 @@ package malek.terrafabricraft.common.block.keg;
 
 import malek.terrafabricraft.common.recipes.BeerBrewingRecipe;
 import malek.terrafabricraft.common.registry.TFCObjects;
-import malek.terrafabricraft.common.registry.TFCProperties;
 import malek.terrafabricraft.common.registry.TFCRecipeTypes;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
@@ -103,7 +102,7 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
             }
             if (!world.isClient) {
 
-                if (state.get(TFCProperties.LEVEL) > 0) {
+                if (state.get(TFCKeg.LEVEL) > 0) {
                     if(state.get(WORKING)){
                         blockEntity.processTimer++;
                         if(blockEntity.processTimer >= MAX_PROGRESS){
@@ -116,7 +115,7 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
                     }
                     if (world.getTime() % 5 == 0) {
                         world.getEntitiesByType(EntityType.ITEM, blockEntity.box, entity -> true).forEach(itemEntity -> {
-                            if (state.get(TFCProperties.LEVEL) == 3) {
+                            if (state.get(TFCKeg.LEVEL) == 3) {
                                 world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_SPLASH, SoundCategory.BLOCKS, 1 / 3f, 1);
                                 ItemStack stack = itemEntity.getStack();
                                 if (stack.getItem().hasRecipeRemainder()) {
@@ -239,14 +238,14 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
         if (world != null) {
             setColor(0x3f76e4);
             clear();
-            world.setBlockState(pos, getCachedState().with(TFCProperties.LEVEL, 0));
+            world.setBlockState(pos, getCachedState().with(TFCKeg.LEVEL, 0));
         }
         return Mode.NORMAL;
     }
 
     public int getTargetLevel(ItemStack stack) {
         Item item = stack.getItem();
-        int level = getCachedState().get(TFCProperties.LEVEL);
+        int level = getCachedState().get(TFCKeg.LEVEL);
         if (mode == Mode.NORMAL) {
             if (item == Items.BUCKET && level == 3) {
                 return 0;

@@ -1,7 +1,6 @@
 package malek.terrafabricraft.common.block.keg;
 
 import malek.terrafabricraft.common.recipes.BeerBrewingRecipe;
-import malek.terrafabricraft.common.registry.TFCProperties;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -17,6 +16,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -31,6 +31,7 @@ import org.jetbrains.annotations.Nullable;
 import static malek.terrafabricraft.common.util.HelperUtil.addItemToInventoryAndConsume;
 
 public class TFCKeg extends BlockWithEntity {
+    public static final IntProperty LEVEL = IntProperty.of("level", 0, 3);
     private static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     private static final VoxelShape[] SHAPE = {
             VoxelShapes.union(
@@ -40,17 +41,17 @@ public class TFCKeg extends BlockWithEntity {
                 createCuboidShape(13, 0, 2, 14, 16, 14),
                 createCuboidShape(2, 0, 2, 14, 4, 14)),
             VoxelShapes.union(
-                    createCuboidShape(2, 0, 2, 14, 16, 3),
-                    createCuboidShape(2, 0, 13, 14, 16, 14),
-                    createCuboidShape(2, 0, 2, 3, 16, 14),
-                    createCuboidShape(13, 0, 2, 14, 16, 14),
-                    createCuboidShape(2, 0, 2, 14, 4, 14),
-                    createCuboidShape(2, 14, 2, 14, 16, 14))};
-    public static BooleanProperty WORKING = BooleanProperty.of("done");
+                createCuboidShape(2, 0, 2, 14, 16, 3),
+                createCuboidShape(2, 0, 13, 14, 16, 14),
+                createCuboidShape(2, 0, 2, 3, 16, 14),
+                createCuboidShape(13, 0, 2, 14, 16, 14),
+                createCuboidShape(2, 0, 2, 14, 4, 14),
+                createCuboidShape(2, 14, 2, 14, 16, 14))};
+    public static BooleanProperty WORKING = BooleanProperty.of("working");
 
     public TFCKeg(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(TFCProperties.LEVEL, 0).with(WORKING, false));
+        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(LEVEL, 0).with(WORKING, false));
 
     }
     @Nullable
@@ -66,7 +67,7 @@ public class TFCKeg extends BlockWithEntity {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, TFCProperties.LEVEL, WORKING);
+        builder.add(FACING, LEVEL, WORKING);
     }
 
     @Nullable
@@ -131,7 +132,7 @@ public class TFCKeg extends BlockWithEntity {
                             if (targetLevel == 0) {
                                 tfcKegEntity.mode = tfcKegEntity.reset();
                             }
-                            world.setBlockState(pos, state.with(TFCProperties.LEVEL, targetLevel));
+                            world.setBlockState(pos, state.with(LEVEL, targetLevel));
                             world.playSound(null, pos, bucket ? SoundEvents.ITEM_BUCKET_FILL : waterBucket ? SoundEvents.ITEM_BUCKET_EMPTY : glassBottle ? SoundEvents.ITEM_BOTTLE_FILL : SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1, 1);
                         }
 
@@ -152,6 +153,6 @@ public class TFCKeg extends BlockWithEntity {
     }
     @Override
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
-        return state.get(TFCProperties.LEVEL);
+        return state.get(LEVEL);
     }
 }

@@ -4,7 +4,6 @@ import malek.terrafabricraft.client.model.block.KegModel;
 import malek.terrafabricraft.common.block.keg.TFCKeg;
 import malek.terrafabricraft.common.block.keg.TFCKegEntity;
 import malek.terrafabricraft.common.registry.TFCParticleTypes;
-import malek.terrafabricraft.common.registry.TFCProperties;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -40,7 +39,7 @@ public class KegRenderer extends GeoBlockRenderer<TFCKegEntity> {
         World world = entity.getWorld();
         if (world != null) {
             BlockPos pos = entity.getPos();
-            int level = entity.getCachedState().get(TFCProperties.LEVEL);
+            int level = entity.getCachedState().get(TFCKeg.LEVEL);
             if (level > 0) {
                 matrixStack.push();
                 matrixStack.translate(0, HEIGHT[level], 0);
@@ -49,7 +48,7 @@ public class KegRenderer extends GeoBlockRenderer<TFCKegEntity> {
                 if (!MinecraftClient.getInstance().isPaused()) {
                     float fluidHeight = 0;
                     float width = 0.45f;
-                    switch (entity.getCachedState().get(TFCProperties.LEVEL)) {
+                    switch (entity.getCachedState().get(TFCKeg.LEVEL)) {
                         case 1 -> fluidHeight = 0.55f;
                         case 2 -> fluidHeight = 0.65f;
                         case 3 -> fluidHeight = 0.85f;
