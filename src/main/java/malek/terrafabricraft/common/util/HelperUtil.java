@@ -1,8 +1,11 @@
 package malek.terrafabricraft.common.util;
 
 import malek.terrafabricraft.TerraFabriCraft;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
@@ -30,5 +33,26 @@ public final class HelperUtil {
     public static String getEnumTranslationKey(Enum<?> anEnum, String enumName)
     {
         return String.join(".", TerraFabriCraft.MODID, "enum", enumName, anEnum.name()).toLowerCase(Locale.ROOT);
+    }
+    public static void addItemToInventoryAndConsume(PlayerEntity player, Hand hand, ItemStack toAdd) {
+        boolean shouldAdd = false;
+        ItemStack stack = player.getStackInHand(hand);
+        if (stack.getCount() == 1) {
+            if (player.isCreative()) {
+                shouldAdd = true;
+            }
+            else {
+                player.setStackInHand(hand, toAdd);
+            }
+        }
+        else {
+            stack.decrement(1);
+            shouldAdd = true;
+        }
+        if (shouldAdd) {
+            if (!player.getInventory().insertStack(toAdd)) {
+                player.dropItem(toAdd, false, true);
+            }
+        }
     }
 }

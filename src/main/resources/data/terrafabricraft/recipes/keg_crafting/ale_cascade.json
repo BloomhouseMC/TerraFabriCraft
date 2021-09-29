@@ -1,0 +1,18 @@
+{
+  "type": "terrafabricraft:beer_recipe",
+  "ingredients": [
+    {
+      "item": "terrafabricraft:food/barley_grain"
+    },
+    {
+      "item": "terrafabricraft:food/hop_cascade"
+    },
+    {
+      "item": "terrafabricraft:food/yeast_ale"
+    }
+  ],
+  "result": {
+    "item": "diamond"
+  },
+  "color": 4849664
+}

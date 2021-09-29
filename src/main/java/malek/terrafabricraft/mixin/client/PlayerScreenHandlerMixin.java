@@ -23,6 +23,9 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 @Environment(EnvType.CLIENT)
 @Mixin(PlayerScreenHandler.class)
 public class PlayerScreenHandlerMixin extends ScreenHandler {
+    /**
+     * @author - MrSterner
+     */
 
 @Final
 @Shadow private final CraftingInventory craftingInput = new CraftingInventory(this, 3, 20);

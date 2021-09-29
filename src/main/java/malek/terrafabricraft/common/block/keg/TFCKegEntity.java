@@ -1,31 +1,28 @@
 package malek.terrafabricraft.common.block.keg;
 
-import malek.terrafabricraft.common.ImplementedInventory;
-import malek.terrafabricraft.common.block.logpile.LogPileGuiDescription;
+import malek.terrafabricraft.common.recipes.BeerBrewingRecipe;
 import malek.terrafabricraft.common.registry.TFCObjects;
-import malek.terrafabricraft.common.registry.WoodBlock;
+import malek.terrafabricraft.common.registry.TFCProperties;
+import malek.terrafabricraft.common.registry.TFCRecipeTypes;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.SidedInventory;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -34,101 +31,147 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class TFCKegEntity extends BlockEntity implements ImplementedInventory, NamedScreenHandlerFactory, SidedInventory, IAnimatable {
+import static malek.terrafabricraft.common.block.keg.TFCKeg.WORKING;
+
+public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable, BlockEntityClientSerializable {
     private final AnimationFactory manager = new AnimationFactory(this);
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
-    private static final int[] TOP_SLOTS = new int[]{0};
-    private static final int[] BOTTOM_SLOTS = new int[]{1};
-    private static final int[] SIDE_SLOTS = new int[]{0, 1};
-    private int tankSize = 8000;
-    private int operationTime;
-    private int water = 0;
-    private int maxWater = getTankSize();
-    private int progress = 0;
-    private int maxProgress = getOperationTime();
-    private boolean on = false;
-
+    //TODO: change MAX_PROGRESS to a high value
+    private static final int MAX_PROGRESS = 500;
+    public int processTimer = 0;
+    public int color = 0x3f76e4;
+    private boolean loaded = false;
+    public Mode mode = Mode.NORMAL;
+    public BeerBrewingRecipe brewRecipe = null;
+    private Box box;
 
     public TFCKegEntity(BlockPos pos, BlockState state) {
         super(TFCObjects.KEG_BLOCK_ENTITY, pos, state);
-        operationTime = 180;
-        tankSize = 8000;
-        maxProgress = getOperationTime();
-        maxWater = getTankSize();
-    }
-
-
-
-    @Override
-    public DefaultedList<ItemStack> getItems() {
-        return inventory;
     }
 
     @Override
-    public int[] getAvailableSlots(Direction side) {
-        if (side == Direction.UP) {
-            return TOP_SLOTS;
-        } else if (side == Direction.DOWN) {
-            return BOTTOM_SLOTS;
-        } else {
-            return SIDE_SLOTS;
+    public void fromClientTag(NbtCompound tag) {
+        Inventories.readNbt(tag, inventory);
+        mode = Mode.valueOf(tag.getString("Mode"));
+        if (tag.contains("Color")) {
+            color = tag.getInt("Color");
         }
+        processTimer = tag.getInt("ProcessTimer");
     }
 
     @Override
-    public boolean canInsert(int slot, ItemStack stack, Direction dir) {
-        return isValid(slot, stack);
-    }
-
-    @Override
-    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return true;
-    }
-
-    @Override
-    public Text getDisplayName() {
-        String string = this.getCachedState().getBlock().getName().getString();
-        String i = string.substring(string.lastIndexOf(".")+1);
-
-
-
-        return new LiteralText(i);
-    }
-
-    @Nullable
-    @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new KegGuiDescription(syncId, inv, ScreenHandlerContext.create(world, pos));
-    }
-
-    @Override
-    public void readNbt(NbtCompound tag) {
-        super.readNbt(tag);
-        clear();
-        Inventories.readNbt(tag, this.inventory);
-    }
-    @Override
-    public NbtCompound writeNbt(NbtCompound tag) {
-        super.writeNbt(tag);
-        tag = super.writeNbt(tag);
-        Inventories.writeNbt(tag, this.inventory);
+    public NbtCompound toClientTag(NbtCompound tag) {
+        Inventories.writeNbt(tag, inventory);
+        tag.putInt("Color", color);
+        tag.putString("Mode", mode.name);
+        tag.putInt("ProcessTimer", processTimer);
         return tag;
     }
 
-
-    public int getTankSize() {
-        return tankSize;
+    @Override
+    public void readNbt(NbtCompound nbt) {
+        fromClientTag(nbt);
+        super.readNbt(nbt);
     }
 
-    public int getOperationTime() {
-        return operationTime;
+    @Override
+    public NbtCompound writeNbt(NbtCompound nbt) {
+        return super.writeNbt(toClientTag(nbt));
+    }
+
+    public void setColor(int color) {
+        if (world != null) {
+            this.color = color;
+        }
+    }
+    private int getFirstEmptySlot() {
+        for (int i = 0; i < size(); i++) {
+            if (getStack(i).isEmpty()) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void tick(World world, BlockPos pos, BlockState state, TFCKegEntity blockEntity) {
+        if (world != null) {
+            if(!blockEntity.loaded){
+                blockEntity.markDirty();
+                blockEntity.box = new Box(pos).contract(0.75);
+                blockEntity.brewRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.BEER_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
+                blockEntity.loaded = true;
+            }
+            if (!world.isClient) {
+
+                if (state.get(TFCProperties.LEVEL) > 0) {
+                    if(state.get(WORKING)){
+                        blockEntity.processTimer++;
+                        if(blockEntity.processTimer >= MAX_PROGRESS){
+                            world.setBlockState(pos, state.with(WORKING, false));
+                            blockEntity.processTimer=0;
+                        }
+                        if (world.random.nextFloat() <= 0.05f) {
+                            world.playSound(null, pos, SoundEvents.BLOCK_BUBBLE_COLUMN_UPWARDS_AMBIENT, SoundCategory.BLOCKS, 1 / 3f, 1);
+                        }
+                    }
+                    if (world.getTime() % 5 == 0) {
+                        world.getEntitiesByType(EntityType.ITEM, blockEntity.box, entity -> true).forEach(itemEntity -> {
+                            if (state.get(TFCProperties.LEVEL) == 3) {
+                                world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_SPLASH, SoundCategory.BLOCKS, 1 / 3f, 1);
+                                ItemStack stack = itemEntity.getStack();
+                                if (stack.getItem().hasRecipeRemainder()) {
+                                    ItemEntity remainder = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, new ItemStack(stack.getItem().getRecipeRemainder()));
+                                    remainder.setVelocity(Vec3d.ZERO);
+                                    remainder.setNoGravity(true);
+                                    world.spawnEntity(remainder);
+                                }
+                                blockEntity.mode = blockEntity.insertStack(stack.split(1));
+                                blockEntity.syncKeg();
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    private Mode insertStack(ItemStack stack) {
+        if (world != null) {
+            if (stack.getItem() == TFCObjects.WOOD_ASH.twig.asItem()) {
+                Mode reset = reset();
+                syncKeg();
+                return reset;
+            }
+            else if (mode != Mode.FAILED) {
+                int firstEmpty = getFirstEmptySlot();
+                if (firstEmpty != -1) {
+                    setStack(firstEmpty, stack);
+                    brewRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.BEER_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
+                    if (brewRecipe != null) {
+                        setColor(brewRecipe.color);
+                        this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
+                        return Mode.BEER_BREWING;
+                    }
+                    setColor(0xd6c291);
+                    return Mode.BEER_BREWING;
+                }
+            }
+        }
+        return fail();
+    }
+
+    public void syncKeg() {
+        sync();
     }
 
     private <E extends BlockEntity & IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         AnimationController<?> controller = event.getController();
         controller.transitionLengthTicks = 0;
-        controller.setAnimation(new AnimationBuilder().addAnimation("animation.keg.process", true));
-
+        if(world.getBlockState(pos).get(WORKING)){
+            controller.setAnimation(new AnimationBuilder().addAnimation("animation.keg.process", true));
+        }else{
+            controller.setAnimation(new AnimationBuilder().addAnimation("animation.keg.idle", true));
+        }
         return PlayState.CONTINUE;
     }
 
@@ -142,4 +185,98 @@ public class TFCKegEntity extends BlockEntity implements ImplementedInventory, N
         return this.manager;
     }
 
+    @Override
+    public int size() {
+        return inventory.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        for (int i = 0; i < size(); i++) {
+            if (getStack(i).isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public ItemStack getStack(int slot) {
+        return inventory.get(slot);
+    }
+
+    @Override
+    public ItemStack removeStack(int slot, int amount) {
+        return Inventories.splitStack(inventory, slot, amount);
+    }
+
+    @Override
+    public ItemStack removeStack(int slot) {
+        return Inventories.removeStack(inventory, slot);
+    }
+
+    @Override
+    public void setStack(int slot, ItemStack stack) {
+        inventory.set(slot, stack);
+    }
+
+    @Override
+    public boolean canPlayerUse(PlayerEntity player) {
+        return player.squaredDistanceTo(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5) < 16;
+    }
+
+    @Override
+    public void clear() {
+        inventory.clear();
+    }
+    public Mode fail() {
+        setColor(0x505050);
+        return Mode.FAILED;
+    }
+
+
+    public Mode reset() {
+        if (world != null) {
+            setColor(0x3f76e4);
+            clear();
+            world.setBlockState(pos, getCachedState().with(TFCProperties.LEVEL, 0));
+        }
+        return Mode.NORMAL;
+    }
+
+    public int getTargetLevel(ItemStack stack) {
+        Item item = stack.getItem();
+        int level = getCachedState().get(TFCProperties.LEVEL);
+        if (mode == Mode.NORMAL) {
+            if (item == Items.BUCKET && level == 3) {
+                return 0;
+            }
+            else if (item == Items.WATER_BUCKET && level == 0) {
+                return 3;
+            }
+            else if (item == Items.GLASS_BOTTLE) {
+                return level - 1;
+            }
+        }
+        else if (mode == Mode.BEER_BREWING) {
+            if (brewRecipe != null && item == Items.GLASS_BOTTLE) {
+                return level - 1;
+            }
+        }
+        return -1;
+    }
+
+    public enum Mode {
+        NORMAL("NORMAL"),
+        BEER_BREWING("BEER_BREWING"),
+        HARD_BREWING("HARD_BREWING"),
+        LIGHT_BREWING("LIGHT_BREWING"),
+        FAILED("FAILED");
+
+        public final String name;
+
+        Mode(String name) {
+            this.name = name;
+        }
+    }
 }
