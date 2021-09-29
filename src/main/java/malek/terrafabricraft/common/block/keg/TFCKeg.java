@@ -86,12 +86,11 @@ public class TFCKeg extends BlockWithEntity {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.getBlockEntity(pos) instanceof TFCKegEntity tfcKegEntity) {
-            boolean client = world.isClient;
             Boolean isWorking = world.getBlockState(pos).get(TFCKeg.WORKING);
             ItemStack stack = player.getStackInHand(hand);
                 boolean bucket = stack.getItem() == Items.BUCKET, waterBucket = stack.getItem() == Items.WATER_BUCKET, glassBottle = stack.getItem() == Items.GLASS_BOTTLE;
             if ((bucket || waterBucket || glassBottle) && !isWorking) {
-                if (!client) {
+                if (!world.isClient) {
                         int targetLevel = tfcKegEntity.getTargetLevel(stack);
                         if (targetLevel > -1) {
                             if (bucket) {
@@ -122,8 +121,6 @@ public class TFCKeg extends BlockWithEntity {
                                         }
                                     }
                                 }
-
-                                System.out.println(isWorking);
                                 if (bottle != null) {
                                     System.out.println("Result"+bottle);
                                     addItemToInventoryAndConsume(player, hand, bottle);
@@ -139,7 +136,7 @@ public class TFCKeg extends BlockWithEntity {
                     tfcKegEntity.syncKeg();
                 }
             }
-            return ActionResult.success(client);
+            return ActionResult.success(world.isClient);
         }
         return super.onUse(state, world, pos, player, hand, hit);
     }

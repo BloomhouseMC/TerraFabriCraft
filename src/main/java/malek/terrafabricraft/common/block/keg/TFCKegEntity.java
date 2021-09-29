@@ -136,11 +136,13 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
 
     private Mode insertStack(ItemStack stack) {
         if (world != null) {
-            if (stack.getItem() == TFCObjects.WOOD_ASH.twig.asItem()) {
+            //TODO: Change BARELY to another itam that resets the brewing state
+            if (stack.getItem() == TFCObjects.BARLEY) {
                 Mode reset = reset();
                 syncKeg();
                 return reset;
             }
+            //TODO: Implement More modes for singular, and 'dupular' crafting
             else if (mode != Mode.FAILED) {
                 int firstEmpty = getFirstEmptySlot();
                 if (firstEmpty != -1) {
