@@ -34,9 +34,10 @@ public class Calendar extends SavedData {
 
     public void tick() {
         iterator++;
-        if (iterator >= 2400) {
+        if (iterator >= 1200) {
             minuteHand++;
             iterator = 0;
+            System.out.println("yep");
             if (minuteHand % 20 == 0) {
                 dayCounter++;
                 if (dayCounter % 7 == 0) {

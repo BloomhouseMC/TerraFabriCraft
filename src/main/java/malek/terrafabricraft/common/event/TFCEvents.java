@@ -17,14 +17,9 @@ public class TFCEvents {
 
 
     public static void init() {
-        ServerLifecycleEvents.SERVER_STARTED.register((server -> {
-            currentserver = server;
-            calendarInstantiator = new CalendarManager(currentserver);
-        }));
+        ServerLifecycleEvents.SERVER_STARTED.register((server -> currentserver = server));
 
-        ServerLifecycleEvents.SERVER_STOPPED.register((server -> {
-            currentserver = null;
-        }));
+        ServerLifecycleEvents.SERVER_STOPPED.register((server -> currentserver = null));
     }
 
     public static MinecraftServer getCurrentserver() {
