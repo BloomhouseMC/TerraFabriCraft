@@ -19,11 +19,11 @@ public class TextureTwo extends RenderPhase.TextureBase {
     public TextureTwo(Identifier identifier, boolean bl, boolean bl2){
             super(() -> {
                 TerraFabriCraftClient.customLightmapTextureManager.enable();
-//                RenderSystem.enableTexture();
-//
-//                TextureManager textureManager = MinecraftClient.getInstance().getTextureManager();
-//                textureManager.getTexture(identifier).setFilter(bl, bl2);
-//                RenderSystem.setShaderTexture(0, identifier);
+                RenderSystem.enableTexture();
+
+                TextureManager textureManager = MinecraftClient.getInstance().getTextureManager();
+                textureManager.getTexture(identifier).setFilter(bl, bl2);
+                RenderSystem.setShaderTexture(0, identifier);
             }, () -> {
             });
             this.id = Optional.of(identifier);

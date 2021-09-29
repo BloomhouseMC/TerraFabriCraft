@@ -1,13 +1,17 @@
 package malek.terrafabricraft.mixin.client;
 
+import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import malek.terrafabricraft.TerraFabriCraftClient;
 import malek.terrafabricraft.client.TextureTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.StainedGlassPaneBlock;
 import net.minecraft.block.TransparentBlock;
+import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.render.*;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;
+import net.minecraft.client.render.model.BakedQuad;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.texture.TextureManager;
@@ -15,19 +19,29 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GLUtil;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import javax.swing.*;
+import java.util.Iterator;
+import java.util.List;
+
 import static malek.terrafabricraft.common.temperature.ItemTemperature.getTemperature;
 import static malek.terrafabricraft.mixin.client.RenderLayerAccessor.*;
+import static org.lwjgl.opengl.GL14.GL_FUNC_ADD;
 
 @Mixin(ItemRenderer.class)
 public class ItemRendererMixin {
     private static RenderLayer GLINT;
     private static TextureTwo textureTwo = new TextureTwo(ItemRenderer.ENCHANTED_ITEM_GLINT, true, false);
+
     static {
         GLINT = RenderLayer.of("my_glint", VertexFormats.POSITION_TEXTURE, VertexFormat.DrawMode.QUADS, 256, RenderLayer.MultiPhaseParameters.builder().shader(GLINT_SHADER()).texture(textureTwo).writeMaskState(COLOR_MASK()).cull(DISABLE_CULLING()).depthTest(EQUAL_DEPTH_TEST()).transparency(GLINT_TRANSPARENCY()).texturing(GLINT_TEXTURING()).build(false));
     }
@@ -35,6 +49,68 @@ public class ItemRendererMixin {
     private TextureManager textureManager;
     @Shadow
     private float zOffset;
+    @Shadow
+    @Final
+    private ItemColors colors;
+
+    /**
+     * @author
+     */
+    @Overwrite
+    private void renderBakedItemQuads(MatrixStack matrices, VertexConsumer vertices, List<BakedQuad> quads, ItemStack stack, int light, int overlay) {
+        boolean bl = !stack.isEmpty();
+        MatrixStack.Entry entry = matrices.peek();
+        Iterator var9 = quads.iterator();
+        while(var9.hasNext()) {
+            BakedQuad bakedQuad = (BakedQuad)var9.next();
+            int i = -1;
+            if (bl && bakedQuad.hasColor()) {
+                i = this.colors.getColor(stack, bakedQuad.getColorIndex());
+            }
+
+            float f = (float)(i >> 16 & 255) / 255.0F;
+            float g = (float)(i >> 8 & 255) / 255.0F;
+            float h = (float)(i & 255) / 255.0F;
+            if (!stack.isEmpty()) {
+                if (stack.hasNbt()) {
+                    if (getTemperature(stack) != 0) {
+                        vertices.quad(entry, bakedQuad, 1f,1f, 1, light, overlay);
+                    }
+                    else
+                    {
+                        vertices.quad(entry, bakedQuad, f, g, h, light, overlay);
+                    }
+                }
+                else
+                {
+                    vertices.quad(entry, bakedQuad, f, g, h, light, overlay);
+                }
+            }
+            else
+            {
+                vertices.quad(entry, bakedQuad, f, g, h, light, overlay);
+            }
+        }
+
+    }
+    private void rewriteBuffer(VertexConsumer vertexConsumer, int alpha) {
+        if (vertexConsumer instanceof BufferBuilder bufferBuilder) {
+            BufferBuilderAccessor bufferBuilderAccessor = ((BufferBuilderAccessor) bufferBuilder);
+
+            int prevOffset = bufferBuilderAccessor.getElementOffset();
+
+            if (prevOffset > 0) {
+                int i = bufferBuilderAccessor.getVertexFormat().getVertexSize();
+
+                for (int l = 1; l <= 4; l++) {
+                    bufferBuilderAccessor.setElementOffset(prevOffset - i * l);
+                    bufferBuilder.putByte(15, (byte) (alpha));
+                }
+
+                bufferBuilderAccessor.setElementOffset(prevOffset);
+            }
+        }
+    }
 
     @Inject(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At("HEAD"), cancellable = true)
     public void renderItemMixin(ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo ci) {
@@ -43,6 +119,7 @@ public class ItemRendererMixin {
                 if (getTemperature(stack) != 0) {
                     if (!stack.isEmpty()) {
                         matrices.push();
+
                         this.textureManager.getTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE).setFilter(false, false);
 //                        RenderSystem.setShaderTexture(0, SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE);
 //                        RenderSystem.enableBlend();
@@ -72,16 +149,26 @@ public class ItemRendererMixin {
                             }
 
                              */
-                            TerraFabriCraftClient.customLightmapTextureManager.enable();
+//                            this.textureManager.getTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE).setFilter(false, false);
+//                            RenderSystem.setShaderTexture(0, SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE);
+//                            RenderSystem.enableBlend();
+//                            RenderSystem.blendFunc(GlStateManager.SrcFactor.SRC_ALPHA, GlStateManager.DstFactor.ONE_MINUS_SRC_ALPHA);
+//                            RenderSystem.clearColor(0, 0, 0, 0);
+//                            RenderSystem.setShaderColor(0F, 0F, 1.0F, 1.0F);
+//                            RenderSystem.applyModelViewMatrix();
+
+                         //   TerraFabriCraftClient.customLightmapTextureManager.enable();
                             VertexConsumer vertexConsumer2 = vertexConsumers.getBuffer(GLINT);
-                             vertexConsumer2 = vertexConsumers.getBuffer(RenderLayer.getGlint());
-                                    vertexConsumer4 = VertexConsumers.union(new OverlayVertexConsumer(vertexConsumer2, entry.getModel(), entry.getNormal()), vertexConsumers.getBuffer(renderLayer));
+                             vertexConsumer2 = vertexConsumers.getBuffer(renderLayer);
+                                   // vertexConsumer4 = VertexConsumers.union(new OverlayVertexConsumer(vertexConsumer2, entry.getModel(), entry.getNormal()), vertexConsumers.getBuffer(renderLayer));
                                     //vertexConsumer4.fixedColor(255, 0, 0, 255);
                            // vertexConsumer4.color(0, 1, 1, 1);
                             //vertexConsumer4 = vertexConsumers.getBuffer(renderLayer);
-                            TerraFabriCraftClient.customLightmapTextureManager.enable();
 
-                            this.renderBakedItemModel(model, stack, light, overlay, matrices, vertexConsumer4);
+                            //TerraFabriCraftClient.customLightmapTextureManager.enable();
+                            GL11.glColorMask(true, false, false, true);
+                            this.renderBakedItemModel(model, stack, light, overlay, matrices, vertexConsumer2);
+                            GL11.glColorMask(true, true, true, true);
                             matrices.pop();
                             ci.cancel();
                         }

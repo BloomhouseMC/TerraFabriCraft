@@ -10,11 +10,13 @@
     "common.TrunkPlacerTypeInvoker"
   ],
   "client": [
+    "client.GameRendererMixin",
     "client.InGameHudMixin",
     "client.ItemRendererMixin",
+    "client.LightmapTextureManagerMixin",
     "client.PlayerScreenHandlerMixin",
     "client.RenderLayerAccessor",
-    "client.GameRendererMixin"
+    "client.BufferBuilderAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
