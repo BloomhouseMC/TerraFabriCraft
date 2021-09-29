@@ -6,7 +6,6 @@ import malek.terrafabricraft.common.block.keg.TFCKeg;
 import malek.terrafabricraft.common.block.keg.TFCKegEntity;
 import malek.terrafabricraft.common.block.logpile.LogPile;
 import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
-import malek.terrafabricraft.common.item.CalendarDebug;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
@@ -37,7 +36,6 @@ public class TFCObjects {
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
     // Debug + Testing
-    public static final Item CALENDAR_TEST = register("calendar_debugger", new CalendarDebug(new FabricItemSettings().group(TerraFabriCraft.MISC_GROUP).maxCount(1)));
 
 
     public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", TerraFabriCraft.DECORATIONS_GROUP);

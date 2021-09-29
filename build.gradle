@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.9-SNAPSHOT'
+	id 'fabric-loom' version '0.10.21'
 	id 'maven-publish'
 }
 
@@ -75,7 +75,7 @@ dependencies {
 	include "io.github.onyxStudios.Cardinal-Components-API:cardinal-components-item:${project.cc_version}"
 
 	//Geckolib
-	modImplementation "software.bernie.geckolib:geckolib-fabric-${gecko_version}:dev"
+	modImplementation "software.bernie.geckolib:geckolib-fabric-${gecko_version}"
 
 	//Patchouli
 	modImplementation "vazkii.patchouli:Patchouli:${patchouli_version}"
@@ -86,6 +86,10 @@ dependencies {
 
 	modImplementation include("io.github.cottonmc:LibGui:4.1.6+1.17.1")
 
+}
+
+loom {
+	accessWidenerPath = file("src/main/resources/terrafabricraft.aw")
 }
 
 processResources {
