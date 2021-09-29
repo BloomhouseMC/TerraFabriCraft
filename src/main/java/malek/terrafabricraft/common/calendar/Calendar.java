@@ -1,101 +1,53 @@
 package malek.terrafabricraft.common.calendar;
 
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.world.PersistentState;
 
-public class Calendar implements ICalendar {
+public class Calendar extends PersistentState {
 
-    protected long playerTicks, calendarTicks;
-    protected int daysInMonth;
-    protected boolean doDaylightCycle, arePlayersLoggedOn;
+    private NbtCompound calendarData;
+    private int iterator;
+    private int minuteHand;
+    private int dayCounter;
+    private int weekCounter;
+    private int monthCounter;
+    private int yearCounter;
 
-    public Calendar()
-    {
-        daysInMonth = 8;
-        playerTicks = 0;
-        calendarTicks = (5L * daysInMonth * ICalendar.TICKS_IN_DAY) + (6 * ICalendar.TICKS_IN_HOUR);
-        doDaylightCycle = true;
-        arePlayersLoggedOn = false;
+    public Calendar(ServerWorld serverLevel) {
+        this.markDirty();
+        minuteHand = 1;
     }
 
     @Override
-    public long getTicks()
-    {
-        return playerTicks;
+    public NbtCompound writeNbt(NbtCompound compoundTag) {
+        compoundTag.putInt("minuteHand", minuteHand);
+        return compoundTag;
     }
 
-    @Override
-    public long getCalendarTicks()
-    {
-        return calendarTicks;
+    public static Calendar load(ServerWorld serverLevel, NbtCompound compoundTag) {
+        var calendar = new Calendar(serverLevel);
+        calendar.calendarData = compoundTag;
+        calendar.minuteHand = compoundTag.getInt("minuteHand");
+        return calendar;
     }
 
-    @Override
-    public int getCalendarDaysInMonth()
-    {
-        return daysInMonth;
-    }
-
-    public NbtCompound write()
-    {
-        NbtCompound nbt = new NbtCompound();
-
-        nbt.putInt("daysInMonth", daysInMonth);
-
-        nbt.putLong("playerTime", playerTicks);
-        nbt.putLong("calendarTime", calendarTicks);
-
-        nbt.putBoolean("doDaylightCycle", doDaylightCycle);
-        nbt.putBoolean("arePlayersLoggedOn", arePlayersLoggedOn);
-
-        return nbt;
-    }
-
-    public void read(@Nullable NbtCompound nbt)
-    {
-        if (nbt != null)
-        {
-            daysInMonth = nbt.getInt("daysInMonth");
-
-            playerTicks = nbt.getLong("playerTime");
-            calendarTicks = nbt.getLong("calendarTime");
-
-            doDaylightCycle = nbt.getBoolean("doDaylightCycle");
-            arePlayersLoggedOn = nbt.getBoolean("arePlayersLoggedOn");
+    public void tick() {
+        iterator++;
+        if (iterator >= 1200) {
+            minuteHand++;
+            iterator = 0;
+            System.out.println("yep");
+            if (minuteHand % 20 == 0) {
+                dayCounter++;
+                if (dayCounter % 7 == 0) {
+                    weekCounter++;
+                }
+            }
         }
     }
 
-    public void write(PacketByteBuf buffer)
-    {
-        buffer.writeVarInt(daysInMonth);
-
-        buffer.writeVarLong(playerTicks);
-        buffer.writeVarLong(calendarTicks);
-
-        buffer.writeBoolean(doDaylightCycle);
-        buffer.writeBoolean(arePlayersLoggedOn);
-    }
-
-    public void read(PacketByteBuf buffer)
-    {
-        daysInMonth = buffer.readVarInt();
-
-        playerTicks = buffer.readVarLong();
-        calendarTicks = buffer.readVarLong();
-
-        doDaylightCycle = buffer.readBoolean();
-        arePlayersLoggedOn = buffer.readBoolean();
-    }
-
-    public void reset(Calendar resetTo)
-    {
-        this.daysInMonth = resetTo.daysInMonth;
-
-        this.playerTicks = resetTo.playerTicks;
-        this.calendarTicks = resetTo.calendarTicks;
-
-        this.doDaylightCycle = resetTo.doDaylightCycle;
-        this.arePlayersLoggedOn = resetTo.arePlayersLoggedOn;
+    public void setMinuteHand(int minuteHand) {
+        this.minuteHand = minuteHand;
     }
 }
