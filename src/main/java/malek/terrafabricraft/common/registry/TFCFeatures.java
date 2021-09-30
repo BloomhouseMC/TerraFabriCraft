@@ -304,9 +304,7 @@ public class TFCFeatures {
         //Register new feature
         Registry.register(Registry.FEATURE, new Identifier("terrafirmacraft", "boulder"), BOULDER);
      //   Registry.register(Registry.FEATURE, new Identifier(TerraFabriCraft.MODID, "test_boulder"), TEST_BOULDER);
-     //   Registry.register(Registry.CONFIGURED_FEATURE_KEY, new Identifier(TerraFabriCraft.MODID, "test_boulder"), BuiltinRegistries.CONFIGURED_FEATURE.getKey(TEST_BOULDER_CONFIGURED));
-        //Register configured feature
-//        register("tree/acacia", TREE_ACACIA, BiomeSelectors.foundInOverworld(), vegetalGenStep);
+        register("tree/acacia", TREE_ACACIA, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/ash", TREE_ASH, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/aspen", TREE_ASPEN, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/birch", TREE_BIRCH, BiomeSelectors.categories(Biome.Category.PLAINS), vegetalGenStep);
