@@ -46,12 +46,10 @@ public final class HelperUtil {
         if (stack.getCount() == 1) {
             if (player.isCreative()) {
                 shouldAdd = true;
-            }
-            else {
+            } else {
                 player.setStackInHand(hand, toAdd);
             }
-        }
-        else {
+        } else {
             stack.decrement(1);
             shouldAdd = true;
         }
@@ -60,25 +58,24 @@ public final class HelperUtil {
                 player.dropItem(toAdd, false, true);
             }
         }
-
-
-    public static BlockState getRandomRawStone(Random random) {
-        if (MathHelper.nextInt(random, 1, 7) == 1) {
-            return TFCObjects.ANDESITE.raw.block.getDefaultState();
-        } else if (MathHelper.nextInt(random, 1, 7) == 2) {
-            return TFCObjects.DOLOMITE.raw.block.getDefaultState();
-        } else if (MathHelper.nextInt(random, 1, 7) == 3) {
-            return TFCObjects.CHALK.raw.block.getDefaultState();
-        } else if (MathHelper.nextInt(random, 1, 7) == 4) {
-            return TFCObjects.LIMESTONE.raw.block.getDefaultState();
-        } else if (MathHelper.nextInt(random, 1, 7) == 5) {
-            return TFCObjects.CHERT.raw.block.getDefaultState();
-        } else if (MathHelper.nextInt(random, 1, 7) == 6) {
-            return TFCObjects.CONGLOMERATE.raw.block.getDefaultState();
-        } else if (MathHelper.nextInt(random, 1, 7) == 7) {
-            return TFCObjects.SHALE.raw.block.getDefaultState();
-        } else
-        return TFCObjects.CLAYSTONE.raw.block.getDefaultState();
-
     }
+
+        public static BlockState getRandomRawStone(Random random) {
+            if (MathHelper.nextInt(random, 1, 7) == 1) {
+                return TFCObjects.ANDESITE.raw.block.getDefaultState();
+            } else if (MathHelper.nextInt(random, 1, 7) == 2) {
+                return TFCObjects.DOLOMITE.raw.block.getDefaultState();
+            } else if (MathHelper.nextInt(random, 1, 7) == 3) {
+                return TFCObjects.CHALK.raw.block.getDefaultState();
+            } else if (MathHelper.nextInt(random, 1, 7) == 4) {
+                return TFCObjects.LIMESTONE.raw.block.getDefaultState();
+            } else if (MathHelper.nextInt(random, 1, 7) == 5) {
+                return TFCObjects.CHERT.raw.block.getDefaultState();
+            } else if (MathHelper.nextInt(random, 1, 7) == 6) {
+                return TFCObjects.CONGLOMERATE.raw.block.getDefaultState();
+            } else if (MathHelper.nextInt(random, 1, 7) == 7) {
+                return TFCObjects.SHALE.raw.block.getDefaultState();
+            } else
+                return TFCObjects.CLAYSTONE.raw.block.getDefaultState();
+        }
 }

@@ -1,6 +1,7 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
+import malek.terrafabricraft.common.config.ModuleConfig;
 import malek.terrafabricraft.common.util.HelperUtil;
 import malek.terrafabricraft.common.world.generator.feature.BoulderFeature;
 import malek.terrafabricraft.common.world.generator.feature.TestBoulderFeature;
@@ -283,8 +284,10 @@ public class TFCFeatures {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new
                 Identifier(TerraFabriCraft.MODID, id), feature);
         BiomeModification worldGen = BiomeModifications.create(new Identifier(TerraFabriCraft.MODID, "world_features"));
-        worldGen.add(ModificationPhase.ADDITIONS, biome, context -> context.getGenerationSettings().
-                addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, feature));
+        if (ModuleConfig.getValue("world")) {
+            worldGen.add(ModificationPhase.ADDITIONS, biome, context -> context.getGenerationSettings().
+                    addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, feature));
+        }
     }
 
     public static final ConfiguredFeature<?, ?> BOULDER_ANDESITE = BOULDER.configure(new DefaultFeatureConfig())

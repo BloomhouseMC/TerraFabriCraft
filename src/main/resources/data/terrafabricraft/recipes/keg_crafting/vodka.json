@@ -1,0 +1,18 @@
+{
+  "type": "terrafabricraft:beer_recipe",
+  "ingredients": [
+    {
+      "item": "terrafabricraft:food/potato"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "terrafabricraft:food/yeast_ale"
+    }
+  ],
+  "result": {
+    "item": "minecraft:blue_dye"
+  },
+  "color": 11977962
+}
