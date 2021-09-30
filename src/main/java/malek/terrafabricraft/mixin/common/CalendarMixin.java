@@ -1,6 +1,7 @@
 package malek.terrafabricraft.mixin.common;
 
 import malek.terrafabricraft.common.calendar.Calendar;
+import malek.terrafabricraft.common.calendar.CalendarManager;
 import malek.terrafabricraft.common.event.TFCEvents;
 import net.minecraft.server.world.ServerWorld;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,6 +20,6 @@ public abstract class CalendarMixin {
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void tick(BooleanSupplier hasTimeLeft, CallbackInfo ci) {
-        TFCEvents.calendarInstantiator.calendar.tick();
+        CalendarManager.getSingleton().getCalendar().tick();
     }
 }

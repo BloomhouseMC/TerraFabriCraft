@@ -9,11 +9,10 @@ import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+import net.fabricmc.fabric.impl.blockrenderlayer.BlockRenderLayerMapImpl;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -447,7 +446,7 @@ public class TFCObjects {
 
     public static TFCSapling createSapling(String id, boolean hasBlockItem, SaplingGenerator generator) {
         var block = new TFCSapling(generator, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
-        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
+//        BlockRenderLayerMapImpl.INSTANCE.putBlock(block, RenderLayer.getCutout());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
@@ -524,27 +523,27 @@ public class TFCObjects {
     public static TFCCoralBlock createCoralBlock(String id, TFCDeadCoralBlock deadCoralBlock) {
         var block = new TFCCoralBlock(deadCoralBlock, FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.CORAL).strength(2.0f).noCollision());
         register(id, block, true, TerraFabriCraft.FLORA_GROUP);
-        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
+//        BlockRenderLayerMapImpl.INSTANCE.putBlock(block, RenderLayer.getCutout());
         return block;
     }
 
     public static TFCCoralFanBlock createCoralFanBlock(String id, TFCDeadCoralFanBlock deadCoralFanBlock) {
         var block = new TFCCoralFanBlock(deadCoralFanBlock, FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.CORAL).strength(2.0f).noCollision());
         register(id, block, true, TerraFabriCraft.FLORA_GROUP);
-        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         return block;
     }
 
     public static TFCDeadCoralBlock createDeadCoralBlock(String id) {
-        var block = new TFCDeadCoralBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.CORAL).strength(2.0f).noCollision());
+        var block = new TFCDeadCoralBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_BLOCK));
         register(id, block, true, TerraFabriCraft.FLORA_GROUP);
+//        BlockRenderLayerMapImpl.INSTANCE.putBlock(block, RenderLayer.getCutout());
         return block;
     }
 
     public static TFCDeadCoralFanBlock createDeadCoralFanBlock(String id) {
-        var block = new TFCDeadCoralFanBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.CORAL).strength(2.0f).noCollision());
+        var block = new TFCDeadCoralFanBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_FAN));
         register(id, block, true, TerraFabriCraft.FLORA_GROUP);
-        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
+//        BlockRenderLayerMapImpl.INSTANCE.putBlock(block, RenderLayer.getCutout());
         return block;
     }
 

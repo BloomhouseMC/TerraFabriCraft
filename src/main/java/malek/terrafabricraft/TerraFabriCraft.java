@@ -1,5 +1,6 @@
 package malek.terrafabricraft;
 
+import malek.terrafabricraft.common.calendar.CalendarManager;
 import malek.terrafabricraft.common.config.ModuleConfig;
 import malek.terrafabricraft.common.config.TFCConfig;
 import malek.terrafabricraft.common.event.TFCEvents;
@@ -41,18 +42,19 @@ public class TerraFabriCraft implements ModInitializer {
         TFCScreens.init();
         TFCParticleTypes.init();
         TFCRecipeTypes.init();
+        CalendarManager.init();
 
 
-        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
-            lines.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText("Pog", new TranslatableText("Big"))));
-            /*
-            ClientWorld world = MinecraftClient.getInstance().world;
-            if (world != null && stack.isFood() && stack.getItem() != TFCObjects.DECAY_FOOD_TEST2) {
-                int percent = ((TFCFood.FoodDecay) (Object) stack).getRotPercentage(world);
-                lines.add(new TranslatableText("tooltip.terrafabricraft.rot_status", percent).setStyle(Style.EMPTY.withColor(TextColor.parse("gray"))));
-            }
-
-             */
-        });
+//        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
+//            lines.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText("Pog", new TranslatableText("Big"))));
+//            /*
+//            ClientWorld world = MinecraftClient.getInstance().world;
+//            if (world != null && stack.isFood() && stack.getItem() != TFCObjects.DECAY_FOOD_TEST2) {
+//                int percent = ((TFCFood.FoodDecay) (Object) stack).getRotPercentage(world);
+//                lines.add(new TranslatableText("tooltip.terrafabricraft.rot_status", percent).setStyle(Style.EMPTY.withColor(TextColor.parse("gray"))));
+//            }
+//
+//             */
+//        });
     }
 }

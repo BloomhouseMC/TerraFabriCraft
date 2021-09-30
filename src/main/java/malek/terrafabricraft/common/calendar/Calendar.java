@@ -1,6 +1,8 @@
 package malek.terrafabricraft.common.calendar;
 
+import io.netty.buffer.Unpooled;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.PersistentState;
 
@@ -22,6 +24,7 @@ public class Calendar extends PersistentState {
     @Override
     public NbtCompound writeNbt(NbtCompound compoundTag) {
         compoundTag.putInt("minuteHand", minuteHand);
+        var test = new PacketByteBuf(Unpooled.buffer()).writeNbt(compoundTag);
         return compoundTag;
     }
 
@@ -37,7 +40,7 @@ public class Calendar extends PersistentState {
         if (iterator >= 1200) {
             minuteHand++;
             iterator = 0;
-            System.out.println("yep");
+            System.out.println(minuteHand);
             if (minuteHand % 20 == 0) {
                 dayCounter++;
                 if (dayCounter % 7 == 0) {

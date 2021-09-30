@@ -82,7 +82,7 @@ dependencies {
 
 	//REI
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
-	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
 
 	modImplementation include("io.github.cottonmc:LibGui:4.1.6+1.17.1")
 

@@ -56,8 +56,7 @@
       "terrafabricraft:hunger",
       "terrafabricraft:thirst",
       "terrafabricraft:proficiency",
-      "terrafabricraft:decay",
-      "terrafabricraft:calendar"
+      "terrafabricraft:decay"
     ]
   },
   "suggests": {
