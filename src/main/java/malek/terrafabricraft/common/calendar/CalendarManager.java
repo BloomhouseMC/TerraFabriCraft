@@ -7,20 +7,27 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 
 public class CalendarManager {
+    public static CalendarManager singleton;
     public Calendar calendar;
+
     public CalendarManager(MinecraftServer server) {
         ServerWorld level = server.getWorld(World.OVERWORLD);
-        calendar = (Calendar) level.getPersistentStateManager().getOrCreate((compoundTag) -> {
-            System.out.println(compoundTag);
-            return Calendar.load(level, compoundTag);
-        }, () -> {
-            return new Calendar(level);
-        }, TerraFabriCraft.MODID);
+        calendar = (Calendar) level.getPersistentStateManager().getOrCreate((compoundTag) -> Calendar.load(level, compoundTag),
+                () -> new Calendar(level),
+                TerraFabriCraft.MODID);
     }
 
     public static void init() {
         ServerLifecycleEvents.SERVER_STARTED.register((server -> {
-             var calManager = new CalendarManager(server);
+            singleton = new CalendarManager(server);
         }));
+    }
+
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    public static CalendarManager getSingleton() {
+        return singleton;
     }
 }
