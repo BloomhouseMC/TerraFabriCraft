@@ -1,8 +1,8 @@
 package malek.terrafabricraft.client.renderer.block;
 
 import malek.terrafabricraft.client.model.block.KegModel;
-import malek.terrafabricraft.common.block.keg.TFCKeg;
-import malek.terrafabricraft.common.block.keg.TFCKegEntity;
+import malek.terrafabricraft.common.block.keg.Keg;
+import malek.terrafabricraft.common.block.keg.KegEntity;
 import malek.terrafabricraft.common.registry.TFCParticleTypes;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
@@ -21,7 +21,7 @@ import software.bernie.geckolib3.renderers.geo.GeoBlockRenderer;
 
 import static net.minecraft.client.texture.SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE;
 
-public class KegRenderer extends GeoBlockRenderer<TFCKegEntity> {
+public class KegRenderer extends GeoBlockRenderer<KegEntity> {
     public KegRenderer() {
         super(new KegModel());
     }
@@ -29,17 +29,17 @@ public class KegRenderer extends GeoBlockRenderer<TFCKegEntity> {
     public static final SpriteIdentifier KEG_WATER = new SpriteIdentifier(BLOCK_ATLAS_TEXTURE, new Identifier("block/water_still"));
 
     @Override
-    public RenderLayer getRenderType(TFCKegEntity animatable, float partialTicks, MatrixStack stack, VertexConsumerProvider renderTypeBuffer, VertexConsumer vertexBuilder, int packedLightIn, Identifier textureLocation) {
+    public RenderLayer getRenderType(KegEntity animatable, float partialTicks, MatrixStack stack, VertexConsumerProvider renderTypeBuffer, VertexConsumer vertexBuilder, int packedLightIn, Identifier textureLocation) {
         return RenderLayer.getEntityTranslucent(getTextureLocation(animatable));
     }
 
     @Override
-    public void render(TFCKegEntity entity, float partialTicks, MatrixStack matrixStack, VertexConsumerProvider vertexConsumers, int light) {
+    public void render(KegEntity entity, float partialTicks, MatrixStack matrixStack, VertexConsumerProvider vertexConsumers, int light) {
         super.render(entity, partialTicks, matrixStack, vertexConsumers, light);
         World world = entity.getWorld();
         if (world != null) {
             BlockPos pos = entity.getPos();
-            int level = entity.getCachedState().get(TFCKeg.LEVEL);
+            int level = entity.getCachedState().get(Keg.LEVEL);
             if (level > 0) {
                 matrixStack.push();
                 matrixStack.translate(0, HEIGHT[level], 0);
@@ -48,12 +48,12 @@ public class KegRenderer extends GeoBlockRenderer<TFCKegEntity> {
                 if (!MinecraftClient.getInstance().isPaused()) {
                     float fluidHeight = 0;
                     float width = 0.45f;
-                    switch (entity.getCachedState().get(TFCKeg.LEVEL)) {
+                    switch (entity.getCachedState().get(Keg.LEVEL)) {
                         case 1 -> fluidHeight = 0.55f;
                         case 2 -> fluidHeight = 0.65f;
                         case 3 -> fluidHeight = 0.85f;
                     }
-                    if (fluidHeight > 0 && entity.getCachedState().get(TFCKeg.WORKING)) {
+                    if (fluidHeight > 0 && entity.getCachedState().get(Keg.WORKING)) {
                         world.addParticle((ParticleEffect) TFCParticleTypes.KEG_BUBBLE, pos.getX() + 0.5 + MathHelper.nextDouble(world.random, -width, width), pos.getY() + fluidHeight, pos.getZ() + 0.5 + MathHelper.nextDouble(world.random, -width, width), ((entity.color >> 16) & 0xff) / 255f, ((entity.color >> 8) & 0xff) / 255f, (entity.color & 0xff) / 255f);
                     }
                 }
@@ -61,7 +61,7 @@ public class KegRenderer extends GeoBlockRenderer<TFCKegEntity> {
         }
     }
 
-    private void renderWater(TFCKegEntity entity, MatrixStack matrices, VertexConsumer buffer, int light, Sprite sprite) {
+    private void renderWater(KegEntity entity, MatrixStack matrices, VertexConsumer buffer, int light, Sprite sprite) {
         matrices.push();
         Matrix4f mat = matrices.peek().getModel();
         float sizeFactor = 0.125f;

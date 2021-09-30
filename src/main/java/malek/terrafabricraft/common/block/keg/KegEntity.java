@@ -1,6 +1,8 @@
 package malek.terrafabricraft.common.block.keg;
 
 import malek.terrafabricraft.common.recipes.BeerBrewingRecipe;
+import malek.terrafabricraft.common.recipes.HardBrewingRecipe;
+import malek.terrafabricraft.common.recipes.LightBrewingRecipe;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCRecipeTypes;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
@@ -30,9 +32,9 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-import static malek.terrafabricraft.common.block.keg.TFCKeg.WORKING;
+import static malek.terrafabricraft.common.block.keg.Keg.WORKING;
 
-public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable, BlockEntityClientSerializable {
+public class KegEntity extends BlockEntity implements Inventory, IAnimatable, BlockEntityClientSerializable {
     private final AnimationFactory manager = new AnimationFactory(this);
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
     //TODO: change MAX_PROGRESS to a high value
@@ -41,10 +43,12 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
     public int color = 0x3f76e4;
     private boolean loaded = false;
     public Mode mode = Mode.NORMAL;
-    public BeerBrewingRecipe brewRecipe = null;
+    public BeerBrewingRecipe beerRecipe = null;
+    public HardBrewingRecipe hardRecipe = null;
+    public LightBrewingRecipe lightRecipe = null;
     private Box box;
 
-    public TFCKegEntity(BlockPos pos, BlockState state) {
+    public KegEntity(BlockPos pos, BlockState state) {
         super(TFCObjects.KEG_BLOCK_ENTITY, pos, state);
     }
 
@@ -92,17 +96,19 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
         return -1;
     }
 
-    public static void tick(World world, BlockPos pos, BlockState state, TFCKegEntity blockEntity) {
+    public static void tick(World world, BlockPos pos, BlockState state, KegEntity blockEntity) {
         if (world != null) {
             if(!blockEntity.loaded){
                 blockEntity.markDirty();
                 blockEntity.box = new Box(pos).contract(0.75);
-                blockEntity.brewRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.BEER_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
+                blockEntity.beerRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.BEER_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
+                blockEntity.hardRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.HARD_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
+                blockEntity.lightRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.LIGHT_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
                 blockEntity.loaded = true;
             }
             if (!world.isClient) {
 
-                if (state.get(TFCKeg.LEVEL) > 0) {
+                if (state.get(Keg.LEVEL) > 0) {
                     if(state.get(WORKING)){
                         blockEntity.processTimer++;
                         if(blockEntity.processTimer >= MAX_PROGRESS){
@@ -115,7 +121,7 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
                     }
                     if (world.getTime() % 5 == 0) {
                         world.getEntitiesByType(EntityType.ITEM, blockEntity.box, entity -> true).forEach(itemEntity -> {
-                            if (state.get(TFCKeg.LEVEL) == 3) {
+                            if (state.get(Keg.LEVEL) == 3) {
                                 world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_SPLASH, SoundCategory.BLOCKS, 1 / 3f, 1);
                                 ItemStack stack = itemEntity.getStack();
                                 if (stack.getItem().hasRecipeRemainder()) {
@@ -136,7 +142,7 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
 
     private Mode insertStack(ItemStack stack) {
         if (world != null) {
-            //TODO: Change BARELY to another itam that resets the brewing state
+            //TODO: Change BARELY to another item that resets the brewing state
             if (stack.getItem() == TFCObjects.BARLEY) {
                 Mode reset = reset();
                 syncKeg();
@@ -147,11 +153,23 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
                 int firstEmpty = getFirstEmptySlot();
                 if (firstEmpty != -1) {
                     setStack(firstEmpty, stack);
-                    brewRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.BEER_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
-                    if (brewRecipe != null) {
-                        setColor(brewRecipe.color);
+                    beerRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.BEER_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
+                    hardRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.HARD_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
+                    lightRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.LIGHT_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
+                    if (beerRecipe != null) {
+                        setColor(beerRecipe.color);
                         this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
                         return Mode.BEER_BREWING;
+                    }
+                    else if (hardRecipe != null) {
+                        setColor(hardRecipe.color);
+                        this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
+                        return Mode.HARD_BREWING;
+                    }
+                    else if (lightRecipe != null) {
+                        setColor(lightRecipe.color);
+                        this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
+                        return Mode.LIGHT_BREWING;
                     }
                     setColor(0xd6c291);
                     return Mode.BEER_BREWING;
@@ -178,7 +196,7 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
 
     @Override
     public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController<TFCKegEntity>(this, "controller", 0, this::predicate));
+        animationData.addAnimationController(new AnimationController<KegEntity>(this, "controller", 0, this::predicate));
     }
 
     @Override
@@ -240,14 +258,14 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
         if (world != null) {
             setColor(0x3f76e4);
             clear();
-            world.setBlockState(pos, getCachedState().with(TFCKeg.LEVEL, 0));
+            world.setBlockState(pos, getCachedState().with(Keg.LEVEL, 0));
         }
         return Mode.NORMAL;
     }
 
     public int getTargetLevel(ItemStack stack) {
         Item item = stack.getItem();
-        int level = getCachedState().get(TFCKeg.LEVEL);
+        int level = getCachedState().get(Keg.LEVEL);
         if (mode == Mode.NORMAL) {
             if (item == Items.BUCKET && level == 3) {
                 return 0;
@@ -260,7 +278,17 @@ public class TFCKegEntity extends BlockEntity implements Inventory, IAnimatable,
             }
         }
         else if (mode == Mode.BEER_BREWING) {
-            if (brewRecipe != null && item == Items.GLASS_BOTTLE) {
+            if (beerRecipe != null && item == Items.GLASS_BOTTLE) {
+                return level - 1;
+            }
+        }
+        else if (mode == Mode.HARD_BREWING) {
+            if (hardRecipe != null && item == Items.GLASS_BOTTLE) {
+                return level - 1;
+            }
+        }
+        else if (mode == Mode.LIGHT_BREWING) {
+            if (lightRecipe != null && item == Items.GLASS_BOTTLE) {
                 return level - 1;
             }
         }

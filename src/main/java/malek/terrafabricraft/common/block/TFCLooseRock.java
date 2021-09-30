@@ -46,7 +46,7 @@ public class TFCLooseRock extends GroundCoverBlock {
     }
 
     private void spawnDebris(World world, BlockPos pos) {
-        System.out.println(world.getBlockState(pos));
+        //System.out.println(world.getBlockState(pos));
         if(world.getBlockState(pos).getBlock() instanceof TFCLooseRock) {
             world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(dropItem, world.getBlockState(pos).get(COUNT))));
         }

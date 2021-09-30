@@ -2,13 +2,14 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
-import malek.terrafabricraft.common.block.keg.TFCKeg;
-import malek.terrafabricraft.common.block.keg.TFCKegEntity;
+import malek.terrafabricraft.common.block.keg.Keg;
+import malek.terrafabricraft.common.block.keg.KegEntity;
 import malek.terrafabricraft.common.block.logpile.LogPile;
 import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -431,8 +432,8 @@ public class TFCObjects {
         return block;
     }
 
-    public static TFCKeg createKeg(String id, boolean hasBlockItem) {
-        var block = new TFCKeg(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.WOOD).strength(2.0f).nonOpaque());
+    public static Keg createKeg(String id, boolean hasBlockItem) {
+        var block = new Keg(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.WOOD).strength(2.0f).nonOpaque());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
@@ -530,6 +531,7 @@ public class TFCObjects {
     public static TFCCoralFanBlock createCoralFanBlock(String id, TFCDeadCoralFanBlock deadCoralFanBlock) {
         var block = new TFCCoralFanBlock(deadCoralFanBlock, FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.CORAL).strength(2.0f).noCollision());
         register(id, block, true, TerraFabriCraft.FLORA_GROUP);
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         return block;
     }
 
