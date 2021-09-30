@@ -26,14 +26,13 @@ public class UserHud extends DrawableHelper implements HudRenderCallback {
         TextRenderer textRenderer = mc.textRenderer;
         int height = mc.getWindow().getScaledHeight();
         ProficiencyComponent.maybeGet(player).ifPresent(proficiencyComponent -> {
-//            int minuteHand = new PacketByteBuf(Unpooled.buffer()).readNbt().    getInt("minuteHand");
+            int minuteHand = CalendarClient.minuteHand;
             int agri_level = proficiencyComponent.getAgriLevel();
             int butch_level = proficiencyComponent.getButchLevel();
             int cook_level = proficiencyComponent.getCookLevel();
             int pros_level = proficiencyComponent.getProsLevel();
             int smith_level = proficiencyComponent.getSmithLevel();
             matrixStack.push();
-//            renderText(matrixStack, textRenderer, new LiteralText("Testing Calendar" + minuteHand), height, 8);
             renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.agri", new TranslatableText(String.valueOf(agri_level))), height, 7);
             renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.butch", new TranslatableText(String.valueOf(butch_level))), height, 6);
             renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.cook", new TranslatableText(String.valueOf(cook_level))), height, 5);
