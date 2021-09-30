@@ -1,7 +1,6 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.world.generator.feature.BoulderFeature;
 import net.fabricmc.fabric.api.biome.v1.*;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -25,7 +24,6 @@ import java.util.function.Predicate;
 
 public class TFCFeatures {
 
-    private static final Feature<NoneFeatureConfiguration> BOULDER = new BoulderFeature(NoneFeatureConfiguration.CODEC);
 
     public static final ConfiguredFeature<?, ?> TREE_ACACIA =   Feature.TREE
             .configured(new TreeConfiguration.TreeConfigurationBuilder(
@@ -287,16 +285,10 @@ public class TFCFeatures {
                 addBuiltInFeature(GenerationStep.Decoration.VEGETAL_DECORATION, feature));
     }
 
-    public static final ConfiguredFeature<?, ?> BOULDER_ANDESITE = BOULDER.configured(new NoneFeatureConfiguration())
-            .decorated   (FeatureDecorator.HEIGHTMAP.configured(new HeightmapConfiguration(Heightmap.Types.OCEAN_FLOOR_WG)))
-            .squared()
-            .rarity(5);
-
     public static void init() {
         var vegetalGenStep = GenerationStep.Decoration.VEGETAL_DECORATION;
         var otherGenStep = GenerationStep.Decoration.TOP_LAYER_MODIFICATION;
         //Register new feature
-        Registry.register(Registry.FEATURE, new ResourceLocation("terrafirmacraft", "boulder"), BOULDER);
         //Register configured feature
 //        register("tree/acacia", TREE_ACACIA, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/ash", TREE_ASH, BiomeSelectors.foundInOverworld(), vegetalGenStep);
@@ -318,6 +310,5 @@ public class TFCFeatures {
         register("tree/sycamore", TREE_SYCAMORE, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/white_cedar", TREE_WHITE_CEDAR, BiomeSelectors.foundInOverworld(), vegetalGenStep);
         register("tree/willow", TREE_WILLOW, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("boulder/andesite", BOULDER_ANDESITE, BiomeSelectors.foundInOverworld(), otherGenStep);
     }
 }

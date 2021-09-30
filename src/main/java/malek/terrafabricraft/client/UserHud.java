@@ -3,6 +3,8 @@ package malek.terrafabricraft.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import malek.terrafabricraft.common.component.HealthComponent;
 import malek.terrafabricraft.common.component.ProficiencyComponent;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -13,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 
 
 //Draw moved to mixin, keeping just in case for a little while
+@Environment(EnvType.CLIENT)
 public class UserHud extends GuiComponent implements HudRenderCallback {
     @Override
     public void onHudRender(PoseStack matrixStack, float tickDelta) {

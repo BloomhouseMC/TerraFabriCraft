@@ -3,10 +3,13 @@ package malek.terrafabricraft.client.renderer;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.client.model.RoosterEntityModel;
 import malek.terrafabricraft.common.entity.RoosterEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
+@Environment(EnvType.CLIENT)
 public class RoosterRenderer extends MobRenderer<RoosterEntity, RoosterEntityModel> {
 
     public RoosterRenderer(EntityRendererProvider.Context context) {

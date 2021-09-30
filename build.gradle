@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.10.21'
+    id 'dev.architectury.loom' version '0.10.0-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -38,8 +38,8 @@ repositories {
     }
     //JITPACK
     maven {
-        name "jitpack"
-        url "https://jitpack.io"
+        name = "jitpack"
+        url = "https://jitpack.io"
     }
 
     maven {
@@ -59,12 +59,17 @@ repositories {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
     }
+
+    maven {
+        url = 'https://maven.architectury.dev'
+    }
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.layered() {
         officialMojangMappings()
+        crane("dev.architectury:crane:1.17.1+build.15")
         parchment("org.parchmentmc.data:parchment-1.17.1:2021.09.05@zip")
     }
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
@@ -90,7 +95,7 @@ dependencies {
 
     //REI
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
-    modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
 
     modImplementation include("io.github.cottonmc:LibGui:4.1.6+1.17.1")
 
