@@ -1,0 +1,12 @@
+{
+  "type": "terrafabricraft:light_recipe",
+  "ingredients": [
+    {
+      "item": "stone"
+    }
+  ],
+  "result": {
+    "item": "diamond"
+  },
+  "color": 4849664
+}
