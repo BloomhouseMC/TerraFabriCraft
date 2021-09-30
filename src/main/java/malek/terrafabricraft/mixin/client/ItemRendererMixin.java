@@ -8,6 +8,7 @@ import malek.terrafabricraft.client.TextureTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.StainedGlassPaneBlock;
 import net.minecraft.block.TransparentBlock;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.render.*;
 import net.minecraft.client.render.item.ItemRenderer;
@@ -76,7 +77,7 @@ public class ItemRendererMixin {
             if (!stack.isEmpty()) {
                 if (stack.hasNbt()) {
                     if (getTemperature(stack) != 0) {
-                        vertices.quad(entry, bakedQuad, 1f,1f, 1, light, overlay);
+                        vertices.quad(entry, bakedQuad, 1f,0.75f, 0.55f, light, overlay);
                     }
                     else
                     {
@@ -168,9 +169,17 @@ public class ItemRendererMixin {
                             //vertexConsumer4 = vertexConsumers.getBuffer(renderLayer);
 
                             //TerraFabriCraftClient.customLightmapTextureManager.enable();
-                            GL11.glColorMask(true, false, false, true);
+                            this.textureManager.getTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE).setFilter(false, false);
+                            RenderSystem.setShaderTexture(0, SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE);
+                            RenderSystem.enableBlend();
+                            RenderSystem.blendEquation(GL_FUNC_ADD);
+                            RenderSystem.setShaderColor(0.5F, 1.0F, 1.0F, 1.0F);
+//                            RenderSystem.blendFunc(GlStateManager.SrcFactor.SRC_ALPHA, GlStateManager.DstFactor.ONE_MINUS_SRC_ALPHA);
                             this.renderBakedItemModel(model, stack, light, overlay, matrices, vertexConsumer2);
-                            GL11.glColorMask(true, true, true, true);
+                            RenderSystem.applyModelViewMatrix();
+                            MatrixStack matrixStack2 = new MatrixStack();
+                            VertexConsumerProvider.Immediate immediate = MinecraftClient.getInstance().getBufferBuilders().getEntityVertexConsumers();
+                            immediate.draw();
                             matrices.pop();
                             ci.cancel();
                         }
