@@ -20,23 +20,19 @@ import java.util.Random;
 public final class HelperUtil {
     public static final Random RNG = new Random();
 
-    public static boolean isClientSide(WorldView world)
-    {
+    public static boolean isClientSide(WorldView world) {
         return world instanceof World ? !(world instanceof ServerWorld) : world.isClient();
     }
 
-    public static TranslatableText translateEnum(Enum<?> anEnum)
-    {
+    public static TranslatableText translateEnum(Enum<?> anEnum) {
         return new TranslatableText(getEnumTranslationKey(anEnum));
     }
 
-    public static String getEnumTranslationKey(Enum<?> anEnum)
-    {
+    public static String getEnumTranslationKey(Enum<?> anEnum) {
         return getEnumTranslationKey(anEnum, anEnum.getDeclaringClass().getSimpleName());
     }
 
-    public static String getEnumTranslationKey(Enum<?> anEnum, String enumName)
-    {
+    public static String getEnumTranslationKey(Enum<?> anEnum, String enumName) {
         return String.join(".", TerraFabriCraft.MODID, "enum", enumName, anEnum.name()).toLowerCase(Locale.ROOT);
     }
 
@@ -60,7 +56,9 @@ public final class HelperUtil {
         }
     }
 
-        public static BlockState getRandomRawStone(Random random) {
+
+        public static BlockState getRandomRawStone (Random random){
+
             if (MathHelper.nextInt(random, 1, 7) == 1) {
                 return TFCObjects.ANDESITE.raw.block.getDefaultState();
             } else if (MathHelper.nextInt(random, 1, 7) == 2) {
@@ -77,5 +75,7 @@ public final class HelperUtil {
                 return TFCObjects.SHALE.raw.block.getDefaultState();
             } else
                 return TFCObjects.CLAYSTONE.raw.block.getDefaultState();
+
         }
+
 }

@@ -1,0 +1,15 @@
+{
+  "type": "terrafabricraft:hard_recipe",
+  "ingredients": [
+    {
+      "item": "terrafabricraft:food/potato"
+    },
+    {
+      "item": "terrafabricraft:food/yeast_brewers"
+    }
+  ],
+  "result": {
+    "item": "diamond"
+  },
+  "color": 4849664
+}

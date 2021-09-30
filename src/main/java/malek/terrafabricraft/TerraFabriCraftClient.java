@@ -5,7 +5,7 @@ import malek.terrafabricraft.client.particle.KegBubbleParticle;
 import malek.terrafabricraft.client.renderer.block.KegRenderer;
 import malek.terrafabricraft.client.screens.ModScreensClient;
 import malek.terrafabricraft.common.block.*;
-import malek.terrafabricraft.common.block.keg.TFCKeg;
+import malek.terrafabricraft.common.block.keg.Keg;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCParticleTypes;
 import malek.terrafabricraft.client.CustomLightmapTextureManager;
@@ -15,7 +15,6 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.block.Block;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 
@@ -48,7 +47,7 @@ public class TerraFabriCraftClient implements ClientModInitializer {
                 BlockRenderLayerMap.INSTANCE.putBlock(tfcLooseRock, RenderLayer.getCutout());
             }
 
-            if(block instanceof TFCKeg tfcKeg) {
+            if(block instanceof Keg tfcKeg) {
 
                 BlockRenderLayerMap.INSTANCE.putBlock(tfcKeg, RenderLayer.getCutout());
 

@@ -1,6 +1,6 @@
 package malek.terrafabricraft.client.particle;
 
-import malek.terrafabricraft.common.block.keg.TFCKeg;
+import malek.terrafabricraft.common.block.keg.Keg;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
@@ -41,7 +41,7 @@ public class KegBubbleParticle extends SpriteBillboardParticle {
             velocityX *= 0.7;
             velocityY *= 0.7;
             velocityZ *= 0.7;
-            if (!(world.getBlockState(new BlockPos(x, y, z)).getBlock() instanceof TFCKeg)) {
+            if (!(world.getBlockState(new BlockPos(x, y, z)).getBlock() instanceof Keg)) {
                 markDead();
             }
         }

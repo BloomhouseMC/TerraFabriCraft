@@ -1,6 +1,8 @@
 package malek.terrafabricraft.common.block.keg;
 
 import malek.terrafabricraft.common.recipes.BeerBrewingRecipe;
+import malek.terrafabricraft.common.recipes.HardBrewingRecipe;
+import malek.terrafabricraft.common.recipes.LightBrewingRecipe;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -30,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
 
 import static malek.terrafabricraft.common.util.HelperUtil.addItemToInventoryAndConsume;
 
-public class TFCKeg extends BlockWithEntity {
+public class Keg extends BlockWithEntity {
     public static final IntProperty LEVEL = IntProperty.of("level", 0, 3);
     private static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     private static final VoxelShape[] SHAPE = {
@@ -49,7 +51,7 @@ public class TFCKeg extends BlockWithEntity {
                 createCuboidShape(2, 14, 2, 14, 16, 14))};
     public static BooleanProperty WORKING = BooleanProperty.of("working");
 
-    public TFCKeg(Settings settings) {
+    public Keg(Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(LEVEL, 0).with(WORKING, false));
 
@@ -57,7 +59,7 @@ public class TFCKeg extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return (tickerWorld, pos, tickerState, blockEntity) -> TFCKegEntity.tick(tickerWorld, pos, tickerState, (TFCKegEntity) blockEntity);
+        return (tickerWorld, pos, tickerState, blockEntity) -> KegEntity.tick(tickerWorld, pos, tickerState, (KegEntity) blockEntity);
     }
 
     @Override
@@ -73,7 +75,7 @@ public class TFCKeg extends BlockWithEntity {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new TFCKegEntity(pos, state);
+        return new KegEntity(pos, state);
     }
 
     @Override
@@ -85,8 +87,8 @@ public class TFCKeg extends BlockWithEntity {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.getBlockEntity(pos) instanceof TFCKegEntity tfcKegEntity) {
-            Boolean isWorking = world.getBlockState(pos).get(TFCKeg.WORKING);
+        if (world.getBlockEntity(pos) instanceof KegEntity tfcKegEntity) {
+            Boolean isWorking = world.getBlockState(pos).get(Keg.WORKING);
             ItemStack stack = player.getStackInHand(hand);
                 boolean bucket = stack.getItem() == Items.BUCKET, waterBucket = stack.getItem() == Items.WATER_BUCKET, glassBottle = stack.getItem() == Items.GLASS_BOTTLE;
             if ((bucket || waterBucket || glassBottle) && !isWorking) {
@@ -101,14 +103,25 @@ public class TFCKeg extends BlockWithEntity {
                             }
                             else if (glassBottle) {
                                 ItemStack bottle = null;
-                                if (tfcKegEntity.mode == TFCKegEntity.Mode.NORMAL) {
+                                if (tfcKegEntity.mode == KegEntity.Mode.NORMAL) {
                                     bottle = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.WATER);
                                 }
-                                else if (tfcKegEntity.mode == TFCKegEntity.Mode.BEER_BREWING) {
-                                    BeerBrewingRecipe recipe = tfcKegEntity.brewRecipe;
-                                    if (recipe != null) {
-                                        bottle = recipe.getOutput().copy();
-                                        System.out.println("Copy"+bottle);
+                                else if (tfcKegEntity.mode == KegEntity.Mode.BEER_BREWING) {
+                                    BeerBrewingRecipe beerBrewingRecipe = tfcKegEntity.beerRecipe;
+                                    if (beerBrewingRecipe != null) {
+                                        bottle = beerBrewingRecipe.getOutput().copy();
+                                    }
+                                }
+                                else if (tfcKegEntity.mode == KegEntity.Mode.HARD_BREWING) {
+                                    HardBrewingRecipe hardBrewingRecipe = tfcKegEntity.hardRecipe;
+                                    if (hardBrewingRecipe != null) {
+                                        bottle = hardBrewingRecipe.getOutput().copy();
+                                    }
+                                }
+                                else if (tfcKegEntity.mode == KegEntity.Mode.LIGHT_BREWING) {
+                                    LightBrewingRecipe lightBrewingRecipe = tfcKegEntity.lightRecipe;
+                                    if (lightBrewingRecipe != null) {
+                                        bottle = lightBrewingRecipe.getOutput().copy();
                                     }
                                 }
                                 else {
@@ -122,7 +135,6 @@ public class TFCKeg extends BlockWithEntity {
                                     }
                                 }
                                 if (bottle != null) {
-                                    System.out.println("Result"+bottle);
                                     addItemToInventoryAndConsume(player, hand, bottle);
                                 }
                             }

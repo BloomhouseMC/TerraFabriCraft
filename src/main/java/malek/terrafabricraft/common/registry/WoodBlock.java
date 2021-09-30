@@ -1,8 +1,7 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.common.block.*;
-import malek.terrafabricraft.common.block.keg.TFCKeg;
-import malek.terrafabricraft.common.block.keg.TFCKegEntity;
+import malek.terrafabricraft.common.block.keg.Keg;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.sapling.SaplingGenerator;
@@ -17,7 +16,7 @@ public class WoodBlock {
     public TFCLog stripped_log;
     public TFCTwig twig;
     public TFCSupport vertical_support;
-    public TFCKeg keg;
+    public Keg keg;
 
     public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
         leaves = setCreateLeaves(variantId);
@@ -58,7 +57,7 @@ public class WoodBlock {
     private static TFCSupport setCreateSupport(String variantId) {
         return createSupport("wood/support/" + variantId, true);
     }
-    private static TFCKeg setCreateKeg(String variantId) {
+    private static Keg setCreateKeg(String variantId) {
         return createKeg("wood/keg/" + variantId, true);
     }
 }
