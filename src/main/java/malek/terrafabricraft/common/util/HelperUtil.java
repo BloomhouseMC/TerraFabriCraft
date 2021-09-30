@@ -56,7 +56,9 @@ public final class HelperUtil {
         }
     }
 
+
         public static BlockState getRandomRawStone (Random random){
+
             if (MathHelper.nextInt(random, 1, 7) == 1) {
                 return TFCObjects.ANDESITE.raw.block.getDefaultState();
             } else if (MathHelper.nextInt(random, 1, 7) == 2) {

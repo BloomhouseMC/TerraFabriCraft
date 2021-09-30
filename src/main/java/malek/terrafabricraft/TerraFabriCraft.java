@@ -1,5 +1,7 @@
 package malek.terrafabricraft;
 
+import malek.terrafabricraft.common.config.ModuleConfig;
+import malek.terrafabricraft.common.config.TFCConfig;
 import malek.terrafabricraft.common.event.TFCEvents;
 import malek.terrafabricraft.common.registry.*;
 import malek.terrafabricraft.common.registry.TFCScreens;
@@ -28,6 +30,8 @@ public class TerraFabriCraft implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        // Config *must* be loaded before any other registry
+        TFCConfig.init();
         //Must always be loaded before TFCObjects.
         TFCFeatures.init();
         TFCObjects.init();

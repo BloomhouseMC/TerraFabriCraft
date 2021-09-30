@@ -1,6 +1,6 @@
 package malek.terrafabricraft.client;
 
-import malek.terrafabricraft.common.component.HealthComponent;
+import malek.terrafabricraft.common.calendar.CalendarManager;
 import malek.terrafabricraft.common.component.ProficiencyComponent;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
@@ -8,6 +8,7 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
@@ -21,12 +22,14 @@ public class UserHud extends DrawableHelper implements HudRenderCallback {
         TextRenderer textRenderer = mc.textRenderer;
         int height = mc.getWindow().getScaledHeight();
         ProficiencyComponent.maybeGet(player).ifPresent(proficiencyComponent -> {
+            int minuteHand = CalendarManager.getSingleton().getCalendar().getMinuteHand();
             int agri_level = proficiencyComponent.getAgriLevel();
             int butch_level = proficiencyComponent.getButchLevel();
             int cook_level = proficiencyComponent.getCookLevel();
             int pros_level = proficiencyComponent.getProsLevel();
             int smith_level = proficiencyComponent.getSmithLevel();
             matrixStack.push();
+            renderText(matrixStack, textRenderer, new LiteralText("Testing Calendar" + minuteHand), height, 8);
             renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.agri", new TranslatableText(String.valueOf(agri_level))), height, 7);
             renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.butch", new TranslatableText(String.valueOf(butch_level))), height, 6);
             renderText(matrixStack, textRenderer, new TranslatableText("hud.terrafabricraft.proficiency.cook", new TranslatableText(String.valueOf(cook_level))), height, 5);

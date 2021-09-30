@@ -50,4 +50,8 @@ public class Calendar extends PersistentState {
     public void setMinuteHand(int minuteHand) {
         this.minuteHand = minuteHand;
     }
+
+    public int getMinuteHand() {
+        return minuteHand;
+    }
 }
