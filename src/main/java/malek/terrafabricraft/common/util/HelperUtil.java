@@ -2,18 +2,21 @@ package malek.terrafabricraft.common.util;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.minecraft.block.BlockState;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
@@ -77,5 +80,32 @@ public final class HelperUtil {
                 return TFCObjects.CLAYSTONE.raw.block.getDefaultState();
 
         }
+
+    public static boolean matches(Inventory inv, DefaultedList<Ingredient> input) {
+        List<ItemStack> checklist = new ArrayList<>();
+        for (int i = 0; i < inv.size(); i++) {
+            ItemStack stack = inv.getStack(i);
+            if (!stack.isEmpty()) {
+                checklist.add(stack);
+            }
+        }
+        if (input.size() != checklist.size()) {
+            return false;
+        }
+        for (Ingredient ingredient : input) {
+            boolean found = false;
+            for (ItemStack stack : checklist) {
+                if (ingredient.test(stack)) {
+                    found = true;
+                    checklist.remove(stack);
+                    break;
+                }
+            }
+            if (!found) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
