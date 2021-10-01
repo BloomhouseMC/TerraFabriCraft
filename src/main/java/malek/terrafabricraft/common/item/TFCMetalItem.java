@@ -1,4 +1,4 @@
-package malek.terrafabricraft.common.registry;
+package malek.terrafabricraft.common.item;
 
 import malek.terrafabricraft.common.item.MeltableItem;
 import net.minecraft.item.Item;

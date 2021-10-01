@@ -1,9 +1,8 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import net.minecraft.item.Item;
+import malek.terrafabricraft.common.item.TFCMetalItem;
 
-import static malek.terrafabricraft.common.registry.TFCObjects.createItemSimple;
 import static malek.terrafabricraft.common.registry.TFCObjects.createMetalItem;
 
 public class MetalItem {
