@@ -6,7 +6,6 @@ import malek.terrafabricraft.common.util.HelperUtil;
 import malek.terrafabricraft.common.world.generator.feature.BoulderFeature;
 import malek.terrafabricraft.common.world.generator.feature.TestBoulderFeature;
 import net.fabricmc.fabric.api.biome.v1.*;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -282,8 +281,8 @@ public class TFCFeatures {
 
     public static void register(String id, ConfiguredFeature<?, ?> feature, Predicate<BiomeSelectionContext> biome, GenerationStep.Feature generationStep) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new
-                Identifier(TerraFabriCraft.MODID, id), feature);
-        BiomeModification worldGen = BiomeModifications.create(new Identifier(TerraFabriCraft.MODID, "world_features"));
+                Identifier(TerraFabriCraft.MOD_ID, id), feature);
+        BiomeModification worldGen = BiomeModifications.create(new Identifier(TerraFabriCraft.MOD_ID, "world_features"));
         if (ModuleConfig.getValue("world")) {
             worldGen.add(ModificationPhase.ADDITIONS, biome, context -> context.getGenerationSettings().
                     addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, feature));

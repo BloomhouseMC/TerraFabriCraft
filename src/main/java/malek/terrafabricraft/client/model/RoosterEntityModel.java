@@ -10,12 +10,11 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 
 public class RoosterEntityModel extends EntityModel<RoosterEntity> {
 	//This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(TerraFabriCraft.MODID, "entity_animal_rooster"), "main");
+	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(TerraFabriCraft.MOD_ID, "entity_animal_rooster"), "main");
 	private final ModelPart bb_main;
 
 	public RoosterEntityModel(ModelPart root) {
