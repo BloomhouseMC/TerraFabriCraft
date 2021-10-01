@@ -6,6 +6,9 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 
 import static malek.terrafabricraft.common.calendar.Calendar.CALENDAR_ID;
 
+/**
+ * Updates the item tooltip for all
+ */
 public class CalendarClient {
     public static int minuteHand;
 

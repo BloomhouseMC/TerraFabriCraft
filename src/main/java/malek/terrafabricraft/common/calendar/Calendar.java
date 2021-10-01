@@ -18,6 +18,7 @@ public class Calendar extends PersistentState {
 
     private NbtCompound calendarData;
     private int iterator;
+    private int secondsHand;
     private int minuteHand;
     private int dayCounter;
     private int weekCounter;
@@ -58,15 +59,19 @@ public class Calendar extends PersistentState {
 
     public void tick() {
         iterator++;
-        if (iterator >= 2400) {
-            minuteHand++;
+        if (iterator >= 2) {
+            secondsHand++;
             iterator = 0;
-            send();
-            System.out.println(minuteHand);
-            if (minuteHand % 20 == 0) {
-                dayCounter++;
-                if (dayCounter % 7 == 0) {
-                    weekCounter++;
+            if (secondsHand >= 1200) {
+                minuteHand++;
+                secondsHand = 0;
+                send();
+                System.out.println(minuteHand);
+                if (minuteHand % 20 == 0) {
+                    dayCounter++;
+                    if (dayCounter % 7 == 0) {
+                        weekCounter++;
+                    }
                 }
             }
         }
@@ -78,5 +83,9 @@ public class Calendar extends PersistentState {
 
     public int getMinuteHand() {
         return minuteHand;
+    }
+
+    public int getSecondsHand() {
+        return secondsHand;
     }
 }
