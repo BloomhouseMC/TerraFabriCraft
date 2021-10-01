@@ -1,5 +1,6 @@
 package malek.terrafabricraft.mixin.client;
 
+import malek.terrafabricraft.common.item.MeltableItem;
 import net.minecraft.client.render.VertexConsumerProvider;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -36,6 +37,8 @@ import javax.swing.*;
 import java.util.Iterator;
 import java.util.List;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 import static malek.terrafabricraft.common.temperature.ItemTemperature.getTemperature;
 import static malek.terrafabricraft.mixin.client.RenderLayerAccessor.*;
 import static org.lwjgl.opengl.GL14.GL_FUNC_ADD;
@@ -77,7 +80,27 @@ public class ItemRendererMixin {
             if (!stack.isEmpty()) {
                 if (stack.hasNbt()) {
                     if (getTemperature(stack) != 0) {
-                        vertices.quad(entry, bakedQuad, 1f,0.75f, 0.55f, light, overlay);
+                        float meltingPoint = 500;
+                        if(stack.getItem() instanceof MeltableItem meltableItem) {
+                            meltingPoint = meltableItem.getMeltingPoint();
+                        }
+                        float currentTemp = getTemperature(stack);
+                        float red = 1f;
+                        float green = 1f;
+                        float blue = 1f;
+                        if(currentTemp/meltingPoint < 0.5) {
+                                green = 1f - currentTemp/meltingPoint;
+                                blue = 1f - currentTemp/meltingPoint;
+                        } else if(currentTemp/meltingPoint < 0.9f) {
+                            green =  currentTemp/meltingPoint - 1f;
+                            blue = 1f - currentTemp/meltingPoint;
+                        } else
+                        {
+                            green = 1;
+                            blue = 0;
+                            red = 1;
+                        }
+                        vertices.quad(entry, bakedQuad, red,green, blue, light, overlay);
                     }
                     else
                     {

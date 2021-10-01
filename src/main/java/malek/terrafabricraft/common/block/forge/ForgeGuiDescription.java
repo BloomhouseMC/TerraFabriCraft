@@ -1,53 +1,105 @@
 package malek.terrafabricraft.common.block.forge;
 
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
-import io.github.cottonmc.cotton.gui.widget.WItemSlot;
-import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
-import io.github.cottonmc.cotton.gui.widget.WPlayerInvPanel;
+import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
+import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
+import io.github.cottonmc.cotton.gui.widget.*;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
+import io.github.cottonmc.cotton.gui.widget.data.Texture;
+import io.github.cottonmc.cotton.gui.widget.icon.Icon;
+import io.github.cottonmc.cotton.gui.widget.icon.ItemIcon;
+import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.registry.TFCScreens;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.Items;
+import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.util.Identifier;
 
 public class ForgeGuiDescription extends SyncedGuiDescription {
-    private static final int INVENTORY_SIZE = 17;
+    private static final int INVENTORY_SIZE = 14;
     BlockEntity blockEntity;
-    WPlainPanel root;
-    int sizeX = 80;
-    int sizeY = 80;
+    WGridPanel root;
+    WPlainPanel realRoot;
+    int sizeX = 50;
+    int sizeY = 100;
     public ForgeGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
-        super(TFCScreens.FORGE_GUI_DESCRIPTION, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 3));
-        root = new WPlainPanel();
+        super(TFCScreens.FORGE_GUI_DESCRIPTION, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 1));
+        root = new WGridPanel();
         setRootPanel(root);
-        root.setSize(sizeX, sizeY);
+        root.setSize(50, 50);
         root.setInsets(Insets.ROOT_PANEL);
+        setTitleAlignment(HorizontalAlignment.CENTER);
+        //root.setBackgroundPainter(BackgroundPainter.createNinePatch(new Identifier(TerraFabriCraft.MODID, "textures/gui/charcoal_forge.png")));
+        //WTiledSprite sprite = new WTiledSprite(250, 250, new Identifier(TerraFabriCraft.MODID, "textures/gui/charcoal_forge.png"));
+        Texture texture = new Texture(new Identifier(TerraFabriCraft.MODID, "textures/gui/heat_indicator.png"));
+        //texture = texture.withUv(1, 1, 2, 2);
+        WSprite temperatureBar = new WSprite(texture);
+        WSprite temperatureIndicator = new WSprite(new Identifier(TerraFabriCraft.MODID, "textures/gui/arrow.png")) {
 
-        WItemSlot itemSlot = WItemSlot.of(blockInventory, 0);
-        WItemSlot itemSlot1 = WItemSlot.of(blockInventory, 1);
-        WItemSlot itemSlot2 = WItemSlot.of(blockInventory, 2);
-        WItemSlot itemSlot3 = WItemSlot.of(blockInventory, 3);
+            @Override
+            @Environment(EnvType.CLIENT)
+            protected void paintFrame(MatrixStack matrices, int x, int y, Texture texture) {
+                matrices.push();
+                //matrices.scale(0.25f, 0.25f, 0.25f);
+                matrices.translate(0, -((float)propertyDelegate.get(0))/4, 0);
+                ScreenDrawing.texturedRect(matrices, x+1, y, 16, 8, texture, tint);
 
-        int sizeOfSlot = 18;
-        int halfSlot = 9;
-        int diagonal = ((sizeOfSlot+halfSlot));
-        int diagonalY = sizeOfSlot;
-       int x= 0;
-       int y = 0;
-        root.add(itemSlot, 45, 15);
-        root.add(itemSlot1, 75, 15);
-        root.add(itemSlot2, 45, 45);
-        root.add(itemSlot3, 75, 45);
+                        matrices.pop();
+            }
+        };   // temperatureIndicator.setSize(2, 2)
 
+        //temperatureIndicator.setUv(0, 0, 3, 3);
+        root.add(temperatureBar, 0, 0, 1, 4);
+        root.add(temperatureIndicator, 0, 3, 3, 1);
+        //realRoot.add(root, 0,0);
+        WItemSlot coalSlot1 = WItemSlot.of(blockInventory, 0);
+        WItemSlot coalSlot2 = WItemSlot.of(blockInventory, 1);
+        WItemSlot coalSlot3 = WItemSlot.of(blockInventory, 2);
+        WItemSlot coalSlot4 = WItemSlot.of(blockInventory, 3);
+        WItemSlot coalSlot5 = WItemSlot.of(blockInventory, 4);
+        root.add(coalSlot1, 2, 1);
+        root.add(coalSlot2, 3, 2);
+        root.add(coalSlot3, 4, 3);
+        root.add(coalSlot4, 5, 2);
+        root.add(coalSlot5, 6, 1);
+        ItemIcon coalIcon = new ItemIcon(Items.COAL);
+        coalSlot1.setIcon(coalIcon);
+        coalSlot2.setIcon(coalIcon);
+        coalSlot3.setIcon(coalIcon);
+        coalSlot4.setIcon(coalIcon);
+        coalSlot5.setIcon(coalIcon);
 
-//        WSprite sprite = new WSprite(new Identifier(ModScience.MOD_ID, "textures/gui/tesseract/tesseract_ui_tier1.png"));
-//        this.titleVisible = false;
-//        root.add(sprite, 0, -10, sizeX, sizeY);
+        WItemSlot forgeSlot1 = WItemSlot.of(blockInventory, 5);
+        WItemSlot forgeSlot2 = WItemSlot.of(blockInventory, 6);
+        WItemSlot forgeSlot3 = WItemSlot.of(blockInventory, 7);
+        WItemSlot forgeSlot4 = WItemSlot.of(blockInventory, 8);
+        WItemSlot forgeSlot5 = WItemSlot.of(blockInventory, 9);
 
-        root.add(this.createPlayerInventoryPanel(WPlayerInvPanel.createInventoryLabel(playerInventory).setHorizontalAlignment(HorizontalAlignment.CENTER)), x, y+80);
+        root.add(forgeSlot1, 2, 0);
+        root.add(forgeSlot2, 3, 1);
+        root.add(forgeSlot3, 4, 2);
+        root.add(forgeSlot4, 5, 1);
+        root.add(forgeSlot5, 6, 0);
+
+        WItemSlot vesselSlot1 = WItemSlot.of(blockInventory, 10);
+        WItemSlot vesselSlot2 = WItemSlot.of(blockInventory, 11);
+        WItemSlot vesselSlot3 = WItemSlot.of(blockInventory, 12);
+        WItemSlot vesselSlot4 = WItemSlot.of(blockInventory, 13);
+
+        root.add(vesselSlot1, 8, 0);
+        root.add(vesselSlot2, 8, 1);
+        root.add(vesselSlot3, 8, 2);
+        root.add(vesselSlot4, 8, 3);
+
+        root.add(this.createPlayerInventoryPanel(WPlayerInvPanel.createInventoryLabel(playerInventory).setHorizontalAlignment(HorizontalAlignment.CENTER)), 0, 4);
 
         root.validate(this);
     }
@@ -60,6 +112,11 @@ public class ForgeGuiDescription extends SyncedGuiDescription {
             return world.getBlockEntity(pos);
 
         }).get();
+    }
+
+    @Override
+    public void setProperty(int id, int value) {
+        super.setProperty(id, value);
     }
 
 }
