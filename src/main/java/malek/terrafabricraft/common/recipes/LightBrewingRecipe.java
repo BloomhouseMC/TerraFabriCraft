@@ -5,6 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import malek.terrafabricraft.common.registry.TFCRecipeTypes;
+import malek.terrafabricraft.common.util.HelperUtil;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -33,7 +34,7 @@ public class LightBrewingRecipe implements Recipe<Inventory> {
 
     @Override
     public boolean matches(Inventory inventory, World world) {
-        return matches(inventory, input);
+        return HelperUtil.matches(inventory, input);
     }
 
     @Override
@@ -54,34 +55,6 @@ public class LightBrewingRecipe implements Recipe<Inventory> {
     @Override
     public Identifier getId() {
         return identifier;
-    }
-
-
-    public static boolean matches(Inventory inv, DefaultedList<Ingredient> input) {
-        List<ItemStack> checklist = new ArrayList<>();
-        for (int i = 0; i < inv.size(); i++) {
-            ItemStack stack = inv.getStack(i);
-            if (!stack.isEmpty()) {
-                checklist.add(stack);
-            }
-        }
-        if (input.size() != checklist.size()) {
-            return false;
-        }
-        for (Ingredient ingredient : input) {
-            boolean found = false;
-            for (ItemStack stack : checklist) {
-                if (ingredient.test(stack)) {
-                    found = true;
-                    checklist.remove(stack);
-                    break;
-                }
-            }
-            if (!found) {
-                return false;
-            }
-        }
-        return true;
     }
 
 

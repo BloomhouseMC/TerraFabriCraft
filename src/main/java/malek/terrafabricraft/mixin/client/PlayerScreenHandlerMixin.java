@@ -24,6 +24,7 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 @Mixin(PlayerScreenHandler.class)
 public class PlayerScreenHandlerMixin extends ScreenHandler {
     /**
+     * @author - MrSterner
      * Adds a 3x3 crafting grid in the inventory.
      */
 
