@@ -9,6 +9,9 @@
     "axis=z": {
       "model": "terrafabricraft:block/log_pile",
       "x": 90
+    },
+    "axis=y": {
+      "model": "terrafabricraft:block/log_pile"
     }
   }
 }
