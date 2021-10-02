@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "terrafabricraft:block/wood/rack/ash",
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/wood/rack/ash",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/wood/rack/ash",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east": {
+      "model": "terrafabricraft:block/wood/rack/ash",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

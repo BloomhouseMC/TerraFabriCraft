@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "terrafabricraft:block/wood/rack/maple",
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/wood/rack/maple",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/wood/rack/maple",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east": {
+      "model": "terrafabricraft:block/wood/rack/maple",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

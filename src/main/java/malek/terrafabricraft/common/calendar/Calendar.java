@@ -8,6 +8,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.PersistentState;
+import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -26,8 +27,12 @@ public class Calendar extends PersistentState {
     private int weekCounter;
     private int monthCounter;
     private int yearCounter;
+
     private final List<ServerPlayerEntity> playerList;
-    public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MOD_ID, "minutehand");
+
+    private ServerWorld serverLevel;
+    public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MODID, "minutehand");
+
 
     public Calendar(ServerWorld serverLevel) {
         this.markDirty();

@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "terrafabricraft:block/wood/rack/aspen",
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/wood/rack/aspen",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/wood/rack/aspen",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east": {
+      "model": "terrafabricraft:block/wood/rack/aspen",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}
