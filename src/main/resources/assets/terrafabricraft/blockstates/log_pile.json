@@ -1,5 +1,4 @@
 {
-  "__comment__": "This file was automatically created by mcresources",
   "variants": {
     "axis=x": {
       "model": "terrafabricraft:block/log_pile",
@@ -9,9 +8,6 @@
     "axis=z": {
       "model": "terrafabricraft:block/log_pile",
       "x": 90
-    },
-    "axis=y": {
-      "model": "terrafabricraft:block/log_pile"
     }
   }
 }

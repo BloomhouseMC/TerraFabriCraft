@@ -117,13 +117,16 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
         inventory.clear();
     }
 
-    public void handle(ItemStack stack, PlayerEntity player, int itemSlot){
-        if(!stack.isEmpty() && inventory.get(itemSlot).isEmpty()){
-            inventory.set(itemSlot, stack.split(1));
-        }else if(!inventory.get(itemSlot).isEmpty()){
-            player.dropItem(inventory.get(itemSlot).copy(), false, true);
-            inventory.set(itemSlot, new ItemStack(Items.AIR));
+    public void handle(ItemStack stack, PlayerEntity player,Hand hand, int itemSlot){
+        if(!player.isSneaking()){
+            if(!stack.isEmpty() && inventory.get(itemSlot).isEmpty()){
+                inventory.set(itemSlot, stack.split(1));
+            }else if(!inventory.get(itemSlot).isEmpty() && player.getStackInHand(hand).isEmpty()){
+                player.setStackInHand(hand, inventory.get(itemSlot).copy());
+                inventory.set(itemSlot, new ItemStack(Items.AIR));
+            }
         }
+
     }
 
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -132,49 +135,33 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
         double normalY = (hit.getPos().y - pos.getY());
         double normalZ = (hit.getPos().z - pos.getZ());
         if(state.get(Properties.HORIZONTAL_FACING) == hit.getSide()){
-            switch (hit.getSide()){
-                case NORTH:
-                    if(normalX < 0.5 && normalY > 0.5)
-                        handle(stack, player, 0);
-                    if(normalX > 0.5 && normalY > 0.5)
-                        handle(stack, player, 1);
-                    if(normalX < 0.5 && normalY < 0.5)
-                        handle(stack, player, 2);
-                    if(normalX > 0.5 && normalY < 0.5)
-                        handle(stack, player, 3);
-                    break;
-                case SOUTH:
-                    if(normalX > 0.5 && normalY > 0.5)
-                        handle(stack, player, 0);
-                    if(normalX < 0.5 && normalY > 0.5)
-                        handle(stack, player, 1);
-                    if(normalX > 0.5 && normalY < 0.5)
-                        handle(stack, player, 2);
-                    if(normalX < 0.5 && normalY < 0.5)
-                        handle(stack, player, 3);
-                    break;
-                case EAST:
-                    if(normalZ < 0.5 && normalY > 0.5)
-                        handle(stack, player, 0);
-                    if(normalZ > 0.5 && normalY > 0.5)
-                        handle(stack, player, 1);
-                    if(normalZ < 0.5 && normalY < 0.5)
-                        handle(stack, player, 2);
-                    if(normalZ > 0.5 && normalY < 0.5)
-                        handle(stack, player, 3);
-                    break;
-                case WEST:
-                    if(normalZ > 0.5 && normalY > 0.5)
-                        handle(stack, player, 0);
-                    if(normalZ < 0.5 && normalY > 0.5)
-                        handle(stack, player, 1);
-                    if(normalZ > 0.5 && normalY < 0.5)
-                        handle(stack, player, 2);
-                    if(normalZ < 0.5 && normalY < 0.5)
-                        handle(stack, player, 3);
-                    break;
+            switch (hit.getSide()) {
+                case NORTH -> {
+                    if (normalX < 0.5 && normalY > 0.5) handle(stack, player, hand, 0);
+                    if (normalX > 0.5 && normalY > 0.5) handle(stack, player, hand, 1);
+                    if (normalX < 0.5 && normalY < 0.5) handle(stack, player, hand, 2);
+                    if (normalX > 0.5 && normalY < 0.5) handle(stack, player, hand, 3);
                 }
-                this.sync();
+                case SOUTH -> {
+                    if (normalX > 0.5 && normalY > 0.5) handle(stack, player, hand, 0);
+                    if (normalX < 0.5 && normalY > 0.5) handle(stack, player, hand, 1);
+                    if (normalX > 0.5 && normalY < 0.5) handle(stack, player, hand, 2);
+                    if (normalX < 0.5 && normalY < 0.5) handle(stack, player, hand, 3);
+                }
+                case EAST -> {
+                    if (normalZ < 0.5 && normalY > 0.5) handle(stack, player, hand, 0);
+                    if (normalZ > 0.5 && normalY > 0.5) handle(stack, player, hand, 1);
+                    if (normalZ < 0.5 && normalY < 0.5) handle(stack, player, hand, 2);
+                    if (normalZ > 0.5 && normalY < 0.5) handle(stack, player, hand, 3);
+                }
+                case WEST -> {
+                    if (normalZ > 0.5 && normalY > 0.5) handle(stack, player, hand, 0);
+                    if (normalZ < 0.5 && normalY > 0.5) handle(stack, player, hand, 1);
+                    if (normalZ > 0.5 && normalY < 0.5) handle(stack, player, hand, 2);
+                    if (normalZ < 0.5 && normalY < 0.5) handle(stack, player, hand, 3);
+                }
             }
+                this.sync();
+        }
     }
 }
