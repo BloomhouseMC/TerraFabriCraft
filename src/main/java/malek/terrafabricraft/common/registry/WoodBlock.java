@@ -2,6 +2,7 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.block.keg.Keg;
+import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.sapling.SaplingGenerator;
@@ -17,6 +18,7 @@ public class WoodBlock {
     public TFCTwig twig;
     public TFCSupport vertical_support;
     public Keg keg;
+    public ToolRackBlock rack;
 
     public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
         leaves = setCreateLeaves(variantId);
@@ -27,6 +29,11 @@ public class WoodBlock {
         twig = setCreateTwig(variantId);
         vertical_support = setCreateSupport(variantId);
         keg = setCreateKeg(variantId);
+        rack = setCreateRack(variantId);
+    }
+
+    private ToolRackBlock setCreateRack(String variantId) {
+        return createRack("wood/rack/"+variantId, true);
     }
 
     //TODO: Refactor unnecessary methods.

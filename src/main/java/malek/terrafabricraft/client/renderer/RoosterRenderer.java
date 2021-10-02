@@ -15,6 +15,6 @@ public class RoosterRenderer extends MobEntityRenderer<RoosterEntity, RoosterEnt
 
     @Override
     public Identifier getTexture(RoosterEntity entity) {
-        return new Identifier(TerraFabriCraft.MOD_ID, "textures/entity/animal/rooster.png");
+        return new Identifier(TerraFabriCraft.MODID, "textures/entity/animal/rooster.png");
     }
 }

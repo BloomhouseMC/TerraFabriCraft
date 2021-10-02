@@ -8,6 +8,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.PersistentState;
+import net.minecraft.world.World;
 
 /**
  * The calendar is meant to count and calculate the real in-game time passed
@@ -25,7 +26,7 @@ public class Calendar extends PersistentState {
     private int monthCounter;
     private int yearCounter;
     private ServerWorld serverLevel;
-    public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MOD_ID, "minutehand");
+    public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MODID, "minutehand");
 
     public Calendar(ServerWorld serverLevel) {
         this.markDirty();
