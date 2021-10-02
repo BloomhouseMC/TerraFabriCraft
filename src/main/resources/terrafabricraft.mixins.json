@@ -17,7 +17,8 @@
     "client.LightmapTextureManagerMixin",
     "client.PlayerScreenHandlerMixin",
     "client.RenderLayerAccessor",
-    "client.BufferBuilderAccessor"
+    "client.BufferBuilderAccessor",
+    "client.MixinDebugHud"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -13,11 +13,14 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.HeightmapDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.foliage.BushFoliagePlacer;
+import net.minecraft.world.gen.foliage.PineFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
@@ -27,17 +30,18 @@ public class TFCFeatures {
 
     private static final Feature<DefaultFeatureConfig> BOULDER = new BoulderFeature(DefaultFeatureConfig.CODEC);
 
-    public static final ConfiguredFeature<?, ?> TREE_ACACIA =   Feature.TREE
+    public static final ConfiguredFeature<?, ?> TREE_ACACIA = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.log.getDefaultState()),
                     new StraightTrunkPlacer(5, 0, 0),
                     new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.leaves.getDefaultState()),
                     new SimpleBlockStateProvider(TFCObjects.WOOD_ACACIA.sapling.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
-                    new TwoLayersFeatureSize(0, 0, 0)
+                    new TwoLayersFeatureSize(1, 0, 1)
             ).ignoreVines().build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_ASH = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -48,8 +52,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).ignoreVines().build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_ASPEN = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -60,8 +65,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).ignoreVines().build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_BIRCH = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -72,8 +78,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_BLACKWOOD = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -81,23 +88,25 @@ public class TFCFeatures {
                     new StraightTrunkPlacer(8, 3, 0),
                     new SimpleBlockStateProvider(TFCObjects.WOOD_BLACKWOOD.leaves.getDefaultState()),
                     new SimpleBlockStateProvider(TFCObjects.WOOD_BLACKWOOD.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new PineFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(5), ConstantIntProvider.create(5)),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_CHESTNUT = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(TFCObjects.WOOD_CHESTNUT.log.getDefaultState()),
-                    new StraightTrunkPlacer(8, 3, 0),
+                    new StraightTrunkPlacer(5, 2, 3),
                     new SimpleBlockStateProvider(TFCObjects.WOOD_CHESTNUT.leaves.getDefaultState()),
                     new SimpleBlockStateProvider(TFCObjects.WOOD_CHESTNUT.sapling.getDefaultState()),
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
+                    new BushFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_DOUGLAS_FIR = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -108,8 +117,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_HICKORY = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -120,8 +130,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_KAPOK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -132,8 +143,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_BIG_KAPOK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -144,8 +156,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_SMALL_KAPOK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -156,8 +169,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_MAPLE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -168,8 +182,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_OAK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -180,8 +195,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_PALM = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -192,8 +208,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_PINE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -204,8 +221,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_ROSEWOOD = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -216,8 +234,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_SEQUOIA = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -228,8 +247,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_SPRUCE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -240,8 +260,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_SYCAMORE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -252,8 +273,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_WHITE_CEDAR = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -264,8 +286,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static final ConfiguredFeature<?, ?> TREE_WILLOW = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
@@ -276,8 +299,9 @@ public class TFCFeatures {
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
-            .applyChance(3)
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)));
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_OCEAN_FLOOR_NO_WATER)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .spreadHorizontally();
 
     public static void register(String id, ConfiguredFeature<?, ?> feature, Predicate<BiomeSelectionContext> biome, GenerationStep.Feature generationStep) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new
@@ -290,7 +314,7 @@ public class TFCFeatures {
     }
 
     public static final ConfiguredFeature<?, ?> BOULDER_ANDESITE = BOULDER.configure(new DefaultFeatureConfig())
-            .decorate   (Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)))
+            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)))
             .spreadHorizontally()
             .applyChance(5);
 
@@ -302,28 +326,28 @@ public class TFCFeatures {
         var otherGenStep = GenerationStep.Feature.TOP_LAYER_MODIFICATION;
         //Register new feature
         Registry.register(Registry.FEATURE, new Identifier("terrafirmacraft", "boulder"), BOULDER);
-     //   Registry.register(Registry.FEATURE, new Identifier(TerraFabriCraft.MODID, "test_boulder"), TEST_BOULDER);
-        register("tree/acacia", TREE_ACACIA, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/ash", TREE_ASH, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/aspen", TREE_ASPEN, BiomeSelectors.foundInOverworld(), vegetalGenStep);
+        //   Registry.register(Registry.FEATURE, new Identifier(TerraFabriCraft.MODID, "test_boulder"), TEST_BOULDER);
+        register("tree/acacia", TREE_ACACIA, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/ash", TREE_ASH, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/aspen", TREE_ASPEN, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/birch", TREE_BIRCH, BiomeSelectors.categories(Biome.Category.PLAINS), vegetalGenStep);
-        register("tree/blackwood", TREE_BLACKWOOD, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/chestnut", TREE_CHESTNUT, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/douglas_fir", TREE_DOUGLAS_FIR, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/hickory", TREE_HICKORY, BiomeSelectors.foundInOverworld(), vegetalGenStep);
+        register("tree/blackwood", TREE_BLACKWOOD, BiomeSelectors.categories(Biome.Category.PLAINS), vegetalGenStep);
+        register("tree/chestnut", TREE_CHESTNUT, BiomeSelectors.categories(Biome.Category.PLAINS), vegetalGenStep);
+        register("tree/douglas_fir", TREE_DOUGLAS_FIR, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/hickory", TREE_HICKORY, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/big_kapok", TREE_BIG_KAPOK, BiomeSelectors.categories(Biome.Category.JUNGLE), vegetalGenStep);
         register("tree/small_kapok", TREE_SMALL_KAPOK, BiomeSelectors.categories(Biome.Category.JUNGLE), vegetalGenStep);
-        register("tree/maple", TREE_MAPLE, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/oak", TREE_OAK, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/palm", TREE_PALM, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/pine", TREE_PINE, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/rosewood", TREE_ROSEWOOD, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/sequoia", TREE_SEQUOIA, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/spruce", TREE_SPRUCE, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/sycamore", TREE_SYCAMORE, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/white_cedar", TREE_WHITE_CEDAR, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-        register("tree/willow", TREE_WILLOW, BiomeSelectors.foundInOverworld(), vegetalGenStep);
-    //    register("boulder/andesite", BOULDER_ANDESITE, BiomeSelectors.foundInOverworld(), otherGenStep);
-    //    BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), otherGenStep, BuiltinRegistries.CONFIGURED_FEATURE.getKey(TEST_BOULDER_CONFIGURED).get());
+        register("tree/maple", TREE_MAPLE, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/oak", TREE_OAK, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/palm", TREE_PALM, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/pine", TREE_PINE, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/rosewood", TREE_ROSEWOOD, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/sequoia", TREE_SEQUOIA, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/spruce", TREE_SPRUCE, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/sycamore", TREE_SYCAMORE, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/white_cedar", TREE_WHITE_CEDAR, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/willow", TREE_WILLOW, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        //    register("boulder/andesite", BOULDER_ANDESITE, BiomeSelectors.foundInOverworld(), otherGenStep);
+        //    BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), otherGenStep, BuiltinRegistries.CONFIGURED_FEATURE.getKey(TEST_BOULDER_CONFIGURED).get());
     }
 }

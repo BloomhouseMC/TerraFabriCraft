@@ -9,6 +9,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.PersistentState;
 
+import java.util.List;
+
 /**
  * The calendar is meant to count and calculate the real in-game time passed
  * since the moment the world is created taking into account the time spent sleeping,
@@ -16,7 +18,7 @@ import net.minecraft.world.PersistentState;
  */
 public class Calendar extends PersistentState {
 
-    private NbtCompound calendarData;
+    private NbtCompound calendarData = new NbtCompound();
     private int iterator;
     private int secondsHand;
     private int minuteHand;
@@ -24,13 +26,13 @@ public class Calendar extends PersistentState {
     private int weekCounter;
     private int monthCounter;
     private int yearCounter;
-    private ServerWorld serverLevel;
+    private final List<ServerPlayerEntity> playerList;
     public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MOD_ID, "minutehand");
 
     public Calendar(ServerWorld serverLevel) {
         this.markDirty();
         minuteHand = 1;
-        this.serverLevel = serverLevel;
+        playerList = serverLevel.getServer().getPlayerManager().getPlayerList();;
     }
 
     @Override
@@ -43,7 +45,6 @@ public class Calendar extends PersistentState {
         calendarData.putInt("minuteHand", minuteHand);
         var buf = PacketByteBufs.create();
         buf.writeNbt(calendarData);
-        var playerList = serverLevel.getServer().getPlayerManager().getPlayerList();
         for (ServerPlayerEntity serverPlayerEntity : playerList) {
             ServerPlayNetworking.send(serverPlayerEntity, CALENDAR_ID, buf);
             TerraFabriCraft.LOGGER.debug("If the server doesn't reach this code it's not sending the packets");
@@ -51,8 +52,8 @@ public class Calendar extends PersistentState {
     }
 
     public static Calendar load(ServerWorld serverLevel, NbtCompound compoundTag) {
+        System.out.println("Loading existing nbt");
         var calendar = new Calendar(serverLevel);
-        calendar.calendarData = compoundTag;
         calendar.minuteHand = compoundTag.getInt("minuteHand");
         return calendar;
     }
@@ -65,8 +66,9 @@ public class Calendar extends PersistentState {
             if (secondsHand >= 1200) {
                 minuteHand++;
                 secondsHand = 0;
+                System.out.println("hey");
                 send();
-                System.out.println(minuteHand);
+                System.out.println(getMinuteHand());
                 if (minuteHand % 20 == 0) {
                     dayCounter++;
                     if (dayCounter % 7 == 0) {
@@ -82,6 +84,7 @@ public class Calendar extends PersistentState {
     }
 
     public int getMinuteHand() {
+        System.out.println(minuteHand);
         return minuteHand;
     }
 

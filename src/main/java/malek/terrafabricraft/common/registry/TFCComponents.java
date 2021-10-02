@@ -24,7 +24,7 @@ public class TFCComponents implements EntityComponentInitializer, WorldComponent
 
     public static final ComponentKey<DecayComponent> DECAY_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MOD_ID, "decay"), DecayComponent.class);
 
-    //public static final ComponentKey<ServerCalendarComponent> CALENDAR_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.MODID, "calendar"), ServerCalendarComponent.class);
+    //public static final ComponentKey<ServerCalendarComponent> CALENDAR_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(TerraFabriCraft.aMODID, "calendar"), ServerCalendarComponent.class);
 
 
     @Override

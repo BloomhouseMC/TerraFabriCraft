@@ -25,4 +25,8 @@ public class CalendarClient {
             });
         });
     }
+
+    public static int getMinuteHand() {
+        return minuteHand;
+    }
 }
