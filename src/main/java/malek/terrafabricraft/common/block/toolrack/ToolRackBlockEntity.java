@@ -1,41 +1,23 @@
 package malek.terrafabricraft.common.block.toolrack;
 
-import malek.terrafabricraft.common.block.keg.Keg;
-import malek.terrafabricraft.common.block.keg.KegEntity;
 import malek.terrafabricraft.common.registry.TFCObjects;
-import malek.terrafabricraft.common.registry.TFCRecipeTypes;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import static malek.terrafabricraft.common.block.keg.Keg.WORKING;
 
 public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClientSerializable, Inventory {
     @Environment(EnvType.CLIENT)
@@ -146,38 +128,53 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
 
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack stack = player.getStackInHand(hand);
-            System.out.println("State: " + state.get(Properties.HORIZONTAL_FACING));
-            System.out.println("Side: " + hit.getSide());
-            if(state.get(Properties.HORIZONTAL_FACING) == hit.getSide()){
-                switch (hit.getSide()){
-                    case NORTH:
-                        if((hit.getPos().x - pos.getX()) < 0.5 && (hit.getPos().y - pos.getY()) > 0.5)
-                            handle(stack, player, 0);
-                        if((hit.getPos().x - pos.getX()) > 0.5 && (hit.getPos().y - pos.getY()) > 0.5)
-                            handle(stack, player, 1);
-                        if((hit.getPos().x - pos.getX()) < 0.5 && (hit.getPos().y - pos.getY()) < 0.5)
-                            handle(stack, player, 2);
-                        if((hit.getPos().x - pos.getX()) > 0.5 && (hit.getPos().y - pos.getY()) < 0.5)
-                            handle(stack, player, 3);
-                        break;
-                    case SOUTH:
-                        if((hit.getPos().x - pos.getX()) > 0.5 && (hit.getPos().y - pos.getY()) > 0.5)
-                            handle(stack, player, 0);
-                        if((hit.getPos().x - pos.getX()) < 0.5 && (hit.getPos().y - pos.getY()) > 0.5)
-                            handle(stack, player, 1);
-                        if((hit.getPos().x - pos.getX()) > 0.5 && (hit.getPos().y - pos.getY()) < 0.5)
-                            handle(stack, player, 2);
-                        if((hit.getPos().x - pos.getX()) < 0.5 && (hit.getPos().y - pos.getY()) < 0.5)
-                            handle(stack, player, 3);
-                         break;
-                    case EAST:
-                    case WEST:
+        double normalX = (hit.getPos().x - pos.getX());
+        double normalY = (hit.getPos().y - pos.getY());
+        double normalZ = (hit.getPos().z - pos.getZ());
+        if(state.get(Properties.HORIZONTAL_FACING) == hit.getSide()){
+            switch (hit.getSide()){
+                case NORTH:
+                    if(normalX < 0.5 && normalY > 0.5)
+                        handle(stack, player, 0);
+                    if(normalX > 0.5 && normalY > 0.5)
+                        handle(stack, player, 1);
+                    if(normalX < 0.5 && normalY < 0.5)
+                        handle(stack, player, 2);
+                    if(normalX > 0.5 && normalY < 0.5)
+                        handle(stack, player, 3);
+                    break;
+                case SOUTH:
+                    if(normalX > 0.5 && normalY > 0.5)
+                        handle(stack, player, 0);
+                    if(normalX < 0.5 && normalY > 0.5)
+                        handle(stack, player, 1);
+                    if(normalX > 0.5 && normalY < 0.5)
+                        handle(stack, player, 2);
+                    if(normalX < 0.5 && normalY < 0.5)
+                        handle(stack, player, 3);
+                    break;
+                case EAST:
+                    if(normalZ < 0.5 && normalY > 0.5)
+                        handle(stack, player, 0);
+                    if(normalZ > 0.5 && normalY > 0.5)
+                        handle(stack, player, 1);
+                    if(normalZ < 0.5 && normalY < 0.5)
+                        handle(stack, player, 2);
+                    if(normalZ > 0.5 && normalY < 0.5)
+                        handle(stack, player, 3);
+                    break;
+                case WEST:
+                    if(normalZ > 0.5 && normalY > 0.5)
+                        handle(stack, player, 0);
+                    if(normalZ < 0.5 && normalY > 0.5)
+                        handle(stack, player, 1);
+                    if(normalZ > 0.5 && normalY < 0.5)
+                        handle(stack, player, 2);
+                    if(normalZ < 0.5 && normalY < 0.5)
+                        handle(stack, player, 3);
+                    break;
                 }
                 this.sync();
-
-
-
-
             }
     }
 }

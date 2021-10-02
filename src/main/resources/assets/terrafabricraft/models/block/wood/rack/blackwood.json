@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/cube_all",
 	"textures": {
-		"0": "terrafabricraft:block/wood/log_top/oak",
-		"1": "terrafabricraft:block/wood/log/oak",
-		"particle": "terrafabricraft:block/wood/log_top/oak"
+		"0": "terrafabricraft:block/wood/log_top/blackwood",
+		"1": "terrafabricraft:block/wood/log/blackwood",
+		"particle": "terrafabricraft:block/wood/log_top/blackwood"
 	},
 	"elements": [
 		{
