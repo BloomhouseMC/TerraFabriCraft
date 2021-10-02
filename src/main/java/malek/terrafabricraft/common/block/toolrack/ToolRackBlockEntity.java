@@ -45,11 +45,13 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
         super(TFCObjects.TOOL_RACK_BLOCK_ENTITY, pos, state);
     }
 
+
+
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         for(int i = 0; i < inventory.size(); i++){
-            NbtCompound nbtCompound = nbt.getCompound("Item"+i);
+            NbtCompound nbtCompound = nbt.getCompound("Item_"+i);
             if (nbtCompound != null && !nbtCompound.isEmpty()) {
                 ItemStack itemStack = ItemStack.fromNbt(nbtCompound);
                 this.setStack(i, itemStack);
@@ -59,16 +61,17 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
-        for(int i = 0;!this.getStack(i).isEmpty() && i < inventory.size(); i++){
-            nbt.put("Item"+i, this.getStack(i).writeNbt(new NbtCompound()));
-        }
+        nbt.put("Item_0", this.getStack(0).writeNbt(new NbtCompound()));
+        nbt.put("Item_1", this.getStack(1).writeNbt(new NbtCompound()));
+        nbt.put("Item_2", this.getStack(2).writeNbt(new NbtCompound()));
+        nbt.put("Item_3", this.getStack(3).writeNbt(new NbtCompound()));
         return super.writeNbt(nbt);
     }
 
     @Override
     public void fromClientTag(NbtCompound nbt){
         for(int i = 0; i < inventory.size(); i++){
-            NbtCompound nbtCompound = nbt.getCompound("Item"+i);
+            NbtCompound nbtCompound = nbt.getCompound("Item_"+i);
             if (nbtCompound != null && !nbtCompound.isEmpty()) {
                 ItemStack itemStack = ItemStack.fromNbt(nbtCompound);
                 this.setStack(i, itemStack);
@@ -79,11 +82,14 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
 
     @Override
     public NbtCompound toClientTag(NbtCompound nbt){
-        for(int i = 0; i < inventory.size(); i++){
-            nbt.put("Item"+i, this.getStack(i).writeNbt(new NbtCompound()));
-        }
+        nbt.put("Item_0", this.getStack(0).writeNbt(new NbtCompound()));
+        nbt.put("Item_1", this.getStack(1).writeNbt(new NbtCompound()));
+        nbt.put("Item_2", this.getStack(2).writeNbt(new NbtCompound()));
+        nbt.put("Item_3", this.getStack(3).writeNbt(new NbtCompound()));
         return nbt;
     }
+
+
     @Override
     public int size() {
         return 4;
@@ -92,13 +98,13 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
     @Override
     public boolean isEmpty() {
         for (int i = 0; i < size(); i++) {
-            ItemStack stack = getStack(i);
-            if (!stack.isEmpty()) {
+            if (getStack(i).isEmpty()) {
                 return false;
             }
         }
         return true;
     }
+
     @Override
     public ItemStack getStack(int slot) {
         return inventory.get(slot);
@@ -119,31 +125,59 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
         inventory.set(slot, stack);
     }
 
-
     @Override
     public boolean canPlayerUse(PlayerEntity player) {
         return true;
     }
 
-    @Override
+
     public void clear() {
         inventory.clear();
+    }
+
+    public void handle(ItemStack stack, PlayerEntity player, int itemSlot){
+        if(!stack.isEmpty() && inventory.get(itemSlot).isEmpty()){
+            inventory.set(itemSlot, stack.split(1));
+        }else if(!inventory.get(itemSlot).isEmpty()){
+            player.dropItem(inventory.get(itemSlot).copy(), false, true);
+            inventory.set(itemSlot, new ItemStack(Items.AIR));
+        }
     }
 
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack stack = player.getStackInHand(hand);
             System.out.println("State: " + state.get(Properties.HORIZONTAL_FACING));
             System.out.println("Side: " + hit.getSide());
-            if (state.get(Properties.HORIZONTAL_FACING) == Direction.NORTH && hit.getSide() == Direction.NORTH) {
-                if ((hit.getPos().x - pos.getX()) < 0.5 && (hit.getPos().y - pos.getY()) > 0.5) {
-                    if(!stack.isEmpty()){
-                        inventory.set(0, stack.split(1));
-                    }else if(!inventory.get(0).isEmpty()){
-                        player.dropItem(inventory.get(0).copy(), false, true);
-                        inventory.set(0, new ItemStack(Items.AIR));
-                    }
-                    this.sync();
+            if(state.get(Properties.HORIZONTAL_FACING) == hit.getSide()){
+                switch (hit.getSide()){
+                    case NORTH:
+                        if((hit.getPos().x - pos.getX()) < 0.5 && (hit.getPos().y - pos.getY()) > 0.5)
+                            handle(stack, player, 0);
+                        if((hit.getPos().x - pos.getX()) > 0.5 && (hit.getPos().y - pos.getY()) > 0.5)
+                            handle(stack, player, 1);
+                        if((hit.getPos().x - pos.getX()) < 0.5 && (hit.getPos().y - pos.getY()) < 0.5)
+                            handle(stack, player, 2);
+                        if((hit.getPos().x - pos.getX()) > 0.5 && (hit.getPos().y - pos.getY()) < 0.5)
+                            handle(stack, player, 3);
+                        break;
+                    case SOUTH:
+                        if((hit.getPos().x - pos.getX()) > 0.5 && (hit.getPos().y - pos.getY()) > 0.5)
+                            handle(stack, player, 0);
+                        if((hit.getPos().x - pos.getX()) < 0.5 && (hit.getPos().y - pos.getY()) > 0.5)
+                            handle(stack, player, 1);
+                        if((hit.getPos().x - pos.getX()) > 0.5 && (hit.getPos().y - pos.getY()) < 0.5)
+                            handle(stack, player, 2);
+                        if((hit.getPos().x - pos.getX()) < 0.5 && (hit.getPos().y - pos.getY()) < 0.5)
+                            handle(stack, player, 3);
+                         break;
+                    case EAST:
+                    case WEST:
                 }
+                this.sync();
+
+
+
+
             }
     }
 }

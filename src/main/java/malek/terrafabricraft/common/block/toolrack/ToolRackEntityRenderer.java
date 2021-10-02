@@ -26,18 +26,18 @@ public class ToolRackEntityRenderer implements BlockEntityRenderer<ToolRackBlock
     public void render(ToolRackBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         Direction direction = entity.getCachedState().get(Properties.HORIZONTAL_FACING);
         float rotation = -direction.asRotation();
-        matrices.translate(0.5f, 0, 0.5f);
+        matrices.translate(0.75f, 0, 0.5f);
         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(rotation));
         matrices.scale(1 / 5f, 1 / 5f, 1 / 5f);
-        renderRow(entity.inventory.get(0), entity.inventory.get(1), 0.8f, matrices, vertexConsumers, light, overlay);
-        renderRow(entity.inventory.get(2), entity.inventory.get(3), 0.5f, matrices, vertexConsumers, light, overlay);
+        renderRow(entity.inventory.get(0), entity.inventory.get(1), 0.67f, matrices, vertexConsumers, light, overlay);
+        renderRow(entity.inventory.get(2), entity.inventory.get(3), 0.33f, matrices, vertexConsumers, light, overlay);
     }
 
     private static void renderRow(ItemStack one, ItemStack two, float yOffset, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         matrices.push();
-        double xOffset = 0.32 * 5;
-        double zOffset = 0.45 * 5;
-        yOffset *= 5;
+        double xOffset = 0.32 * 8;
+        double zOffset = - 0.65 * 2;
+        yOffset *= 6;
         matrices.translate(0, yOffset, zOffset);
         MinecraftClient.getInstance().getItemRenderer().renderItem(two, ModelTransformation.Mode.FIXED, light, overlay, matrices, vertexConsumers, 0);
         matrices.translate(xOffset, 0, 0);

@@ -35,13 +35,16 @@ public class ToolRackBlock extends HorizontalFacingBlock implements BlockEntityP
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new ToolRackBlockEntity(pos, state);
     }
+
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(Properties.HORIZONTAL_FACING);
     }
+
     public BlockState getPlacementState(ItemPlacementContext ctx){
         return (BlockState)this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing().getOpposite());
     }
+
     @Override
     public VoxelShape getOutlineShape(BlockState blockState, BlockView view, BlockPos pos, ShapeContext context) {
         Direction dir = blockState.get(Properties.HORIZONTAL_FACING);
@@ -53,13 +56,13 @@ public class ToolRackBlock extends HorizontalFacingBlock implements BlockEntityP
             default -> VoxelShapes.fullCube();
         };
     }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        boolean client = world.isClient;
-        if (!client) {
+        if (!world.isClient) {
             ((ToolRackBlockEntity) world.getBlockEntity(pos)).onUse(state, world, pos, player, hand, hit);
         }
-        return ActionResult.success(client);
+        return ActionResult.success(world.isClient);
     }
     //BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit
     /*
