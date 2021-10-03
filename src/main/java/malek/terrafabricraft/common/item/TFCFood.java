@@ -1,5 +1,6 @@
 package malek.terrafabricraft.common.item;
 
+import malek.terrafabricraft.client.CalendarClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -45,7 +46,9 @@ public class TFCFood extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-
+        //minute doesnt get updated lmao
+        int minute = minuteHand;
+        System.out.println(minute);
     }
 
 

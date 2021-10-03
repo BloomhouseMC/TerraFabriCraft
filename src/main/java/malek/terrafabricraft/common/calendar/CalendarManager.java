@@ -14,7 +14,7 @@ public class CalendarManager {
         ServerWorld level = server.getWorld(World.OVERWORLD);
         calendar = (Calendar) level.getPersistentStateManager().getOrCreate((compoundTag) -> Calendar.load(level, compoundTag),
                 () -> new Calendar(level),
-                TerraFabriCraft.MOD_ID);
+                TerraFabriCraft.MODID);
     }
 
     public static void init() {

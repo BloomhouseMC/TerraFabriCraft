@@ -65,7 +65,8 @@ public class TFCLooseRock extends GroundCoverBlock {
             default -> Block.createCuboidShape(1, 0, 1, 15, 2, 15);
         };
     }
-        protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(COUNT);
     }
     @Override

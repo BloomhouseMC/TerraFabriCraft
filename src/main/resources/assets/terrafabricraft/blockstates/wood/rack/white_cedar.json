@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "terrafabricraft:block/wood/rack/white_cedar",
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/wood/rack/white_cedar",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/wood/rack/white_cedar",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east": {
+      "model": "terrafabricraft:block/wood/rack/white_cedar",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

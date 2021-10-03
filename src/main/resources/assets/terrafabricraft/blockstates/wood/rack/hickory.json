@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "terrafabricraft:block/wood/rack/hickory",
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/wood/rack/hickory",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/wood/rack/hickory",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east": {
+      "model": "terrafabricraft:block/wood/rack/hickory",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

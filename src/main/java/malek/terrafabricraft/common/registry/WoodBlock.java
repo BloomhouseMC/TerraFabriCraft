@@ -18,6 +18,15 @@ public class WoodBlock {
     public final TFCLog stripped_log;
     public final TFCTwig twig;
     public final TFCSupport vertical_support;
+    public TFCLeaves leaves;
+    public TFCLog log;
+    public Block planks;
+    public TFCSapling sapling;
+    public TFCLog stripped_log;
+    public TFCTwig twig;
+    public TFCSupport vertical_support;
+    public Keg keg;
+    public ToolRackBlock rack;
 
     public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
         fallen_leaves = createFallenLeaves("wood/fallen_leaves/" + variantId);
@@ -29,6 +38,12 @@ public class WoodBlock {
         stripped_log = setCreateLog("wood/log/", variantId, color);
         twig = setCreateTwig(variantId);
         vertical_support = setCreateSupport(variantId);
+        keg = setCreateKeg(variantId);
+        rack = setCreateRack(variantId);
+    }
+
+    private ToolRackBlock setCreateRack(String variantId) {
+        return createRack("wood/rack/"+variantId, true);
     }
 
     //TODO: Refactor unnecessary methods.

@@ -305,8 +305,8 @@ public class TFCFeatures {
 
     public static void register(String id, ConfiguredFeature<?, ?> feature, Predicate<BiomeSelectionContext> biome, GenerationStep.Feature generationStep) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new
-                Identifier(TerraFabriCraft.MOD_ID, id), feature);
-        BiomeModification worldGen = BiomeModifications.create(new Identifier(TerraFabriCraft.MOD_ID, "world_features"));
+                Identifier(TerraFabriCraft.MODID, id), feature);
+        BiomeModification worldGen = BiomeModifications.create(new Identifier(TerraFabriCraft.MODID, "world_features"));
         if (ModuleConfig.getValue("world")) {
             worldGen.add(ModificationPhase.ADDITIONS, biome, context -> context.getGenerationSettings().
                     addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, feature));
