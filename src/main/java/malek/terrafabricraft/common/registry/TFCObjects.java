@@ -508,7 +508,6 @@ public class TFCObjects {
 
 
     //Misc
-    public static final Block FORGE = register("forge", new Forge(FabricBlockSettings.copyOf(Blocks.SAND)),true, TerraFabriCraft.DEVICES_GROUP);
     public static final Block PLACEABLE = register("placeable", new PlaceableBlock(FabricBlockSettings.copyOf(Blocks.SAND)),true, TerraFabriCraft.DEVICES_GROUP);
 
 
@@ -714,6 +713,8 @@ public class TFCObjects {
     public static ToolRackBlock createRack(String id, boolean hasBlockItem) {
         var block = new ToolRackBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD));
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
+        return block;
+    }
 
     public static TFCGravityGrassBlock createGrass(String id, boolean hasBlockItem) {
         var block = new TFCGravityGrassBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.GRASS).strength(2.0f));
@@ -721,12 +722,7 @@ public class TFCObjects {
         return block;
     }
 
-    public static TFCGravityBlock createFarmland(String id, boolean hasItem) {
-        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.GRAVEL).strength(2.0f));
-        register(id, block, hasItem, TerraFabriCraft.ROCK_GROUP);
 
-        return block;
-    }
 
     public static TFCSapling createSapling(String id, boolean hasBlockItem, SaplingGenerator generator) {
         var block = new TFCSapling(generator, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
@@ -756,12 +752,6 @@ public class TFCObjects {
 
 
 
-    public static <T extends Item> T register(String id, T item) {
-        ITEMS.put(item, new Identifier(TerraFabriCraft.MOD_ID, id));
-        return item;
-    }
-
-
     //Register item
 
     private static <T extends Item> T createItem(String id, T item) {
@@ -779,12 +769,6 @@ public class TFCObjects {
         var item = new TFCMetalItem(gen(group), temp);
         register(id, item);
         return item;
-    }
-
-
-    private static <T extends BlockEntity> BlockEntityType<T> register(String id, BlockEntityType<T> type) {
-        BLOCK_ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MOD_ID, id));
-        return type;
     }
 
 
