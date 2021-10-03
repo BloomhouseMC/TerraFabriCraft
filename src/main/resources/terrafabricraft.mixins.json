@@ -8,7 +8,8 @@
     "common.LivingEntityMixin",
     "common.PlayerEntityMixin",
     "common.TrunkPlacerTypeInvoker",
-    "common.CalendarMixin"
+    "common.CalendarMixin",
+    "common.ServerPlayerInteractionManagerMixin"
   ],
   "client": [
     "client.GameRendererMixin",

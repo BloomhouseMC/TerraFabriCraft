@@ -326,7 +326,7 @@ public class TFCFeatures {
         var otherGenStep = GenerationStep.Feature.TOP_LAYER_MODIFICATION;
         //Register new feature
         Registry.register(Registry.FEATURE, new Identifier("terrafirmacraft", "boulder"), BOULDER);
-        //   Registry.register(Registry.FEATURE, new Identifier(TerraFabriCraft.MODID, "test_boulder"), TEST_BOULDER);
+        //   Registry.register(Registry.FEATURE, new Identifier(TerraFabriCraft.MOD_ID, "test_boulder"), TEST_BOULDER);
         register("tree/acacia", TREE_ACACIA, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/ash", TREE_ASH, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/aspen", TREE_ASPEN, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);

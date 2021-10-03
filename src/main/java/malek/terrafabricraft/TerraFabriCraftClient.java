@@ -7,6 +7,7 @@ import malek.terrafabricraft.client.renderer.block.KegRenderer;
 import malek.terrafabricraft.client.screens.ModScreensClient;
 import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.block.keg.Keg;
+import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntityRenderer;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackEntityRenderer;
 import malek.terrafabricraft.common.registry.TFCObjects;
@@ -34,6 +35,7 @@ public class TerraFabriCraftClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.KEG_BLOCK_ENTITY, (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new KegRenderer());
         ParticleFactoryRegistry.getInstance().register(TFCParticleTypes.KEG_BUBBLE, KegBubbleParticle.Factory::new);
         BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.TOOL_RACK_BLOCK_ENTITY, ctx -> new ToolRackEntityRenderer());
+        BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.PLACEABLE_BLOCK_ENTITY, ctx -> new PlaceableBlockEntityRenderer());
 
 
         for(Block block : TFCObjects.BLOCKS.keySet()) {

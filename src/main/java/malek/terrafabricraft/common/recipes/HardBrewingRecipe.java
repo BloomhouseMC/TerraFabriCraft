@@ -15,9 +15,6 @@ import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class HardBrewingRecipe implements Recipe<Inventory> {
     private final Identifier identifier;
     public final DefaultedList<Ingredient> input;

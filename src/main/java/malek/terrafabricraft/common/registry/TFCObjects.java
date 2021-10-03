@@ -3,15 +3,19 @@ package malek.terrafabricraft.common.registry;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.block.forge.Forge;
+import malek.terrafabricraft.common.block.forge.ForgeBlockEntity;
 import malek.terrafabricraft.common.block.keg.Keg;
 import malek.terrafabricraft.common.block.keg.KegEntity;
 import malek.terrafabricraft.common.block.logpile.LogPile;
 import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
+import malek.terrafabricraft.common.block.placeable.PlaceableBlock;
+import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntity;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCFood;
 import malek.terrafabricraft.common.item.TFCMetalItem;
+import malek.terrafabricraft.common.item.ceramic.CeramicVessel;
 import malek.terrafabricraft.common.world.generator.tree.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -40,6 +44,7 @@ public class TFCObjects {
 
     // Debug + Testing
     public static final Item TEST_FOOD = createFood("test_food", 1,1);
+    public static final Item CERAMIC_VESSEL = createItem("ceramic/vessel", new CeramicVessel(gen(TerraFabriCraft.DEVICES_GROUP)));
 
     public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", TerraFabriCraft.DECORATIONS_GROUP);
     public static final Block ALABASTER_RAW_ALABASTER_BRICKS = createRock("alabaster/raw/alabaster_bricks", TerraFabriCraft.DECORATIONS_GROUP);
@@ -502,13 +507,19 @@ public class TFCObjects {
     public static final Block CHARCOAL_PILE = createLooseRock("charcoal_pile", true);
 
 
+    //Misc
+    public static final Block FORGE = register("forge", new Forge(FabricBlockSettings.copyOf(Blocks.SAND)),true, TerraFabriCraft.DEVICES_GROUP);
+    public static final Block PLACEABLE = register("placeable", new PlaceableBlock(FabricBlockSettings.copyOf(Blocks.SAND)),true, TerraFabriCraft.DEVICES_GROUP);
+
+
     //Block Entities
     public static final BlockEntityType<LogPileBlockEntity> LOG_PILE_BLOCK_ENTITY = register("log_pile_entity", FabricBlockEntityTypeBuilder.create(LogPileBlockEntity::new, TFCObjects.LOG_PILE).build(null));
     public static final BlockEntityType<KegEntity> KEG_BLOCK_ENTITY = register("keg_entity", FabricBlockEntityTypeBuilder.create(KegEntity::new, TFCObjects.WOOD_ACACIA.keg, TFCObjects.WOOD_ASH.keg, TFCObjects.WOOD_ASPEN.keg, TFCObjects.WOOD_BIRCH.keg, TFCObjects.WOOD_BLACKWOOD.keg, TFCObjects.WOOD_CHESTNUT.keg, TFCObjects.WOOD_DOUGLAS_FIR.keg, TFCObjects.WOOD_HICKORY.keg, TFCObjects.WOOD_KAPOK.keg, TFCObjects.WOOD_MAPLE.keg, TFCObjects.WOOD_OAK.keg, TFCObjects.WOOD_PALM.keg, TFCObjects.WOOD_PINE.keg, TFCObjects.WOOD_ROSEWOOD.keg, TFCObjects.WOOD_SEQUOIA.keg, TFCObjects.WOOD_SPRUCE.keg, TFCObjects.WOOD_SYCAMORE.keg, TFCObjects.WOOD_WHITE_CEDAR.keg, TFCObjects.WOOD_WILLOW.keg).build(null));
 
     public static final BlockEntityType<ToolRackBlockEntity> TOOL_RACK_BLOCK_ENTITY = register("tool_rack_block_entity", FabricBlockEntityTypeBuilder.create(ToolRackBlockEntity::new, TFCObjects.WOOD_ACACIA.rack, TFCObjects.WOOD_ASH.rack, TFCObjects.WOOD_ASPEN.rack, TFCObjects.WOOD_BIRCH.rack, TFCObjects.WOOD_BLACKWOOD.rack, TFCObjects.WOOD_CHESTNUT.rack, TFCObjects.WOOD_DOUGLAS_FIR.rack, TFCObjects.WOOD_HICKORY.rack, TFCObjects.WOOD_KAPOK.rack, TFCObjects.WOOD_MAPLE.rack, TFCObjects.WOOD_OAK.rack, TFCObjects.WOOD_PALM.rack, TFCObjects.WOOD_PINE.rack, TFCObjects.WOOD_ROSEWOOD.rack, TFCObjects.WOOD_SEQUOIA.rack, TFCObjects.WOOD_SPRUCE.rack, TFCObjects.WOOD_SYCAMORE.rack, TFCObjects.WOOD_WHITE_CEDAR.rack, TFCObjects.WOOD_WILLOW.rack).build(null));
 
-    public static final BlockEntityType<KegEntity> FORGE_BLOCK_ENTITY = register("forge_entity", FabricBlockEntityTypeBuilder.create(KegEntity::new, FORGE).build(null));
+    public static final BlockEntityType<ForgeBlockEntity> FORGE_BLOCK_ENTITY = register("forge_entity", FabricBlockEntityTypeBuilder.create(ForgeBlockEntity::new, FORGE).build(null));
+    public static final BlockEntityType<PlaceableBlockEntity> PLACEABLE_BLOCK_ENTITY = register("placeable_block_entity", FabricBlockEntityTypeBuilder.create(PlaceableBlockEntity::new, PLACEABLE).build(null));
     //public static final BlockEntityType<ForgeBlockEntity> FORGE_BLOCK_ENTITY = register("forge_entity", FabricBlockEntityTypeBuilder.create(ForgeBlockEntity::new, FORGE).build(null));
 
     //Tags
@@ -693,6 +704,7 @@ public class TFCObjects {
         return block;
     }
 
+
     public static Block createFlammableBlock(String id, MapColor color, boolean hasBlockItem) {
         var block = new Block(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).mapColor(color));
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
@@ -702,6 +714,17 @@ public class TFCObjects {
     public static ToolRackBlock createRack(String id, boolean hasBlockItem) {
         var block = new ToolRackBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD));
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
+
+    public static TFCGravityGrassBlock createGrass(String id, boolean hasBlockItem) {
+        var block = new TFCGravityGrassBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.GRASS).strength(2.0f));
+        register(id, block, hasBlockItem, TerraFabriCraft.EARTH_GROUP);
+        return block;
+    }
+
+    public static TFCGravityBlock createFarmland(String id, boolean hasItem) {
+        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.GRAVEL).strength(2.0f));
+        register(id, block, hasItem, TerraFabriCraft.ROCK_GROUP);
+
         return block;
     }
 
@@ -731,6 +754,16 @@ public class TFCObjects {
         return item;
     }
 
+
+
+    public static <T extends Item> T register(String id, T item) {
+        ITEMS.put(item, new Identifier(TerraFabriCraft.MOD_ID, id));
+        return item;
+    }
+
+
+    //Register item
+
     private static <T extends Item> T createItem(String id, T item) {
         ITEMS.put(item, new Identifier(TerraFabriCraft.MOD_ID, id));
         return item;
@@ -746,6 +779,12 @@ public class TFCObjects {
         var item = new TFCMetalItem(gen(group), temp);
         register(id, item);
         return item;
+    }
+
+
+    private static <T extends BlockEntity> BlockEntityType<T> register(String id, BlockEntityType<T> type) {
+        BLOCK_ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MOD_ID, id));
+        return type;
     }
 
 

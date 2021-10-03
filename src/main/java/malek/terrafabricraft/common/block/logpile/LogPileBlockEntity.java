@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class LogPileBlockEntity extends BlockEntity implements ImplementedInventory, NamedScreenHandlerFactory, SidedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
+    public final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
     public LogPileBlockEntity(BlockPos pos, BlockState state) {
         super(TFCObjects.LOG_PILE_BLOCK_ENTITY, pos, state);
     }

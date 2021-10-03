@@ -6,6 +6,8 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SidedInventory;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
@@ -23,13 +25,13 @@ public class LogPile extends BlockWithEntity implements BlockEntityProvider, Inv
     public static final EnumProperty<Direction.Axis> AXIS = Properties.AXIS;
     public LogPile(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)this.getDefaultState().with(AXIS, Direction.Axis.Y));
+        this.setDefaultState((BlockState)this.getDefaultState().with(AXIS, Direction.Axis.X));
     }
     @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
         return changeRotation(state, rotation);
     }
-
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(AXIS);
     }

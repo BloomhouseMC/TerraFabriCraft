@@ -37,10 +37,10 @@ public class KegBubbleParticle extends SpriteBillboardParticle {
             markDead();
         }
         else {
+            velocityX *= 0;
+            velocityZ *= 0;
             move(velocityX, velocityY, velocityZ);
-            velocityX *= 0.7;
-            velocityY *= 0.7;
-            velocityZ *= 0.7;
+            velocityY *= 0.5;
             if (!(world.getBlockState(new BlockPos(x, y, z)).getBlock() instanceof Keg)) {
                 markDead();
             }

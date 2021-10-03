@@ -25,6 +25,7 @@ public class KegRenderer extends GeoBlockRenderer<KegEntity> {
     public KegRenderer() {
         super(new KegModel());
     }
+    int cooldown = 0;
     private static final float[] HEIGHT = {0, 0.55f, 0.65f, 0.85f};
     public static final SpriteIdentifier KEG_WATER = new SpriteIdentifier(BLOCK_ATLAS_TEXTURE, new Identifier("block/water_still"));
 
@@ -46,15 +47,16 @@ public class KegRenderer extends GeoBlockRenderer<KegEntity> {
                 renderWater(entity, matrixStack, vertexConsumers.getBuffer(RenderLayer.getTranslucent()), light, KEG_WATER.getSprite());
                 matrixStack.pop();
                 if (!MinecraftClient.getInstance().isPaused()) {
-                    float fluidHeight = 0;
-                    float width = 0.45f;
+                    cooldown++;
+                    float fluidHeight = 0, width = 0.45f;
                     switch (entity.getCachedState().get(Keg.LEVEL)) {
                         case 1 -> fluidHeight = 0.55f;
                         case 2 -> fluidHeight = 0.65f;
                         case 3 -> fluidHeight = 0.85f;
                     }
-                    if (fluidHeight > 0 && entity.getCachedState().get(Keg.WORKING)) {
+                    if (fluidHeight > 0 && entity.getCachedState().get(Keg.WORKING) && cooldown >= 2) {
                         world.addParticle((ParticleEffect) TFCParticleTypes.KEG_BUBBLE, pos.getX() + 0.5 + MathHelper.nextDouble(world.random, -width, width), pos.getY() + fluidHeight, pos.getZ() + 0.5 + MathHelper.nextDouble(world.random, -width, width), ((entity.color >> 16) & 0xff) / 255f, ((entity.color >> 8) & 0xff) / 255f, (entity.color & 0xff) / 255f);
+                        cooldown=0;
                     }
                 }
             }
@@ -63,17 +65,17 @@ public class KegRenderer extends GeoBlockRenderer<KegEntity> {
 
     private void renderWater(KegEntity entity, MatrixStack matrices, VertexConsumer buffer, int light, Sprite sprite) {
         matrices.push();
-        Matrix4f mat = matrices.peek().getModel();
+        Matrix4f matrix4f = matrices.peek().getModel();
         float sizeFactor = 0.125f;
         float maxV = (sprite.getMaxV() - sprite.getMinV()) * sizeFactor;
         float minV = (sprite.getMaxV() - sprite.getMinV()) * (1 - sizeFactor);
         int red = (entity.color >> 16) & 0xff;
         int green = (entity.color >> 8) & 0xff;
         int blue = entity.color & 0xff;
-        buffer.vertex(mat, sizeFactor, 0, 1 - sizeFactor).color(red, green, blue, 255).texture(sprite.getMinU(), sprite.getMinV() + maxV).light(light).normal(1, 1, 1).next();
-        buffer.vertex(mat, 1 - sizeFactor, 0, 1 - sizeFactor).color(red, green, blue, 255).texture(sprite.getMaxU(), sprite.getMinV() + maxV).light(light).normal(1, 1, 1).next();
-        buffer.vertex(mat, 1 - sizeFactor, 0, sizeFactor).color(red, green, blue, 255).texture(sprite.getMaxU(), sprite.getMinV() + minV).light(light).normal(1, 1, 1).next();
-        buffer.vertex(mat, sizeFactor, 0, sizeFactor).color(red, green, blue, 255).texture(sprite.getMinU(), sprite.getMinV() + minV).light(light).normal(1, 1, 1).next();
+        buffer.vertex(matrix4f, sizeFactor, 0, 1 - sizeFactor).color(red, green, blue, 255).texture(sprite.getMinU(), sprite.getMinV() + maxV).light(light).normal(1, 1, 1).next();
+        buffer.vertex(matrix4f, 1 - sizeFactor, 0, 1 - sizeFactor).color(red, green, blue, 255).texture(sprite.getMaxU(), sprite.getMinV() + maxV).light(light).normal(1, 1, 1).next();
+        buffer.vertex(matrix4f, 1 - sizeFactor, 0, sizeFactor).color(red, green, blue, 255).texture(sprite.getMaxU(), sprite.getMinV() + minV).light(light).normal(1, 1, 1).next();
+        buffer.vertex(matrix4f, sizeFactor, 0, sizeFactor).color(red, green, blue, 255).texture(sprite.getMinU(), sprite.getMinV() + minV).light(light).normal(1, 1, 1).next();
         matrices.pop();
     }
 
