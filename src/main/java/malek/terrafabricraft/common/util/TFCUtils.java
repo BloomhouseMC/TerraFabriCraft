@@ -43,6 +43,12 @@ public final class TFCUtils {
         return String.join(".", TerraFabriCraft.MODID, "enum", enumName, anEnum.name()).toLowerCase(Locale.ROOT);
     }
 
+    /**
+     * Consumes an item from player inventory and adds a new one
+     * @param player The player which is exchanging item
+     * @param hand Player hand
+     * @param toAdd which item to receive instead.
+     */
     public static void addItemToInventoryAndConsume(PlayerEntity player, Hand hand, ItemStack toAdd) {
         boolean shouldAdd = false;
         ItemStack stack = player.getStackInHand(hand);
@@ -111,6 +117,9 @@ public final class TFCUtils {
         }
         return true;
     }
+    /**
+     * Handles save and load, so inventories remain upon reload
+     */
     public static class InventoryUtils {
         public static NbtList toTag(SimpleInventory inventory) {
             NbtList tag = new NbtList();
@@ -133,6 +142,9 @@ public final class TFCUtils {
         }
 
     }
+    /**
+     * Type declaration for an area of a space
+     */
     public static class Dimension {
 
         private int width;
@@ -151,6 +163,9 @@ public final class TFCUtils {
             return height;
         }
     }
+    /**
+     * Type declaration for a point in 2D space
+     */
     public static class Point {
         public int x;
         public int y;
@@ -160,14 +175,23 @@ public final class TFCUtils {
             this.y = y;
         }
     }
+    /**
+     * Handles adding and taking items from a GUI-less inventory. "Hand.MAIN_HAND.equals(hand)" so we filter off the off-hand so the code doesnt run twice.
+     * @param stack The ItemStack which the player wants to add.
+     * @param player Player putting or taking item.
+     * @param hand Mainhand or OffHand.
+     * @param inventory The target inventory.
+     * @param itemSlot The slot of the target inventory.
+     */
     public static void handleGUILessInventory(ItemStack stack, PlayerEntity player, Hand hand, DefaultedList<ItemStack> inventory, int itemSlot){
-        if(!stack.isEmpty() && inventory.get(itemSlot).isEmpty()){
-            inventory.set(itemSlot, stack.split(1));
-        }else if(!inventory.get(itemSlot).isEmpty() && player.getStackInHand(hand).isEmpty()){
-            player.setStackInHand(hand, inventory.get(itemSlot).copy());
-            inventory.set(itemSlot, new ItemStack(Items.AIR));
+        if(player.isSneaking() && Hand.MAIN_HAND.equals(hand)){
+            if(player.getMainHandStack().isOf(stack.getItem()) && inventory.get(itemSlot).isEmpty()){
+                inventory.set(itemSlot, stack.split(1));
+            }else if(inventory.get(itemSlot).getItem() != Items.AIR && player.getStackInHand(hand).isEmpty()){
+                player.setStackInHand(hand, inventory.get(itemSlot).copy());
+                inventory.set(itemSlot, new ItemStack(Items.AIR));
+            }
         }
-
     }
 
 }
