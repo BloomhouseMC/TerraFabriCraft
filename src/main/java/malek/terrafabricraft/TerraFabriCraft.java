@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 
 public class TerraFabriCraft implements ModInitializer {
 
-    public static final Logger LOGGER = LogManager.getLogger(TerraFabriCraft.MODID);
+    public static final Logger LOGGER = LogManager.getLogger(TerraFabriCraft.MOD_ID);
 
     public static final String MOD_ID = "terrafabricraft";
     public static final ItemGroup EARTH_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "earth"), () -> new ItemStack(TFCObjects.SAND_WHITE));
@@ -23,11 +23,11 @@ public class TerraFabriCraft implements ModInitializer {
     public static final ItemGroup ROCK_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "rock"), () -> new ItemStack(TFCObjects.ANDESITE.raw.block));
     public static final ItemGroup METAL_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "metal"), () -> new ItemStack(TFCObjects.INGOT.wrought_iron));
     public static final ItemGroup WOOD_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "wood"), () -> new ItemStack(TFCObjects.WOOD_DOUGLAS_FIR.log));
-    public static final ItemGroup FLORA_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "flora"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
-    public static final ItemGroup DEVICES_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "devices"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
     public static final ItemGroup FOOD_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "food"), () -> new ItemStack(TFCObjects.RED_APPLE));
-    public static final ItemGroup MISC_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "misc"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
+    public static final ItemGroup FLORA_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "flora"), () -> new ItemStack(TFCObjects.PLANT_GOLDENROD));
     public static final ItemGroup DECORATIONS_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "decorations"), () -> new ItemStack(TFCObjects.ALABASTER_STAINED_CYAN.brick.block));
+    public static final ItemGroup MISC_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "misc"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
+    public static final ItemGroup DEVICES_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "devices"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
 
 
     @Override

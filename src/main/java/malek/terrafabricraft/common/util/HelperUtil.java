@@ -36,7 +36,7 @@ public final class HelperUtil {
     }
 
     public static String getEnumTranslationKey(Enum<?> anEnum, String enumName) {
-        return String.join(".", TerraFabriCraft.MODID, "enum", enumName, anEnum.name()).toLowerCase(Locale.ROOT);
+        return String.join(".", TerraFabriCraft.MOD_ID, "enum", enumName, anEnum.name()).toLowerCase(Locale.ROOT);
     }
 
     public static void addItemToInventoryAndConsume(PlayerEntity player, Hand hand, ItemStack toAdd) {

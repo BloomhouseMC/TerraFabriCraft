@@ -22,18 +22,18 @@ public class TFCEntityTypes {
 
     private static <T extends LivingEntity> EntityType<T> create(String name, DefaultAttributeContainer.Builder attributes, EntityType<T> type) {
         FabricDefaultAttributeRegistry.register(type, attributes);
-        ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MODID, name));
+        ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MOD_ID, name));
         return type;
     }
 
     public static final EntityType<RoosterEntity> ROOSTER = Registry.register(
             Registry.ENTITY_TYPE,
-            new Identifier(TerraFabriCraft.MODID, "rooster"),
+            new Identifier(TerraFabriCraft.MOD_ID, "rooster"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RoosterEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
 
     private static <T extends Entity> EntityType<T> create(String name, EntityType<T> type) {
-        ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MODID, name));
+        ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MOD_ID, name));
         return type;
     }
 

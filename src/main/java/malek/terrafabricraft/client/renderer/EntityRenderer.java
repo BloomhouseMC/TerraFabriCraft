@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class EntityRenderer implements ClientModInitializer {
-    public static final EntityModelLayer MODEL_ROOSTER_LAYER = new EntityModelLayer(new Identifier(TerraFabriCraft.MODID, "rooster"), "main");
+    public static final EntityModelLayer MODEL_ROOSTER_LAYER = new EntityModelLayer(new Identifier(TerraFabriCraft.MOD_ID, "rooster"), "main");
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.INSTANCE.register(TFCEntityTypes.ROOSTER, RoosterRenderer::new);
