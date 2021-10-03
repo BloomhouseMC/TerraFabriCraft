@@ -41,7 +41,7 @@ public class LogPileGuiDescription extends SyncedGuiDescription {
         root.add(itemSlot3, 75, 45);
 
 
-//        WSprite sprite = new WSprite(new Identifier(ModScience.MOD_ID, "textures/gui/tesseract/tesseract_ui_tier1.png"));
+//        WSprite sprite = new WSprite(new Identifier(ModScience.MODID, "textures/gui/tesseract/tesseract_ui_tier1.png"));
 //        this.titleVisible = false;
 //        root.add(sprite, 0, -10, sizeX, sizeY);
 

@@ -35,13 +35,13 @@ public class ForgeGuiDescription extends SyncedGuiDescription {
         root.setInsets(Insets.ROOT_PANEL);
         setTitleAlignment(HorizontalAlignment.CENTER);
 
-        //root.setBackgroundPainter(BackgroundPainter.createNinePatch(new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/charcoal_forge.png")));
-        //WTiledSprite sprite = new WTiledSprite(250, 250, new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/charcoal_forge.png"));
+        //root.setBackgroundPainter(BackgroundPainter.createNinePatch(new Identifier(TerraFabriCraft.MODID, "textures/gui/charcoal_forge.png")));
+        //WTiledSprite sprite = new WTiledSprite(250, 250, new Identifier(TerraFabriCraft.MODID, "textures/gui/charcoal_forge.png"));
 
-        Texture texture = new Texture(new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/heat_indicator.png"));
+        Texture texture = new Texture(new Identifier(TerraFabriCraft.MODID, "textures/gui/heat_indicator.png"));
         //texture = texture.withUv(1, 1, 2, 2);
         WSprite temperatureBar = new WSprite(texture);
-        WSprite temperatureIndicator = new WSprite(new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/arrow.png")) {
+        WSprite temperatureIndicator = new WSprite(new Identifier(TerraFabriCraft.MODID, "textures/gui/arrow.png")) {
 
             @Override
             @Environment(EnvType.CLIENT)

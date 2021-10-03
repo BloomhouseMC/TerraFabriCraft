@@ -28,7 +28,7 @@ public class Calendar extends PersistentState {
     private final List<ServerPlayerEntity> playerList;
     private ServerWorld serverLevel;
 
-    public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MOD_ID, "calendar");
+    public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MODID, "calendar");
 
 
 
