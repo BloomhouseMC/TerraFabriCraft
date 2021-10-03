@@ -1,0 +1,18 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:clay_grass/loam",
+    "terrafabricraft:clay_grass/sandy_loam",
+    "terrafabricraft:clay_grass/silt",
+    "terrafabricraft:clay_grass/silty_loam",
+    "terrafabricraft:dirt/loam",
+    "terrafabricraft:dirt/sandy_loam",
+    "terrafabricraft:dirt/silt",
+    "terrafabricraft:dirt/silty_loam",
+    "terrafabricraft:grass/loam",
+    "terrafabricraft:grass/sandy_loam",
+    "terrafabricraft:grass/silt",
+    "terrafabricraft:grass/silty_loam",
+    "terrafabricraft:peat_grass"
+  ]
+}

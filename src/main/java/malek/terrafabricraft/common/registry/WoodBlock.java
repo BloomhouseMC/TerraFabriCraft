@@ -9,30 +9,29 @@ import net.minecraft.block.sapling.SaplingGenerator;
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
 
 public class WoodBlock {
-    public TFCLeaves leaves;
-    public TFCLog log;
-    public Block planks;
-    public TFCSapling sapling;
-    public TFCLog stripped_log;
-    public TFCTwig twig;
-    public TFCSupport vertical_support;
-    public Keg keg;
+    public final TFCFallenLeavesBlock fallen_leaves;
+    public final Keg keg;
+    public final TFCLeaves leaves;
+    public final TFCLog log;
+    public final Block planks;
+    public final TFCSapling sapling;
+    public final TFCLog stripped_log;
+    public final TFCTwig twig;
+    public final TFCSupport vertical_support;
 
     public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
+        fallen_leaves = createFallenLeaves("wood/fallen_leaves/" + variantId);
+        keg = setCreateKeg(variantId);
         leaves = setCreateLeaves(variantId);
-        log = setCreateLog(variantId);
-        planks = setCreateBlock(variantId, "planks");
+        log = setCreateLog("wood/stripped_log/", variantId, color);
+        planks = setCreateFlammableBlock("wood/planks/", variantId, color);
         sapling = setCreateSapling(variantId, saplingGenerator);
-        stripped_log = setCreateStrippedLog(variantId, color);
+        stripped_log = setCreateLog("wood/log/", variantId, color);
         twig = setCreateTwig(variantId);
         vertical_support = setCreateSupport(variantId);
-        keg = setCreateKeg(variantId);
     }
 
     //TODO: Refactor unnecessary methods.
-    private static Block setCreateBlock(String variantId, String special) {
-        return createLog("wood/" + special + "/" + variantId, true);
-    }
 
     private static TFCLeaves setCreateLeaves(String variantId) {
         return createLeaves("wood/leaves/" + variantId, true);
@@ -42,16 +41,16 @@ public class WoodBlock {
         return createTwig("wood/twig/" + variantId, true);
     }
 
-    private static TFCLog setCreateLog(String variantId) {
-        return createLog("wood/log/" + variantId, true);
+    private static TFCLog setCreateLog(String special, String variantId, MapColor color) {
+        return createLog(special +  variantId, color, true);
+    }
+
+    private static Block setCreateFlammableBlock(String special, String variantId, MapColor color) {
+        return createFlammableBlock(special + variantId, color, true);
     }
 
     private static TFCSapling setCreateSapling(String variantId, SaplingGenerator generator) {
         return createSapling("wood/sapling/" + variantId, true, generator);
-    }
-
-    private static TFCLog setCreateStrippedLog(String variantId, MapColor color) {
-        return createStrippedLog("wood/stripped_log/" + variantId, color, true);
     }
 
     private static TFCSupport setCreateSupport(String variantId) {

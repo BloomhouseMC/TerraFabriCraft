@@ -26,8 +26,8 @@ public class TerraFabriCraft implements ModInitializer {
     public static final ItemGroup FLORA_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "flora"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
     public static final ItemGroup DEVICES_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "devices"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
     public static final ItemGroup FOOD_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "food"), () -> new ItemStack(TFCObjects.RED_APPLE));
-    public static final ItemGroup MISC_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "misc"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
     public static final ItemGroup DECORATIONS_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "decorations"), () -> new ItemStack(TFCObjects.ALABASTER_STAINED_CYAN.brick.block));
+    public static final ItemGroup MISC_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "misc"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
 
 
     @Override

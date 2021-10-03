@@ -42,7 +42,6 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
         }
     }
 
-
     public void decreaseThirst(int sub){
         if(getThirst() - sub >= 0){
 

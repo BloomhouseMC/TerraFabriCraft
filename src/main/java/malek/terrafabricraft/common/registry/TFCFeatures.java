@@ -342,7 +342,7 @@ public class TFCFeatures {
         register("tree/palm", TREE_PALM, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/pine", TREE_PINE, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/rosewood", TREE_ROSEWOOD, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
-        register("tree/sequoia", TREE_SEQUOIA, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
+        register("tree/sequoia", TREE_SEQUOIA, BiomeSelectors.categories(Biome.Category.EXTREME_HILLS ), vegetalGenStep);
         register("tree/spruce", TREE_SPRUCE, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/sycamore", TREE_SYCAMORE, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/white_cedar", TREE_WHITE_CEDAR, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);

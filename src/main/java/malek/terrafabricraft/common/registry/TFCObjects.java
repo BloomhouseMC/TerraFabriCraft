@@ -11,11 +11,11 @@ import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlockEntity;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCFood;
-import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.item.TFCMetalItem;
 import malek.terrafabricraft.common.world.generator.tree.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.tag.TagFactory;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -23,6 +23,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -108,27 +109,27 @@ public class TFCObjects {
     public static final Item WHEAT_SEED = createItem("seed/wheat_seeds", new AliasedBlockItem(WHEAT_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item YELLOW_BELL_PEPPER_SEED = createItem("seed/yellow_bell_pepper_seeds", new AliasedBlockItem(YELLOW_BELL_PEPPER_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
 
-    public static final Item BITUMINOUSE_COAL = createItemSimple("ore/bituminous_coal",TerraFabriCraft.ORES_GROUP);
-    public static final Item LIGNITE = createItemSimple("ore/lignite",TerraFabriCraft.ORES_GROUP);
-    public static final Item KAOLINITE = createItemSimple("ore/kaolinite",TerraFabriCraft.ORES_GROUP);
-    public static final Item GYPSUM = createItemSimple("ore/gypsum",TerraFabriCraft.ORES_GROUP);
-    public static final Item GRAPHITE = createItemSimple("ore/graphite",TerraFabriCraft.ORES_GROUP);
-    public static final Item SULFUR = createItemSimple("ore/sulfur",TerraFabriCraft.ORES_GROUP);
-    public static final Item CINNABAR = createItemSimple("ore/cinnabar",TerraFabriCraft.ORES_GROUP);
-    public static final Item CRYOLITE = createItemSimple("ore/cryolite",TerraFabriCraft.ORES_GROUP);
-    public static final Item SALPETER = createItemSimple("ore/saltpeter",TerraFabriCraft.ORES_GROUP);
-    public static final Item SYLVITE = createItemSimple("ore/sylvite",TerraFabriCraft.ORES_GROUP);
-    public static final Item BORAX = createItemSimple("ore/borax",TerraFabriCraft.ORES_GROUP);
-    public static final Item HALITE = createItemSimple("ore/halite",TerraFabriCraft.ORES_GROUP);
-    public static final Item AMETHYST = createItemSimple("ore/amethyst",TerraFabriCraft.ORES_GROUP);
-    public static final Item DIAMOND = createItemSimple("ore/diamond",TerraFabriCraft.ORES_GROUP);
-    public static final Item EMERALD = createItemSimple("ore/emerald",TerraFabriCraft.ORES_GROUP);
-    public static final Item LAPIS_LAZULI = createItemSimple("ore/lapis_lazuli",TerraFabriCraft.ORES_GROUP);
-    public static final Item OPAL = createItemSimple("ore/opal",TerraFabriCraft.ORES_GROUP);
-    public static final Item PYRITE = createItemSimple("ore/pyrite",TerraFabriCraft.ORES_GROUP);
-    public static final Item RUBY = createItemSimple("ore/ruby",TerraFabriCraft.ORES_GROUP);
-    public static final Item SAPPHIRE = createItemSimple("ore/sapphire",TerraFabriCraft.ORES_GROUP);
-    public static final Item TOPAZ = createItemSimple("ore/topaz",TerraFabriCraft.ORES_GROUP);
+    public static final Item BITUMINOUSE_COAL = createItemSimple("ore/bituminous_coal", TerraFabriCraft.ORES_GROUP);
+    public static final Item LIGNITE = createItemSimple("ore/lignite", TerraFabriCraft.ORES_GROUP);
+    public static final Item KAOLINITE = createItemSimple("ore/kaolinite", TerraFabriCraft.ORES_GROUP);
+    public static final Item GYPSUM = createItemSimple("ore/gypsum", TerraFabriCraft.ORES_GROUP);
+    public static final Item GRAPHITE = createItemSimple("ore/graphite", TerraFabriCraft.ORES_GROUP);
+    public static final Item SULFUR = createItemSimple("ore/sulfur", TerraFabriCraft.ORES_GROUP);
+    public static final Item CINNABAR = createItemSimple("ore/cinnabar", TerraFabriCraft.ORES_GROUP);
+    public static final Item CRYOLITE = createItemSimple("ore/cryolite", TerraFabriCraft.ORES_GROUP);
+    public static final Item SALPETER = createItemSimple("ore/saltpeter", TerraFabriCraft.ORES_GROUP);
+    public static final Item SYLVITE = createItemSimple("ore/sylvite", TerraFabriCraft.ORES_GROUP);
+    public static final Item BORAX = createItemSimple("ore/borax", TerraFabriCraft.ORES_GROUP);
+    public static final Item HALITE = createItemSimple("ore/halite", TerraFabriCraft.ORES_GROUP);
+    public static final Item AMETHYST = createItemSimple("ore/amethyst", TerraFabriCraft.ORES_GROUP);
+    public static final Item DIAMOND = createItemSimple("ore/diamond", TerraFabriCraft.ORES_GROUP);
+    public static final Item EMERALD = createItemSimple("ore/emerald", TerraFabriCraft.ORES_GROUP);
+    public static final Item LAPIS_LAZULI = createItemSimple("ore/lapis_lazuli", TerraFabriCraft.ORES_GROUP);
+    public static final Item OPAL = createItemSimple("ore/opal", TerraFabriCraft.ORES_GROUP);
+    public static final Item PYRITE = createItemSimple("ore/pyrite", TerraFabriCraft.ORES_GROUP);
+    public static final Item RUBY = createItemSimple("ore/ruby", TerraFabriCraft.ORES_GROUP);
+    public static final Item SAPPHIRE = createItemSimple("ore/sapphire", TerraFabriCraft.ORES_GROUP);
+    public static final Item TOPAZ = createItemSimple("ore/topaz", TerraFabriCraft.ORES_GROUP);
 
     public static final OreItem RICH_ORE_ITEM = new OreItem("rich");
     public static final OreItem NORMAL_ORE_ITEM = new OreItem("normal");
@@ -275,13 +276,13 @@ public class TFCObjects {
     public static final Item COOKED_PORK = createFood("cooked_pork", 1, 1);
     public static final Item RAW_RABBIT = createFood("rabbit", 1, 1);
     public static final Item COOKED_RABBIT = createFood("cooked_rabbit", 1, 1);
-    public static final Item RAW_CHICKEN = createFood("chicken",1, 1);
-    public static final Item COOKED_CHICKEN = createFood("cooked_chicken",1, 1);
+    public static final Item RAW_CHICKEN = createFood("chicken", 1, 1);
+    public static final Item COOKED_CHICKEN = createFood("cooked_chicken", 1, 1);
     public static final Item RAW_VENISON = createFood("venison", 1, 1);
     public static final Item COOKED_VENISON = createFood("cooked_venison", 1, 1);
     public static final Item RAW_WOLF = createFood("wolf", 1, 1);
     public static final Item COOKED_WOLF = createFood("cooked_wolf", 1, 1);
-    public static final Item SOYBEAN = createFood("soybean",1, 1);
+    public static final Item SOYBEAN = createFood("soybean", 1, 1);
     //Dairy
     public static final Item CHEESE = createFood("cheese", 1, 1);
     //public static final TFCFood MILK = new TFCFood("barley_bread", new FabricItemSettings(), 1, 1);
@@ -350,8 +351,78 @@ public class TFCObjects {
     public static final RockBlock SCHIST = new RockBlock("schist");
     public static final RockBlock SHALE = new RockBlock("shale");
     public static final RockBlock SLATE = new RockBlock("slate");
-    //Peat grass
-    public static final TFCGravityBlock PEAT_GRASS = createSand("peat_grass", true);
+
+    public static final TFCGrassCrop PLANT_ALLIUM = createGrassCrop("plant/allium", 1, 1, 1);
+    public static final TFCGrassCrop PLANT_ARUNDO = createGrassCrop("plant/arundo", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_ATHYRIUM_FERN = createGrassCrop("plant/athyrium_fern", 1, 1, 1);
+    //Badderlocks [dirt]
+    public static final TFCGrassCrop PLANT_BANANA_SAPLING = createGrassCrop("plant/banana_sapling", 1, 1, 1);
+    public static final TFCGrassCrop PLANT_BLACK_ORCHID = createGrassCrop("plant/black_orchid", 1, 1, 1);
+    public static final TFCGrassCrop PLANT_BLACKBERRY_BUSH = createGrassCrop("plant/blackberry_bush", 1, 1, 3);
+    //Blackberry bush cane [side]
+    public static final TFCGrassCrop PLANT_BLOOD_LILY = createGrassCrop("plant/blood_lily", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_BLUE_ORCHID = createGrassCrop("plant/blue_orchid", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_BLUEBERRY_BUSH = createGrassCrop("plant/blueberry_bush", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_BUNCHBERRY_BUSH = createGrassCrop("plant/bunchberry_bush", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_BUTTERFLY_MILKWEED = createGrassCrop("plant/butterfly_milkweed", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_CALENDULA = createGrassCrop("plant/calendula", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_CANNA = createGrassCrop("plant/canna", 1, 1, 3);
+    //Cattail [dirt]
+    public static final TFCGrassCrop PLANT_CHERRY_SAPLING = createGrassCrop("plant/cherry_sapling", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_CLOUDBERRY_BUSH = createGrassCrop("plant/cloudberry_sapling", 1, 1, 3);
+    //Coontail [water]
+    public static final TFCGrassCrop PLANT_CRANBERRY_BUSH = createGrassCrop("plant/cranberry_bush", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_DANDELION = createGrassCrop("plant/dandelion", 1, 1, 3);
+    //Dead berry bush has no item
+    //Dead cane has no item
+    //Duckweed [water]
+    //Eel grass [water]
+    public static final TFCGrassCrop PLANT_ELDENBERRY_BUSH = createGrassCrop("plant/eldenberry_bush", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_FIELD_HORSETAIL = createGrassCrop("plant/field_horsetail", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_FOUNTAIN_GRASS = createGrassCrop("plant/fountain_grass", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_FOXGLOVE = createGrassCrop("plant/foxglove", 1, 1, 3);
+    //Kelp [water]
+    public static final TFCGrassCrop PLANT_GOLDENROD = createGrassCrop("plant/goldenrod", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_GOOSEBERRY_BUSH = createGrassCrop("plant/gooseberry_bush", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_GRAPE_HYACINTH = createGrassCrop("plant/grape_hyacinth", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_GREEN_APPLE_SAPLING = createGrassCrop("plant/green_apple_sapling", 1, 1, 3);
+    //Gutweed [nowhere]
+    //Guzmania [nowhere]
+    //Hanging vines [top]
+    public static final TFCGrassCrop PLANT_HOUSTONIA = createGrassCrop("plant/houstonia", 1, 1, 3);
+    //Ivy [side]
+    //Jungle vines [side]
+    public static final TFCGrassCrop PLANT_LABRADOR_TEA = createGrassCrop("plant/labrador_tea", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_LADY_FERN = createGrassCrop("plant/lady_fern", 1, 1, 3);
+    //Laminaria [nowhere]
+    //Leafy kelp [water]
+    public static final TFCGrassCrop PLANT_LEMON_SAPLING = createGrassCrop("plant/lemon_sapling", 1, 1, 3);
+    //Liana [top]
+    //Licore plant [side]
+    //Lotus [lilypad]
+    //Manatee grass [water]
+    //Marigold [water]
+    public static final TFCGrassCrop PLANT_MEADS_MILKWEED = createGrassCrop("plant/meads_milkweed", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_MILFOIL = createGrassCrop("plant/milfoil", 1, 1, 3);
+    //Morning glory [all sides]
+    //Moss [all sides]
+    public static final TFCGrassCrop PLANT_NASTURTIUM = createGrassCrop("plant/nasturtium", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_OLIVE_SAPLING = createGrassCrop("plant/olive_sapling", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_ORANGE_SAPLING = createGrassCrop("plant/orange_sapling", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_ORCHARD_GRASS = createGrassCrop("plant/orchard_grass", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_OSTRICH_FERN = createGrassCrop("plant/ostrich_fern", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_OXEYE_DAISY = createGrassCrop("plant/oxeye_daisy", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_PAMPAS_GRASS = createGrassCrop("plant/pampas_grass", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_PEACH_SAPLING = createGrassCrop("plant/peach_sapling", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_PEROVSKIA = createGrassCrop("plant/perovskia", 1, 1, 3);
+    //Pistia [lilypad]
+    public static final TFCGrassCrop PLANT_PLUM_SAPLING = createGrassCrop("plant/plum_sapling", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_POPPY = createGrassCrop("plant/poppy", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_PRIMROSE = createGrassCrop("plant/primrose", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_PULSATILLA = createGrassCrop("plant/pulsatilla", 1, 1, 3);
+    public static final TFCGrassCrop PLANT_RASPBERRY_BUSH = createGrassCrop("plant/raspberry_bush", 1, 1, 3);
+    //Rattan has no item
+    public static final TFCGrassCrop PLANT_RED_APPLE_SAPLING = createGrassCrop("plant/red_apple_sapling", 1, 1, 3);
     //Sand
     public static final TFCGravityBlock SAND_BLACK = createSand("sand/black", true);
     public static final TFCGravityBlock SAND_BROWN = createSand("sand/brown", true);
@@ -360,6 +431,7 @@ public class TFCObjects {
     public static final TFCGravityBlock SAND_RED = createSand("sand/red", true);
     public static final TFCGravityBlock SAND_WHITE = createSand("sand/white", true);
     public static final TFCGravityBlock SAND_YELLOW = createSand("sand/yellow", true);
+
     //Wood blocks
     public static final WoodBlock WOOD_ACACIA = new WoodBlock("acacia", new GenericSaplingGenerator(TREE_ACACIA), MapColor.RED);
     public static final WoodBlock WOOD_ASH = new WoodBlock("ash", new GenericSaplingGenerator(TREE_ASH), MapColor.BRIGHT_RED);
@@ -381,7 +453,6 @@ public class TFCObjects {
     public static final WoodBlock WOOD_WHITE_CEDAR = new WoodBlock("white_cedar", new GenericSaplingGenerator(TREE_WHITE_CEDAR), MapColor.WHITE);
     public static final WoodBlock WOOD_WILLOW = new WoodBlock("willow", new GenericSaplingGenerator(TREE_WILLOW), MapColor.WHITE);
 
-    //Make a createBlock method, baldek :P. Haha baldek ☉ ‿ ⚆
     public static final LogPile LOG_PILE = register("log_pile", new LogPile(FabricBlockSettings.copyOf(Blocks.STONE)));
     public static final ToolRackBlock TOOL_RACK_BLOCK = register("tool_rack_block", new ToolRackBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD)));
 
@@ -392,6 +463,11 @@ public class TFCObjects {
     public static final SandstoneBlock SANDSTONE_RED = new SandstoneBlock("sandstone/red");
     public static final SandstoneBlock SANDSTONE_WHITE = new SandstoneBlock("sandstone/white");
     public static final SandstoneBlock SANDSTONE_YELLOW = new SandstoneBlock("sandstone/yellow");
+
+    //Misc
+    //Peat grass
+    public static final TFCGravityBlock PEAT_GRASS = createSand("peat_grass", true);
+    public static final Block FORGE = register("forge", new Forge(FabricBlockSettings.copyOf(Blocks.SAND)), true, TerraFabriCraft.DEVICES_GROUP);
 
     //Peat
     public static final TFCGravityBlock PEAT = createRock("peat", TerraFabriCraft.EARTH_GROUP);
@@ -406,8 +482,6 @@ public class TFCObjects {
 
     public static final Block CHARCOAL_PILE = createLooseRock("charcoal_pile", true);
 
-    //Misc
-    public static final Block FORGE = register("forge", new Forge(FabricBlockSettings.copyOf(Blocks.SAND)),true, TerraFabriCraft.DEVICES_GROUP);
 
     //Block Entities
     public static final BlockEntityType<LogPileBlockEntity> LOG_PILE_BLOCK_ENTITY = register("log_pile_entity", FabricBlockEntityTypeBuilder.create(LogPileBlockEntity::new, TFCObjects.LOG_PILE).build(null));
@@ -418,6 +492,8 @@ public class TFCObjects {
     public static final BlockEntityType<KegEntity> FORGE_BLOCK_ENTITY = register("forge_entity", FabricBlockEntityTypeBuilder.create(KegEntity::new, FORGE).build(null));
     //public static final BlockEntityType<ForgeBlockEntity> FORGE_BLOCK_ENTITY = register("forge_entity", FabricBlockEntityTypeBuilder.create(ForgeBlockEntity::new, FORGE).build(null));
 
+    //Tags
+    public static final Tag<Block> CAN_PLANT_GRASS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MOD_ID, "can_plant_grass_on"));
 
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MOD_ID, id));
@@ -438,6 +514,12 @@ public class TFCObjects {
         return block;
     }
 
+    public static TFCFallenLeavesBlock createFallenLeaves(String id) {
+        var block = new TFCFallenLeavesBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_LEAVES).noCollision());
+        register(id, block, true, TerraFabriCraft.WOOD_GROUP);
+        return block;
+    }
+
     public static TFCLeaves createLeaves(String id, boolean hasBlockItem) {
         var block = new TFCLeaves(FabricBlockSettings.copyOf(Blocks.ACACIA_LEAVES).noCollision());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
@@ -450,10 +532,15 @@ public class TFCObjects {
         return block;
     }
 
-    public static TFCLog createLog(String id, boolean hasBlockItem) {
-        var block = new TFCLog(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
-        register(id, block, false, TerraFabriCraft.WOOD_GROUP);
-        createItem(id, new TFCLogItem(block, gen(TerraFabriCraft.WOOD_GROUP)));
+    public static TFCLog createLog(String id, MapColor color, boolean hasBlockItem) {
+        var block = new TFCLog(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).mapColor(color));
+        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
+        return block;
+    }
+
+    public static Block createFlammableBlock(String id, MapColor color, boolean hasBlockItem) {
+        var block = new Block(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).mapColor(color));
+        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }
 
@@ -466,13 +553,7 @@ public class TFCObjects {
 
     public static TFCStoneButtonBlock createStoneButton(String id) {
         var block = new TFCStoneButtonBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(2.0f));
-        register(id, block, true,   TerraFabriCraft.DECORATIONS_GROUP);
-        return block;
-    }
-
-    public static TFCLog createStrippedLog(String id, MapColor color, boolean hasBlockItem) {
-        var block = new TFCLog(FabricBlockSettings.of(Material.WOOD, color).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
-        register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
+        register(id, block, true, TerraFabriCraft.DECORATIONS_GROUP);
         return block;
     }
 
@@ -524,6 +605,12 @@ public class TFCObjects {
     public static TFCSupport createSupport(String id, boolean hasBlockItem) {
         var block = new TFCSupport(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
+        return block;
+    }
+
+    public static TFCGrassCrop createGrassCrop(String id, int temp, int speed, int collisionLevel) {
+        var block = new TFCGrassCrop(FabricBlockSettings.copyOf(Blocks.WHEAT), temp, speed, collisionLevel);
+        register(id, block, true, TerraFabriCraft.FLORA_GROUP);
         return block;
     }
 
@@ -591,7 +678,8 @@ public class TFCObjects {
         register("crop/" + id, block, hasBlockItem, TerraFabriCraft.FLORA_GROUP);
         return block;
     }
-    public static Item createFood(String id, int weigthCategory, int sizeCategory){
+
+    public static Item createFood(String id, int weigthCategory, int sizeCategory) {
         var item = new TFCFood(id, gen(TerraFabriCraft.FOOD_GROUP), weigthCategory, sizeCategory);
         register("food/" + id, item);
         return item;
@@ -609,11 +697,13 @@ public class TFCObjects {
         ITEMS.put(item, new Identifier(TerraFabriCraft.MOD_ID, id));
         return item;
     }
+
     public static Item createItemSimple(String id, ItemGroup group) {
         var item = new Item(gen(group));
         register(id, item);
         return item;
     }
+
     public static TFCMetalItem createMetalItem(String id, ItemGroup group, int temp) {
         var item = new TFCMetalItem(gen(group), temp);
         register(id, item);
