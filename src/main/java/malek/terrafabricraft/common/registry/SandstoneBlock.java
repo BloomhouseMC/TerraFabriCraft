@@ -1,7 +1,8 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.block.*;
+import malek.terrafabricraft.common.block.TFCGravityBlock;
+import malek.terrafabricraft.common.block.TFCStairs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.WallBlock;

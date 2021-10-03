@@ -2,7 +2,7 @@ package malek.terrafabricraft.common.item.ceramic;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.util.TFCUtils.*;
+import malek.terrafabricraft.common.util.TFCUtils.Dimension;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;

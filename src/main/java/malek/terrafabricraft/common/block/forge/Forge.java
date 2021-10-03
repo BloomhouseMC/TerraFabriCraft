@@ -1,6 +1,5 @@
 package malek.terrafabricraft.common.block.forge;
 
-import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;

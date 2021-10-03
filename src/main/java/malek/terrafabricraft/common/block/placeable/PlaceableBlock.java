@@ -1,6 +1,5 @@
 package malek.terrafabricraft.common.block.placeable;
 
-import malek.terrafabricraft.common.block.keg.KegEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -8,7 +7,6 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
@@ -20,7 +18,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
 public class PlaceableBlock extends HorizontalFacingBlock implements BlockEntityProvider {

@@ -2,23 +2,15 @@ package malek.terrafabricraft.common.block.toolrack;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
-import net.minecraft.world.World;
 
 @Environment(EnvType.CLIENT)
 public class ToolRackEntityRenderer implements BlockEntityRenderer<ToolRackBlockEntity> {

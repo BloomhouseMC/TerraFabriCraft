@@ -1,6 +1,5 @@
 package malek.terrafabricraft.mixin.common;
 
-import malek.terrafabricraft.common.component.HealthComponent;
 import malek.terrafabricraft.common.registry.TFCDamage;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

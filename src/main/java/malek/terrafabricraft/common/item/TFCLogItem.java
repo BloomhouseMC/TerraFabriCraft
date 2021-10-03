@@ -1,11 +1,9 @@
 package malek.terrafabricraft.common.item;
 
-import malek.terrafabricraft.common.block.logpile.LogPileBlockEntity;
 import malek.terrafabricraft.common.temperature.ItemTemperature;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
 

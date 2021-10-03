@@ -1,18 +1,12 @@
 package malek.terrafabricraft.client;
 
-import io.netty.buffer.Unpooled;
-import malek.terrafabricraft.common.calendar.CalendarManager;
 import malek.terrafabricraft.common.component.ProficiencyComponent;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 

@@ -1,6 +1,8 @@
 package malek.terrafabricraft.common.util;
 
 import malek.terrafabricraft.TerraFabriCraft;
+import malek.terrafabricraft.common.registry.TFCObjects;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
@@ -12,8 +14,6 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
-import malek.terrafabricraft.common.registry.TFCObjects;
-import net.minecraft.block.BlockState;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
