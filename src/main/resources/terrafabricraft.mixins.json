@@ -18,7 +18,7 @@
     "client.PlayerScreenHandlerMixin",
     "client.RenderLayerAccessor",
     "client.BufferBuilderAccessor",
-    "client.MixinDebugHud"
+    "client.DebugHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

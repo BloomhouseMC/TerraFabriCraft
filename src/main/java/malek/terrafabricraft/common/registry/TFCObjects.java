@@ -670,7 +670,7 @@ public class TFCObjects {
     }
 
     public static TFCSupport createSupport(String id, boolean hasBlockItem) {
-        var block = new TFCSupport(FabricBlockSettings.copyOf(Blocks.OAK_WOOD));
+        var block = new TFCSupport(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).nonOpaque());
         register(id, block, hasBlockItem, TerraFabriCraft.WOOD_GROUP);
         return block;
     }

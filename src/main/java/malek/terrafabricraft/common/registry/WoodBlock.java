@@ -23,47 +23,31 @@ public class WoodBlock {
 
     public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
         fallen_leaves = createFallenLeaves("wood/fallen_leaves/" + variantId);
-        keg = setCreateKeg(variantId);
-        leaves = setCreateLeaves(variantId);
+        keg = createKeg("wood/keg/" + variantId, true);
+        leaves = createLeaves("wood/leaves/" + variantId, true);
         log = setCreateLog("wood/log/", variantId, color);
         planks = setCreateFlammableBlock("wood/planks/", variantId, color);
-        sapling = setCreateSapling(variantId, saplingGenerator);
+        sapling = createSapling("wood/sapling/" + variantId, true, saplingGenerator);
         stripped_log = setCreateLog("wood/stripped_log/", variantId, color);
         twig = setCreateTwig(variantId);
         vertical_support = setCreateSupport(variantId);
-        rack = setCreateRack(variantId);
-    }
-
-    private ToolRackBlock setCreateRack(String variantId) {
-        return createRack("wood/rack/"+variantId, true);
+        rack = createRack("wood/rack/" + variantId, true);
     }
 
     //TODO: Refactor unnecessary methods.
-
-    private static TFCLeaves setCreateLeaves(String variantId) {
-        return createLeaves("wood/leaves/" + variantId, true);
-    }
-
     private static TFCTwig setCreateTwig(String variantId) {
         return createTwig("wood/twig/" + variantId, true);
     }
 
     private static TFCLog setCreateLog(String special, String variantId, MapColor color) {
-        return createLog(special +  variantId, color, true);
+        return createLog(special + variantId, color, true);
     }
 
     private static Block setCreateFlammableBlock(String special, String variantId, MapColor color) {
         return createFlammableBlock(special + variantId, color, true);
     }
 
-    private static TFCSapling setCreateSapling(String variantId, SaplingGenerator generator) {
-        return createSapling("wood/sapling/" + variantId, true, generator);
-    }
-
     private static TFCSupport setCreateSupport(String variantId) {
         return createSupport("wood/support/" + variantId + "_vertical", true);
-    }
-    private static Keg setCreateKeg(String variantId) {
-        return createKeg("wood/keg/" + variantId, true);
     }
 }

@@ -13,12 +13,11 @@ import java.util.List;
 
 /**
  * The calendar is meant to count and calculate the real in-game time passed
- * since the moment the world is created taking into account the time spent sleeping,
- * changes to
+ * since the moment the world is created taking into account the time spent sleeping.
  */
 public class Calendar extends PersistentState {
 
-    private NbtCompound calendarData = new NbtCompound();
+    private final NbtCompound calendarData = new NbtCompound();
     private int iterator;
     private int secondsHand;
     private int minuteHand;
@@ -26,11 +25,9 @@ public class Calendar extends PersistentState {
     private int weekCounter;
     private int monthCounter;
     private int yearCounter;
-
     private final List<ServerPlayerEntity> playerList;
-
     private ServerWorld serverLevel;
-    public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MOD_ID, "minutehand");
+    public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MOD_ID, "calendar");
 
 
     public Calendar(ServerWorld serverLevel) {
@@ -39,22 +36,37 @@ public class Calendar extends PersistentState {
         playerList = serverLevel.getServer().getPlayerManager().getPlayerList();;
     }
 
+    /**
+     * Saves a compoundTag to ~/data/terrafabricraft.dat
+     * @param compoundTag
+     * @return
+     */
     @Override
     public NbtCompound writeNbt(NbtCompound compoundTag) {
         compoundTag.putInt("minuteHand", minuteHand);
         return compoundTag;
     }
 
+    /**
+     * Sends a packet to all clients with the value of minuteHand. See {@code CalendarClient}.
+     * Gets called by tick() every second
+     */
     public void send() {
         calendarData.putInt("minuteHand", minuteHand);
         var buf = PacketByteBufs.create();
         buf.writeNbt(calendarData);
         for (ServerPlayerEntity serverPlayerEntity : playerList) {
+            TerraFabriCraft.LOGGER.debug("Sending packet to all clients");
             ServerPlayNetworking.send(serverPlayerEntity, CALENDAR_ID, buf);
-            TerraFabriCraft.LOGGER.debug("If the server doesn't reach this code it's not sending the packets");
         }
     }
 
+    /**
+     * Loads a saved CompoundTag from ~/data/terrafabricraft.dat into a new calendar when you open a world.
+     * @param serverLevel Used to get a PlayerList instance.
+     * @param compoundTag Tag holding the calendar information saved by {@code writeNbt}.
+     * @return
+     */
     public static Calendar load(ServerWorld serverLevel, NbtCompound compoundTag) {
         System.out.println("Loading existing nbt");
         var calendar = new Calendar(serverLevel);
@@ -62,6 +74,9 @@ public class Calendar extends PersistentState {
         return calendar;
     }
 
+    /**
+     * Gets called by ServerLevel every second. See {@code CalendarMixin}.
+     */
     public void tick() {
         iterator++;
         if (iterator >= 2) {
@@ -70,9 +85,7 @@ public class Calendar extends PersistentState {
             if (secondsHand >= 1200) {
                 minuteHand++;
                 secondsHand = 0;
-                System.out.println("hey");
                 send();
-                System.out.println(getMinuteHand());
                 if (minuteHand % 20 == 0) {
                     dayCounter++;
                     if (dayCounter % 7 == 0) {
@@ -88,7 +101,6 @@ public class Calendar extends PersistentState {
     }
 
     public int getMinuteHand() {
-        System.out.println(minuteHand);
         return minuteHand;
     }
 
