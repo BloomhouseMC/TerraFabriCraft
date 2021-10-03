@@ -43,7 +43,7 @@ public class TFCObjects {
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
     // Debug + Testing
-    public static final Item TEST_FOOD = createFood("test_food", 1,1);
+    public static final Item TEST_FOOD = createFood("test_food", 1, 1);
     public static final Item CERAMIC_VESSEL = createItem("ceramic/vessel", new CeramicVessel(gen(TerraFabriCraft.DEVICES_GROUP)));
 
     public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", TerraFabriCraft.DECORATIONS_GROUP);
@@ -749,10 +749,6 @@ public class TFCObjects {
         register("food/" + id, item);
         return item;
     }
-
-
-
-    //Register item
 
     private static <T extends Item> T createItem(String id, T item) {
         ITEMS.put(item, new Identifier(TerraFabriCraft.MOD_ID, id));
