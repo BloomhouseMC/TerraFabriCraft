@@ -2,7 +2,7 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.config.ModuleConfig;
-import malek.terrafabricraft.common.util.HelperUtil;
+import malek.terrafabricraft.common.util.TFCUtils;
 import malek.terrafabricraft.common.world.generator.feature.BoulderFeature;
 import malek.terrafabricraft.common.world.generator.feature.TestBoulderFeature;
 import net.fabricmc.fabric.api.biome.v1.*;
@@ -319,7 +319,7 @@ public class TFCFeatures {
             .applyChance(5);
 
     public static final Feature<SingleStateFeatureConfig> TEST_BOULDER = new TestBoulderFeature(SingleStateFeatureConfig.CODEC);
-    public static final ConfiguredFeature<?, ?> TEST_BOULDER_CONFIGURED = TEST_BOULDER.configure(new SingleStateFeatureConfig(HelperUtil.getRandomRawStone(HelperUtil.RNG))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).applyChance(10);
+    public static final ConfiguredFeature<?, ?> TEST_BOULDER_CONFIGURED = TEST_BOULDER.configure(new SingleStateFeatureConfig(TFCUtils.getRandomRawStone(TFCUtils.RNG))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).applyChance(10);
 
     public static void init() {
         var vegetalGenStep = GenerationStep.Feature.VEGETAL_DECORATION;

@@ -13,6 +13,7 @@ import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCFood;
 import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.item.TFCMetalItem;
+import malek.terrafabricraft.common.item.ceramic.CeramicVessel;
 import malek.terrafabricraft.common.world.generator.tree.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -39,6 +40,7 @@ public class TFCObjects {
 
     // Debug + Testing
     public static final Item TEST_FOOD = createFood("test_food", 1,1);
+    public static final Item CERAMIC_VESSEL = createItem("ceramic/vessel", new CeramicVessel(gen(TerraFabriCraft.DEVICES_GROUP)));
 
     public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", TerraFabriCraft.DECORATIONS_GROUP);
     public static final Block ALABASTER_RAW_ALABASTER_BRICKS = createRock("alabaster/raw/alabaster_bricks", TerraFabriCraft.DECORATIONS_GROUP);
@@ -568,13 +570,13 @@ public class TFCObjects {
 
 
     public static TFCGravityGrassBlock createGrass(String id, boolean hasBlockItem) {
-        var block = new TFCGravityGrassBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        var block = new TFCGravityGrassBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.GRASS).strength(2.0f));
         register(id, block, hasBlockItem, TerraFabriCraft.EARTH_GROUP);
         return block;
     }
 
     public static TFCGravityBlock createFarmland(String id, boolean hasItem) {
-        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.SLIME).strength(2.0f));
+        var block = new TFCGravityBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.GRAVEL).strength(2.0f));
         register(id, block, hasItem, TerraFabriCraft.ROCK_GROUP);
         return block;
     }

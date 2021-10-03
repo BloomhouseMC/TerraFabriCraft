@@ -3,7 +3,10 @@ package malek.terrafabricraft.common.util;
 import malek.terrafabricraft.TerraFabriCraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.TranslatableText;
@@ -20,7 +23,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-public final class HelperUtil {
+public final class TFCUtils {
     public static final Random RNG = new Random();
 
     public static boolean isClientSide(WorldView world) {
@@ -106,6 +109,55 @@ public final class HelperUtil {
             }
         }
         return true;
+    }
+    public static class InventoryUtils {
+        public static NbtList toTag(SimpleInventory inventory) {
+            NbtList tag = new NbtList();
+            for(int i = 0; i < inventory.size(); i++) {
+                NbtCompound stackTag = new NbtCompound();
+                stackTag.putInt("Slot", i);
+                stackTag.put("Stack", inventory.getStack(i).writeNbt(new NbtCompound()));
+                tag.add(stackTag);
+            }
+            return tag;
+        }
+        public static void fromTag(NbtList tag, SimpleInventory inventory) {
+            inventory.clear();
+            tag.forEach(element -> {
+                NbtCompound stackTag = (NbtCompound) element;
+                int slot = stackTag.getInt("Slot");
+                ItemStack stack = ItemStack.fromNbt(stackTag.getCompound("Stack"));
+                inventory.setStack(slot, stack);
+            });
+        }
+
+    }
+    public static class Dimension {
+
+        private int width;
+        private int height;
+
+        public Dimension(int width, int height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        public int getWidth() {
+            return width;
+        }
+
+        public int getHeight() {
+            return height;
+        }
+    }
+    public static class Point {
+        public int x;
+        public int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
     }
 
 }
