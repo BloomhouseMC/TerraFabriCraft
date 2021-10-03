@@ -130,25 +130,31 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
         inventory.clear();
     }
     public void handle(ItemStack stack, PlayerEntity player, Hand hand, int itemSlot){
-        if(!player.isSneaking()){
-            if(!stack.isEmpty() && inventory.get(itemSlot).isEmpty()){
+        if(player.isSneaking() && Hand.MAIN_HAND.equals(hand)){
+            if(player.getMainHandStack().isOf(stack.getItem()) && inventory.get(itemSlot).isEmpty()){
                 inventory.set(itemSlot, stack.split(1));
-            }else if(!inventory.get(itemSlot).isEmpty() && player.getStackInHand(hand).isEmpty()){
+            }
+            else if(inventory.get(itemSlot).getItem() != Items.AIR && player.getStackInHand(hand).isEmpty()){
                 player.setStackInHand(hand, inventory.get(itemSlot).copy());
                 inventory.set(itemSlot, new ItemStack(Items.AIR));
             }
         }
-
     }
 
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack stack = player.getStackInHand(hand);
-        double normalX = (hit.getPos().x - pos.getX());
-        double normalZ = (hit.getPos().z - pos.getZ());
-        if (normalX < 0.5 && normalZ > 0.5) handle(stack, player, hand, 2);
-        if (normalX > 0.5 && normalZ > 0.5) handle(stack, player, hand, 3);
-        if (normalX < 0.5 && normalZ < 0.5) handle(stack, player, hand, 0);
-        if (normalX > 0.5 && normalZ < 0.5) handle(stack, player, hand, 1);
-        this.sync();
+        if(!world.isClient){
+            ItemStack stack = player.getStackInHand(hand);
+            double normalX = (hit.getPos().x - pos.getX());
+            double normalZ = (hit.getPos().z - pos.getZ());
+            if (normalX < 0.5 && normalZ > 0.5) {
+                handle(stack, player, hand, 2);}
+            else if (normalX > 0.5 && normalZ > 0.5) {
+                handle(stack, player, hand, 3);}
+            else if (normalX < 0.5 && normalZ < 0.5) {
+                handle(stack, player, hand, 0);}
+            else if (normalX > 0.5 && normalZ < 0.5) {
+                handle(stack, player, hand, 1);}
+            this.sync();
+        }
     }
 }

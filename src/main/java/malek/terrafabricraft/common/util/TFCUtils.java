@@ -5,6 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.recipe.Ingredient;
@@ -158,6 +159,15 @@ public final class TFCUtils {
             this.x = x;
             this.y = y;
         }
+    }
+    public static void handleGUILessInventory(ItemStack stack, PlayerEntity player, Hand hand, DefaultedList<ItemStack> inventory, int itemSlot){
+        if(!stack.isEmpty() && inventory.get(itemSlot).isEmpty()){
+            inventory.set(itemSlot, stack.split(1));
+        }else if(!inventory.get(itemSlot).isEmpty() && player.getStackInHand(hand).isEmpty()){
+            player.setStackInHand(hand, inventory.get(itemSlot).copy());
+            inventory.set(itemSlot, new ItemStack(Items.AIR));
+        }
+
     }
 
 }

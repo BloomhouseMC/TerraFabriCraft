@@ -1,7 +1,10 @@
 package malek.terrafabricraft.common.block.placeable;
 
+import malek.terrafabricraft.common.block.keg.KegEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -41,6 +44,11 @@ public class PlaceableBlock extends HorizontalFacingBlock implements BlockEntity
     @Override
     public VoxelShape getOutlineShape(BlockState blockState, BlockView view, BlockPos pos, ShapeContext context) {
         return VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1.0f, 0.01f, 1.0f);
+    }
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return (tickerWorld, pos, tickerState, blockEntity) -> PlaceableBlockEntity.tick(tickerWorld, pos, tickerState, (PlaceableBlockEntity) blockEntity);
     }
 
     @Override
