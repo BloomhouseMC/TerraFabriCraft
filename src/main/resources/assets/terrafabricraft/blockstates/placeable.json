@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "terrafabricraft:block/empty"
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/empty",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/empty",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "terrafabricraft:block/empty",
+      "y": 270
+    }
+  }
+}

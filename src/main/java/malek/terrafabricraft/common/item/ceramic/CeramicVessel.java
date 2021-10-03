@@ -1,7 +1,9 @@
 package malek.terrafabricraft.common.item.ceramic;
 
 import malek.terrafabricraft.common.block.keg.KegEntity;
+import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntity;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
@@ -19,10 +21,13 @@ import org.jetbrains.annotations.Nullable;
 
 public class CeramicVessel extends Item  {
     public Mode mode = Mode.INVENTORY;
+    private Object PlaceableBlockEntity;
 
     public CeramicVessel(Item.Settings settings) {
         super(settings);
     }
+
+
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -30,6 +35,9 @@ public class CeramicVessel extends Item  {
         if(!user.isSneaking() && mode == Mode.INVENTORY){
             openScreen(user, user.getStackInHand(hand));
             return TypedActionResult.success(user.getStackInHand(hand));
+        }
+        if(user.isSneaking()){
+
         }
         return TypedActionResult.fail(user.getStackInHand(hand));
     }
