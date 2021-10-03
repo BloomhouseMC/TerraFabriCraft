@@ -1,5 +1,6 @@
 package malek.terrafabricraft.common.block.toolrack;
 
+import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -57,6 +58,19 @@ public class ToolRackBlock extends HorizontalFacingBlock implements BlockEntityP
         };
     }
 
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        super.onBreak(world, pos, state, player);
+        ToolRackBlockEntity blockEntity = (ToolRackBlockEntity) world.getBlockEntity(pos);
+        dropStack(world, pos, blockEntity.inventory.get(0));
+        dropStack(world, pos, blockEntity.inventory.get(1));
+        dropStack(world, pos, blockEntity.inventory.get(2));
+        dropStack(world, pos, blockEntity.inventory.get(3));
+        blockEntity.inventory.set(0, ItemStack.EMPTY);
+        blockEntity.inventory.set(1, ItemStack.EMPTY);
+        blockEntity.inventory.set(2, ItemStack.EMPTY);
+        blockEntity.inventory.set(3, ItemStack.EMPTY);
+    }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
