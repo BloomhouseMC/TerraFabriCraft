@@ -29,11 +29,8 @@ public class TerraFabriCraftClient implements ClientModInitializer {
     public static CustomLightmapTextureManager customLightmapTextureManager;
     @Override
     public void onInitializeClient() {
-        System.out.println("If the server doesn't reach this line of code everything is cursed");
         HudRenderCallback.EVENT.register(new UserHud());
         ModScreensClient.init();
-        System.out.println("If the server doesn't reach this second line of code everything is extremely cursed");
-        TerraFabriCraft.LOGGER.debug("If the server doesn't reach this code it's all cursed");
         CalendarClient.initClient();
         BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.KEG_BLOCK_ENTITY, (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new KegRenderer());
         ParticleFactoryRegistry.getInstance().register(TFCParticleTypes.KEG_BUBBLE, KegBubbleParticle.Factory::new);

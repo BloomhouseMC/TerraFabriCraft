@@ -72,9 +72,9 @@ public class RockBlock {
     public Block topaz;
 
     public RockBlock(String name) {
+
         var id = "rock/";
         button = createStoneButton(id + "button/" + name);
-        anvil = setCreateBlock(name, id, "anvil");
         brick = new BlockVariant(name, "bricks");
         chiseled = setCreateBlock(name, id, "chiseled");
         cobble = new BlockVariant(name, "cobble");

@@ -19,6 +19,7 @@ public class TFCScreens {
         FORGE_GUI_DESCRIPTION = ScreenHandlerRegistry.registerSimple(new Identifier(MOD_ID, "keg"), (syncId, inventory) -> new ForgeGuiDescription(syncId, inventory, ScreenHandlerContext.EMPTY));
         CERAMIC_VESSEL_SCREEN_HANDLER = ScreenHandlerRegistry.registerExtended(new Identifier(MOD_ID, "vessel"), CeramicVesselScreenHandler::new);
 
+
     }
 
 }

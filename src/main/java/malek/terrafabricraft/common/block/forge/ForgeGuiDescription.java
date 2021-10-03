@@ -1,13 +1,11 @@
 package malek.terrafabricraft.common.block.forge;
 
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
-import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.widget.*;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import io.github.cottonmc.cotton.gui.widget.data.Texture;
-import io.github.cottonmc.cotton.gui.widget.icon.Icon;
 import io.github.cottonmc.cotton.gui.widget.icon.ItemIcon;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.registry.TFCScreens;
@@ -19,7 +17,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Items;
-import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.util.Identifier;
 
@@ -37,8 +34,10 @@ public class ForgeGuiDescription extends SyncedGuiDescription {
         root.setSize(50, 50);
         root.setInsets(Insets.ROOT_PANEL);
         setTitleAlignment(HorizontalAlignment.CENTER);
+
         //root.setBackgroundPainter(BackgroundPainter.createNinePatch(new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/charcoal_forge.png")));
         //WTiledSprite sprite = new WTiledSprite(250, 250, new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/charcoal_forge.png"));
+
         Texture texture = new Texture(new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/heat_indicator.png"));
         //texture = texture.withUv(1, 1, 2, 2);
         WSprite temperatureBar = new WSprite(texture);

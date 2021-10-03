@@ -3,6 +3,7 @@ package malek.terrafabricraft.common.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.Waterloggable;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -12,11 +13,10 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class GroundCoverBlock extends Block {
+public class GroundCoverBlock extends Block implements Waterloggable {
     public Item dropItem;
 
     public GroundCoverBlock(Settings settings) {
@@ -43,6 +43,6 @@ public class GroundCoverBlock extends Block {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Block.createCuboidShape(0, 0, 0, 16, 1, 16);
+        return Block.createCuboidShape(0, 0, 0, 14, 1, 14);
     }
 }

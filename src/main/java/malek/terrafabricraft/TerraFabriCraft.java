@@ -9,6 +9,10 @@ import malek.terrafabricraft.common.registry.*;
 import malek.terrafabricraft.common.registry.TFCScreens;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -16,6 +20,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
+
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
