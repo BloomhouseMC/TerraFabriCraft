@@ -522,15 +522,15 @@ public class TFCObjects {
     //public static final BlockEntityType<ForgeBlockEntity> FORGE_BLOCK_ENTITY = register("forge_entity", FabricBlockEntityTypeBuilder.create(ForgeBlockEntity::new, FORGE).build(null));
 
     //Tags
-    public static final Tag<Block> CAN_PLANT_GRASS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MOD_ID, "can_plant_grass_on"));
+    public static final Tag<Block> CAN_PLANT_GRASS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_grass_on"));
 
     public static <T extends Block> T register(String id, T block) {
-        BLOCKS.put(block, new Identifier(TerraFabriCraft.MOD_ID, id));
+        BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
         return block;
     }
 
     public static <T extends Block> T register(String id, T block, Boolean hasBlockItem, ItemGroup itemGroup) {
-        BLOCKS.put(block, new Identifier(TerraFabriCraft.MOD_ID, id));
+        BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
         if (hasBlockItem) {
             ITEMS.put(new BlockItem(block, gen(itemGroup)), BLOCKS.get(block));
         }
@@ -539,17 +539,17 @@ public class TFCObjects {
 
     public static <T extends Block> T register(String id, T block, Item itemId) {
         //Do something with item id.
-        BLOCKS.put(block, new Identifier(TerraFabriCraft.MOD_ID, id));
+        BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
         return block;
     }
 
     public static <T extends Item> T register(String id, T item) {
-        ITEMS.put(item, new Identifier(TerraFabriCraft.MOD_ID, id));
+        ITEMS.put(item, new Identifier(TerraFabriCraft.MODID, id));
         return item;
     }
 
     private static <T extends BlockEntity> BlockEntityType<T> register(String id, BlockEntityType<T> type) {
-        BLOCK_ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MOD_ID, id));
+        BLOCK_ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MODID, id));
         return type;
     }
 
@@ -755,7 +755,7 @@ public class TFCObjects {
     //Register item
 
     private static <T extends Item> T createItem(String id, T item) {
-        ITEMS.put(item, new Identifier(TerraFabriCraft.MOD_ID, id));
+        ITEMS.put(item, new Identifier(TerraFabriCraft.MODID, id));
         return item;
     }
 

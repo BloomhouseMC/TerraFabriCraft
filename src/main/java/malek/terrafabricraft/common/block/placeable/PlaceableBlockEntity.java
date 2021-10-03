@@ -18,7 +18,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static malek.terrafabricraft.common.util.HelperUtil.handleGUILessInventory;
+import static malek.terrafabricraft.common.util.TFCUtils.handleGUILessInventory;
 
 public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClientSerializable, Inventory {
 

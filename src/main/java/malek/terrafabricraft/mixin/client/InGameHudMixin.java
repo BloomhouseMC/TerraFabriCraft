@@ -28,8 +28,8 @@ public abstract class InGameHudMixin extends DrawableHelper {
     /**
      * @author - MrSterner
      */
-    private static final Identifier TFC_GUI_ICONS_TEXTURE = new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/icons/overlay.png");
-    private static final Identifier EMPTY_GUI_ICONS_TEXTURE = new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/icons/empty.png");
+    private static final Identifier TFC_GUI_ICONS_TEXTURE = new Identifier(TerraFabriCraft.MODID, "textures/gui/icons/overlay.png");
+    private static final Identifier EMPTY_GUI_ICONS_TEXTURE = new Identifier(TerraFabriCraft.MODID, "textures/gui/icons/empty.png");
     @Shadow
     protected abstract PlayerEntity getCameraPlayer();
 

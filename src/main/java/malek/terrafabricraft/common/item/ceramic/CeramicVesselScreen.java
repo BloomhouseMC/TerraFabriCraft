@@ -2,7 +2,7 @@ package malek.terrafabricraft.common.item.ceramic;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.util.HelperUtil.*;
+import malek.terrafabricraft.common.util.TFCUtils.*;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
@@ -15,7 +15,7 @@ import net.minecraft.util.math.Matrix4f;
 
 public class CeramicVesselScreen extends HandledScreen<CeramicVesselScreenHandler> {
 
-    private static final Identifier GUI_TEXTURE = new Identifier(TerraFabriCraft.MOD_ID, "textures/gui/vessel_container.png");
+    private static final Identifier GUI_TEXTURE = new Identifier(TerraFabriCraft.MODID, "textures/gui/vessel_container.png");
 
     public CeramicVesselScreen(CeramicVesselScreenHandler description, PlayerInventory player, Text title) {
         super(description, player, title);
