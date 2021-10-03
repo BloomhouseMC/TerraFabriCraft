@@ -18,7 +18,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-import static malek.terrafabricraft.common.registry.TFCObjects.CAN_PLANT_GRASS_ON;
 
 public class TFCGrassCrop extends CropBlock {
     public static IntProperty CROP_AGE_7 = IntProperty.of("age", 0, 9);//Barley, Melon, Oat, Pumpkin, Rice, Rye, Squash, Sugarcane, Tomato, Wheat
@@ -53,7 +52,7 @@ public class TFCGrassCrop extends CropBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(CAN_PLANT_GRASS_ON);
+        return floor.isIn(TFCObjects.CAN_PLANT_GRASS_ON);
     }
 
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {

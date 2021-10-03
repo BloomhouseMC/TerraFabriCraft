@@ -25,10 +25,10 @@ public class WoodBlock {
         fallen_leaves = createFallenLeaves("wood/fallen_leaves/" + variantId);
         keg = setCreateKeg(variantId);
         leaves = setCreateLeaves(variantId);
-        log = setCreateLog("wood/stripped_log/", variantId, color);
+        log = setCreateLog("wood/log/", variantId, color);
         planks = setCreateFlammableBlock("wood/planks/", variantId, color);
         sapling = setCreateSapling(variantId, saplingGenerator);
-        stripped_log = setCreateLog("wood/log/", variantId, color);
+        stripped_log = setCreateLog("wood/stripped_log/", variantId, color);
         twig = setCreateTwig(variantId);
         vertical_support = setCreateSupport(variantId);
         rack = setCreateRack(variantId);
@@ -61,7 +61,7 @@ public class WoodBlock {
     }
 
     private static TFCSupport setCreateSupport(String variantId) {
-        return createSupport("wood/support/" + variantId, true);
+        return createSupport("wood/support/" + variantId + "_vertical", true);
     }
     private static Keg setCreateKeg(String variantId) {
         return createKeg("wood/keg/" + variantId, true);
