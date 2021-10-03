@@ -17,7 +17,7 @@ public class TFCParticleTypes {
     public static final ParticleType<DefaultParticleType> KEG_BUBBLE = create("keg_bubble", FabricParticleTypes.simple());
 
     private static <T extends ParticleEffect> ParticleType<T> create(String name, ParticleType<T> type) {
-        PARTICLE_TYPES.put(type, new Identifier(TerraFabriCraft.MOD_ID, name));
+        PARTICLE_TYPES.put(type, new Identifier(TerraFabriCraft.MODID, name));
         return type;
     }
 

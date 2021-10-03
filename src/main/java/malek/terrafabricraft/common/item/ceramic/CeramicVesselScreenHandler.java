@@ -1,7 +1,7 @@
 package malek.terrafabricraft.common.item.ceramic;
 
 import malek.terrafabricraft.common.registry.TFCScreens;
-import malek.terrafabricraft.common.util.HelperUtil.*;
+import malek.terrafabricraft.common.util.TFCUtils.*;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

@@ -5,7 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import malek.terrafabricraft.common.registry.TFCRecipeTypes;
-import malek.terrafabricraft.common.util.HelperUtil;
+import malek.terrafabricraft.common.util.TFCUtils;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -31,7 +31,7 @@ public class LightBrewingRecipe implements Recipe<Inventory> {
 
     @Override
     public boolean matches(Inventory inventory, World world) {
-        return HelperUtil.matches(inventory, input);
+        return TFCUtils.matches(inventory, input);
     }
 
     @Override
