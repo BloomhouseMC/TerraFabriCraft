@@ -2,7 +2,7 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.config.ModuleConfig;
-import malek.terrafabricraft.common.util.TFCUtils;
+import malek.terrafabricraft.common.util.HelperUtil;
 import malek.terrafabricraft.common.world.generator.feature.BoulderFeature;
 import malek.terrafabricraft.common.world.generator.feature.TestBoulderFeature;
 import net.fabricmc.fabric.api.biome.v1.*;
@@ -305,8 +305,8 @@ public class TFCFeatures {
 
     public static void register(String id, ConfiguredFeature<?, ?> feature, Predicate<BiomeSelectionContext> biome, GenerationStep.Feature generationStep) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new
-                Identifier(TerraFabriCraft.MODID, id), feature);
-        BiomeModification worldGen = BiomeModifications.create(new Identifier(TerraFabriCraft.MODID, "world_features"));
+                Identifier(TerraFabriCraft.MOD_ID, id), feature);
+        BiomeModification worldGen = BiomeModifications.create(new Identifier(TerraFabriCraft.MOD_ID, "world_features"));
         if (ModuleConfig.getValue("world")) {
             worldGen.add(ModificationPhase.ADDITIONS, biome, context -> context.getGenerationSettings().
                     addBuiltInFeature(GenerationStep.Feature.VEGETAL_DECORATION, feature));
@@ -319,14 +319,14 @@ public class TFCFeatures {
             .applyChance(5);
 
     public static final Feature<SingleStateFeatureConfig> TEST_BOULDER = new TestBoulderFeature(SingleStateFeatureConfig.CODEC);
-    public static final ConfiguredFeature<?, ?> TEST_BOULDER_CONFIGURED = TEST_BOULDER.configure(new SingleStateFeatureConfig(TFCUtils.getRandomRawStone(TFCUtils.RNG))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).applyChance(10);
+    public static final ConfiguredFeature<?, ?> TEST_BOULDER_CONFIGURED = TEST_BOULDER.configure(new SingleStateFeatureConfig(HelperUtil.getRandomRawStone(HelperUtil.RNG))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).applyChance(10);
 
     public static void init() {
         var vegetalGenStep = GenerationStep.Feature.VEGETAL_DECORATION;
         var otherGenStep = GenerationStep.Feature.TOP_LAYER_MODIFICATION;
         //Register new feature
         Registry.register(Registry.FEATURE, new Identifier("terrafirmacraft", "boulder"), BOULDER);
-        //   Registry.register(Registry.FEATURE, new Identifier(TerraFabriCraft.MODID, "test_boulder"), TEST_BOULDER);
+        //   Registry.register(Registry.FEATURE, new Identifier(TerraFabriCraft.MOD_ID, "test_boulder"), TEST_BOULDER);
         register("tree/acacia", TREE_ACACIA, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/ash", TREE_ASH, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);
         register("tree/aspen", TREE_ASPEN, BiomeSelectors.categories(Biome.Category.TAIGA), vegetalGenStep);

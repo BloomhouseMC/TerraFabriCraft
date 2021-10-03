@@ -4,22 +4,22 @@
   "package": "malek.terrafabricraft.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "common.CalendarMixin",
     "common.HungerManagerMixin",
     "common.LivingEntityMixin",
     "common.PlayerEntityMixin",
-    "common.ServerPlayerInteractionManagerMixin",
-    "common.TrunkPlacerTypeInvoker"
+    "common.TrunkPlacerTypeInvoker",
+    "common.CalendarMixin",
+    "common.ServerPlayerInteractionManagerMixin"
   ],
   "client": [
-    "client.BufferBuilderAccessor",
     "client.GameRendererMixin",
     "client.InGameHudMixin",
     "client.ItemRendererMixin",
     "client.LightmapTextureManagerMixin",
-    "client.MixinDebugHud",
     "client.PlayerScreenHandlerMixin",
-    "client.RenderLayerAccessor"
+    "client.RenderLayerAccessor",
+    "client.BufferBuilderAccessor",
+    "client.DebugHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

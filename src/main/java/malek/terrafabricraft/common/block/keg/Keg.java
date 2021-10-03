@@ -30,7 +30,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import static malek.terrafabricraft.common.util.TFCUtils.addItemToInventoryAndConsume;
+import static malek.terrafabricraft.common.util.HelperUtil.addItemToInventoryAndConsume;
 
 public class Keg extends BlockWithEntity {
     public static final IntProperty LEVEL = IntProperty.of("level", 0, 3);

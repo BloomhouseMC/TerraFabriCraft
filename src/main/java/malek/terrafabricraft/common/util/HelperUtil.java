@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-public final class TFCUtils {
+public final class HelperUtil {
     public static final Random RNG = new Random();
 
     public static boolean isClientSide(WorldView world) {
@@ -40,7 +40,7 @@ public final class TFCUtils {
     }
 
     public static String getEnumTranslationKey(Enum<?> anEnum, String enumName) {
-        return String.join(".", TerraFabriCraft.MODID, "enum", enumName, anEnum.name()).toLowerCase(Locale.ROOT);
+        return String.join(".", TerraFabriCraft.MOD_ID, "enum", enumName, anEnum.name()).toLowerCase(Locale.ROOT);
     }
 
     /**

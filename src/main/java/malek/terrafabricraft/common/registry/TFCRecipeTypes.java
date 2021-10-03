@@ -29,7 +29,7 @@ public class TFCRecipeTypes {
 
 
     private static <T extends Recipe<?>> RecipeSerializer<T> create(String name, RecipeSerializer<T> serializer) {
-        RECIPE_SERIALIZERS.put(serializer, new Identifier(TerraFabriCraft.MODID, name));
+        RECIPE_SERIALIZERS.put(serializer, new Identifier(TerraFabriCraft.MOD_ID, name));
         return serializer;
     }
 
@@ -40,7 +40,7 @@ public class TFCRecipeTypes {
                 return name;
             }
         };
-        RECIPE_TYPES.put(type, new Identifier(TerraFabriCraft.MODID, name));
+        RECIPE_TYPES.put(type, new Identifier(TerraFabriCraft.MOD_ID, name));
         return type;
     }
 

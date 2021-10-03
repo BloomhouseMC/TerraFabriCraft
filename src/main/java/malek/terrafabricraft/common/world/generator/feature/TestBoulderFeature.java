@@ -3,7 +3,7 @@ package malek.terrafabricraft.common.world.generator.feature;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import malek.terrafabricraft.common.registry.TFCObjects;
-import malek.terrafabricraft.common.util.TFCUtils;
+import malek.terrafabricraft.common.util.HelperUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -85,7 +85,7 @@ public class TestBoulderFeature extends Feature<SingleStateFeatureConfig> {
                         BlockPos offsetPos = placePositions.offset(direction);
                         if(world.isAir(offsetPos) && random.nextBoolean())
                         {
-                            world.setBlockState(offsetPos, TFCUtils.getRandomRawStone(random), 16);
+                            world.setBlockState(offsetPos, HelperUtil.getRandomRawStone(random), 16);
                         }
                     }
                 }

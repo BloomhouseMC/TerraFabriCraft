@@ -427,12 +427,12 @@ public class TFCObjects {
 
 
     public static <T extends Block> T register(String id, T block) {
-        BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
+        BLOCKS.put(block, new Identifier(TerraFabriCraft.MOD_ID, id));
         return block;
     }
 
     public static <T extends Block> T register(String id, T block, Boolean hasBlockItem, ItemGroup itemGroup) {
-        BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
+        BLOCKS.put(block, new Identifier(TerraFabriCraft.MOD_ID, id));
         if (hasBlockItem) {
             ITEMS.put(new BlockItem(block, gen(itemGroup)), BLOCKS.get(block));
         }
@@ -441,7 +441,7 @@ public class TFCObjects {
 
     public static <T extends Block> T register(String id, T block, Item itemId) {
         //Do something with item id.
-        BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
+        BLOCKS.put(block, new Identifier(TerraFabriCraft.MOD_ID, id));
         return block;
     }
 
@@ -611,14 +611,14 @@ public class TFCObjects {
 
 
     public static <T extends Item> T register(String id, T item) {
-        ITEMS.put(item, new Identifier(TerraFabriCraft.MODID, id));
+        ITEMS.put(item, new Identifier(TerraFabriCraft.MOD_ID, id));
         return item;
     }
 
 
     //Register item
     private static <T extends Item> T createItem(String id, T item) {
-        ITEMS.put(item, new Identifier(TerraFabriCraft.MODID, id));
+        ITEMS.put(item, new Identifier(TerraFabriCraft.MOD_ID, id));
         return item;
     }
     public static Item createItemSimple(String id, ItemGroup group) {
@@ -633,7 +633,7 @@ public class TFCObjects {
     }
 
     private static <T extends BlockEntity> BlockEntityType<T> register(String id, BlockEntityType<T> type) {
-        BLOCK_ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MODID, id));
+        BLOCK_ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MOD_ID, id));
         return type;
     }
 
