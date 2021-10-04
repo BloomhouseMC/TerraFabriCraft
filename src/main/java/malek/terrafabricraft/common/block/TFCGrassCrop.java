@@ -18,7 +18,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-
 public class TFCGrassCrop extends CropBlock {
     public static IntProperty CROP_AGE_7 = IntProperty.of("age", 0, 9);//Barley, Melon, Oat, Pumpkin, Rice, Rye, Squash, Sugarcane, Tomato, Wheat
     private final int COLLISION_LEVEL;

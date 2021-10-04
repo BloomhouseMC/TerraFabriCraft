@@ -18,14 +18,13 @@ import net.minecraft.util.math.Direction;
 import static malek.terrafabricraft.common.util.TFCUtils.handleGUILessInventory;
 
 public class TFCEvents {
-    private static MinecraftServer currentserver;
-    public static CalendarManager calendarInstantiator;
-
+    private static MinecraftServer currentServer;
 
 
 
     public static void init() {
-        ServerLifecycleEvents.SERVER_STARTED.register((server -> currentserver = server));
+        ServerLifecycleEvents.SERVER_STARTED.register((server -> currentServer = server));
+
 
         ServerLifecycleEvents.SERVER_STOPPED.register((server -> currentserver = null));
 
@@ -80,10 +79,11 @@ public class TFCEvents {
             }
             return ActionResult.PASS;
         });
+
     }
 
-    public static MinecraftServer getCurrentserver() {
-        return currentserver;
+    public static MinecraftServer getCurrentServer() {
+        return currentServer;
     }
 
 
