@@ -1,6 +1,7 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
+import malek.terrafabricraft.common.config.ModuleConfig;
 import malek.terrafabricraft.common.entity.RoosterEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -38,7 +39,9 @@ public class TFCEntityTypes {
     }
 
     public static void init() {
-        FabricDefaultAttributeRegistry.register(ROOSTER, RoosterEntity.createMobAttributes());
-        ENTITY_TYPES.keySet().forEach(entityType -> Registry.register(Registry.ENTITY_TYPE, ENTITY_TYPES.get(entityType), entityType));
+        if (ModuleConfig.getValue("husbandry")) {
+            FabricDefaultAttributeRegistry.register(ROOSTER, RoosterEntity.createMobAttributes());
+            ENTITY_TYPES.keySet().forEach(entityType -> Registry.register(Registry.ENTITY_TYPE, ENTITY_TYPES.get(entityType), entityType));
+        }
     }
 }

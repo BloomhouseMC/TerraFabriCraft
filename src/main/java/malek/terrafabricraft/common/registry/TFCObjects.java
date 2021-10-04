@@ -12,11 +12,13 @@ import malek.terrafabricraft.common.block.placeable.PlaceableBlock;
 import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntity;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlockEntity;
+import malek.terrafabricraft.common.item.FirestarterItem;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCFood;
 import malek.terrafabricraft.common.item.TFCMetalItem;
 import malek.terrafabricraft.common.item.ceramic.CeramicVessel;
 import malek.terrafabricraft.common.world.generator.tree.*;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tag.TagFactory;
@@ -166,6 +168,9 @@ public class TFCObjects {
     public static final MetalItem SHOVEL_HEAD = new MetalItem("shovel_head");
     public static final MetalItem SWORD_BLADE = new MetalItem("sword_blade");
     public static final MetalItem TUYERE = new MetalItem("tuyere");
+
+    // Tools
+    public static final Item FIRESTARTER = register("firestarter", new FirestarterItem(misc().maxDamage(8)));
 
     //Fruit
     public static final Item BANANA = createFood("banana", 1, 1);
@@ -771,6 +776,8 @@ public class TFCObjects {
     private static Item.Settings gen(ItemGroup itemGroup) {
         return new Item.Settings().group(itemGroup);
     }
+
+    private static FabricItemSettings misc() {return new FabricItemSettings().group(TerraFabriCraft.MISC_GROUP);}
 
     public static void init() {
         BLOCKS.keySet().forEach(block -> Registry.register(Registry.BLOCK, BLOCKS.get(block), block));
