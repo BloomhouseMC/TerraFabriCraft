@@ -1,6 +1,5 @@
 package malek.terrafabricraft.common.item;
 
-import malek.terrafabricraft.client.CalendarClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;

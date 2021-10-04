@@ -1,6 +1,7 @@
 package malek.terrafabricraft;
 
 import malek.terrafabricraft.client.CalendarClient;
+import malek.terrafabricraft.client.CustomLightmapTextureManager;
 import malek.terrafabricraft.client.UserHud;
 import malek.terrafabricraft.client.particle.KegBubbleParticle;
 import malek.terrafabricraft.client.renderer.block.KegRenderer;
@@ -12,14 +13,11 @@ import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackEntityRenderer;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCParticleTypes;
-import malek.terrafabricraft.client.CustomLightmapTextureManager;
-import malek.terrafabricraft.common.registry.WoodBlock;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-import net.fabricmc.fabric.api.event.network.S2CPacketTypeCallback;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;

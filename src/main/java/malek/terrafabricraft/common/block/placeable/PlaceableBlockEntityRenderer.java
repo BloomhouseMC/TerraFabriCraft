@@ -1,6 +1,5 @@
 package malek.terrafabricraft.common.block.placeable;
 
-import malek.terrafabricraft.common.block.toolrack.ToolRackBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;

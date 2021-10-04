@@ -1,11 +1,9 @@
 package malek.terrafabricraft.common.block.logpile;
 
-import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
 import malek.terrafabricraft.common.ImplementedInventory;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;

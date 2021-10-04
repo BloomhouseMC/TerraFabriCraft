@@ -8,18 +8,17 @@ import malek.terrafabricraft.common.event.TFCEvents;
 import malek.terrafabricraft.common.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
-
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -59,6 +58,7 @@ public class TerraFabriCraft implements ModInitializer {
         TFCScreens.init();
         TFCParticleTypes.init();
         TFCRecipeTypes.init();
+
 
         //TODO: Change TFCObjects.CERAMIC_VESSEL to a TAG of all ceramics/placeable items instead.
 
@@ -112,16 +112,5 @@ public class TerraFabriCraft implements ModInitializer {
             return ActionResult.PASS;
         });
 
-//        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
-//            lines.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText("Pog", new TranslatableText("Big"))));
-//            /*
-//            ClientWorld world = MinecraftClient.getInstance().world;
-//            if (world != null && stack.isFood() && stack.getItem() != TFCObjects.DECAY_FOOD_TEST2) {
-//                int percent = ((TFCFood.FoodDecay) (Object) stack).getRotPercentage(world);
-//                lines.add(new TranslatableText("tooltip.terrafabricraft.rot_status", percent).setStyle(Style.EMPTY.withColor(TextColor.parse("gray"))));
-//            }
-//
-//             */
-//        });
     }
 }

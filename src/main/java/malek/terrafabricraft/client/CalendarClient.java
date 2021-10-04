@@ -1,7 +1,6 @@
 package malek.terrafabricraft.client;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.item.TFCFood;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 
 import static malek.terrafabricraft.common.calendar.Calendar.CALENDAR_ID;

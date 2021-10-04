@@ -2,7 +2,6 @@ package malek.terrafabricraft.common.block.forge;
 
 import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
 import malek.terrafabricraft.common.ImplementedInventory;
-import malek.terrafabricraft.common.block.logpile.LogPileGuiDescription;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.temperature.ItemTemperature;
 import net.minecraft.block.BlockState;
@@ -24,8 +23,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-
-import java.math.BigInteger;
 
 public class ForgeBlockEntity extends BlockEntity implements ImplementedInventory, NamedScreenHandlerFactory, SidedInventory, PropertyDelegateHolder {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(14, ItemStack.EMPTY);

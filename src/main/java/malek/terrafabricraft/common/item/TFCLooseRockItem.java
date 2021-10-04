@@ -3,12 +3,9 @@ package malek.terrafabricraft.common.item;
 import malek.terrafabricraft.common.block.TFCLooseRock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
-
-import static malek.terrafabricraft.common.registry.TFCObjects.LOG_PILE;
 
 public class TFCLooseRockItem extends BlockItem {
 
