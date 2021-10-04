@@ -1,0 +1,9 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:farmland/loam",
+    "terrafabricraft:farmland/sandy_loam",
+    "terrafabricraft:farmland/silt",
+    "terrafabricraft:farmland/silty_loam",
+  ]
+}

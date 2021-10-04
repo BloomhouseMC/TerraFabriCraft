@@ -8,7 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 
 public class TFCDamage {
     //New DamageSource for when the player have no water
-    public static final DamageSource DROUGHT = new UnblockableDamageSource("drought");
+    public static final DamageSource DEHYDRATION = new UnblockableDamageSource("terrafabricraft.dehydration");
 
     public static float handleDamage(LivingEntity entity, DamageSource source, float amount) {
         if (entity instanceof PlayerEntity) {

@@ -489,21 +489,13 @@ public class TFCObjects {
     public static final SandstoneBlock SANDSTONE_YELLOW = new SandstoneBlock("sandstone/yellow");
 
     //Misc
-    //Peat grass
     public static final TFCGravityBlock PEAT_GRASS = createSand("peat_grass", true);
     public static final Block FORGE = register("forge", new Forge(FabricBlockSettings.copyOf(Blocks.SAND)), true, TerraFabriCraft.DEVICES_GROUP);
-
-    //Peat
     public static final TFCGravityBlock PEAT = createRock("peat", TerraFabriCraft.EARTH_GROUP);
-
     public static final TFCLeaves THATCH = createLeaves("thatch", true);
-
     public static final Block FIRE_BRICKS = createLooseRock("fire_bricks", true);
-
     public static final Block CALCITE = createLooseRock("calcite", true);
-
     public static final Block BELLOWS = createLooseRock("bellows", true);
-
     public static final Block CHARCOAL_PILE = createLooseRock("charcoal_pile", true);
 
 
@@ -523,6 +515,7 @@ public class TFCObjects {
 
     //Tags
     public static final Tag<Block> CAN_PLANT_GRASS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_grass_on"));
+    public static final Tag<Block> CAN_PLANT_CROPS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_crops_on"));
 
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));

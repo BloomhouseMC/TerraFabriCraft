@@ -9,6 +9,7 @@ import malek.terrafabricraft.common.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
@@ -48,6 +49,7 @@ public class TerraFabriCraft implements ModInitializer {
     public void onInitialize() {
         // Config *must* be loaded before any other registry
         TFCConfig.init();
+        CalendarManager.init();
         //Features must always be loaded before TFCObjects.
         TFCFeatures.init();
         TFCObjects.init();
@@ -57,8 +59,6 @@ public class TerraFabriCraft implements ModInitializer {
         TFCScreens.init();
         TFCParticleTypes.init();
         TFCRecipeTypes.init();
-        CalendarManager.init();
-
 
         //TODO: Change TFCObjects.CERAMIC_VESSEL to a TAG of all ceramics/placeable items instead.
 

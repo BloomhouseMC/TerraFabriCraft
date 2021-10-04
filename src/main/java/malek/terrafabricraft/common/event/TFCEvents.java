@@ -10,17 +10,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.function.BooleanSupplier;
 
 public class TFCEvents {
-    private static MinecraftServer currentserver;
-    public static CalendarManager calendarInstantiator;
-
+    private static MinecraftServer currentServer;
 
     public static void init() {
-        ServerLifecycleEvents.SERVER_STARTED.register((server -> currentserver = server));
+        ServerLifecycleEvents.SERVER_STARTED.register((server -> currentServer = server));
 
-        ServerLifecycleEvents.SERVER_STOPPED.register((server -> currentserver = null));
+        ServerLifecycleEvents.SERVER_STOPPED.register((server -> currentServer = null));
     }
 
-    public static MinecraftServer getCurrentserver() {
-        return currentserver;
+    public static MinecraftServer getCurrentServer() {
+        return currentServer;
     }
 }
