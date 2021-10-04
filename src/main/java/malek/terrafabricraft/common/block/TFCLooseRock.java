@@ -3,6 +3,7 @@ package malek.terrafabricraft.common.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.Waterloggable;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -16,7 +17,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class TFCLooseRock extends GroundCoverBlock {
+public class TFCLooseRock extends GroundCoverBlock implements Waterloggable {
     public static final IntProperty COUNT = IntProperty.of("count", 1, 3);
     public TFCLooseRock(Settings settings) {
         super(settings.nonOpaque().breakInstantly());

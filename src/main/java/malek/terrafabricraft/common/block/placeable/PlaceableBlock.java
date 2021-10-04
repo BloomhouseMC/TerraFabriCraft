@@ -64,14 +64,10 @@ public class PlaceableBlock extends HorizontalFacingBlock implements BlockEntity
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         super.onBreak(world, pos, state, player);
         PlaceableBlockEntity blockEntity = (PlaceableBlockEntity) world.getBlockEntity(pos);
-        dropStack(world, pos, blockEntity.inventory.get(0));
-        dropStack(world, pos, blockEntity.inventory.get(1));
-        dropStack(world, pos, blockEntity.inventory.get(2));
-        dropStack(world, pos, blockEntity.inventory.get(3));
-        blockEntity.inventory.set(0, ItemStack.EMPTY);
-        blockEntity.inventory.set(1, ItemStack.EMPTY);
-        blockEntity.inventory.set(2, ItemStack.EMPTY);
-        blockEntity.inventory.set(3, ItemStack.EMPTY);
+        for(int i = -1; i < 3; i++){
+            dropStack(world, pos, blockEntity.inventory.get(i));
+            blockEntity.inventory.set(i, ItemStack.EMPTY);
+        }
     }
 
 
