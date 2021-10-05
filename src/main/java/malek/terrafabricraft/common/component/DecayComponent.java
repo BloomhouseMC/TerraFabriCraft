@@ -2,11 +2,8 @@ package malek.terrafabricraft.common.component;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
-import dev.onyxstudios.cca.api.v3.item.ItemComponent;
 import malek.terrafabricraft.common.registry.TFCComponents;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 
 public class DecayComponent implements AutoSyncedComponent, ServerTickingComponent {

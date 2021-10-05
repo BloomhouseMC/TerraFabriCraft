@@ -1,9 +1,12 @@
 package malek.terrafabricraft.common.calendar;
 
 import malek.terrafabricraft.TerraFabriCraft;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
@@ -26,16 +29,15 @@ public class Calendar extends PersistentState {
     private int monthCounter;
     private int yearCounter;
     private final List<ServerPlayerEntity> playerList;
-    private ServerWorld serverLevel;
 
     public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MODID, "calendar");
 
 
 
-    public Calendar(ServerWorld serverLevel) {
+    public Calendar(MinecraftServer server) {
+        playerList = server.getPlayerManager().getPlayerList();
         this.markDirty();
-        minuteHand = 1;
-        playerList = serverLevel.getServer().getPlayerManager().getPlayerList();;
+        minuteHand = 0;
     }
 
     /**
@@ -65,19 +67,20 @@ public class Calendar extends PersistentState {
 
     /**
      * Loads a saved CompoundTag from ~/data/terrafabricraft.dat into a new calendar when you open a world.
-     * @param serverLevel Used to get a PlayerList instance.
+     * @param server Used to get a PlayerList instance.
      * @param compoundTag Tag holding the calendar information saved by {@code writeNbt}.
      * @return
      */
-    public static Calendar load(ServerWorld serverLevel, NbtCompound compoundTag) {
+    public static Calendar load(MinecraftServer server, NbtCompound compoundTag) {
         System.out.println("Loading existing nbt");
-        var calendar = new Calendar(serverLevel);
+        var calendar = new Calendar(server);
         calendar.minuteHand = compoundTag.getInt("minuteHand");
         return calendar;
     }
 
     /**
      * Gets called by ServerLevel every second. See {@code CalendarMixin}.
+     * @return
      */
     public void tick() {
         iterator++;

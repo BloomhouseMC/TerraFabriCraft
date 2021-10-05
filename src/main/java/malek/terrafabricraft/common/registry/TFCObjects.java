@@ -12,13 +12,12 @@ import malek.terrafabricraft.common.block.placeable.PlaceableBlock;
 import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntity;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlockEntity;
-import malek.terrafabricraft.common.item.FirestarterItem;
 import malek.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import malek.terrafabricraft.common.item.TFCFood;
 import malek.terrafabricraft.common.item.TFCMetalItem;
 import malek.terrafabricraft.common.item.ceramic.CeramicVessel;
-import malek.terrafabricraft.common.world.generator.tree.*;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import malek.terrafabricraft.common.world.generator.tree.GenericSaplingGenerator;
+import malek.terrafabricraft.common.world.generator.tree.KapokSaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tag.TagFactory;
@@ -168,9 +167,6 @@ public class TFCObjects {
     public static final MetalItem SHOVEL_HEAD = new MetalItem("shovel_head");
     public static final MetalItem SWORD_BLADE = new MetalItem("sword_blade");
     public static final MetalItem TUYERE = new MetalItem("tuyere");
-
-    // Tools
-    public static final Item FIRESTARTER = register("firestarter", new FirestarterItem(misc().maxDamage(8)));
 
     //Fruit
     public static final Item BANANA = createFood("banana", 1, 1);
@@ -494,21 +490,13 @@ public class TFCObjects {
     public static final SandstoneBlock SANDSTONE_YELLOW = new SandstoneBlock("sandstone/yellow");
 
     //Misc
-    //Peat grass
     public static final TFCGravityBlock PEAT_GRASS = createSand("peat_grass", true);
     public static final Block FORGE = register("forge", new Forge(FabricBlockSettings.copyOf(Blocks.SAND)), true, TerraFabriCraft.DEVICES_GROUP);
-
-    //Peat
     public static final TFCGravityBlock PEAT = createRock("peat", TerraFabriCraft.EARTH_GROUP);
-
     public static final TFCLeaves THATCH = createLeaves("thatch", true);
-
     public static final Block FIRE_BRICKS = createLooseRock("fire_bricks", true);
-
     public static final Block CALCITE = createLooseRock("calcite", true);
-
     public static final Block BELLOWS = createLooseRock("bellows", true);
-
     public static final Block CHARCOAL_PILE = createLooseRock("charcoal_pile", true);
 
 
@@ -528,6 +516,7 @@ public class TFCObjects {
 
     //Tags
     public static final Tag<Block> CAN_PLANT_GRASS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_grass_on"));
+    public static final Tag<Block> CAN_PLANT_CROPS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_crops_on"));
 
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
@@ -776,8 +765,6 @@ public class TFCObjects {
     private static Item.Settings gen(ItemGroup itemGroup) {
         return new Item.Settings().group(itemGroup);
     }
-
-    private static FabricItemSettings misc() {return new FabricItemSettings().group(TerraFabriCraft.MISC_GROUP);}
 
     public static void init() {
         BLOCKS.keySet().forEach(block -> Registry.register(Registry.BLOCK, BLOCKS.get(block), block));

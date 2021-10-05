@@ -5,8 +5,8 @@ import malek.terrafabricraft.common.block.TFCGravityGrassBlock;
 import net.minecraft.block.Block;
 import net.minecraft.sound.BlockSoundGroup;
 
-import static malek.terrafabricraft.common.registry.TFCObjects.createSand;
 import static malek.terrafabricraft.common.registry.TFCObjects.createGrass;
+import static malek.terrafabricraft.common.registry.TFCObjects.createSand;
 
 public class SoilBlock {
     public Block loam;

@@ -1,6 +1,5 @@
 package malek.terrafabricraft.common.item;
 
-import malek.terrafabricraft.common.item.MeltableItem;
 import net.minecraft.item.Item;
 
 public class TFCMetalItem extends Item implements MeltableItem {

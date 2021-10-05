@@ -1,6 +1,9 @@
 package malek.terrafabricraft.common.registry;
 
-import malek.terrafabricraft.common.block.*;
+import malek.terrafabricraft.common.block.TFCCoralBlock;
+import malek.terrafabricraft.common.block.TFCCoralFanBlock;
+import malek.terrafabricraft.common.block.TFCDeadCoralBlock;
+import malek.terrafabricraft.common.block.TFCDeadCoralFanBlock;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
 

@@ -1,11 +1,8 @@
 package malek.terrafabricraft.mixin.client;
 
-import malek.terrafabricraft.common.item.MeltableItem;
-import net.minecraft.client.render.VertexConsumerProvider;
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
-import malek.terrafabricraft.TerraFabriCraftClient;
 import malek.terrafabricraft.client.TextureTwo;
+import malek.terrafabricraft.common.item.MeltableItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.StainedGlassPaneBlock;
 import net.minecraft.block.TransparentBlock;
@@ -21,10 +18,7 @@ import net.minecraft.client.texture.TextureManager;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
-import org.spongepowered.asm.mixin.Mixin;
 import net.minecraft.item.Items;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GLUtil;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -33,12 +27,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import javax.swing.*;
 import java.util.Iterator;
 import java.util.List;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
 import static malek.terrafabricraft.common.temperature.ItemTemperature.getTemperature;
 import static malek.terrafabricraft.mixin.client.RenderLayerAccessor.*;
 import static org.lwjgl.opengl.GL14.GL_FUNC_ADD;
