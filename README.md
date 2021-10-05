@@ -25,7 +25,7 @@ Discord link: [Maleks Modding Studios][contributing]
 
 * Code, textures, models and sounds
     - (c) 2021, [mrsterner], [MalekiRe], [Safrodev], [Voleil]
-    - [![License](https://img.shields.io/badge/License-CC0%201.0-cyan.svg?style=flat-square)](https://creativecommons.org/publicdomain/zero/1.0)
+    - [![License](https://img.shields.io/badge/License-MIT%201.0-cyan.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 [contributing]: https://discord.gg/b6UWfp4PUv
 [curseforge]: https://curseforge.com/minecraft/mc-mods/modid/files
