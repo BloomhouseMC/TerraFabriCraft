@@ -26,10 +26,11 @@ public class TFCEvents {
         ServerLifecycleEvents.SERVER_STARTED.register((server -> currentServer = server));
 
 
-        ServerLifecycleEvents.SERVER_STOPPED.register((server -> currentserver = null));
+        ServerLifecycleEvents.SERVER_STOPPED.register((server -> currentServer = null));
+
+
 
         //TODO: Change TFCObjects.CERAMIC_VESSEL to a TAG of all ceramics/placeable items instead.
-
         //This Callback lambda is responsible for generating a PlaceableBlock, upon Using an appropriate item which should be placeable in world.
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (player.isSneaking() && player.getStackInHand(hand).getItem() == TFCObjects.CERAMIC_VESSEL && world.getBlockState(hitResult.getBlockPos()) != TFCObjects.PLACEABLE.getDefaultState()) {

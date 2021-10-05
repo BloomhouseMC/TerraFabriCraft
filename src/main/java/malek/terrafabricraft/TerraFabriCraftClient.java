@@ -5,18 +5,21 @@ import malek.terrafabricraft.client.CustomLightmapTextureManager;
 import malek.terrafabricraft.client.UserHud;
 import malek.terrafabricraft.client.particle.KegBubbleParticle;
 import malek.terrafabricraft.client.renderer.block.KegRenderer;
+import malek.terrafabricraft.client.renderer.entity.NautilusRenderer;
 import malek.terrafabricraft.client.screens.ModScreensClient;
 import malek.terrafabricraft.common.block.*;
 import malek.terrafabricraft.common.block.keg.Keg;
 import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntityRenderer;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackEntityRenderer;
+import malek.terrafabricraft.common.registry.TFCEntityTypes;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
@@ -34,6 +37,7 @@ public class TerraFabriCraftClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(TFCParticleTypes.KEG_BUBBLE, KegBubbleParticle.Factory::new);
         BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.TOOL_RACK_BLOCK_ENTITY, ctx -> new ToolRackEntityRenderer());
         BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.PLACEABLE_BLOCK_ENTITY, ctx -> new PlaceableBlockEntityRenderer());
+        EntityRendererRegistry.INSTANCE.register(TFCEntityTypes.NAUTILUS, NautilusRenderer::new);
 
 
         for(Block block : TFCObjects.BLOCKS.keySet()) {

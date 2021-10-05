@@ -6,6 +6,7 @@ import malek.terrafabricraft.common.event.TFCEvents;
 import malek.terrafabricraft.common.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -45,6 +46,9 @@ public class TerraFabriCraft implements ModInitializer {
         TFCParticleTypes.init();
         TFCRecipeTypes.init();
 
+        ServerTickEvents.END_WORLD_TICK.register(world -> {
+
+        });
 
     }
 }
