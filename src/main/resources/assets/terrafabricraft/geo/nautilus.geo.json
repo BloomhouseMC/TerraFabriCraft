@@ -1,0 +1,255 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [5, 0, 0],
+					"rotation": [0, 0, -5],
+					"cubes": [
+						{"origin": [-4, 0, -4], "size": [9, 7, 8], "uv": [0, 24]}
+					]
+				},
+				{
+					"name": "tentacles",
+					"parent": "head",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "ten1",
+					"parent": "tentacles",
+					"pivot": [-4, 2, -3],
+					"rotation": [-45, -7.5, -7.5],
+					"cubes": [
+						{"origin": [-7, 1, -4], "size": [3, 2, 2], "inflate": 0.2, "uv": [48, 16]}
+					]
+				},
+				{
+					"name": "ten11",
+					"parent": "ten1",
+					"pivot": [-7, 2, -3],
+					"rotation": [0, 0, -7.5],
+					"cubes": [
+						{"origin": [-12, 1, -4], "size": [6, 2, 2], "inflate": 0.1, "uv": [0, 47]}
+					]
+				},
+				{
+					"name": "ten111",
+					"parent": "ten11",
+					"pivot": [-12, 2, -3],
+					"rotation": [0, 0, -7.5],
+					"cubes": [
+						{"origin": [-19, 1, -4], "size": [8, 2, 2], "uv": [36, 8]}
+					]
+				},
+				{
+					"name": "ten1111",
+					"parent": "ten111",
+					"pivot": [-19, 2, -3],
+					"rotation": [0, 0, 5],
+					"cubes": [
+						{"origin": [-24, 1, -4], "size": [6, 2, 2], "inflate": -0.1, "uv": [46, 46]}
+					]
+				},
+				{
+					"name": "ten2",
+					"parent": "tentacles",
+					"pivot": [-4, 1, 0],
+					"rotation": [0, 0, -7.5],
+					"cubes": [
+						{"origin": [-7, 0, -1], "size": [3, 2, 2], "inflate": 0.2, "uv": [48, 12]}
+					]
+				},
+				{
+					"name": "ten22",
+					"parent": "ten2",
+					"pivot": [-7, 1, 0],
+					"rotation": [0, 0, -7.5],
+					"cubes": [
+						{"origin": [-12, 0, -1], "size": [6, 2, 2], "inflate": 0.1, "uv": [46, 42]}
+					]
+				},
+				{
+					"name": "ten222",
+					"parent": "ten22",
+					"pivot": [-12, 1, 0],
+					"rotation": [0, 0, -7.5],
+					"cubes": [
+						{"origin": [-19, 0, -1], "size": [8, 2, 2], "uv": [36, 4]}
+					]
+				},
+				{
+					"name": "ten2222",
+					"parent": "ten222",
+					"pivot": [-19, 1, 0],
+					"rotation": [0, 0, 7.5],
+					"cubes": [
+						{"origin": [-24, 0, -1], "size": [6, 2, 2], "inflate": -0.1, "uv": [46, 22]}
+					]
+				},
+				{
+					"name": "ten3",
+					"parent": "tentacles",
+					"pivot": [-4, 2, 3],
+					"rotation": [-45, 7.5, -7.5],
+					"cubes": [
+						{"origin": [-7, 1, 2], "size": [3, 2, 2], "inflate": 0.2, "uv": [16, 47]}
+					]
+				},
+				{
+					"name": "ten33",
+					"parent": "ten3",
+					"pivot": [-7, 2, 3],
+					"rotation": [0, 7.5, 0],
+					"cubes": [
+						{"origin": [-12, 1, 2], "size": [6, 2, 2], "inflate": 0.1, "uv": [32, 44]}
+					]
+				},
+				{
+					"name": "ten333",
+					"parent": "ten33",
+					"pivot": [-12, 2, 3],
+					"rotation": [0, 7.5, 0],
+					"cubes": [
+						{"origin": [-19, 1, 2], "size": [8, 2, 2], "uv": [36, 0]}
+					]
+				},
+				{
+					"name": "ten3333",
+					"parent": "ten333",
+					"pivot": [-19, 2, 3],
+					"rotation": [0, -7.5, 0],
+					"cubes": [
+						{"origin": [-24, 1, 2], "size": [6, 2, 2], "inflate": -0.1, "uv": [44, 26]}
+					]
+				},
+				{
+					"name": "ten4",
+					"parent": "tentacles",
+					"pivot": [-4, 5, -3],
+					"rotation": [45, -7.5, 7.5],
+					"cubes": [
+						{"origin": [-7, 4, -4], "size": [3, 2, 2], "inflate": 0.2, "uv": [0, 8]}
+					]
+				},
+				{
+					"name": "ten44",
+					"parent": "ten4",
+					"pivot": [-7, 5, -3],
+					"rotation": [0, 0, 7.5],
+					"cubes": [
+						{"origin": [-12, 4, -4], "size": [6, 2, 2], "inflate": 0.1, "uv": [16, 43]}
+					]
+				},
+				{
+					"name": "ten444",
+					"parent": "ten44",
+					"pivot": [-12, 5, -3],
+					"rotation": [0, 0, 7.5],
+					"cubes": [
+						{"origin": [-19, 4, -4], "size": [8, 2, 2], "uv": [34, 32]}
+					]
+				},
+				{
+					"name": "ten4444",
+					"parent": "ten444",
+					"pivot": [-19, 5, -3],
+					"rotation": [0, 0, -7.5],
+					"cubes": [
+						{"origin": [-24, 4, -4], "size": [6, 2, 2], "inflate": -0.1, "uv": [0, 43]}
+					]
+				},
+				{
+					"name": "ten5",
+					"parent": "tentacles",
+					"pivot": [-4, 6, 0],
+					"rotation": [0, 0, 7.5],
+					"cubes": [
+						{"origin": [-7, 5, -1], "size": [3, 2, 2], "inflate": 0.2, "uv": [0, 4]}
+					]
+				},
+				{
+					"name": "ten55",
+					"parent": "ten5",
+					"pivot": [-7, 6, 0],
+					"rotation": [0, 0, 7.5],
+					"cubes": [
+						{"origin": [-12, 5, -1], "size": [6, 2, 2], "inflate": 0.1, "uv": [32, 40]}
+					]
+				},
+				{
+					"name": "ten555",
+					"parent": "ten55",
+					"pivot": [-12, 6, 0],
+					"rotation": [0, 0, 7.5],
+					"cubes": [
+						{"origin": [-19, 5, -1], "size": [8, 2, 2], "uv": [26, 28]}
+					]
+				},
+				{
+					"name": "ten5555",
+					"parent": "ten555",
+					"pivot": [-19, 6, 0],
+					"rotation": [0, 0, -7.5],
+					"cubes": [
+						{"origin": [-24, 5, -1], "size": [6, 2, 2], "inflate": -0.1, "uv": [16, 39]}
+					]
+				},
+				{
+					"name": "ten6",
+					"parent": "tentacles",
+					"pivot": [-4, 5, 3],
+					"rotation": [45, 7.5, 7.5],
+					"cubes": [
+						{"origin": [-7, 4, 2], "size": [3, 2, 2], "inflate": 0.2, "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "ten66",
+					"parent": "ten6",
+					"pivot": [-7, 5, 3],
+					"rotation": [0, 7.5, 0],
+					"cubes": [
+						{"origin": [-12, 4, 2], "size": [6, 2, 2], "inflate": 0.1, "uv": [0, 39]}
+					]
+				},
+				{
+					"name": "ten666",
+					"parent": "ten66",
+					"pivot": [-12, 5, 3],
+					"rotation": [0, 7.5, 0],
+					"cubes": [
+						{"origin": [-19, 4, 2], "size": [8, 2, 2], "uv": [26, 24]}
+					]
+				},
+				{
+					"name": "ten6666",
+					"parent": "ten666",
+					"pivot": [-19, 5, 3],
+					"rotation": [0, -7.5, 0],
+					"cubes": [
+						{"origin": [-24, 4, 2], "size": [6, 2, 2], "inflate": -0.1, "uv": [34, 36]}
+					]
+				},
+				{
+					"name": "shell",
+					"parent": "head",
+					"pivot": [5, 0, 0],
+					"rotation": [0, 0, 5],
+					"cubes": [
+						{"origin": [0, 0, -6], "size": [12, 12, 12], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

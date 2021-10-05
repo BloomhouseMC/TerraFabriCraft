@@ -55,20 +55,20 @@ public class TFCCrops extends CropBlock {
     protected ItemConvertible getSeedsItem() {
         return this == TFCObjects.BARLEY_CROP ? TFCObjects.BARLEY_SEED :
                 this == TFCObjects.CABBAGE_CROP ? TFCObjects.CABBAGE_SEED :
-                        this == TFCObjects.CARROT_CROP ? TFCObjects.CARROT_SEED :
-                                this == TFCObjects.GARLIC_CROP ? TFCObjects.GARLIC_SEED :
-                                        this == TFCObjects.GREENBEAN_CROP ? TFCObjects.GREENBEAN_SEED :
-                                                this == TFCObjects.OAT_CROP ? TFCObjects.OAT_SEED :
-                                                        this == TFCObjects.ONION_CROP ? TFCObjects.ONION_SEED :
-                                                                this == TFCObjects.POTATO_CROP ? TFCObjects.POTATO_SEED :
-                                                                        this == TFCObjects.RED_BELL_PEPPER_CROP ? TFCObjects.RED_BELL_PEPPER_SEED :
-                                                                                this == TFCObjects.RICE_CROP ? TFCObjects.RICE_SEED :
-                                                                                        this == TFCObjects.RUTABAGA_CROP ? TFCObjects.RUTABAGA_SEED :
-                                                                                                this == TFCObjects.RYE_CROP ? TFCObjects.RYE_SEED :
-                                                                                                        this == TFCObjects.SOYBEAN_CROP ? TFCObjects.SOYBEAN_SEED :
-                                                                                                                this == TFCObjects.SQUASH_CROP ? TFCObjects.SQUASH_SEED :
-                                                                                                                        this == TFCObjects.TOMATO_CROP ? TFCObjects.TOMATO_SEED :
-                                                                                                                                this == TFCObjects.WHEAT_CROP ? TFCObjects.WHEAT_SEED : TFCObjects.YELLOW_BELL_PEPPER_SEED;
+                this == TFCObjects.CARROT_CROP ? TFCObjects.CARROT_SEED :
+                this == TFCObjects.GARLIC_CROP ? TFCObjects.GARLIC_SEED :
+                this == TFCObjects.GREENBEAN_CROP ? TFCObjects.GREENBEAN_SEED :
+                this == TFCObjects.OAT_CROP ? TFCObjects.OAT_SEED :
+                this == TFCObjects.ONION_CROP ? TFCObjects.ONION_SEED :
+                this == TFCObjects.POTATO_CROP ? TFCObjects.POTATO_SEED :
+                this == TFCObjects.RED_BELL_PEPPER_CROP ? TFCObjects.RED_BELL_PEPPER_SEED :
+                this == TFCObjects.RICE_CROP ? TFCObjects.RICE_SEED :
+                this == TFCObjects.RUTABAGA_CROP ? TFCObjects.RUTABAGA_SEED :
+                this == TFCObjects.RYE_CROP ? TFCObjects.RYE_SEED :
+                this == TFCObjects.SOYBEAN_CROP ? TFCObjects.SOYBEAN_SEED :
+                this == TFCObjects.SQUASH_CROP ? TFCObjects.SQUASH_SEED :
+                this == TFCObjects.TOMATO_CROP ? TFCObjects.TOMATO_SEED :
+                this == TFCObjects.WHEAT_CROP ? TFCObjects.WHEAT_SEED : TFCObjects.YELLOW_BELL_PEPPER_SEED;
 
 
     }
@@ -81,13 +81,13 @@ public class TFCCrops extends CropBlock {
         if (this == TFCObjects.BARLEY_CROP) {
             modelAge = age == 0 ? 1 :
                     age == 1 ? 2 :
-                            age == 2 ? 3 :
-                                    age == 3 ? 4 :
-                                            age == 4 ? 5 :
-                                                    age == 5 ? 6 :
-                                                            age == 6 ? 7 :
-                                                                    age == 7 ? 7 :
-                                                                            age == 8 ? 7 : 2;
+                    age == 2 ? 3 :
+                    age == 3 ? 4 :
+                    age == 4 ? 5 :
+                    age == 5 ? 6 :
+                    age == 6 ? 7 :
+                    age == 7 ? 7 :
+                    age == 8 ? 7 : 2;
         }
         return AGE_TO_SHAPE[modelAge];
     }
@@ -120,15 +120,15 @@ public class TFCCrops extends CropBlock {
     public int getMaxAge() {
         return this == TFCObjects.GREENBEAN_CROP ? 8 :
                 this == TFCObjects.ONION_CROP ? 8 :
-                        this == TFCObjects.RED_BELL_PEPPER_CROP ? 8 :
-                                this == TFCObjects.SOYBEAN_CROP ? 8 :
-                                        this == TFCObjects.POTATO_CROP ? 8 :
-                                                this == TFCObjects.YELLOW_BELL_PEPPER_CROP ? 8 :
+                this == TFCObjects.RED_BELL_PEPPER_CROP ? 8 :
+                this == TFCObjects.SOYBEAN_CROP ? 8 :
+                this == TFCObjects.POTATO_CROP ? 8 :
+                this == TFCObjects.YELLOW_BELL_PEPPER_CROP ? 8 :
 
-                                                        this == TFCObjects.CABBAGE_CROP ? 7 :
+                this == TFCObjects.CABBAGE_CROP ? 7 :
 
-                                                                this == TFCObjects.CARROT_CROP ? 6 :
-                                                                        this == TFCObjects.GARLIC_CROP ? 6 : 9;
+                this == TFCObjects.CARROT_CROP ? 6 :
+                this == TFCObjects.GARLIC_CROP ? 6 : 9;
     }
 
     @Override

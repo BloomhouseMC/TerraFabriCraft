@@ -23,23 +23,28 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Environment(EnvType.CLIENT)
 @Mixin(PlayerScreenHandler.class)
 public class PlayerScreenHandlerMixin extends ScreenHandler {
-    /**
-     * @author - MrSterner
-     * Adds a 3x3 crafting grid in the inventory.
-     */
 
-@Final
-@Shadow private final CraftingInventory craftingInput = new CraftingInventory(this, 3, 20);
+
+    @Final @Shadow private final CraftingInventory craftingInput = new CraftingInventory(this, 3, 20);
 
     protected PlayerScreenHandlerMixin(@Nullable ScreenHandlerType<?> type, int syncId) {
         super(type, syncId);
     }
 
+
+    /**
+     * @author - MrSterner
+     * Removes the original 2x2
+     */
     @ModifyConstant(method = "<init>(Lnet/minecraft/entity/player/PlayerInventory;ZLnet/minecraft/entity/player/PlayerEntity;)V", constant = @Constant(intValue = 98))
     private int yeetInventory2x2Grid(int value){
         return 300;
     }
 
+    /**
+     * @author - MrSterner
+     * Adds a 3x3 crafting grid in the inventory.
+     */
     @Inject(method = "<init>(Lnet/minecraft/entity/player/PlayerInventory;ZLnet/minecraft/entity/player/PlayerEntity;)V", at = @At("TAIL"))
     private void inventory3x3Grid(PlayerInventory inventory, boolean onServer, PlayerEntity owner, CallbackInfo ci){
         int m;
