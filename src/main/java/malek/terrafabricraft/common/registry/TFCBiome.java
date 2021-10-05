@@ -1,7 +1,12 @@
 package malek.terrafabricraft.common.registry;
 
+import malek.terrafabricraft.common.config.ModuleConfig;
+
 public class TFCBiome {
     public static void init() {
-        //Oh, look! an empty class!
+        //Not empty anymore ;))
+        if (ModuleConfig.getValue("world")) {
+
+        }
     }
 }
