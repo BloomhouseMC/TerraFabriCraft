@@ -3,6 +3,7 @@ package malek.terrafabricraft.common.registry;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.entity.NautilusEntity;
 import malek.terrafabricraft.common.config.ModuleConfig;
+import malek.terrafabricraft.common.entity.CrabEntity;
 import malek.terrafabricraft.common.entity.RoosterEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -34,6 +35,12 @@ public class TFCEntityTypes {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RoosterEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
 
+    public static final EntityType<CrabEntity> CRAB = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(TerraFabriCraft.MODID, "crab"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CrabEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+    );
+
     private static <T extends Entity> EntityType<T> create(String name, EntityType<T> type) {
         ENTITY_TYPES.put(type, new Identifier(TerraFabriCraft.MODID, name));
         return type;
@@ -41,9 +48,10 @@ public class TFCEntityTypes {
 
     public static void init() {
         if (ModuleConfig.getValue("husbandry")) {
+            ENTITY_TYPES.keySet().forEach(entityType -> Registry.register(Registry.ENTITY_TYPE, ENTITY_TYPES.get(entityType), entityType));
             FabricDefaultAttributeRegistry.register(ROOSTER, RoosterEntity.createMobAttributes());
             FabricDefaultAttributeRegistry.register(NAUTILUS, NautilusEntity.createMobAttributes());
-            ENTITY_TYPES.keySet().forEach(entityType -> Registry.register(Registry.ENTITY_TYPE, ENTITY_TYPES.get(entityType), entityType));
+            FabricDefaultAttributeRegistry.register(CRAB, CrabEntity.createCrabAttributes());
         }
 
     }
