@@ -42,7 +42,6 @@ public class CeramicVessel extends Item  {
             player.openHandledScreen(new ExtendedScreenHandlerFactory() {
                 @Override
                 public void writeScreenOpeningData(ServerPlayerEntity serverPlayerEntity, PacketByteBuf packetByteBuf) {
-                    packetByteBuf.writeItemStack(vesselItemStack);
                 }
 
                 @Override

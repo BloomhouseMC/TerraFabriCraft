@@ -27,13 +27,13 @@ public class TFCLooseRockItem extends BlockItem {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         if (!context.getPlayer().isSneaking()) {
-            return ActionResult.PASS;
+            openScreen(context.getPlayer(), context.getStack());
+            return ActionResult.SUCCESS;
         }
         if (context.getWorld().getBlockState(context.getBlockPos()).getBlock().asItem() != null
                 && context.getWorld().getBlockState(context.getBlockPos()).getBlock().asItem() == context.getStack().getItem()) {
             if (context.getWorld().getBlockState(context.getBlockPos()).get(TFCLooseRock.COUNT) == 3) {
-                openScreen(context.getPlayer(), context.getStack());
-                return ActionResult.SUCCESS;
+                return ActionResult.PASS;
             }
             context.getWorld().setBlockState(context.getBlockPos(), context.getWorld().getBlockState(context.getBlockPos()).with(TFCLooseRock.COUNT, context.getWorld().getBlockState(context.getBlockPos()).get(TFCLooseRock.COUNT) + 1));
             context.getPlayer().getMainHandStack().setCount(context.getPlayer().getMainHandStack().getCount() - 1);
