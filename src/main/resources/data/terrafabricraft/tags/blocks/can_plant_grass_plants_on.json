@@ -13,6 +13,8 @@
     "terrafabricraft:grass/sandy_loam",
     "terrafabricraft:grass/silt",
     "terrafabricraft:grass/silty_loam",
-    "terrafabricraft:peat_grass"
+    "terrafabricraft:peat_grass",
+    "minecraft:dirt",
+    "minecraft:grass_block"
   ]
 }

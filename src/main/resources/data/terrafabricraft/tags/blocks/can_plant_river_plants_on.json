@@ -1,0 +1,7 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:fluid/river_water",
+    "minecraft:water"
+  ]
+}

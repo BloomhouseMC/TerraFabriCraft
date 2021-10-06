@@ -43,6 +43,12 @@ public class TFCObjects {
     private static final Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
+    public static final TFCGravityBlock FARMLAND_LOAM = createFarmland("farmland/loam", true);
+    public static final TFCGravityBlock FARMLAND_SANDY_LOAM = createFarmland("farmland/sandy_loam", true);
+    public static final TFCGravityBlock FARMLAND_SILT = createFarmland("farmland/silt", true);
+    public static final TFCGravityBlock FARMLAND_SILTY_LOAM = createFarmland("farmland/silty_loam", true);
+    public static final SoilBlock GRASS = new SoilBlock("grass", BlockSoundGroup.GRASS);
+
     // Debug + Testing
     public static final Item TEST_FOOD = createFood("test_food", 1, 1);
     public static final Item CERAMIC_VESSEL = createItem("ceramic/vessel", new CeramicVessel(gen(TerraFabriCraft.DEVICES_GROUP)));
@@ -298,11 +304,7 @@ public class TFCObjects {
     public static final SoilBlock CLAY_GRASS = new SoilBlock("clay_grass", BlockSoundGroup.GRAVEL);
     public static final SoilBlock DIRT = new SoilBlock("dirt", BlockSoundGroup.GRAVEL);
 
-    public static final TFCGravityBlock FARMLAND_LOAM = createFarmland("farmland/loam", true);
-    public static final TFCGravityBlock FARMLAND_SANDY_LOAM = createFarmland("farmland/sandy_loam", true);
-    public static final TFCGravityBlock FARMLAND_SILT = createFarmland("farmland/silt", true);
-    public static final TFCGravityBlock FARMLAND_SILTY_LOAM = createFarmland("farmland/silty_loam", true);
-    public static final SoilBlock GRASS = new SoilBlock("grass", BlockSoundGroup.GRASS);
+
 
     public static final SoilBlock GRASS_PATH = new SoilBlock("grass_path", BlockSoundGroup.GRASS);
 
@@ -377,77 +379,115 @@ public class TFCObjects {
     public static final RockBlock SHALE = new RockBlock("shale");
     public static final RockBlock SLATE = new RockBlock("slate");
 
-    public static final TFCGrassCrop PLANT_ALLIUM = createGrassCrop("plant/allium", 1, 1, 1);
-    public static final TFCGrassCrop PLANT_ARUNDO = createGrassCrop("plant/arundo", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_ATHYRIUM_FERN = createGrassCrop("plant/athyrium_fern", 1, 1, 1);
+    public static final TFCGrassPlantBlock PLANT_ALLIUM = createGrassPlant("plant/allium", 1, 1, 1);
+    public static final TFCGrassPlantBlock PLANT_ARUNDO = createGrassPlant("plant/arundo", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_ATHYRIUM_FERN = createGrassPlant("plant/athyrium_fern", 1, 1, 1);
     //Badderlocks [dirt]
-    public static final TFCGrassCrop PLANT_BANANA_SAPLING = createGrassCrop("plant/banana_sapling", 1, 1, 1);
-    public static final TFCGrassCrop PLANT_BLACK_ORCHID = createGrassCrop("plant/black_orchid", 1, 1, 1);
-    public static final TFCGrassCrop PLANT_BLACKBERRY_BUSH = createGrassCrop("plant/blackberry_bush", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_BANANA_SAPLING = createGrassPlant("plant/banana_sapling", 1, 1, 1);
+    public static final TFCGrassPlantBlock PLANT_BLACK_ORCHID = createGrassPlant("plant/black_orchid", 1, 1, 1);
+    public static final TFCGrassPlantBlock PLANT_BLACKBERRY_BUSH = createGrassPlant("plant/blackberry_bush", 1, 1, 3);
     //Blackberry bush cane [side]
-    public static final TFCGrassCrop PLANT_BLOOD_LILY = createGrassCrop("plant/blood_lily", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_BLUE_ORCHID = createGrassCrop("plant/blue_orchid", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_BLUEBERRY_BUSH = createGrassCrop("plant/blueberry_bush", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_BUNCHBERRY_BUSH = createGrassCrop("plant/bunchberry_bush", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_BUTTERFLY_MILKWEED = createGrassCrop("plant/butterfly_milkweed", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_CALENDULA = createGrassCrop("plant/calendula", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_CANNA = createGrassCrop("plant/canna", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_BLOOD_LILY = createGrassPlant("plant/blood_lily", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_BLUE_ORCHID = createGrassPlant("plant/blue_orchid", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_BLUEBERRY_BUSH = createGrassPlant("plant/blueberry_bush", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_BUNCHBERRY_BUSH = createGrassPlant("plant/bunchberry_bush", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_BUTTERFLY_MILKWEED = createGrassPlant("plant/butterfly_milkweed", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_CALENDULA = createGrassPlant("plant/calendula", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_CANNA = createGrassPlant("plant/canna", 1, 1, 3);
     //Cattail [dirt]
-    public static final TFCGrassCrop PLANT_CHERRY_SAPLING = createGrassCrop("plant/cherry_sapling", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_CLOUDBERRY_BUSH = createGrassCrop("plant/cloudberry_bush", 1, 1, 3);
-    //Coontail [water]
-    public static final TFCGrassCrop PLANT_CRANBERRY_BUSH = createGrassCrop("plant/cranberry_bush", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_DANDELION = createGrassCrop("plant/dandelion", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_CHERRY_SAPLING = createGrassPlant("plant/cherry_sapling", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_CLOUDBERRY_BUSH = createGrassPlant("plant/cloudberry_bush", 1, 1, 3);
+    public static final TFCWaterPlant PLANT_COONTAIL = createWaterPlant("plant/coontail");
+    public static final TFCGrassPlantBlock PLANT_CRANBERRY_BUSH = createGrassPlant("plant/cranberry_bush", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_DANDELION = createGrassPlant("plant/dandelion", 1, 1, 3);
     //Dead berry bush has no item
     //Dead cane has no item
-    //Duckweed [water]
-    //Eel grass [water]
-    public static final TFCGrassCrop PLANT_ELDERBERRY_BUSH = createGrassCrop("plant/elderberry_bush", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_FIELD_HORSETAIL = createGrassCrop("plant/field_horsetail", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_FOUNTAIN_GRASS = createGrassCrop("plant/fountain_grass", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_FOXGLOVE = createGrassCrop("plant/foxglove", 1, 1, 3);
-    //Kelp [water]
-    public static final TFCGrassCrop PLANT_GOLDENROD = createGrassCrop("plant/goldenrod", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_GOOSEBERRY_BUSH = createGrassCrop("plant/gooseberry_bush", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_GRAPE_HYACINTH = createGrassCrop("plant/grape_hyacinth", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_GREEN_APPLE_SAPLING = createGrassCrop("plant/green_apple_sapling", 1, 1, 3);
+    public static final TFCLilyPadBlock PLANT_DUCKWEED = createLilyPad("plant/duckweed");
+    public static final TFCWaterPlant PLANT_EEL_GRASS = createWaterPlant("plant/eel_grass");
+    public static final TFCGrassPlantBlock PLANT_ELDERBERRY_BUSH = createGrassPlant("plant/elderberry_bush", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_FIELD_HORSETAIL = createGrassPlant("plant/field_horsetail", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_FOUNTAIN_GRASS = createGrassPlant("plant/fountain_grass", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_FOXGLOVE = createGrassPlant("plant/foxglove", 1, 1, 3);
+    public static final TFCWaterPlant PLANT_GIANT_KELP_FLOWER = createWaterPlant("plant/giant_kelp_flower");
+    //Giant kelp plant has no item
+    public static final TFCGrassPlantBlock PLANT_GOLDENROD = createGrassPlant("plant/goldenrod", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_GOOSEBERRY_BUSH = createGrassPlant("plant/gooseberry_bush", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_GRAPE_HYACINTH = createGrassPlant("plant/grape_hyacinth", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_GREEN_APPLE_SAPLING = createGrassPlant("plant/green_apple_sapling", 1, 1, 3);
     //Gutweed [nowhere]
     //Guzmania [nowhere]
     //Hanging vines [top]
-    public static final TFCGrassCrop PLANT_HOUSTONIA = createGrassCrop("plant/houstonia", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_HOUSTONIA = createGrassPlant("plant/houstonia", 1, 1, 3);
     //Ivy [side]
     //Jungle vines [side]
-    public static final TFCGrassCrop PLANT_LABRADOR_TEA = createGrassCrop("plant/labrador_tea", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_LADY_FERN = createGrassCrop("plant/lady_fern", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_LABRADOR_TEA = createGrassPlant("plant/labrador_tea", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_LADY_FERN = createGrassPlant("plant/lady_fern", 1, 1, 3);
     //Laminaria [nowhere]
-    //Leafy kelp [water]
-    public static final TFCGrassCrop PLANT_LEMON_SAPLING = createGrassCrop("plant/lemon_sapling", 1, 1, 3);
+    public static final TFCWaterPlant PLANT_LEAFY_KELP = createWaterPlant("plant/leafy_kelp");
+    public static final TFCGrassPlantBlock PLANT_LEMON_SAPLING = createGrassPlant("plant/lemon_sapling", 1, 1, 3);
     //Liana [top]
     //Licore plant [side]
-    //Lotus [lilypad]
-    //Manatee grass [water]
-    //Marigold [water]
-    public static final TFCGrassCrop PLANT_MEADS_MILKWEED = createGrassCrop("plant/meads_milkweed", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_MILFOIL = createGrassCrop("plant/milfoil", 1, 1, 3);
+    public static final TFCLilyPadBlock PLANT_LOTUS = createLilyPad("plant/lotus");
+    public static final TFCWaterPlant PLANT_MANATEE_GRASS = createWaterPlant("plant/manatee_grass");
+    public static final TFCWaterPlant PLANT_MARIGOLD = createWaterPlant("plant/marigold");
+    public static final TFCGrassPlantBlock PLANT_MEADS_MILKWEED = createGrassPlant("plant/meads_milkweed", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_MILFOIL = createGrassPlant("plant/milfoil", 1, 1, 3);
     //Morning glory [all sides]
     //Moss [all sides]
-    public static final TFCGrassCrop PLANT_NASTURTIUM = createGrassCrop("plant/nasturtium", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_OLIVE_SAPLING = createGrassCrop("plant/olive_sapling", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_ORANGE_SAPLING = createGrassCrop("plant/orange_sapling", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_ORCHARD_GRASS = createGrassCrop("plant/orchard_grass", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_OSTRICH_FERN = createGrassCrop("plant/ostrich_fern", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_OXEYE_DAISY = createGrassCrop("plant/oxeye_daisy", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_PAMPAS_GRASS = createGrassCrop("plant/pampas_grass", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_PEACH_SAPLING = createGrassCrop("plant/peach_sapling", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_PEROVSKIA = createGrassCrop("plant/perovskia", 1, 1, 3);
-    //Pistia [lilypad]
-    public static final TFCGrassCrop PLANT_PLUM_SAPLING = createGrassCrop("plant/plum_sapling", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_POPPY = createGrassCrop("plant/poppy", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_PRIMROSE = createGrassCrop("plant/primrose", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_PULSATILLA = createGrassCrop("plant/pulsatilla", 1, 1, 3);
-    public static final TFCGrassCrop PLANT_RASPBERRY_BUSH = createGrassCrop("plant/raspberry_bush", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_NASTURTIUM = createGrassPlant("plant/nasturtium", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_OLIVE_SAPLING = createGrassPlant("plant/olive_sapling", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_ORANGE_SAPLING = createGrassPlant("plant/orange_sapling", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_ORCHARD_GRASS = createGrassPlant("plant/orchard_grass", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_OSTRICH_FERN = createGrassPlant("plant/ostrich_fern", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_OXEYE_DAISY = createGrassPlant("plant/oxeye_daisy", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_PAMPAS_GRASS = createGrassPlant("plant/pampas_grass", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_PEACH_SAPLING = createGrassPlant("plant/peach_sapling", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_PEROVSKIA = createGrassPlant("plant/perovskia", 1, 1, 3);
+    public static final TFCLilyPadBlock PLANT_PISTIA = createLilyPad("plant/pistia");
+    public static final TFCGrassPlantBlock PLANT_PLUM_SAPLING = createGrassPlant("plant/plum_sapling", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_POPPY = createGrassPlant("plant/poppy", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_PRIMROSE = createGrassPlant("plant/primrose", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_PULSATILLA = createGrassPlant("plant/pulsatilla", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_RASPBERRY_BUSH = createGrassPlant("plant/raspberry_bush", 1, 1, 3);
     //Rattan has no item
-    public static final TFCGrassCrop PLANT_RED_APPLE_SAPLING = createGrassCrop("plant/red_apple_sapling", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_RED_APPLE_SAPLING = createGrassPlant("plant/red_apple_sapling", 1, 1, 3);
+    //Reindeer lichen [moss]
+    public static final TFCGrassPlantBlock PLANT_ROSE = createGrassPlant("plant/rose", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_RYEGRASS = createGrassPlant("plant/ryegrass", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_SACRED_DATURA = createGrassPlant("plant/sacred_datura", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_SAGEBRUSH = createGrassPlant("plant/sagebrush", 1, 1, 3);
+    //Sago can't be placed
+    public static final TFCGrassPlantBlock PLANT_SAPPHIRE_TOWER = createGrassPlant("plant/sapphire_tower", 1, 1, 3);
+    public static final TFCLilyPadBlock PLANT_SARGASSUM = createLilyPad("plant/sargassum");
+    public static final TFCGrassPlantBlock PLANT_SCUTCH_GRASS = createGrassPlant("plant/scutch_grass", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_SNAPDRAGON_PINK = createGrassPlant("plant/snapdragon_pink", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_SNAPDRAGON_RED = createGrassPlant("plant/snapdragon_red", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_SNAPDRAGON_WHITE = createGrassPlant("plant/snapdragon_white", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_SNAPDRAGON_YELLOW = createGrassPlant("plant/snapdragon_yellow", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_SNOWBERRY_BUSH = createGrassPlant("plant/snowberry_bush", 1, 1, 3);
+    //Spanish moss can't be placed
+    public static final TFCWaterPlant PLANT_STAR_GRASS = createWaterPlant("plant/star_grass");
+    public static final TFCGrassPlantBlock PLANT_STRAWBERRY_BUSH = createGrassPlant("plant/strawberry_bush", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_STRELITZIA = createGrassPlant("plant/strelitzia", 1, 1, 3);
+    //Sugar cane has no item
+    public static final TFCGrassPlantBlock PLANT_SWORD_FERN = createGrassPlant("plant/sword_fern", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TALL_FESCUE_GRASS = createGrassPlant("plant/tall_fescue_grass", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TIMOTHY_GRASS = createGrassPlant("plant/timothy_grass", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TOQUILLA_PALM = createGrassPlant("plant/toquilla_palm", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TREE_FERN = createGrassPlant("plant/tree_fern", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TRILLIUM = createGrassPlant("plant/trillium", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TROPICAL_MILKWEED = createGrassPlant("plant/tropical_milkweed", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TULIP_ORANGE = createGrassPlant("plant/tulip_orange", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TULIP_PINK = createGrassPlant("plant/tulip_pink", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TULIP_RED = createGrassPlant("plant/tulip_red", 1, 1, 3);
+    public static final TFCGrassPlantBlock PLANT_TULIP_WHITE = createGrassPlant("plant/tulip_white", 1, 1, 3);
+    public static final TFCWaterPlant PLANT_TURTLE_GRASS = createWaterPlant("plant/turtle_grass");
+    //vrisea can't be placed
+    public static final TFCLilyPadBlock PLANT_WATER_CANNA = createLilyPad("plant/water_canna");
+    public static final TFCLilyPadBlock PLANT_WATER_LILY = createLilyPad("plant/water_lily");
+    public static final TFCWaterPlant PLANT_WINGED_KELP = createWaterPlant("plant/winged_kelp");
+    public static final TFCGrassPlantBlock PLANT_YUCCA = createGrassPlant("plant/yucca", 1, 1, 3);
+
     //Sand
     public static final TFCGravityBlock SAND_BLACK = createSand("sand/black", true);
     public static final TFCGravityBlock SAND_BROWN = createSand("sand/brown", true);
@@ -515,8 +555,10 @@ public class TFCObjects {
     //public static final BlockEntityType<ForgeBlockEntity> FORGE_BLOCK_ENTITY = register("forge_entity", FabricBlockEntityTypeBuilder.create(ForgeBlockEntity::new, FORGE).build(null));
 
     //Tags
-    public static final Tag<Block> CAN_PLANT_GRASS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_grass_on"));
+    public static final Tag<Block> CAN_PLANT_GRASS_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_grass_plants_on"));
     public static final Tag<Block> CAN_PLANT_CROPS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_crops_on"));
+    public static final Tag<Block> CAN_PLANT_RIVER_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_river_plants_on"));
+    public static final Tag<Block> CAN_PLANT_SALT_WATER_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_salt_water_plants_on"));
 
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
@@ -642,8 +684,20 @@ public class TFCObjects {
         register("metal/lamp/" + id, block, true, TerraFabriCraft.METAL_GROUP);
         return block;
     }
-    public static TFCGrassCrop createGrassCrop(String id, int temp, int speed, int collisionLevel) {
-        var block = new TFCGrassCrop(FabricBlockSettings.copyOf(Blocks.WHEAT), temp, speed, collisionLevel);
+    public static TFCGrassPlantBlock createGrassPlant(String id, int temp, int speed, int collisionLevel) {
+        var block = new TFCGrassPlantBlock(FabricBlockSettings.copyOf(Blocks.WHEAT), temp, speed, collisionLevel);
+        register(id, block, true, TerraFabriCraft.FLORA_GROUP);
+        return block;
+    }
+
+    public static TFCWaterPlant createWaterPlant(String id) {
+        var block = new TFCWaterPlant(FabricBlockSettings.copyOf(Blocks.KELP_PLANT));
+        register(id, block, true, TerraFabriCraft.FLORA_GROUP);
+        return block;
+    }
+
+    public static TFCLilyPadBlock createLilyPad(String id) {
+        var block = new TFCLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD));
         register(id, block, true, TerraFabriCraft.FLORA_GROUP);
         return block;
     }
