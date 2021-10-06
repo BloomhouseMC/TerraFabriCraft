@@ -20,7 +20,7 @@ import static malek.terrafabricraft.client.CalendarClient.minuteHand;
 public class TFCFood extends Item {
     public int weigthCategory;
     public int sizeCategory;
-    public int deltaDecay;
+    public static int deltaDecay;
     public TFCFood(String id, Settings settings, int weigthCategory, int sizeCategory) {
         super(settings);
         this.weigthCategory = weigthCategory;
@@ -42,7 +42,7 @@ public class TFCFood extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.terrafabricraft.decay", new TranslatableText(String.valueOf(deltaDecay))));
+        tooltip.add(new TranslatableText("tooltip.terrafabricraft.decay", new TranslatableText(String.valueOf(deltaDecay)+"%")));
         tooltip.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText(String.valueOf(getWeight(this.weigthCategory))+"g"), new TranslatableText(String.valueOf(getSize(this.sizeCategory))), minuteHand));
     }
 
@@ -62,6 +62,9 @@ public class TFCFood extends Item {
             if(stack.getOrCreateNbt().get("TickDecay") != null && stack.getOrCreateNbt().get("StartDecay") != null){
                 deltaDecay = (stack.getOrCreateNbt().getInt("TickDecay") - stack.getOrCreateNbt().getInt("StartDecay"));
                 System.out.println(deltaDecay);
+                if(deltaDecay >= 100){
+                    stack.decrement(1);
+                }
             }
         }
     }

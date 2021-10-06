@@ -6,7 +6,7 @@
   "hud.terrafabricraft.proficiency.pros": "Prospecting Level: %1$s",
   "hud.terrafabricraft.proficiency.smith": "Smithing Level: %1$s",
 
-  "tooltip.terrafabricraft.decay": "Decay: %1$s%",
+  "tooltip.terrafabricraft.decay": "Decay: %1$s",
   "tooltip.terrafabricraft.itemprop": "Weight: %1$s    Size: %2$s",
   "tooltip.terrafabricraft.rot_status": "%1$s",
 
