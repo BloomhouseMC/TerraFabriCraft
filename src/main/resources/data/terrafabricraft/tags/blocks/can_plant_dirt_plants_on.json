@@ -1,0 +1,10 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:dirt/loam",
+    "terrafabricraft:dirt/sandy_loam",
+    "terrafabricraft:dirt/silt",
+    "terrafabricraft:dirt/silty_loam",
+    "minecraft:dirt"
+  ]
+}

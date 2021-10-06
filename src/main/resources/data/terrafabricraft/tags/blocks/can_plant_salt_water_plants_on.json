@@ -1,0 +1,7 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:fluid/salt_water",
+    "minecraft:water"
+  ]
+}

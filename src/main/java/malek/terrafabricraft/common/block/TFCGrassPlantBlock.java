@@ -18,7 +18,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class TFCGrassCrop extends CropBlock {
+public class TFCGrassPlantBlock extends CropBlock {
     public static IntProperty CROP_AGE_7 = IntProperty.of("age", 0, 9);//Barley, Melon, Oat, Pumpkin, Rice, Rye, Squash, Sugarcane, Tomato, Wheat
     private final int COLLISION_LEVEL;
     //public static IntProperty CROP_AGE_6;//Beet, Greenbean, Onion, Potato, Bell Pepper, Soybean
@@ -26,7 +26,7 @@ public class TFCGrassCrop extends CropBlock {
     //public static IntProperty CROP_AGE_4;//Carrot, Garlic
 
     //TODO: Both temp and hardy is unnecessary
-    public TFCGrassCrop(Settings settings, int temp, int speed, int collisionLevel) {
+    public TFCGrassPlantBlock(Settings settings, int temp, int speed, int collisionLevel) {
         super(settings);
         COLLISION_LEVEL = collisionLevel;
     }
@@ -51,7 +51,7 @@ public class TFCGrassCrop extends CropBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(TFCObjects.CAN_PLANT_GRASS_ON);
+        return floor.isIn(TFCObjects.CAN_PLANT_GRASS_PLANTS_ON);
     }
 
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
