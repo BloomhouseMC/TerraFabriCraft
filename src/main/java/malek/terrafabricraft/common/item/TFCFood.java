@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
@@ -19,6 +20,7 @@ import static malek.terrafabricraft.client.CalendarClient.minuteHand;
 public class TFCFood extends Item {
     public int weigthCategory;
     public int sizeCategory;
+    public static int deltaDecay;
     public TFCFood(String id, Settings settings, int weigthCategory, int sizeCategory) {
         super(settings);
         this.weigthCategory = weigthCategory;
@@ -40,14 +42,31 @@ public class TFCFood extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        tooltip.add(new TranslatableText("tooltip.terrafabricraft.decay", new TranslatableText(String.valueOf(deltaDecay)+"%")));
         tooltip.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText(String.valueOf(getWeight(this.weigthCategory))+"g"), new TranslatableText(String.valueOf(getSize(this.sizeCategory))), minuteHand));
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        //minute doesnt get updated lmao
         int minute = minuteHand;
-        System.out.println(minute);
+        if(!world.isClient){
+            if(entity instanceof PlayerEntity && ((PlayerEntity) entity).isCreative()){
+                return;
+            }else{
+                if(stack.getOrCreateNbt().get("StartDecay") == null){
+                    stack.getOrCreateNbt().putInt("StartDecay", minute);
+                }else{
+                    stack.getOrCreateNbt().putInt("TickDecay", minute);
+                }
+            }
+            if(stack.getOrCreateNbt().get("TickDecay") != null && stack.getOrCreateNbt().get("StartDecay") != null){
+                deltaDecay = (stack.getOrCreateNbt().getInt("TickDecay") - stack.getOrCreateNbt().getInt("StartDecay"));
+                System.out.println(deltaDecay);
+                if(deltaDecay >= 100){
+                    stack.decrement(1);
+                }
+            }
+        }
     }
 
 
