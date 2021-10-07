@@ -5,20 +5,21 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "common.HungerManagerMixin",
+    "common.ItemStackMixin",
     "common.LivingEntityMixin",
     "common.PlayerEntityMixin",
-    "common.TrunkPlacerTypeInvoker",
-    "common.ServerPlayerInteractionManagerMixin"
+    "common.ServerPlayerInteractionManagerMixin",
+    "common.TrunkPlacerTypeInvoker"
   ],
   "client": [
+    "client.BufferBuilderAccessor",
+    "client.DebugHudMixin",
     "client.GameRendererMixin",
     "client.InGameHudMixin",
     "client.ItemRendererMixin",
     "client.LightmapTextureManagerMixin",
     "client.PlayerScreenHandlerMixin",
-    "client.RenderLayerAccessor",
-    "client.BufferBuilderAccessor",
-    "client.DebugHudMixin"
+    "client.RenderLayerAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
