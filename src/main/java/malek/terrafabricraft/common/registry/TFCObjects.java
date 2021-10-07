@@ -26,6 +26,9 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.sapling.SaplingGenerator;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.Tag;
@@ -746,6 +749,7 @@ public class TFCObjects {
     }
 
     //Items
+
     public static Item createFood(String id, int weigthCategory, int sizeCategory) {
         var item = new TFCFood(id, gen(TerraFabriCraft.FOOD_GROUP), weigthCategory, sizeCategory);
         register("food/" + id, item);
@@ -772,6 +776,7 @@ public class TFCObjects {
     private static Item.Settings gen(ItemGroup itemGroup) {
         return new Item.Settings().group(itemGroup);
     }
+
 
     public static void init() {
         BLOCKS.keySet().forEach(block -> Registry.register(Registry.BLOCK, BLOCKS.get(block), block));

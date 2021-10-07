@@ -5,6 +5,7 @@ import malek.terrafabricraft.client.CustomLightmapTextureManager;
 import malek.terrafabricraft.client.UserHud;
 import malek.terrafabricraft.client.particle.KegBubbleParticle;
 import malek.terrafabricraft.client.renderer.block.KegRenderer;
+import malek.terrafabricraft.client.renderer.entity.CamelRenderer;
 import malek.terrafabricraft.client.renderer.entity.NautilusRenderer;
 import malek.terrafabricraft.client.screens.ModScreensClient;
 import malek.terrafabricraft.common.block.*;
@@ -38,6 +39,7 @@ public class TerraFabriCraftClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.TOOL_RACK_BLOCK_ENTITY, ctx -> new ToolRackEntityRenderer());
         BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.PLACEABLE_BLOCK_ENTITY, ctx -> new PlaceableBlockEntityRenderer());
         EntityRendererRegistry.INSTANCE.register(TFCEntityTypes.NAUTILUS, NautilusRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(TFCEntityTypes.CAMEL, CamelRenderer::new);
 
 
         for(Block block : TFCObjects.BLOCKS.keySet()) {
