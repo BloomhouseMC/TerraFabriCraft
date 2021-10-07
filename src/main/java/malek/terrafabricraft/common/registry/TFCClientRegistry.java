@@ -3,6 +3,7 @@ package malek.terrafabricraft.common.registry;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.client.model.CrabEntityModel;
 import malek.terrafabricraft.client.renderer.CrabEntityRenderer;
+import malek.terrafabricraft.client.renderer.entity.CamelRenderer;
 import malek.terrafabricraft.client.renderer.entity.NautilusRenderer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -16,6 +17,7 @@ public class TFCClientRegistry {
     public static void init() {
         EntityRendererRegistry.INSTANCE.register(TFCEntityTypes.CRAB, CrabEntityRenderer::new);
         EntityRendererRegistry.INSTANCE.register(TFCEntityTypes.NAUTILUS, NautilusRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(TFCEntityTypes.CAMEL, CamelRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(CRAB_LAYER, CrabEntityModel::getTexturedModelData);
     }
