@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR  ",
+    "RRRR ",
+    "RRRRR",
+    " RRR ",
+    "  R  "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:rock"
+    }
+  },
+  "result": {
+    "item": "terrafabricraft:javelin_head",
+    "count": 4
+  }
+}

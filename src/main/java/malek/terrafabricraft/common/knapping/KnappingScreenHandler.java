@@ -4,6 +4,7 @@ import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.registry.TFCScreens;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -11,14 +12,14 @@ import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeMatcher;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.AbstractRecipeScreenHandler;
-import net.minecraft.screen.Property;
+import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 
 public class KnappingScreenHandler extends AbstractRecipeScreenHandler {
-    private final Property selectedSquare;
-    private final Slot outputSlot;
+    private final CraftingInventory input;
     private final CraftingResultInventory output;
+    private final CraftingResultInventory result;
 
     public KnappingScreenHandler(int syncID, PlayerInventory playerInventory, PacketByteBuf packetByteBuf) {
         this(syncID, playerInventory, packetByteBuf.readItemStack());
@@ -26,34 +27,30 @@ public class KnappingScreenHandler extends AbstractRecipeScreenHandler {
 
     public KnappingScreenHandler(int i, PlayerInventory inv, ItemStack looseRockStack) {
         super(TFCScreens.KNAPPING_SCREEN_HANDLER, i);
-        selectedSquare = Property.create();
-        this.output = new CraftingResultInventory();
-        this.outputSlot = this.addSlot(new Slot(this.output, 1, 143, 33) {
-            public boolean canInsert(ItemStack stack) {
-                return false;
-            }
-        });
+        input = new CraftingInventory(this, 5, 5);
+        result = new CraftingResultInventory();
+        output = new CraftingResultInventory();
+        this.addSlot(new CraftingResultSlot(inv.player, this.input, this.result, 0, 124, 35));
 
         int n;
         int m;
-        for(n = 0; n < 5; ++n) {
-            for(m = 0; m < 5; ++m) {
-                this.addSlot(new Slot(inv, m + n * 5, 30 + m * 18, 17 + n * 18));
+        for (n = 0; n < 5; ++n) {
+            for (m = 0; m < 5; ++m) {
+                this.addSlot(new Slot(input, m + n * 5, 30 + m * 18, 17 + n * 18));
             }
         }
 
+        var removedSpacing = 35;
         int l;
         for (l = 0; l < 3; ++l) {
             for (int k = 0; k < 9; ++k) {
-                this.addSlot(new Slot(inv, k + l * 9 + 9, 8 + k * 18, 84 + l * 18));
+                this.addSlot(new Slot(inv, k + l * 9 + 9, 8 + k * 18, 84 + removedSpacing + l * 18));
             }
         }
 
         for (l = 0; l < 9; ++l) {
-            this.addSlot(new Slot(inv, l, 8 + l * 18, 142));
+            this.addSlot(new Slot(inv, l, 8 + l * 18, 142 + removedSpacing));
         }
-
-        this.addProperty(this.selectedSquare);
     }
 
     private boolean isInBounds(int id) {

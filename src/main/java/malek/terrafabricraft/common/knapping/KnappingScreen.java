@@ -18,6 +18,7 @@ import net.minecraft.util.math.Matrix4f;
 
 @Environment(EnvType.CLIENT)
 public class KnappingScreen extends HandledScreen<KnappingScreenHandler> implements RecipeBookProvider {
+    private static final Identifier TEXTURE = new Identifier("textures/gui/container/hopper.png");
 
     private static final Identifier GUI_TEXTURE = new Identifier(TerraFabriCraft.MODID, "textures/gui/vessel_container.png");
     private static final Identifier RECIPE_BUTTON_TEXTURE = new Identifier("textures/gui/recipe_button.png");
@@ -77,12 +78,13 @@ public class KnappingScreen extends HandledScreen<KnappingScreenHandler> impleme
 
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-        RenderSystem.clearColor(1.0F, 1.0F, 1.0F, 1.0F);
-        var addedSpacing = 30;
-        int x = (this.width - this.backgroundWidth) / 2;
-        int y = (this.height - this.backgroundHeight) / 2;
+        //Must match removedSpacing in KnappingScreenHandler
+        var addedSpacing = 35;
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         renderBackgroundTexture(matrices, new Rectangle(x, y, backgroundWidth, backgroundHeight + addedSpacing), delta, 0xFFFFFFFF);
-        RenderSystem.setShaderTexture(0, new Identifier("textures/gui/container/hopper.png"));
+        RenderSystem.setShaderTexture(0, TEXTURE);
+        int i = this.x;
+        int j = (this.height - this.backgroundHeight) / 2;
         for (Slot slot : getScreenHandler().slots) {
             this.drawTexture(matrices, x + slot.x - 1, y + slot.y - 1, 43, 19, 18, 18);
         }
