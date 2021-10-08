@@ -11,7 +11,6 @@ import net.minecraft.client.gui.widget.TexturedButtonWidget;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.AbstractRecipeScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -29,22 +28,6 @@ public class KnappingScreen extends HandledScreen<KnappingScreenHandler> impleme
         super(screenHandler, playerInventory, text);
     }
 
-    @Override
-    protected void init() {
-        super.init();
-        this.narrow = this.width < 379;
-        this.recipeBook.initialize(this.width, this.height, this.client, this.narrow, this  .handler);
-        this.x = this.recipeBook.findLeftEdge(this.width, this.backgroundWidth);
-        this.addDrawableChild(new TexturedButtonWidget(this.x + 5, this.height / 2 - 49, 20, 18, 0, 0, 19, RECIPE_BUTTON_TEXTURE, (button) -> {
-            this.recipeBook.toggleOpen();
-            this.x = this.recipeBook.findLeftEdge(this.width, this.backgroundWidth);
-            ((TexturedButtonWidget)button).setPos(this.x + 5, this.height / 2 - 49);
-        }));
-        this.addSelectableChild(this.recipeBook);
-        this.setInitialFocus(this.recipeBook);
-        this.titleX = 29;
-    }
-
     private static void drawTexturedQuad(Matrix4f matrices, int x0, int x1, int y0, int y1, int z, float u0, float u1, float v0, float v1) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         BufferBuilder bufferBuilder = Tessellator.getInstance().getBuffer();
@@ -55,6 +38,22 @@ public class KnappingScreen extends HandledScreen<KnappingScreenHandler> impleme
         bufferBuilder.vertex(matrices, (float) x0, (float) y0, (float) z).texture(u0, v0).next();
         bufferBuilder.end();
         BufferRenderer.draw(bufferBuilder);
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+        this.narrow = this.width < 379;
+        this.recipeBook.initialize(this.width, this.height, this.client, this.narrow, this.handler);
+        this.x = this.recipeBook.findLeftEdge(this.width, this.backgroundWidth);
+        this.addDrawableChild(new TexturedButtonWidget(this.x + 5, this.height / 2 - 49, 20, 18, 0, 0, 19, RECIPE_BUTTON_TEXTURE, (button) -> {
+            this.recipeBook.toggleOpen();
+            this.x = this.recipeBook.findLeftEdge(this.width, this.backgroundWidth);
+            ((TexturedButtonWidget) button).setPos(this.x + 5, this.height / 2 - 49);
+        }));
+        this.addSelectableChild(this.recipeBook);
+        this.setInitialFocus(this.recipeBook);
+        this.titleX = 29;
     }
 
     public void refreshRecipeBook() {
@@ -79,12 +78,13 @@ public class KnappingScreen extends HandledScreen<KnappingScreenHandler> impleme
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
         RenderSystem.clearColor(1.0F, 1.0F, 1.0F, 1.0F);
+        var addedSpacing = 30;
         int x = (this.width - this.backgroundWidth) / 2;
         int y = (this.height - this.backgroundHeight) / 2;
-        renderBackgroundTexture(matrices, new Rectangle(x, y, backgroundWidth, backgroundHeight), delta, 0xFFFFFFFF);
+        renderBackgroundTexture(matrices, new Rectangle(x, y, backgroundWidth, backgroundHeight + addedSpacing), delta, 0xFFFFFFFF);
         RenderSystem.setShaderTexture(0, new Identifier("textures/gui/container/hopper.png"));
         for (Slot slot : getScreenHandler().slots) {
-            this.drawTexture(matrices, x + slot.x - 1, y + slot.y - 1, 43, 19, 18, 18);//height = 18
+            this.drawTexture(matrices, x + slot.x - 1, y + slot.y - 1, 43, 19, 18, 18);
         }
     }
 

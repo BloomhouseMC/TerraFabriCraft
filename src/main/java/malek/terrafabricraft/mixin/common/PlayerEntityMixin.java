@@ -17,13 +17,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         super(entityType, world);
     }
 
-    @ModifyVariable(method = "applyDamage", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, ordinal = 0, target = "Lnet/minecraft/entity/player/PlayerEntity;getHealth()F"))
-    private float modifyDamage(float amount, DamageSource source) {
-        if (!world.isClient) {
-            amount = TFCDamage.handleDamage(this, source, amount);
-        }
-        return amount;
-    }
     /*
     @Inject(method = "shouldCancelInteraction", at = @At("HEAD"), cancellable = true)
     public void allowItMan(CallbackInfoReturnable<Boolean> cir){
@@ -34,4 +27,11 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     }
 
      */
+    @ModifyVariable(method = "applyDamage", ordinal = 2, at = @At(value = "INVOKE", shift = At.Shift.BEFORE, ordinal = 0, target = "Lnet/minecraft/entity/player/PlayerEntity;getHealth()F"))
+    private float modifyDamage(float amount, DamageSource source) {
+        if (!world.isClient) {
+            amount = TFCDamage.handleDamage(this, source, amount);
+        }
+        return amount;
+    }
 }
