@@ -3,6 +3,7 @@ package malek.terrafabricraft.mixin.client;
 import com.mojang.blaze3d.systems.RenderSystem;
 import malek.terrafabricraft.client.TextureTwo;
 import malek.terrafabricraft.common.item.MeltableItem;
+import malek.terrafabricraft.common.item.TFCFood;
 import net.minecraft.block.Block;
 import net.minecraft.block.StainedGlassPaneBlock;
 import net.minecraft.block.TransparentBlock;
@@ -30,6 +31,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Iterator;
 import java.util.List;
 
+import static malek.terrafabricraft.client.CalendarClient.minuteHand;
 import static malek.terrafabricraft.common.temperature.ItemTemperature.getTemperature;
 import static malek.terrafabricraft.mixin.client.RenderLayerAccessor.*;
 import static org.lwjgl.opengl.GL14.GL_FUNC_ADD;
@@ -70,44 +72,52 @@ public class ItemRendererMixin {
             float h = (float)(i & 255) / 255.0F;
             if (!stack.isEmpty()) {
                 if (stack.hasNbt()) {
+                    if(stack.getItem() instanceof TFCFood) {
+                        int current = minuteHand - stack.getOrCreateNbt().getInt("date_created");
+                        int decayPercentage = current * 100 / 5;
+                        if(decayPercentage > 100) {
+                            decayPercentage = 100;
+                        }
+                        float decay = (float)decayPercentage/100.0f;
+                        f = 1-decay;
+                        h = 1-decay;
+                        g = 1-(decay/30);
+                        if(decay > 0.6) {
+                            g = 1-(decay/2);
+                        }
+                    }
                     if (getTemperature(stack) != 0) {
                         float meltingPoint = 500;
-                        if(stack.getItem() instanceof MeltableItem meltableItem) {
+                        if (stack.getItem() instanceof MeltableItem meltableItem) {
                             meltingPoint = meltableItem.getMeltingPoint();
                         }
                         float currentTemp = getTemperature(stack);
                         float red = 1f;
                         float green = 1f;
                         float blue = 1f;
-                        if(currentTemp/meltingPoint < 0.5) {
-                                green = 1f - currentTemp/meltingPoint;
-                                blue = 1f - currentTemp/meltingPoint;
-                        } else if(currentTemp/meltingPoint < 0.9f) {
-                            green =  currentTemp/meltingPoint - 1f;
-                            blue = 1f - currentTemp/meltingPoint;
-                        } else
-                        {
+                        if (currentTemp / meltingPoint < 0.5) {
+                            green = 1f - currentTemp / meltingPoint;
+                            blue = 1f - currentTemp / meltingPoint;
+                        } else if (currentTemp / meltingPoint < 0.9f) {
+                            green = currentTemp / meltingPoint - 1f;
+                            blue = 1f - currentTemp / meltingPoint;
+                        } else {
                             green = 1;
                             blue = 0;
                             red = 1;
                         }
-                        vertices.quad(entry, bakedQuad, red,green, blue, light, overlay);
-                    }
-                    else
-                    {
-                        vertices.quad(entry, bakedQuad, f, g, h, light, overlay);
+                        f = red;
+                        g = green;
+                        h = blue;
+
                     }
                 }
-                else
-                {
-                    vertices.quad(entry, bakedQuad, f, g, h, light, overlay);
-                }
             }
-            else
-            {
-                vertices.quad(entry, bakedQuad, f, g, h, light, overlay);
-            }
+            vertices.quad(entry, bakedQuad, f, g, h, light, overlay);
+
         }
+
+
 
     }
     private void rewriteBuffer(VertexConsumer vertexConsumer, int alpha) {

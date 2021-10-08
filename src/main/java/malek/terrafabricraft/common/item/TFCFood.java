@@ -42,9 +42,16 @@ public class TFCFood extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tfc.tooltip.time_delta_hours_minutes", "00", String.format("%02d", stack.getOrCreateNbt().getInt("date_created"))));
-        System.out.println(stack.getOrCreateNbt().getInt("date_created"));
-        tooltip.add(new TranslatableText("tooltip.terrafabricraft.decay", new TranslatableText(String.valueOf(deltaDecay)+"%")));
+        //tooltip.add(new TranslatableText("tfc.tooltip.time_delta_hours_minutes", "00", String.format("%02d", stack.getOrCreateNbt().getInt("date_created"))));
+        //System.out.println(stack.getOrCreateNbt().getInt("date_created"));
+        if(stack.hasNbt()) {
+            int current = minuteHand - stack.getOrCreateNbt().getInt("date_created");
+            int decayPercentage = current * 100 / 5;
+            if(decayPercentage > 100) {
+                decayPercentage = 100;
+            }
+            tooltip.add(new TranslatableText("tooltip.terrafabricraft.decay", new TranslatableText(String.valueOf(decayPercentage) + "%")));
+        }
         tooltip.add(new TranslatableText("tooltip.terrafabricraft.itemprop", new TranslatableText(String.valueOf(getWeight(this.weigthCategory))+"g"), new TranslatableText(String.valueOf(getSize(this.sizeCategory))), minuteHand));
         //tooltip.add(new TranslatableText("tooltip.terrafabricraft.datecreated", new TranslatableText(String.valueOf(stack.getOrCreateNbt().getInt("date_created")))));
     }

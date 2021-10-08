@@ -1,6 +1,7 @@
 package malek.terrafabricraft.mixin.common;
 
 import malek.terrafabricraft.common.calendar.CalendarManager;
+import malek.terrafabricraft.common.item.TFCFood;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -18,7 +19,10 @@ public class ItemStackMixin {
         if(CalendarManager.getSingleton() == null) {
             return;
         }
-       NbtCompound tag =((ItemStack)(Object)this).getOrCreateNbt();
-       tag.putInt("date_created", CalendarManager.getSingleton().getCalendar().getMinuteHand());
+        if(!(itemConvertible.asItem() instanceof TFCFood)) {
+            return;
+        }
+        NbtCompound tag =((ItemStack)(Object)this).getOrCreateNbt();
+        tag.putInt("date_created", CalendarManager.getSingleton().getCalendar().getMinuteHand());
     }
 }
