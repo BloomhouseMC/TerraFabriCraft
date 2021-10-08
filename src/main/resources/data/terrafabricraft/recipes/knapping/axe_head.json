@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   R ",
+    " RRRR",
+    "RRRRR",
+    " RRRR",
+    "   R "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:rock"
+    }
+  },
+  "result": {
+    "item": "terrafabricraft:axe_head",
+    "count": 4
+  }
+}

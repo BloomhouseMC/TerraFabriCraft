@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "     ",
+    "RRRRR",
+    "RRRRR",
+    "  R  ",
+    "     "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:rock"
+    }
+  },
+  "result": {
+    "item": "terrafabricraft:hammer_head",
+    "count": 4
+  }
+}

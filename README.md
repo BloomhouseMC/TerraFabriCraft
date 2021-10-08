@@ -21,11 +21,32 @@ versions of [Minecraft][minecraft] Java Edition.
 
 Discord link: [Maleks Modding Studios][contributing]
 
+## Is this a port of TerraFirmaCraft?
+
+TerraFabriCraft is not a port of TerraFirmaCraft, but a reverse engineering of it. When we started the development of TerraFabriCraft we took the conscious decision not to look at TFC's source code because while TFC's code's license does allow for ports to other mod loaders (like fabric), their license also gives them the right to revoke it at any time, shutting down our project. What we did end up using are TFC's assets (textures, sounds, etc.), which we wanna thank all of TFC's artists for licensing under a much less restrictive license (CC BY-SA 4.0) that let us make this project a reality
+
+## Do you have any suggestions for what should be in TerraFabriCraft?
+You can let us know in the #Suggestions channel on our Discord! 
+
+## Can I run this mod now?
+Our mod is still in the development stages, so we're not providing any alpha or beta downloads just yet but keep an eye on our discord for updates on a possible alpha release in the next couple of months!
+
+## Where will this mod be available? 
+We're planning on making this mod available on as many platforms as possible! If you have any suggestions as to where we should upload this mod please let us know in our discord
+
 ## Licence
 
-* Code, textures, models and sounds
-    - (c) 2021, [mrsterner], [MalekiRe], [Safrodev], [Voleil]
-    - [![License](https://img.shields.io/badge/License-MIT%201.0-cyan.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+* Code
+  - (c) 2021, [mrsterner], [Voleil], [Safrodev], [MalekiRe]
+  - [![License](https://img.shields.io/badge/License-MIT%201.0-cyan.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+  
+* Textures, models annd sounds
+  - [![License]()](https://creativecommons.org/licenses/by-sa/4.0/) CC BY-SA 4.0
+
+
+## Special thanks to these people for their contributions:
+
+* TFC's artists
 
 [contributing]: https://discord.gg/b6UWfp4PUv
 [curseforge]: https://curseforge.com/minecraft/mc-mods/modid/files
@@ -34,7 +55,7 @@ Discord link: [Maleks Modding Studios][contributing]
 [minecraft]: https://minecraft.net/
 [releases]: https://github.com/Maleks-Modding-Studios/Terrafabricraft/releases
 [mrsterner]: https://github.com/mrsterner
-[MalekiRe]: https://github.com/MalekiRe
-[Safrodev]: https://github.com/Safrodev
 [Voleil]: https://github.com/Voleil
+[Safrodev]: https://github.com/Safrodev
+[MalekiRe]: https://github.com/MalekiRe
 
