@@ -18,7 +18,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     }
 
     @ModifyVariable(method = "applyDamage", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, ordinal = 0, target = "Lnet/minecraft/entity/player/PlayerEntity;getHealth()F"))
-    private float modifyDamage(float amount, DamageSource source) {
+    private float modifyDamage(float amount, DamageSource source, float sameDamage) {
         if (!world.isClient) {
             amount = TFCDamage.handleDamage(this, source, amount);
         }
