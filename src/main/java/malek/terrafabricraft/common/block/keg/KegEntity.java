@@ -148,7 +148,6 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
                 syncKeg();
                 return reset;
             }
-            //TODO: Implement More modes for singular, and 'dupular' crafting
             else if (mode != Mode.FAILED) {
                 int firstEmpty = getFirstEmptySlot();
                 if (firstEmpty != -1) {

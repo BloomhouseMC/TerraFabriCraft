@@ -79,10 +79,10 @@ public class HardBrewingRecipe implements Recipe<Inventory> {
         public HardBrewingRecipe read(Identifier id, JsonObject json) {
             DefaultedList<Ingredient> ingredients = getIngredients(JsonHelper.getArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
-                throw new JsonParseException("No ingredients for brew recipe");
+                throw new JsonParseException("No ingredients for keg recipe");
             }
             else if (ingredients.size() > 3) {
-                throw new JsonParseException("Too many ingredients for brew recipe");
+                throw new JsonParseException("Too many ingredients for keg recipe");
             }
             return new HardBrewingRecipe(id, ingredients, ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "result")), JsonHelper.getInt(json, "color"));
         }

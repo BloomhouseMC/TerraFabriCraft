@@ -143,14 +143,14 @@
 				"backpuck": {
 					"rotation": {
 						"0.0": {
-							"vector": [0, 0, 5]
+							"vector": [0, 0, 5.5]
 						},
 						"1.52": {
-							"vector": [0, 0, -5],
+							"vector": [0, 0, -5.5],
 							"easing": "easeInOutQuad"
 						},
 						"3.0": {
-							"vector": [0, 0, 5],
+							"vector": [0, 0, 5.5],
 							"easing": "easeInOutQuad"
 						}
 					}
@@ -310,6 +310,25 @@
 						},
 						"2.32": {
 							"vector": [0, 0, 2.5],
+							"easing": "easeInOutQuad"
+						},
+						"3.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInOutQuad"
+						}
+					}
+				},
+				"tail": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": [0, 0, 5],
+							"easing": "easeInOutQuad"
+						},
+						"2.32": {
+							"vector": [0, 0, -5],
 							"easing": "easeInOutQuad"
 						},
 						"3.0": {
