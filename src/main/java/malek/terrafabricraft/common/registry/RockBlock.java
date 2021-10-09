@@ -123,6 +123,7 @@ public class RockBlock {
         sulfur = setCreateBlock(name, id, "sulfur");
         sylvite = setCreateBlock(name, id, "sylvite");
         topaz = setCreateBlock(name, id, "topaz");
+        TFCFeatures.registerOre(name, raw.block.getDefaultState());
     }
 
     private static TFCLooseRock setCreateTFCLooseRock(String name, String id, String special) {

@@ -4,12 +4,16 @@ import malek.terrafabricraft.common.calendar.CalendarManager;
 import malek.terrafabricraft.common.config.TFCConfig;
 import malek.terrafabricraft.common.event.TFCEvents;
 import malek.terrafabricraft.common.registry.*;
+import malek.terrafabricraft.common.world.generator.feature.RockFeature;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,9 +34,11 @@ public class TerraFabriCraft implements ModInitializer {
     public static final ItemGroup MISC_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "misc"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
     public static final ItemGroup DEVICES_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "devices"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
 
-
+    public static final Feature<OreFeatureConfig> ROCK_FEATURE = new RockFeature(OreFeatureConfig.CODEC);
     @Override
     public void onInitialize() {
+
+        Registry.register(Registry.FEATURE, new Identifier("terrafabricraft", "rock_feature"), ROCK_FEATURE);
         // Config *must* be loaded before any other registry
         TFCConfig.init();
         CalendarManager.init();

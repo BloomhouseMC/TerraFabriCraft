@@ -4,27 +4,36 @@ import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.config.ModuleConfig;
 import malek.terrafabricraft.common.util.TFCUtils;
 import malek.terrafabricraft.common.world.generator.feature.BoulderFeature;
+import malek.terrafabricraft.common.world.generator.feature.RockFeature;
 import malek.terrafabricraft.common.world.generator.feature.TestBoulderFeature;
 import net.fabricmc.fabric.api.biome.v1.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.HeightmapDecoratorConfig;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.BushFoliagePlacer;
 import net.minecraft.world.gen.foliage.PineFoliagePlacer;
+import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import java.util.function.Predicate;
+
+import static malek.terrafabricraft.TerraFabriCraft.ROCK_FEATURE;
 
 public class TFCFeatures {
 
@@ -313,6 +322,15 @@ public class TFCFeatures {
         }
     }
 
+    public static void registerOre(String id, BlockState state) {
+        RegistryKey<ConfiguredFeature<?, ?>> ore = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("terrafabricraft", id));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, ore.getValue(),  ROCK_FEATURE.configure(new OreFeatureConfig(
+                OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+                state,
+                60)));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, ore);
+    }
+
     public static final ConfiguredFeature<?, ?> BOULDER_ANDESITE = BOULDER.configure(new DefaultFeatureConfig())
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)))
             .spreadHorizontally()
@@ -321,11 +339,37 @@ public class TFCFeatures {
     public static final Feature<SingleStateFeatureConfig> TEST_BOULDER = new TestBoulderFeature(SingleStateFeatureConfig.CODEC);
     public static final ConfiguredFeature<?, ?> TEST_BOULDER_CONFIGURED = TEST_BOULDER.configure(new SingleStateFeatureConfig(TFCUtils.getRandomRawStone(TFCUtils.RNG))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).applyChance(10);
 
+
+    private static ConfiguredFeature<?, ?> ORE_WOOL_OVERWORLD = Feature.ORE
+            .configure(new OreFeatureConfig(
+                    OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+                    Blocks.WHITE_WOOL.getDefaultState(),
+                    60)) // Vein size
+            .range(new RangeDecoratorConfig(
+                    // You can also use one of the other height providers if you don't want a uniform distribution
+                    UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(64)))) // Inclusive min and max height
+            .spreadHorizontally()
+            .repeat(1);
+
+    public static final int SPAWN_RATE = 5;
+    public static final OreFeatureConfig ORE_FEATURE_CONFIG = new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, Blocks.AIR.getDefaultState(), 9);// number of veins per chunk
+    RangeDecoratorConfig rangeDecoratorConfig = new RangeDecoratorConfig(
+            // You can also use one of the other height providers if you don't want a uniform distribution
+            UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(64)));
+
+
+
+
     public static void init() {
         var vegetalGenStep = GenerationStep.Feature.VEGETAL_DECORATION;
         var otherGenStep = GenerationStep.Feature.TOP_LAYER_MODIFICATION;
+
         //Register new feature
-        Registry.register(Registry.FEATURE, new Identifier("terrafirmacraft", "boulder"), BOULDER);
+        Registry.register(Registry.FEATURE, new Identifier("terrafabricraft", "boulder"), BOULDER);
+
+
+      //  registerOre("ore_test", ORE_WOOL_OVERWORLD);
+
         //   Registry.register(Registry.FEATURE, new Identifier(TerraFabriCraft.MOD_ID, "test_boulder"), TEST_BOULDER);
         register("tree/acacia", TREE_ACACIA, BiomeSelectors.categories(Biome.Category.THEEND), vegetalGenStep);
         register("tree/ash", TREE_ASH, BiomeSelectors.categories(Biome.Category.THEEND), vegetalGenStep);
