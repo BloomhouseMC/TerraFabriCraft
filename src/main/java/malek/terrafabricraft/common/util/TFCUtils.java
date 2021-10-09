@@ -140,7 +140,6 @@ public final class TFCUtils {
                 inventory.setStack(slot, stack);
             });
         }
-
     }
     /**
      * Type declaration for an area of a space
