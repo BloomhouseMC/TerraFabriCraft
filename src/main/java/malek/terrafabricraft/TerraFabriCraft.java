@@ -45,6 +45,7 @@ public class TerraFabriCraft implements ModInitializer {
         TFCScreens.init();
         TFCParticleTypes.init();
         TFCRecipeTypes.init();
+        TFCSounds.init();
 
         ServerTickEvents.END_WORLD_TICK.register(world -> {
 

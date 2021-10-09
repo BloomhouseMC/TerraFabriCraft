@@ -54,7 +54,7 @@ public class TFCEntityTypes {
     public static void init() {
         if (ModuleConfig.getValue("husbandry")) {
             ENTITY_TYPES.keySet().forEach(entityType -> Registry.register(Registry.ENTITY_TYPE, ENTITY_TYPES.get(entityType), entityType));
-            FabricDefaultAttributeRegistry.register(ROOSTER, RoosterEntity.createMobAttributes());
+            FabricDefaultAttributeRegistry.register(ROOSTER, RoosterEntity.createRoosterAttributes());
             FabricDefaultAttributeRegistry.register(NAUTILUS, CamelEntity.createMobAttributes());
             FabricDefaultAttributeRegistry.register(CAMEL, NautilusEntity.createMobAttributes());
             FabricDefaultAttributeRegistry.register(CRAB, CrabEntity.createCrabAttributes());

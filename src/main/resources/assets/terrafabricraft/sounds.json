@@ -1,0 +1,10 @@
+{
+  "rooster_cry": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "terrafabricraft:rooster1"
+      }
+    ]
+  }
+}
