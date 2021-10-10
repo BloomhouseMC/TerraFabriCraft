@@ -37,10 +37,9 @@ import static malek.terrafabricraft.common.block.keg.Keg.WORKING;
 public class KegEntity extends BlockEntity implements Inventory, IAnimatable, BlockEntityClientSerializable {
     private final AnimationFactory manager = new AnimationFactory(this);
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
-    //TODO: change MAX_PROGRESS to a high value
-    private static final int MAX_PROGRESS = 500;
     public int processTimer = 0;
     public int color = 0x3f76e4;
+    public int time = 0;
     private boolean loaded = false;
     public Mode mode = Mode.NORMAL;
     public BeerBrewingRecipe beerRecipe = null;
@@ -59,6 +58,9 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
         if (tag.contains("Color")) {
             color = tag.getInt("Color");
         }
+        if (tag.contains("Time")) {
+            time = tag.getInt("Time");
+        }
         processTimer = tag.getInt("ProcessTimer");
     }
 
@@ -66,6 +68,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
     public NbtCompound toClientTag(NbtCompound tag) {
         Inventories.writeNbt(tag, inventory);
         tag.putInt("Color", color);
+        tag.putInt("Time", time);
         tag.putString("Mode", mode.name);
         tag.putInt("ProcessTimer", processTimer);
         return tag;
@@ -80,6 +83,12 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
         return super.writeNbt(toClientTag(nbt));
+    }
+
+    public void setTime(int time) {
+        if (world != null) {
+            this.time = time;
+        }
     }
 
     public void setColor(int color) {
@@ -111,7 +120,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
                 if (state.get(Keg.LEVEL) > 0) {
                     if(state.get(WORKING)){
                         blockEntity.processTimer++;
-                        if(blockEntity.processTimer >= MAX_PROGRESS){
+                        if(blockEntity.processTimer >= blockEntity.time){
                             world.setBlockState(pos, state.with(WORKING, false));
                             blockEntity.processTimer=0;
                         }
@@ -157,6 +166,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
                     lightRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.LIGHT_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
                     if (beerRecipe != null) {
                         setColor(beerRecipe.color);
+                        setTime(beerRecipe.time);
                         this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
                         return Mode.BEER_BREWING;
                     }
