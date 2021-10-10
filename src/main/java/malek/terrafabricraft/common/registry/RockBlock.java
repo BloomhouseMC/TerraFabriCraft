@@ -10,14 +10,18 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
 
 public class RockBlock {
 
 
-    public static HashMap<BlockState, BlockState> rockToDebris = new HashMap<>();
+    public static HashMap<BlockState, RockBlock> stateToRock = new HashMap<>();
+    public List<Block> oreStones = new ArrayList<>();
     // public Block groundCover;
     //TODO : Add facing and power varation for the stone button
     public TFCStoneButtonBlock button;
@@ -125,8 +129,21 @@ public class RockBlock {
         sulfur = setCreateBlock(name, id, "sulfur");
         sylvite = setCreateBlock(name, id, "sylvite");
         topaz = setCreateBlock(name, id, "topaz");
-        rockToDebris.put(raw.block.getDefaultState(), loose.getDefaultState());
+        stateToRock.put(raw.block.getDefaultState(), this);
+
+        add(amethyst, bituminousCoal, borax, cinnabar, cryolite, diamond, emerald, graphite, gypsum, halite, kaolinite, lapisLazuil, lignite, opal, pyrite, ruby, saltpeter, sapphire, sulfur, sylvite, topaz);
+        add(bismuthinite, cassiterite, garnierite, hematite, limonite, magnetite, malachite, nativeCopper, nativeGold, nativeSilver, sphalerite, tetrahedrite);
         TFCFeatures.registerOre(name, raw.block.getDefaultState());
+    }
+    public void add(OreStoneBlock ... oreStoneBlocks) {
+        for(OreStoneBlock oreStoneBlock : oreStoneBlocks) {
+            oreStones.add(oreStoneBlock.poor);
+            oreStones.add(oreStoneBlock.normal);
+            oreStones.add(oreStoneBlock.rich);
+        }
+    }
+    public void add(Block ... blocks) {
+        oreStones.addAll(Arrays.asList(blocks));
     }
 
     private static TFCLooseRock setCreateTFCLooseRock(String name, String id, String special) {
