@@ -56,7 +56,9 @@ public class RockFeature extends Feature<OreFeatureConfig> {
 
                 for (int x = 0; x < random.nextInt(50); x++) {
                     for (int z = 0; z < random.nextInt(50); z++) {
-                       // world.setBlockState(new BlockPos(pos.getX()+x, topPos.up().getY(), pos.getZ()+z), TFCObjects.ANDESITE.loose.getDefaultState(), 2);
+                        if(random.nextFloat() < 0.1) {
+                            world.setBlockState(new BlockPos(pos.getX() + x, topPos.getY(), pos.getZ() + z), TFCObjects.ANDESITE.loose.getDefaultState(), 2);
+                        }
                         for (int y = world.getBottomY(); y < topPos.getY(); y++) {
                         BlockPos pos1 = new BlockPos(pos.getX() + x, y, pos.getZ() + z);
                         if (world.getBlockState(pos1).getBlock() == Blocks.STONE) {
