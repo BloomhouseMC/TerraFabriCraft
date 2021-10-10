@@ -17,6 +17,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -24,14 +27,14 @@ import software.bernie.geckolib3.core.IAnimatable;
 import static net.minecraft.state.property.Properties.HORIZONTAL_FACING;
 
 public class BellowsBlock extends HorizontalFacingBlock implements BlockEntityProvider {
+    private static final VoxelShape SHAPE =
+    VoxelShapes.cuboid(2, 2, 2, 14, 14, 14);
     public BellowsBlock(Settings settings) {
         super(settings.nonOpaque());
         setDefaultState(getStateManager().getDefaultState().with(ON, false));
     }
     static int ticker = 0;
-    static int sounder = 0;
     public static BooleanProperty ON = BooleanProperty.of("on");
-
 
 
     @Override
@@ -42,6 +45,10 @@ public class BellowsBlock extends HorizontalFacingBlock implements BlockEntityPr
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(HORIZONTAL_FACING);
         builder.add(ON);
+    }
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
     }
 
     @Override
