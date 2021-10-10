@@ -7,9 +7,11 @@ import malek.terrafabricraft.common.registry.*;
 import malek.terrafabricraft.common.world.generator.feature.RockFeature;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
@@ -32,6 +34,7 @@ public class TerraFabriCraft implements ModInitializer {
     public static final ItemGroup DECORATIONS_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "decorations"), () -> new ItemStack(TFCObjects.ALABASTER_STAINED_CYAN.brick.block));
     public static final ItemGroup MISC_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "misc"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
     public static final ItemGroup DEVICES_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "devices"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
+    public static final Identifier KNAPPING_PACKET_ID = new Identifier(MODID, "knapping");
 
     public static final Feature<OreFeatureConfig> ROCK_FEATURE = new RockFeature(OreFeatureConfig.CODEC);
     @Override
@@ -52,6 +55,13 @@ public class TerraFabriCraft implements ModInitializer {
         TFCRecipeTypes.init();
         TFCSounds.init();
 
+
+        ServerSidePacketRegistry.INSTANCE.register(KNAPPING_PACKET_ID, (packetContext, attachedData) -> {
+            // Get the BlockPos we put earlier in the IO thread
+            int x = attachedData.readInt();
+            int y = attachedData.readInt();
+
+        });
 
 
     }

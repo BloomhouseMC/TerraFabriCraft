@@ -1,66 +1,93 @@
 package malek.terrafabricraft.common.knapping;
 
+import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
+import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
+import io.github.cottonmc.cotton.gui.widget.WGridPanel;
+import io.github.cottonmc.cotton.gui.widget.WPlayerInvPanel;
+import io.github.cottonmc.cotton.gui.widget.WSprite;
+import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
+import io.github.cottonmc.cotton.gui.widget.data.InputResult;
+import io.netty.buffer.Unpooled;
 import malek.terrafabricraft.TerraFabriCraft;
+import malek.terrafabricraft.common.item.ceramic.CeramicVessel;
 import malek.terrafabricraft.common.registry.TFCScreens;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.sound.PositionedSoundInstance;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeMatcher;
-import net.minecraft.recipe.book.RecipeBookCategory;
-import net.minecraft.screen.AbstractRecipeScreenHandler;
-import net.minecraft.screen.slot.CraftingResultSlot;
-import net.minecraft.screen.slot.Slot;
-import net.minecraft.screen.slot.SlotActionType;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
+import org.lwjgl.system.CallbackI;
 
-public class KnappingScreenHandler extends AbstractRecipeScreenHandler {
-    private final CraftingInventory input;
-    private final CraftingResultInventory output;
-    private final CraftingResultInventory result;
+public class KnappingScreenHandler extends SyncedGuiDescription {
+    private boolean[][] knapped_area = new boolean[5][5];
+    final ItemStack itemStack;
+    KnappingScreen parent;
 
-    public KnappingScreenHandler(int syncID, PlayerInventory playerInventory, PacketByteBuf packetByteBuf) {
-        this(syncID, playerInventory, packetByteBuf.readItemStack());
+    public KnappingScreenHandler(int synchronizationID, PlayerInventory playerInventory, PacketByteBuf packetByteBuf) {
+        this(synchronizationID, playerInventory, packetByteBuf.readItemStack());
     }
 
-    public KnappingScreenHandler(int i, PlayerInventory inv, ItemStack looseRockStack) {
-        super(TFCScreens.KNAPPING_SCREEN_HANDLER, i);
-        input = new CraftingInventory(this, 5, 5);
-        result = new CraftingResultInventory();
-        output = new CraftingResultInventory();
-        this.addSlot(new CraftingResultSlot(inv.player, this.input, this.result, 0, 124, 35));
+    public KnappingScreenHandler(int synchronizationID, PlayerInventory playerInventory, ItemStack itemStack) {
+        super(TFCScreens.KNAPPING_SCREEN_HANDLER, synchronizationID, playerInventory);
+        //super(TFCScreens.KNAPPING_SCREEN_HANDLER, synchronizationID);
+        //super(TFCScreens.KNAPPING_SCREEN_HANDLER, synchronizationID);
+        this.itemStack = itemStack;
+        WGridPanel root = new WGridPanel();
+        setRootPanel(root);
 
-        int n;
-        int m;
-        for (n = 0; n < 5; ++n) {
-            for (m = 0; m < 5; ++m) {
-                this.addSlot(new Slot(input, m + n * 5, 30 + m * 18, 17 + n * 18));
+        //WSprite gui = new WSprite(new Identifier("terrafabricraft:textures/gui/knapping.png"));
+
+        //root.add(gui, 0,0,7,7);
+        WSprite background = new WSprite(new Identifier("terrafabricraft:textures/gui/knapping/rock/loose/andesite.png"));
+        root.add(background, 1, 1, 5, 5);
+        for (int i = 0; i <= 4; i++) {
+            for (int j = 0; j <= 4; j++) {
+                WKnappButton wKnappButton = new WKnappButton(this, i, j);
+                root.add(wKnappButton, i + 1, j + 1);
             }
         }
 
-        var removedSpacing = 35;
-        int l;
-        for (l = 0; l < 3; ++l) {
-            for (int k = 0; k < 9; ++k) {
-                this.addSlot(new Slot(inv, k + l * 9 + 9, 8 + k * 18, 84 + removedSpacing + l * 18));
+        root.add(this.createPlayerInventoryPanel(WPlayerInvPanel.createInventoryLabel(playerInventory).setHorizontalAlignment(HorizontalAlignment.CENTER)), 0, 4);
+        root.validate(this);
+
+    }
+
+
+
+
+/*
+    public KnappingScreenHandler(int syncId, PlayerInventory playerInventory , ItemStack itemStack) {
+        this.itemStack = itemStack;
+        WGridPanel root = new WGridPanel();
+        setRootPanel(root);
+        //WSprite gui = new WSprite(new Identifier("terrafabricraft:textures/gui/knapping.png"));
+
+        //root.add(gui, 0,0,7,7);
+        WSprite background = new WSprite(new Identifier("terrafabricraft:textures/gui/knapping/rock/loose/andesite.png"));
+        root.add(background, 1, 1, 5, 5);
+        for (int i = 0; i <= 4; i++) {
+            for (int j = 0; j <= 4; j++) {
+                WKnappButton wKnappButton = new WKnappButton(this, i, j);
+                root.add(wKnappButton, i + 1, j + 1);
             }
         }
 
-        for (l = 0; l < 9; ++l) {
-            this.addSlot(new Slot(inv, l, 8 + l * 18, 142 + removedSpacing));
-        }
+        root.add(this.createPlayerInventoryPanel(WPlayerInvPanel.createInventoryLabel(playerInventory).setHorizontalAlignment(HorizontalAlignment.CENTER)), 0, 4);
+        root.validate(this);
     }
 
-    private boolean isInBounds(int id) {
-        return id >= 0 && id < 5;
-    }
-
-    @Override
-    public void onSlotClick(int slotIndex, int button, SlotActionType actionType, PlayerEntity player) {
-        TerraFabriCraft.LOGGER.debug("Detected " + actionType + " click!");
-    }
+ */
 
     @Override
     public boolean canUse(PlayerEntity player) {
@@ -68,47 +95,53 @@ public class KnappingScreenHandler extends AbstractRecipeScreenHandler {
     }
 
 
-    @Override
-    public void populateRecipeFinder(RecipeMatcher finder) {
+    private static class WKnappButton extends WSprite {
+        private static final Identifier imageid = new Identifier("terrafabricraft:textures/gui/knapping/knapping_overlay.png");
+        private KnappingScreenHandler knappingScreenHandler;
+        private int knapx;
+        private int knapy;
 
+        WKnappButton(KnappingScreenHandler knappingScreenHandler, int knapx, int knapy) {
+            super(imageid);
+            this.knappingScreenHandler = knappingScreenHandler;
+            this.knapx = knapx;
+            this.knapy = knapy;
+        }
+
+        @Override
+        public void paint(MatrixStack matrices, int x, int y, int mouseX, int mouseY) {
+            if (knappingScreenHandler.knapped_area[knapx][knapy]) super.paint(matrices, x, y, mouseX, mouseY);
+        }
+
+        @Environment(EnvType.CLIENT)
+        @Override
+        public InputResult onMouseMove(int x, int y) {
+            if (this.knappingScreenHandler.parent.mouseDown && !knappingScreenHandler.knapped_area[knapx][knapy]) {
+                MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+                this.knappingScreenHandler.knapped_area[knapx][knapy] = true;
+                PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
+                passedData.writeInt(knapx);
+                passedData.writeInt(knapy);
+                ClientSidePacketRegistry.INSTANCE.sendToServer(TerraFabriCraft.KNAPPING_PACKET_ID, passedData);
+                return InputResult.PROCESSED;
+            }
+            return InputResult.IGNORED;
+        }
+
+        @Override
+        public InputResult onClick(int x, int y, int button) {
+            if (!knappingScreenHandler.knapped_area[knapx][knapy]) {
+                MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+                this.knappingScreenHandler.knapped_area[knapx][knapy] = true;
+                PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
+                passedData.writeInt(knapx);
+                passedData.writeInt(knapy);
+                ClientSidePacketRegistry.INSTANCE.sendToServer(TerraFabriCraft.KNAPPING_PACKET_ID, passedData);
+                return InputResult.PROCESSED;
+            }
+            return InputResult.IGNORED;
+        }
     }
 
-    @Override
-    public void clearCraftingSlots() {
 
-    }
-
-    @Override
-    public boolean matches(Recipe recipe) {
-        return false;
-    }
-
-    @Override
-    public int getCraftingResultSlotIndex() {
-        return 0;
-    }
-
-    @Override
-    public int getCraftingWidth() {
-        return 0;
-    }
-
-    @Override
-    public int getCraftingHeight() {
-        return 0;
-    }
-
-    @Override
-    public int getCraftingSlotCount() {
-        return 0;
-    }
-
-    @Override
-    public RecipeBookCategory getCategory() {
-        return RecipeBookCategory.CRAFTING;
-    }
-
-    public boolean canInsertIntoSlot(int index) {
-        return false;
-    }
 }

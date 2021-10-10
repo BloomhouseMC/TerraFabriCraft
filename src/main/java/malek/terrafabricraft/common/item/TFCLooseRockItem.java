@@ -1,9 +1,11 @@
 package malek.terrafabricraft.common.item;
 
 import malek.terrafabricraft.common.block.TFCLooseRock;
+import malek.terrafabricraft.common.knapping.KnappingScreen;
 import malek.terrafabricraft.common.knapping.KnappingScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.Block;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.BlockItem;
@@ -16,7 +18,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
-import org.jetbrains.annotations.Nullable;
 
 public class TFCLooseRockItem extends BlockItem {
 
@@ -28,6 +29,7 @@ public class TFCLooseRockItem extends BlockItem {
     public ActionResult useOnBlock(ItemUsageContext context) {
         if (!context.getPlayer().isSneaking()) {
             openScreen(context.getPlayer(), context.getStack());
+            //MinecraftClient.getInstance().setScreen(new KnappingScreen((new KnappingScreenHandler(context.getStack()))));
             return ActionResult.SUCCESS;
         }
         if (context.getWorld().getBlockState(context.getBlockPos()).getBlock().asItem() != null
@@ -45,7 +47,7 @@ public class TFCLooseRockItem extends BlockItem {
     }
 
     public static void openScreen(PlayerEntity player, ItemStack looseRockItemStack) {
-        if (player.world != null && !player.world.isClient) {
+        if(player.world != null && !player.world.isClient) {
             player.openHandledScreen(new ExtendedScreenHandlerFactory() {
                 @Override
                 public void writeScreenOpeningData(ServerPlayerEntity serverPlayerEntity, PacketByteBuf packetByteBuf) {
@@ -58,8 +60,12 @@ public class TFCLooseRockItem extends BlockItem {
                 }
 
                 @Override
-                public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
+                public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
+                    //MinecraftClient.getInstance().setScreen(new KnappingScreen((new KnappingScreenHandler(syncId, inv, looseRockItemStack))));
                     return new KnappingScreenHandler(syncId, inv, looseRockItemStack);
+
+                    //return new KnappingScreen((new KnappingScreenHandler(syncId, inv, looseRockItemStack)));
+
                 }
             });
         }
