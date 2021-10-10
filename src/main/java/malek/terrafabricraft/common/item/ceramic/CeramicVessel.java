@@ -17,7 +17,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class CeramicVessel extends Item  {
     public Mode mode = Mode.INVENTORY;
-    private Object PlaceableBlockEntity;
 
     public CeramicVessel(Item.Settings settings) {
         super(settings);
@@ -32,9 +31,6 @@ public class CeramicVessel extends Item  {
             openScreen(user, user.getStackInHand(hand));
             return TypedActionResult.success(user.getStackInHand(hand));
         }
-        if(user.isSneaking()){
-
-        }
         return TypedActionResult.fail(user.getStackInHand(hand));
     }
     public static void openScreen(PlayerEntity player, ItemStack vesselItemStack) {
@@ -42,6 +38,7 @@ public class CeramicVessel extends Item  {
             player.openHandledScreen(new ExtendedScreenHandlerFactory() {
                 @Override
                 public void writeScreenOpeningData(ServerPlayerEntity serverPlayerEntity, PacketByteBuf packetByteBuf) {
+                    packetByteBuf.writeItemStack(vesselItemStack);
                 }
 
                 @Override

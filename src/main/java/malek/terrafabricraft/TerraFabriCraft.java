@@ -7,7 +7,6 @@ import malek.terrafabricraft.common.registry.*;
 import malek.terrafabricraft.common.world.generator.feature.RockFeature;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -53,9 +52,7 @@ public class TerraFabriCraft implements ModInitializer {
         TFCRecipeTypes.init();
         TFCSounds.init();
 
-        ServerTickEvents.END_WORLD_TICK.register(world -> {
 
-        });
 
     }
 }

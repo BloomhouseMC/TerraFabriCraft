@@ -20,12 +20,14 @@ public class BeerBrewingRecipe implements Recipe<Inventory> {
     public final DefaultedList<Ingredient> input;
     private final ItemStack output;
     public final int color;
+    public final int time;
 
-    public BeerBrewingRecipe(Identifier identifier, DefaultedList<Ingredient> input, ItemStack output, int color) {
+    public BeerBrewingRecipe(Identifier identifier, DefaultedList<Ingredient> input, ItemStack output, int color, int time) {
         this.identifier = identifier;
         this.input = input;
         this.output = output;
         this.color = color;
+        this.time = time;
     }
 
     @Override
@@ -82,12 +84,12 @@ public class BeerBrewingRecipe implements Recipe<Inventory> {
         public BeerBrewingRecipe read(Identifier id, JsonObject json) {
             DefaultedList<Ingredient> ingredients = getIngredients(JsonHelper.getArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
-                throw new JsonParseException("No ingredients for brew recipe");
+                throw new JsonParseException("No ingredients for keg recipe");
             }
             else if (ingredients.size() > 4) {
-                throw new JsonParseException("Too many ingredients for brew recipe");
+                throw new JsonParseException("Too many ingredients for keg recipe");
             }
-            return new BeerBrewingRecipe(id, ingredients, ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "result")), JsonHelper.getInt(json, "color"));
+            return new BeerBrewingRecipe(id, ingredients, ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "result")), JsonHelper.getInt(json, "color"), JsonHelper.getInt(json, "time"));
         }
 
         @Override
@@ -96,7 +98,7 @@ public class BeerBrewingRecipe implements Recipe<Inventory> {
             for (int i = 0; i < defaultedList.size(); i++) {
                 defaultedList.set(i, Ingredient.fromPacket(buf));
             }
-            return new BeerBrewingRecipe(id, defaultedList, buf.readItemStack(), buf.readInt());
+            return new BeerBrewingRecipe(id, defaultedList, buf.readItemStack(), buf.readInt(), buf.readInt());
         }
 
         @Override
@@ -107,6 +109,7 @@ public class BeerBrewingRecipe implements Recipe<Inventory> {
             }
             buf.writeItemStack(recipe.getOutput());
             buf.writeInt(recipe.color);
+            buf.writeInt(recipe.time);
         }
     }
 }
