@@ -8,14 +8,16 @@ import malek.terrafabricraft.common.block.TFCStoneButtonBlock;
 import malek.terrafabricraft.common.item.TFCLooseRockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.WallBlock;
+import net.minecraft.block.*;
+
+import java.util.HashMap;
 
 import static malek.terrafabricraft.common.registry.TFCObjects.*;
 
 public class RockBlock {
+
+
+    public static HashMap<BlockState, BlockState> rockToDebris = new HashMap<>();
     // public Block groundCover;
     //TODO : Add facing and power varation for the stone button
     public TFCStoneButtonBlock button;
@@ -123,6 +125,7 @@ public class RockBlock {
         sulfur = setCreateBlock(name, id, "sulfur");
         sylvite = setCreateBlock(name, id, "sylvite");
         topaz = setCreateBlock(name, id, "topaz");
+        rockToDebris.put(raw.block.getDefaultState(), loose.getDefaultState());
         TFCFeatures.registerOre(name, raw.block.getDefaultState());
     }
 

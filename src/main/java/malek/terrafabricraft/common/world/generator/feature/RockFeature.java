@@ -1,6 +1,8 @@
 package malek.terrafabricraft.common.world.generator.feature;
 
 import com.mojang.serialization.Codec;
+import malek.terrafabricraft.common.block.TFCLooseRock;
+import malek.terrafabricraft.common.registry.RockBlock;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -53,11 +55,23 @@ public class RockFeature extends Feature<OreFeatureConfig> {
 
          */
         if(random.nextInt(config.targets.get(0).state.getBlock().hashCode()) % 16 == 0 ) {
-
+            BlockState looseState = RockBlock.rockToDebris.get(config.targets.get(0).state);
                 for (int x = 0; x < random.nextInt(50); x++) {
                     for (int z = 0; z < random.nextInt(50); z++) {
                         if(random.nextFloat() < 0.1) {
-                            world.setBlockState(new BlockPos(pos.getX() + x, topPos.getY(), pos.getZ() + z), TFCObjects.ANDESITE.loose.getDefaultState(), 2);
+                            BlockPos myPos = new BlockPos(pos.getX() +x, topPos.getY()+2, pos.getZ()+z);
+                            while(world.getBlockState(myPos).isAir()) {
+                                myPos = myPos.down();
+                            }
+                            myPos = myPos.up();
+                            if(world.getBlockState(myPos.down()).getBlock() == Blocks.GRASS
+                                    || world.getBlockState(myPos.down()).getBlock() == Blocks.TALL_GRASS
+                                    || world.getBlockState(myPos.down()).getBlock() == Blocks.WATER
+                                    || world.getBlockState(myPos.down()).getBlock() instanceof TFCLooseRock) {
+
+                            } else {
+                                world.setBlockState(myPos, looseState.with(TFCLooseRock.COUNT, random.nextInt(3) + 1), 2);
+                            }
                         }
                         for (int y = world.getBottomY(); y < topPos.getY(); y++) {
                         BlockPos pos1 = new BlockPos(pos.getX() + x, y, pos.getZ() + z);
