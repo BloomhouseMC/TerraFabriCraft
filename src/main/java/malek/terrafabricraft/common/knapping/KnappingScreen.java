@@ -122,6 +122,20 @@ public class KnappingScreen extends HandledScreen<KnappingScreenHandler> impleme
         return this.recipeBook;
     }
 
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (this.recipeBook.mouseClicked(mouseX, mouseY, button)) {
+            this.setFocused(this.recipeBook);
+            return true;
+        } else {
+            return this.narrow && this.recipeBook.isOpen() ? true : super.mouseClicked(mouseX, mouseY, button);
+        }
+    }
+
+    public void handledScreenTick() {
+        super.handledScreenTick();
+        this.recipeBook.update();
+    }
+
     public class Rectangle {
         public int x;
         public int y;

@@ -31,7 +31,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Iterator;
 import java.util.List;
 
-import static malek.terrafabricraft.client.CalendarClient.minuteHand;
+import static malek.terrafabricraft.client.CalendarClient.getMinuteHand;
 import static malek.terrafabricraft.common.temperature.ItemTemperature.getTemperature;
 import static malek.terrafabricraft.mixin.client.RenderLayerAccessor.*;
 import static org.lwjgl.opengl.GL14.GL_FUNC_ADD;
@@ -73,7 +73,7 @@ public class ItemRendererMixin {
             if (!stack.isEmpty()) {
                 if (stack.hasNbt()) {
                     if(stack.getItem() instanceof TFCFood) {
-                        int current = minuteHand - stack.getOrCreateNbt().getInt("date_created");
+                        int current = getMinuteHand() - stack.getOrCreateNbt().getInt("date_created");
                         int decayPercentage = current * 100 / 5;
                         if(decayPercentage > 100) {
                             decayPercentage = 100;
