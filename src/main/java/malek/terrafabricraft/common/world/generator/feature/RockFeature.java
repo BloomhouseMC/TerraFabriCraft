@@ -6,6 +6,7 @@ import malek.terrafabricraft.common.registry.RockBlock;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
@@ -54,7 +55,8 @@ public class RockFeature extends Feature<OreFeatureConfig> {
                             if(world.getBlockState(myPos.down()).getBlock() == Blocks.GRASS
                                     || world.getBlockState(myPos.down()).getBlock() == Blocks.TALL_GRASS
                                     || world.getBlockState(myPos.down()).getBlock() == Blocks.WATER
-                                    || world.getBlockState(myPos.down()).getBlock() instanceof TFCLooseRock) {
+                                    || world.getBlockState(myPos.down()).getBlock() instanceof TFCLooseRock
+                                    || world.getBlockState(myPos.down()).getBlock() instanceof LeavesBlock) {
 
                             } else {
                                 world.setBlockState(myPos, looseState.with(TFCLooseRock.COUNT, random.nextInt(3) + 1), 2);

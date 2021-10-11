@@ -2,6 +2,7 @@ package malek.terrafabricraft.common.block.forge;
 
 import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
 import malek.terrafabricraft.common.ImplementedInventory;
+import malek.terrafabricraft.common.block.bellows.BellowsBlock;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.temperature.ItemTemperature;
 import net.minecraft.block.BlockState;
@@ -57,20 +58,24 @@ public class ForgeBlockEntity extends BlockEntity implements ImplementedInventor
             return;
         }
         ticks++;
+        BlockPos upPos = pos.up();
+        for(Direction direction : Direction.values()) {
+            if(world.getBlockState(upPos.offset(direction)).getBlock() == TFCObjects.BELLOWS_BLOCK) {
+                if(world.getBlockState(upPos.offset(direction)).get(BellowsBlock.ON)) {
+                    temperature++;
+                }
+            }
+        }
 
-
-        temperature++;
+        if(ticks % 18 == 0 && temperature != 0) {
+            temperature--;
+        }
         if(temperature > 190) {
-            temperature = 0;
+            temperature = 190;
         }
         propertyDelegate.set(0, temperature);
-        if(ticks%1 == 0) {
-            for (ItemStack item : getItems()) {
-                ItemTemperature.incrementTemperature(item);
-                ItemTemperature.incrementTemperature(item);
-                ItemTemperature.incrementTemperature(item);
-                ItemTemperature.incrementTemperature(item);
-            }
+        for (ItemStack item : getItems()) {
+            ItemTemperature.incrementTemperature(item);
         }
     }
     @Nullable
