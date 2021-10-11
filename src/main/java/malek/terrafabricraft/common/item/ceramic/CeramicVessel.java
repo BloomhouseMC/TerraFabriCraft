@@ -20,6 +20,7 @@ public class CeramicVessel extends Item  {
 
     public CeramicVessel(Item.Settings settings) {
         super(settings);
+
     }
 
 
@@ -27,13 +28,20 @@ public class CeramicVessel extends Item  {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         user.setCurrentHand(hand);
-        if(!user.isSneaking() && mode == Mode.INVENTORY){
-            openScreen(user, user.getStackInHand(hand));
+        System.out.println(mode.name);
+        if(!user.isSneaking()){
+            mode = Mode.INVENTORY;
+            openScreen(user, user.getStackInHand(hand), mode);
+            return TypedActionResult.success(user.getStackInHand(hand));
+        }
+        if(user.isSneaking()){
+            mode = Mode.ALLOY_LIQUID;
+            openScreen(user, user.getStackInHand(hand), mode);
             return TypedActionResult.success(user.getStackInHand(hand));
         }
         return TypedActionResult.fail(user.getStackInHand(hand));
     }
-    public static void openScreen(PlayerEntity player, ItemStack vesselItemStack) {
+    public static void openScreen(PlayerEntity player, ItemStack vesselItemStack, Mode mode) {
         if(player.world != null && !player.world.isClient) {
             player.openHandledScreen(new ExtendedScreenHandlerFactory() {
                 @Override
@@ -43,7 +51,9 @@ public class CeramicVessel extends Item  {
 
                 @Override
                 public Text getDisplayName() {
-                    return new TranslatableText(vesselItemStack.getItem().getTranslationKey());
+                    return mode == Mode.INVENTORY ?
+                        new TranslatableText(vesselItemStack.getItem().getTranslationKey()) :
+                        new TranslatableText(vesselItemStack.getItem().getTranslationKey()).append(" Liquid");
                 }
 
                 @Override

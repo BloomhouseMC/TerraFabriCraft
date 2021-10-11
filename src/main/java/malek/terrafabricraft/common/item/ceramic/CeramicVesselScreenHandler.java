@@ -5,6 +5,7 @@ import malek.terrafabricraft.common.util.TFCUtils.Dimension;
 import malek.terrafabricraft.common.util.TFCUtils.InventoryUtils;
 import malek.terrafabricraft.common.util.TFCUtils.Point;
 import net.fabricmc.fabric.api.util.NbtType;
+import net.minecraft.client.font.TextRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -17,26 +18,33 @@ import net.minecraft.screen.slot.Slot;
 
 public class CeramicVesselScreenHandler extends ScreenHandler {
     private final ItemStack itemStack;
+    private int[] fluid = new int[4];
     private final int padding = 8;
     private final int extraPaddeing = 4;
     private final int titleSpace = 10;
 
     public CeramicVesselScreenHandler(int synchronizationID, PlayerInventory playerInventory, PacketByteBuf packetByteBuf) {
         this(synchronizationID, playerInventory, packetByteBuf.readItemStack());
+
     }
 
     public CeramicVesselScreenHandler(int synchronizationID, PlayerInventory playerInventory, ItemStack vesselStack) {
         super(TFCScreens.CERAMIC_VESSEL_SCREEN_HANDLER, synchronizationID);
         this.itemStack = vesselStack;
 
-        if (vesselStack.getItem() instanceof CeramicVessel) {
-            setupContainer(playerInventory, vesselStack);
+
+        if (vesselStack.getItem() instanceof CeramicVessel ceramicVessel) {
+            switch (ceramicVessel.mode) {
+                case INVENTORY -> setupContainerInventory(playerInventory, vesselStack);
+                case ALLOY_LIQUID -> setupFluidInventory(playerInventory, vesselStack);
+            }
+
         } else {
             PlayerEntity player = playerInventory.player;
             this.close(player);
         }
     }
-    private void setupContainer(PlayerInventory playerInventory, ItemStack vesselStack) {
+    private void setupContainerInventory(PlayerInventory playerInventory, ItemStack vesselStack) {
         Dimension dimension = getDimension();
         int rowWidth = 2;
         int numberOfRows = 2;
@@ -56,6 +64,40 @@ public class CeramicVesselScreenHandler extends ScreenHandler {
             for (int x = 0; x < rowWidth; x++) {
                 Point vesselSlotPosition = getBackpackSlotPosition(dimension, x, y);
                 addSlot(new BackpackLockedSlot(inventory, y * rowWidth + x, vesselSlotPosition.x - 9, vesselSlotPosition.y + 1 + 9));
+            }
+        }
+
+        for (int y = 0; y < 3; ++y) {
+            for (int x = 0; x < 9; ++x) {
+                Point playerInvSlotPosition = getPlayerInvSlotPosition(dimension, x, y);
+                this.addSlot(new BackpackLockedSlot(playerInventory, x + y * 9 + 9, playerInvSlotPosition.x + 1, playerInvSlotPosition.y + 1));
+            }
+        }
+
+        for (int x = 0; x < 9; ++x) {
+            Point playerInvSlotPosition = getPlayerInvSlotPosition(dimension, x, 3);
+            this.addSlot(new BackpackLockedSlot(playerInventory, x, playerInvSlotPosition.x + 1, playerInvSlotPosition.y + 1));
+        }
+    }
+    private void setupFluidInventory(PlayerInventory playerInventory, ItemStack vesselStack) {
+        Dimension dimension = getDimension();
+        int rowWidth = 1;
+        int numberOfRows = 1;
+
+        NbtList tag = vesselStack.getOrCreateNbt().getList("Inventory1", NbtType.COMPOUND);
+        SimpleInventory inventory = new SimpleInventory(rowWidth * numberOfRows) {
+            @Override
+            public void markDirty() {
+                vesselStack.getOrCreateNbt().put("Inventory1", InventoryUtils.toTag(this));
+                super.markDirty();
+            }
+        };
+
+        InventoryUtils.fromTag(tag, inventory);
+        for (int y = 0; y < numberOfRows; y++) {
+            for (int x = 0; x < rowWidth; x++) {
+                Point vesselSlotPosition = getBackpackSlotPosition(dimension, x, y);
+                addSlot(new BackpackLockedSlot(inventory, y * rowWidth + x, vesselSlotPosition.x - 9 + 9, vesselSlotPosition.y + 1 + 9 + 9));
             }
         }
 
