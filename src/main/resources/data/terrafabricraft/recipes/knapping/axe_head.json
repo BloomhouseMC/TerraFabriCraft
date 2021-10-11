@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "terrafabricraf:knapping_recipe",
   "pattern": [
     "   R ",
     " RRRR",
@@ -9,7 +9,7 @@
   ],
   "key": {
     "R": {
-      "item": "minecraft:rock"
+      "item": "minecraft:cobblestone"
     }
   },
   "result": {
@@ -17,3 +17,4 @@
     "count": 4
   }
 }
+

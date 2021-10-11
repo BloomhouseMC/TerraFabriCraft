@@ -4,12 +4,11 @@ import malek.terrafabricraft.TerraFabriCraft;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 
 public class CalendarManager {
     private static CalendarManager singleton;
-    private final Calendar calendar ;
+    private final Calendar calendar;
 
     public CalendarManager(MinecraftServer server) {
         var level = server.getWorld(World.OVERWORLD);
@@ -21,7 +20,9 @@ public class CalendarManager {
     public static void init() {
         ServerLifecycleEvents.SERVER_STARTED.register((server -> {
             singleton = new CalendarManager(server);
-            ServerTickEvents.START_WORLD_TICK.register(serverWorld -> singleton.getCalendar().tick());
+            ServerTickEvents.START_WORLD_TICK.register(serverWorld -> {
+                singleton.getCalendar().tick();
+            });
             TerraFabriCraft.LOGGER.debug("Starting the clock");
         }));
     }

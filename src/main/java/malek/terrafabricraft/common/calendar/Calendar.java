@@ -21,12 +21,11 @@ public class Calendar extends PersistentState {
 
     private final NbtCompound calendarData = new NbtCompound();
     private int iterator;
-    private int secondsHand;
     private int minuteHand;
     private int dayCounter;
-    private int weekCounter;
-    private int monthCounter;
-    private int yearCounter;
+    private Month month;
+    private Season season;
+    private int year;
     private final List<ServerPlayerEntity> playerList;
     private final ServerWorld world;
     public static final Identifier CALENDAR_ID = new Identifier(TerraFabriCraft.MODID, "calendar");
@@ -37,6 +36,11 @@ public class Calendar extends PersistentState {
         playerList = server.getPlayerManager().getPlayerList();
         this.markDirty();
         minuteHand = 0;
+        dayCounter = 0;
+        month = Month.values()[5];
+        season = Season.values()[2];
+        year = 1000;
+
     }
 
     /**
@@ -48,6 +52,9 @@ public class Calendar extends PersistentState {
     @Override
     public NbtCompound writeNbt(NbtCompound compoundTag) {
         compoundTag.putInt("minuteHand", minuteHand);
+        compoundTag.putInt("month", month.ordinal());
+        compoundTag.putInt("season", season.ordinal());
+        compoundTag.putInt("year", year);
         return compoundTag;
     }
 
@@ -58,6 +65,10 @@ public class Calendar extends PersistentState {
     public void send() {
         if (!world.isClient) {
             calendarData.putInt("minuteHand", minuteHand);
+            calendarData.putInt("dayCounter", dayCounter);
+            calendarData.putInt("month", month.ordinal());
+            TerraFabriCraft.LOGGER.debug("Month value is: " + month.ordinal() + ".");
+            calendarData.putInt("season", season.ordinal());
             var buf = PacketByteBufs.create();
             buf.writeNbt(calendarData);
             for (ServerPlayerEntity serverPlayerEntity : playerList) {
@@ -78,6 +89,12 @@ public class Calendar extends PersistentState {
         System.out.println("Loading existing nbt");
         var calendar = new Calendar(server);
         calendar.minuteHand = compoundTag.getInt("minuteHand");
+        TerraFabriCraft.LOGGER.debug("Retrieving value minute value " + compoundTag.getInt("minuteHand") + " from world.");
+        calendar.dayCounter = calendar.minuteHand / 20;
+        calendar.month = Month.values()[compoundTag.getInt("month")];
+        calendar.season = Season.values()[compoundTag.getInt("season")];
+        calendar.year = compoundTag.getInt("year");
+        calendar.send();
         return calendar;
     }
 
@@ -88,20 +105,32 @@ public class Calendar extends PersistentState {
      */
     public void tick() {
         iterator++;
-        if (iterator >= 2) {
-            secondsHand++;
+        if (iterator >= 2400) {
+            minuteHand++;
             iterator = 0;
-            if (secondsHand >= 1200) {
-                minuteHand++;
-                secondsHand = 0;
-                send();
-                if (minuteHand % 20 == 0) {
-                    dayCounter++;
-                    if (dayCounter % 7 == 0) {
-                        weekCounter++;
+            if (minuteHand % 20 == 0) {
+                dayCounter++;
+                if (dayCounter % 8 == 0) {
+                    if (month.ordinal() == 11) {
+                        month = Month.values()[0];
                     }
+                    else {
+                        month = Month.values()[month.ordinal() + 1];
+                    }
+                    if (month.ordinal() % 3 == 0) {
+                        if (season.ordinal() == 3) {
+                            season = Season.values()[0];
+                        }
+                        else {
+                            season = Season.values()[season.ordinal() + 1];
+                        }
+                    }
+
+                    if (month.ordinal() % 12 == 0)
+                        year++;
                 }
             }
+            send();
         }
     }
 
@@ -113,7 +142,39 @@ public class Calendar extends PersistentState {
         return minuteHand;
     }
 
-    public int getSecondsHand() {
-        return secondsHand;
+    public int getDayCounter() {
+        return dayCounter;
+    }
+
+    public Month getMonth() {
+        return month;
+    }
+
+//    enum Day {
+//        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+//
+//        Day(int number) {
+//
+//        }
+//    }
+
+    public enum Month {
+        JANUARY ("January"), FEBRUARY ("February"), MARCH ("March"), APRIL ("April"), MAY ("May"), JUNE ("June"), JULY ("July"), AUGUST ("August"), SEPTEMBER ("September"), OCTOBER ("October"), NOVEMBER ("November"), DECEMBER ("December");
+
+        public final String readable;
+
+        Month(String readable) {
+            this.readable = readable;
+        }
+    }
+
+    public enum Season {
+        SUMMER ("Summer"), AUTUMN ("Autumn"), WINTER ("Winter"), SPRING ("Spring");
+
+        public final String readable;
+
+        Season(String readable) {
+            this.readable = readable;
+        }
     }
 }

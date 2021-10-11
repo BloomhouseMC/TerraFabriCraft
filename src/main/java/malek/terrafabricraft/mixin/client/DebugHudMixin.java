@@ -1,6 +1,7 @@
 package malek.terrafabricraft.mixin.client;
 
 import malek.terrafabricraft.client.CalendarClient;
+import malek.terrafabricraft.common.calendar.Calendar;
 import net.minecraft.client.gui.hud.DebugHud;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,6 +14,9 @@ import java.util.List;
 public class DebugHudMixin {
     @Inject(at = @At("RETURN"), method = "getRightText")
     protected void getRightText(CallbackInfoReturnable<List<String>> info) {
-        info.getReturnValue().add("Time passed in minutes: " + CalendarClient.getMinuteHand());
+        info.getReturnValue().add("Minute: " + CalendarClient.getMinuteHand());
+        info.getReturnValue().add("Day: " + CalendarClient.getDayCounter());
+        info.getReturnValue().add("Month: " + CalendarClient.getReadableMonth());
+        info.getReturnValue().add("Season: " + CalendarClient.getReadableSeason());
     }
 }

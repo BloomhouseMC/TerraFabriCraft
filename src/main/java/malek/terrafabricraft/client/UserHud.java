@@ -20,7 +20,6 @@ public class UserHud extends DrawableHelper implements HudRenderCallback {
         TextRenderer textRenderer = mc.textRenderer;
         int height = mc.getWindow().getScaledHeight();
         ProficiencyComponent.maybeGet(player).ifPresent(proficiencyComponent -> {
-            int minuteHand = CalendarClient.minuteHand;
             int agri_level = proficiencyComponent.getAgriLevel();
             int butch_level = proficiencyComponent.getButchLevel();
             int cook_level = proficiencyComponent.getCookLevel();
