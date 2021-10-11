@@ -21,35 +21,25 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.world.World;
 
 public class TFCLooseRockItem extends BlockItem implements ImplementedInventory  {
     private DefaultedList<ItemStack> list = DefaultedList.ofSize(1, ItemStack.EMPTY);
-    private Inventory inventory;
 
     public TFCLooseRockItem(Block block, Settings settings) {
         super(block, settings);
     }
 
     @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        if (!context.getPlayer().isSneaking()) {
-            openScreen(context.getPlayer(), context.getStack());
-            //MinecraftClient.getInstance().setScreen(new KnappingScreen((new KnappingScreenHandler(context.getStack()))));
-            return ActionResult.SUCCESS;
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if (!user.isSneaking()) {
+            openScreen(user, user.getStackInHand(hand));
+            return TypedActionResult.success(user.getStackInHand(hand));
         }
-        if (context.getWorld().getBlockState(context.getBlockPos()).getBlock().asItem() != null
-                && context.getWorld().getBlockState(context.getBlockPos()).getBlock().asItem() == context.getStack().getItem()) {
-            if (context.getWorld().getBlockState(context.getBlockPos()).get(TFCLooseRock.COUNT) == 3) {
-                return ActionResult.PASS;
-            }
-            context.getWorld().setBlockState(context.getBlockPos(), context.getWorld().getBlockState(context.getBlockPos()).with(TFCLooseRock.COUNT, context.getWorld().getBlockState(context.getBlockPos()).get(TFCLooseRock.COUNT) + 1));
-            context.getPlayer().getMainHandStack().setCount(context.getPlayer().getMainHandStack().getCount() - 1);
-            return ActionResult.PASS;
-        } else {
-            ActionResult actionResult = this.place(new ItemPlacementContext(context));
-            return actionResult;
-        }
+        return TypedActionResult.pass(user.getStackInHand(hand));
     }
 
     public static void openScreen(PlayerEntity player, ItemStack looseRockItemStack) {
@@ -67,11 +57,7 @@ public class TFCLooseRockItem extends BlockItem implements ImplementedInventory 
 
                 @Override
                 public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-                    //MinecraftClient.getInstance().setScreen(new KnappingScreen((new KnappingScreenHandler(syncId, inv, looseRockItemStack))));
                     return new KnappingScreenHandler(syncId, inv, looseRockItemStack);
-
-                    //return new KnappingScreen((new KnappingScreenHandler(syncId, inv, looseRockItemStack)));
-
                 }
             });
         }

@@ -14,6 +14,8 @@ import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.item.TFCLooseRockItem;
 import malek.terrafabricraft.common.item.ceramic.CeramicVessel;
 import malek.terrafabricraft.common.item.ceramic.CeramicVesselScreenHandler;
+import malek.terrafabricraft.common.recipes.KnappingRecipe;
+import malek.terrafabricraft.common.registry.TFCRecipeTypes;
 import malek.terrafabricraft.common.registry.TFCScreens;
 import malek.terrafabricraft.common.util.TFCUtils;
 import net.fabricmc.api.EnvType;
@@ -47,6 +49,7 @@ public class KnappingScreenHandler extends SyncedGuiDescription {
     private final int padding = 8;
     private final int extraPaddeing = 4;
     private final int titleSpace = 10;
+    public KnappingRecipe knappingRecipe = null;
 
     public KnappingScreenHandler(int synchronizationID, PlayerInventory playerInventory, PacketByteBuf packetByteBuf) {
         this(synchronizationID, playerInventory, packetByteBuf.readItemStack());
@@ -86,6 +89,11 @@ public class KnappingScreenHandler extends SyncedGuiDescription {
 
     }
 
+    @Override
+    public void setStackInSlot(int slot, int revision, ItemStack stack) {
+        knappingRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.KNAPPING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(knapped_area, world)).findFirst().orElse(null);
+        super.setStackInSlot(slot, revision, stack);
+    }
 
     @Override
     public boolean canUse(PlayerEntity player) {

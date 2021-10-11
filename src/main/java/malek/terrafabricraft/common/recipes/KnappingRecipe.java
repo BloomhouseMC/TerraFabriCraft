@@ -65,7 +65,8 @@ public class KnappingRecipe implements CraftingRecipe {
         return width >= this.width && height >= this.height;
     }
 
-    public boolean matches(CraftingInventory craftingInventory, World world) {
+    public boolean matches(boolean[][] craftingInventory, World world) {
+        /*
         for (int i = 0; i <= craftingInventory.getWidth() - this.width; ++i) {
             for (int j = 0; j <= craftingInventory.getHeight() - this.height; ++j) {
                 if (this.matchesPattern(craftingInventory, i, j, true)) {
@@ -77,6 +78,8 @@ public class KnappingRecipe implements CraftingRecipe {
                 }
             }
         }
+
+         */
 
         return false;
     }
@@ -102,6 +105,11 @@ public class KnappingRecipe implements CraftingRecipe {
         }
 
         return true;
+    }
+
+    @Override
+    public boolean matches(CraftingInventory inventory, World world) {
+        return false;
     }
 
     public ItemStack craft(CraftingInventory craftingInventory) {

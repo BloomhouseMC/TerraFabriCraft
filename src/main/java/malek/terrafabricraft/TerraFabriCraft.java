@@ -57,9 +57,9 @@ public class TerraFabriCraft implements ModInitializer {
 
 
         ServerSidePacketRegistry.INSTANCE.register(KNAPPING_PACKET_ID, (packetContext, attachedData) -> {
-            // Get the BlockPos we put earlier in the IO thread
             int x = attachedData.readInt();
             int y = attachedData.readInt();
+            System.out.println(x+" : "+y);
 
         });
 
