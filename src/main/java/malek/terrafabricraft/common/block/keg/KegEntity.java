@@ -172,11 +172,13 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
                     }
                     else if (hardRecipe != null) {
                         setColor(hardRecipe.color);
+                        setTime(hardRecipe.time);
                         this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
                         return Mode.HARD_BREWING;
                     }
                     else if (lightRecipe != null) {
                         setColor(lightRecipe.color);
+                        setTime(lightRecipe.time);
                         this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
                         return Mode.LIGHT_BREWING;
                     }
