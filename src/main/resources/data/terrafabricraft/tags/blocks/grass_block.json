@@ -1,0 +1,10 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:grass/loam",
+    "terrafabricraft:grass/sandy_loam",
+    "terrafabricraft:grass/silt",
+    "terrafabricraft:grass/silty_loam",
+    "minecraft:grass_block"
+  ]
+}

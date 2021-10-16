@@ -1,7 +1,7 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.common.block.TFCGravityBlock;
-import malek.terrafabricraft.common.block.TFCGravityGrassBlock;
+import malek.terrafabricraft.common.block.TFCGrassBlock;
 import net.minecraft.block.Block;
 import net.minecraft.sound.BlockSoundGroup;
 
@@ -25,7 +25,7 @@ public class SoilBlock {
         return createSand(variantId + "/" + special, true);
     }
 
-    private static TFCGravityGrassBlock setCreateGrassBlock(String variantId, String special, BlockSoundGroup sound) {
+    private static TFCGrassBlock setCreateGrassBlock(String variantId, String special, BlockSoundGroup sound) {
         return createGrass(variantId + "/" + special, sound);
     }
 }

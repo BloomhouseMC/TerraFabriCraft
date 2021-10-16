@@ -28,9 +28,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.sapling.SaplingGenerator;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.Tag;
@@ -49,10 +46,10 @@ public class TFCObjects {
     private static final Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
 
 
-    public static final TFCGravityBlock FARMLAND_LOAM = createFarmland("farmland/loam", true);
-    public static final TFCGravityBlock FARMLAND_SANDY_LOAM = createFarmland("farmland/sandy_loam", true);
-    public static final TFCGravityBlock FARMLAND_SILT = createFarmland("farmland/silt", true);
-    public static final TFCGravityBlock FARMLAND_SILTY_LOAM = createFarmland("farmland/silty_loam", true);
+    public static final TFCFarmlandBlock FARMLAND_LOAM = createFarmland("farmland/loam", true);
+    public static final TFCFarmlandBlock FARMLAND_SANDY_LOAM = createFarmland("farmland/sandy_loam", true);
+    public static final TFCFarmlandBlock FARMLAND_SILT = createFarmland("farmland/silt", true);
+    public static final TFCFarmlandBlock FARMLAND_SILTY_LOAM = createFarmland("farmland/silty_loam", true);
     public static final SoilBlock GRASS = new SoilBlock("grass", BlockSoundGroup.GRASS);
     // Debug + Testing
     public static final Item TEST_FOOD = createFood("test_food", 1, 1);
@@ -81,44 +78,44 @@ public class TFCObjects {
     public static final CoralBlock CORAL_FIRE = new CoralBlock("coral/fire");
     public static final CoralBlock CORAL_HORN = new CoralBlock("coral/horn");
     public static final CoralBlock CORAL_TUBE = new CoralBlock("coral/tube");
-    public static final Block BARLEY_CROP = createCrop("barley_crop", 0, 1, false, false);
+    public static final Block BARLEY_CROP = createCrop("barley_crop", 0, 1, false, TFCObjects.BARLEY_SEED, 9);
     //Seeds
     public static final Item BARLEY_SEED = createItem("seed/barley_seeds", new AliasedBlockItem(BARLEY_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0, 1, false, false);
+    public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0, 1, false, TFCObjects.CABBAGE_SEED, 7);
     public static final Item CABBAGE_SEED = createItem("seed/cabbage_seeds", new AliasedBlockItem(CABBAGE_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block CARROT_CROP = createCrop("carrot_crop", 0, 1, false, false);
+    public static final Block CARROT_CROP = createCrop("carrot_crop", 0, 1, false, TFCObjects.CARROT_SEED, 6);
     public static final Item CARROT_SEED = createItem("seed/carrot_seeds", new AliasedBlockItem(CARROT_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block GARLIC_CROP = createCrop("garlic_crop", 0, 1, false, false);
+    public static final Block GARLIC_CROP = createCrop("garlic_crop", 0, 1, false, TFCObjects.GARLIC_SEED, 6);
     public static final Item GARLIC_SEED = createItem("seed/garlic_seeds", new AliasedBlockItem(GARLIC_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block GREENBEAN_CROP = createCrop("greenbean_crop", 0, 1, false, false);
+    public static final Block GREENBEAN_CROP = createCrop("greenbean_crop", 0, 1, false, TFCObjects.GREENBEAN_SEED, 8);
     public static final Item GREENBEAN_SEED = createItem("seed/greenbean_seeds", new AliasedBlockItem(GREENBEAN_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block JUTE_CROP = createCrop("jute_crop", 0, 1, true, false);
+    public static final Block JUTE_CROP = createCrop("jute_crop", 0, 1, true, TFCObjects.JUTE_SEED, 7);
     public static final Item JUTE_SEED = createItem("seed/jute_seeds", new AliasedBlockItem(JUTE_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block MAIZE_CROP = createCrop("maize_crop", 0, 1, true, false);
+    public static final Block MAIZE_CROP = createCrop("maize_crop", 0, 1, true, TFCObjects.MAIZE_SEED, 7);
     public static final Item MAIZE_SEED = createItem("seed/maize_seeds", new AliasedBlockItem(MAIZE_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block OAT_CROP = createCrop("oat_crop", 0, 1, false, false);
+    public static final Block OAT_CROP = createCrop("oat_crop", 0, 1, false, TFCObjects.OAT_SEED, 9);
     public static final Item OAT_SEED = createItem("seed/oat_seeds", new AliasedBlockItem(OAT_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block ONION_CROP = createCrop("onion_crop", 0, 1, false, false);
+    public static final Block ONION_CROP = createCrop("onion_crop", 0, 1, false, TFCObjects.ONION_SEED, 8);
     public static final Item ONION_SEED = createItem("seed/onion_seeds", new AliasedBlockItem(ONION_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block POTATO_CROP = createCrop("potato_crop", 0, 1, false, false);
+    public static final Block POTATO_CROP = createCrop("potato_crop", 0, 1, false, TFCObjects.POTATO_SEED, 8);
     public static final Item POTATO_SEED = createItem("seed/potato_seeds", new AliasedBlockItem(POTATO_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block RED_BELL_PEPPER_CROP = createCrop("red_bell_pepper_crop", 0, 1, false, false);
+    public static final Block RED_BELL_PEPPER_CROP = createCrop("red_bell_pepper_crop", 0, 1, false, TFCObjects.RED_BELL_PEPPER_SEED, 8);
     public static final Item RED_BELL_PEPPER_SEED = createItem("seed/red_bell_pepper_seeds", new AliasedBlockItem(RED_BELL_PEPPER_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block RICE_CROP = createCrop("rice_crop", 0, 1, false, false);
+    public static final Block RICE_CROP = createCrop("rice_crop", 0, 1, false, TFCObjects.RICE_SEED, 9);
     public static final Item RICE_SEED = createItem("seed/rice_seeds", new AliasedBlockItem(RICE_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block RUTABAGA_CROP = createCrop("rutabaga_crop", 0, 1, false, false);
+    public static final Block RUTABAGA_CROP = createCrop("rutabaga_crop", 0, 1, false, TFCObjects.RUTABAGA_SEED, 9);
     public static final Item RUTABAGA_SEED = createItem("seed/rutabaga_seeds", new AliasedBlockItem(RUTABAGA_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block RYE_CROP = createCrop("rye_crop", 0, 1, false, false);
+    public static final Block RYE_CROP = createCrop("rye_crop", 0, 1, false, TFCObjects.RYE_SEED, 9);
     public static final Item RYE_SEED = createItem("seed/rye_seeds", new AliasedBlockItem(RYE_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block SOYBEAN_CROP = createCrop("soybean_crop", 0, 1, false, false);
+    public static final Block SOYBEAN_CROP = createCrop("soybean_crop", 0, 1, false, TFCObjects.SOYBEAN_SEED, 8);
     public static final Item SOYBEAN_SEED = createItem("seed/soybean_seeds", new AliasedBlockItem(SOYBEAN_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block SQUASH_CROP = createCrop("squash_crop", 0, 1, false, false);
+    public static final Block SQUASH_CROP = createCrop("squash_crop", 0, 1, false, TFCObjects.SQUASH_SEED, 9);
     public static final Item SQUASH_SEED = createItem("seed/squash_seeds", new AliasedBlockItem(SQUASH_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block TOMATO_CROP = createCrop("tomato_crop", 0, 1, false, false);
+    public static final Block TOMATO_CROP = createCrop("tomato_crop", 0, 1, false, TFCObjects.TOMATO_SEED, 9);
     public static final Item TOMATO_SEED = createItem("seed/tomato_seeds", new AliasedBlockItem(TOMATO_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block WHEAT_CROP = createCrop("wheat_crop", 0, 1, false, false);
+    public static final Block WHEAT_CROP = createCrop("wheat_crop", 0, 1, false, TFCObjects.WHEAT_SEED, 9);
     public static final Item WHEAT_SEED = createItem("seed/wheat_seeds", new AliasedBlockItem(WHEAT_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
-    public static final Block YELLOW_BELL_PEPPER_CROP = createCrop("yellow_bell_pepper_crop", 0, 1, false, false);
+    public static final Block YELLOW_BELL_PEPPER_CROP = createCrop("yellow_bell_pepper_crop", 0, 1, false, TFCObjects.YELLOW_BELL_PEPPER_SEED, 8);
     public static final Item YELLOW_BELL_PEPPER_SEED = createItem("seed/yellow_bell_pepper_seeds", new AliasedBlockItem(YELLOW_BELL_PEPPER_CROP, gen(TerraFabriCraft.FLORA_GROUP)));
     public static final Item BITUMINOUSE_COAL = createItemSimple("ore/bituminous_coal", TerraFabriCraft.ORES_GROUP);
     public static final Item LIGNITE = createItemSimple("ore/lignite", TerraFabriCraft.ORES_GROUP);
@@ -355,7 +352,6 @@ public class TFCObjects {
     public static final RockBlock SCHIST = new RockBlock("schist");
     public static final RockBlock SHALE = new RockBlock("shale");
     public static final RockBlock SLATE = new RockBlock("slate");
-    public static final TFCGrassPlantBlock PLANT_ALLIUM = createGrassPlant("plant/allium", 1, 1, 1);
     public static final TFCGrassPlantBlock PLANT_ARUNDO = createGrassPlant("plant/arundo", 1, 1, 3);
     public static final TFCGrassPlantBlock PLANT_ATHYRIUM_FERN = createGrassPlant("plant/athyrium_fern", 1, 1, 1);
     //Badderlocks [dirt]
@@ -525,6 +521,7 @@ public class TFCObjects {
     public static final Tag<Block> CAN_PLANT_CROPS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_crops_on"));    //Block Entities
     public static final Tag<Block> CAN_PLANT_RIVER_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_river_plants_on"));
     public static final Tag<Block> CAN_PLANT_SALT_WATER_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_salt_water_plants_on"));
+    public static final Tag<Block> GRASS_BLOCK = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "grass_block"));
 
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
@@ -580,8 +577,8 @@ public class TFCObjects {
         return block;
     }
 
-    public static TFCGravityGrassBlock createGrass(String id, BlockSoundGroup sound) {
-        var block = new TFCGravityGrassBlock(FabricBlockSettings.copyOf(Blocks.DIRT).sounds(sound));
+    public static TFCGrassBlock createGrass(String id, BlockSoundGroup sound) {
+        var block = new TFCGrassBlock(FabricBlockSettings.copyOf(Blocks.DIRT).sounds(sound));
         register(id, block, true, TerraFabriCraft.EARTH_GROUP);
         return block;
     }
@@ -614,14 +611,14 @@ public class TFCObjects {
         return block;
     }
 
-    public static Block createCrop(String id, int temp, int speed, boolean tall, boolean hasBlockItem) {
-        var block = tall ? new TFCCropsTall(copyOf(Blocks.WHEAT), temp, speed) : new TFCCrops(copyOf(Blocks.WHEAT), temp, speed);
-        register("crop/" + id, block, hasBlockItem, TerraFabriCraft.FLORA_GROUP);
+    public static Block createCrop(String id, int temp, int speed, boolean tall, Item cropItem, int maxAge) {
+        var block = tall ? new TFCCropsTall(copyOf(Blocks.WHEAT), temp, speed) : new TFCCrops(copyOf(Blocks.WHEAT), temp, speed, cropItem, maxAge);
+        register("crop/" + id, block, true, TerraFabriCraft.FLORA_GROUP);
         return block;
     }
 
-    public static TFCGravityBlock createFarmland(String id, boolean hasItem) {
-        var block = new TFCGravityBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND));
+    public static TFCFarmlandBlock createFarmland(String id, boolean hasItem) {
+        var block = new TFCFarmlandBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND));
         register(id, block, hasItem, TerraFabriCraft.ROCK_GROUP);
         return block;
     }
@@ -652,7 +649,7 @@ public class TFCObjects {
     }
 
     public static TFCGrassPlantBlock createGrassPlant(String id, int temp, int speed, int collisionLevel) {
-        var block = new TFCGrassPlantBlock(FabricBlockSettings.copyOf(Blocks.WHEAT), temp, speed, collisionLevel);
+        var block = new TFCGrassPlantBlock(FabricBlockSettings.copyOf(Blocks.WHEAT), temp, speed, collisionLevel, 8);
         register(id, block, true, TerraFabriCraft.FLORA_GROUP);
         return block;
     }
@@ -730,8 +727,8 @@ public class TFCObjects {
         return block;
     }
 
-    public static TFCGravityGrassBlock createGrass(String id, boolean hasBlockItem) {
-        var block = new TFCGravityGrassBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.GRASS).strength(2.0f));
+    public static TFCGrassBlock createGrass(String id, boolean hasBlockItem) {
+        var block = new TFCGrassBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).sounds(BlockSoundGroup.GRASS).strength(2.0f));
         register(id, block, hasBlockItem, TerraFabriCraft.EARTH_GROUP);
         return block;
     }
