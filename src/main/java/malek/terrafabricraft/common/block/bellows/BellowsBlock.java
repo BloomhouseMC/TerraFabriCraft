@@ -27,8 +27,7 @@ import software.bernie.geckolib3.core.IAnimatable;
 import static net.minecraft.state.property.Properties.HORIZONTAL_FACING;
 
 public class BellowsBlock extends HorizontalFacingBlock implements BlockEntityProvider {
-    private static final VoxelShape SHAPE =
-    VoxelShapes.cuboid(2, 2, 2, 14, 14, 14);
+    private static final VoxelShape SHAPE = VoxelShapes.cuboid(2, 2, 2, 14, 14, 14);
     public BellowsBlock(Settings settings) {
         super(settings.nonOpaque());
         setDefaultState(getStateManager().getDefaultState().with(ON, false));
@@ -48,7 +47,7 @@ public class BellowsBlock extends HorizontalFacingBlock implements BlockEntityPr
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        return VoxelShapes.fullCube();
     }
 
     @Override

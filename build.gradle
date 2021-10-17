@@ -82,6 +82,12 @@ dependencies {
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
 
     modImplementation include("io.github.cottonmc:LibGui:${libgui_version}")
+
+
+    modApi "com.github.GiantLuigi4:ShaderUtil:4b79bb79b5"
+
+    include "com.github.GiantLuigi4:ShaderUtil:4b79bb79b5"
+
 }
 
 loom {
