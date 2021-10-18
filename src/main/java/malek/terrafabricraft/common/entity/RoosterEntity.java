@@ -123,7 +123,7 @@ public class RoosterEntity extends ChickenEntity {
     @Override
     public void mobTick() {
         super.mobTick();
-        if (!this.world.isClient && !this.isBaby() && world.getTime() == 500) {
+        if (!this.isBaby() && world.getTime() == 500) {
             world.playSound(null, this.getBlockPos(), TFCSounds.ROOSTER_CRY, SoundCategory.AMBIENT, 1.0f, 1.0f);
         }
     }

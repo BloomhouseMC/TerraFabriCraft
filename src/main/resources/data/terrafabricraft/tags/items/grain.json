@@ -1,0 +1,10 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:food/wheat_grain",
+    "terrafabricraft:food/barley_grain",
+    "terrafabricraft:food/oat_grain",
+    "terrafabricraft:food/rice_grain",
+    "terrafabricraft:food/rye_grain"
+  ]
+}

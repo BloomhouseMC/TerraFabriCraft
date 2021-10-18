@@ -22,7 +22,6 @@ import malek.terrafabricraft.common.world.generator.tree.GenericSaplingGenerator
 import malek.terrafabricraft.common.world.generator.tree.KapokSaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.fabricmc.fabric.api.tag.TagFactory;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -30,7 +29,6 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -515,13 +513,6 @@ public class TFCObjects {
     public static final BlockEntityType<ForgeBlockEntity> FORGE_BLOCK_ENTITY = register("forge_entity", FabricBlockEntityTypeBuilder.create(ForgeBlockEntity::new, FORGE).build(null));
     public static final BlockEntityType<ToolRackBlockEntity> TOOL_RACK_BLOCK_ENTITY = register("tool_rack_block_entity", FabricBlockEntityTypeBuilder.create(ToolRackBlockEntity::new, TFCObjects.WOOD_ACACIA.rack, TFCObjects.WOOD_ASH.rack, TFCObjects.WOOD_ASPEN.rack, TFCObjects.WOOD_BIRCH.rack, TFCObjects.WOOD_BLACKWOOD.rack, TFCObjects.WOOD_CHESTNUT.rack, TFCObjects.WOOD_DOUGLAS_FIR.rack, TFCObjects.WOOD_HICKORY.rack, TFCObjects.WOOD_KAPOK.rack, TFCObjects.WOOD_MAPLE.rack, TFCObjects.WOOD_OAK.rack, TFCObjects.WOOD_PALM.rack, TFCObjects.WOOD_PINE.rack, TFCObjects.WOOD_ROSEWOOD.rack, TFCObjects.WOOD_SEQUOIA.rack, TFCObjects.WOOD_SPRUCE.rack, TFCObjects.WOOD_SYCAMORE.rack, TFCObjects.WOOD_WHITE_CEDAR.rack, TFCObjects.WOOD_WILLOW.rack).build(null));
     public static final BlockEntityType<BellowsBlockEntity> BELLOWS_BLOCK_ENTITY = register("bellows_entity", FabricBlockEntityTypeBuilder.create(BellowsBlockEntity::new,BELLOWS_BLOCK).build(null));
-
-    //Tags
-    public static final Tag<Block> CAN_PLANT_GRASS_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_grass_plants_on"));
-    public static final Tag<Block> CAN_PLANT_CROPS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_crops_on"));    //Block Entities
-    public static final Tag<Block> CAN_PLANT_RIVER_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_river_plants_on"));
-    public static final Tag<Block> CAN_PLANT_SALT_WATER_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_salt_water_plants_on"));
-    public static final Tag<Block> GRASS_BLOCK = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "grass_block"));
 
     public static final Block BURNING_LOG_PILE = register("burning_log_pile", new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
 

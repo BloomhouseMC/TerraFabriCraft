@@ -1,0 +1,13 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:loose_rock/andesite",
+    "terrafabricraft:loose_rock/basalt",
+    "terrafabricraft:loose_rock/chalk",
+    "terrafabricraft:loose_rock/chert",
+    "terrafabricraft:loose_rock/claystone",
+    "terrafabricraft:loose_rock/conglomerate",
+    "terrafabricraft:loose_rock/dacite",
+    "terrafabricraft:loose_rock/diorite"
+  ]
+}

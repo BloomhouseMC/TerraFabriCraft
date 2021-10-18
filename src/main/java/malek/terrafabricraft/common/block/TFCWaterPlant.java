@@ -1,7 +1,9 @@
 package malek.terrafabricraft.common.block;
 
-import malek.terrafabricraft.common.registry.TFCObjects;
-import net.minecraft.block.*;
+import malek.terrafabricraft.common.registry.TFCTags;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FluidFillable;
+import net.minecraft.block.PlantBlock;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.util.math.BlockPos;
@@ -25,6 +27,6 @@ public class TFCWaterPlant extends PlantBlock implements FluidFillable {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(TFCObjects.CAN_PLANT_SALT_WATER_PLANTS_ON);
+        return floor.isIn(TFCTags.CAN_PLANT_SALT_WATER_PLANTS_ON);
     }
 }
