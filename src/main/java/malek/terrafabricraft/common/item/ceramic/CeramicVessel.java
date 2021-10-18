@@ -34,11 +34,13 @@ public class CeramicVessel extends Item  {
             openScreen(user, user.getStackInHand(hand), mode);
             return TypedActionResult.success(user.getStackInHand(hand));
         }
+        /*
         if(user.isSneaking()){
             mode = Mode.ALLOY_LIQUID;
             openScreen(user, user.getStackInHand(hand), mode);
             return TypedActionResult.success(user.getStackInHand(hand));
         }
+         */
         return TypedActionResult.fail(user.getStackInHand(hand));
     }
     public static void openScreen(PlayerEntity player, ItemStack vesselItemStack, Mode mode) {

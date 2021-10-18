@@ -40,6 +40,7 @@ public class WoodBlock {
     }
 
     private static TFCLog setCreateLog(String special, String variantId, MapColor color) {
+
         return createLog(special + variantId, color, true);
     }
 

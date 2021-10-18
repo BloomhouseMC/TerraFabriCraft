@@ -1,5 +1,6 @@
 package malek.terrafabricraft.common.item;
 
+import malek.terrafabricraft.common.registry.TFCObjects;
 import net.minecraft.block.FireBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

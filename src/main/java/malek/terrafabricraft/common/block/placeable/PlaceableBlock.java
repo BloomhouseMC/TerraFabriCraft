@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -21,9 +22,10 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class PlaceableBlock extends HorizontalFacingBlock implements BlockEntityProvider {
+    public static IntProperty STAGE = IntProperty.of("stage", 0, 16);
     public PlaceableBlock(Settings settings) {
         super(settings.nonOpaque());
-        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
+        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH).with(STAGE, 0));
     }
 
     @Nullable
@@ -34,13 +36,18 @@ public class PlaceableBlock extends HorizontalFacingBlock implements BlockEntity
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(Properties.HORIZONTAL_FACING);
+        builder.add(STAGE);
     }
     public BlockState getPlacementState(ItemPlacementContext ctx){
         return (BlockState)this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing().getOpposite());
     }
     @Override
     public VoxelShape getOutlineShape(BlockState blockState, BlockView view, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1.0f, 0.01f, 1.0f);
+        if(blockState.get(STAGE) == 0) {
+            return VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1.0f, 0.01f, 1.0f);
+        }
+        int stage = blockState.get(STAGE);
+        return VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1.0f, 0.0625f*stage, 1.0f);
     }
     @Nullable
     @Override
@@ -50,7 +57,10 @@ public class PlaceableBlock extends HorizontalFacingBlock implements BlockEntity
 
     @Override
     public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.INVISIBLE;
+        if(state.get(STAGE) == 0) {
+            return BlockRenderType.INVISIBLE;
+        }
+        return BlockRenderType.MODEL;
     }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {

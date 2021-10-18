@@ -1,5 +1,6 @@
 package malek.terrafabricraft.common.block.placeable;
 
+import malek.terrafabricraft.common.item.TFCLogItem;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
@@ -12,12 +13,15 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import static malek.terrafabricraft.common.block.placeable.PlaceableBlock.STAGE;
 import static malek.terrafabricraft.common.util.TFCUtils.handleGUILessInventory;
 
 public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClientSerializable, Inventory {
@@ -32,7 +36,11 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
         super(TFCObjects.PLACEABLE_BLOCK_ENTITY, pos, state);
     }
 
-
+    int fireTicks = -1;
+    public static final int FIRE_TICKS_TO_RUN = 500;
+    public void setOnFire() {
+        fireTicks = 500;
+    }
 
     @Override
     public void readNbt(NbtCompound nbt) {
@@ -80,7 +88,27 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
             if(blockEntity.inventory.get(0).getItem() == Items.AIR && blockEntity.inventory.get(1).getItem() == Items.AIR && blockEntity.inventory.get(2).getItem() == Items.AIR && blockEntity.inventory.get(3).getItem() == Items.AIR){
                 world.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
+            blockEntity.tick(world, pos, state);
         }
+    }
+    private void tick(World world, BlockPos pos, BlockState state) {
+        if (fireTicks != -1) {
+            if (fireTicks != 0) {
+                if(world.getBlockState(pos.up()).getBlock() != Blocks.FIRE) {
+                    world.setBlockState(pos.up(), Blocks.FIRE.getDefaultState());
+                }
+                fireTicks--;
+            } else {
+                if(world.getBlockState(pos.up()).getBlock() == Blocks.FIRE) {
+                    world.setBlockState(pos.up(), Blocks.AIR.getDefaultState());
+                }
+                world.setBlockState(pos, state.with(STAGE, 0));
+                doRecipe();
+            }
+        }
+    }
+    private void doRecipe() {
+
     }
 
     @Override
@@ -131,6 +159,24 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(!world.isClient){
             ItemStack stack = player.getStackInHand(hand);
+            if(stack.getItem() == TFCObjects.STRAW || stack.getItem() instanceof TFCLogItem) {
+                int currentStage = state.get(STAGE);
+                if(currentStage <= 6 && stack.getItem() == TFCObjects.STRAW) {
+                    world.setBlockState(pos,state.with(STAGE, state.get(STAGE)+1));
+                    stack.decrement(1);
+                    world.playSound(null, pos, SoundEvents.BLOCK_SOUL_SAND_PLACE, SoundCategory.BLOCKS, 1f, 1f);
+                }
+                if(currentStage > 6 && stack.getItem() instanceof TFCLogItem) {
+                    world.setBlockState(pos, state.with(STAGE, state.get(STAGE) + 1));
+                    stack.decrement(1);
+                    world.playSound(null, pos, SoundEvents.BLOCK_BAMBOO_PLACE, SoundCategory.BLOCKS, 1f, 1f);
+                }
+
+                return;
+            }
+            if(state.get(STAGE) > 0) {
+                return;
+            }
             double normalX = (hit.getPos().x - pos.getX());
             double normalZ = (hit.getPos().z - pos.getZ());
             if (normalX < 0.5 && normalZ > 0.5) {
