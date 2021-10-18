@@ -18,7 +18,7 @@ public class TFCLogItem extends BlockItem {
         if(context.getWorld().isClient) {
             return super.useOnBlock(context);
         }
-        ItemTemperature.setTemperature(context.getStack(), 1);
+        //ItemTemperature.setTemperature(context.getStack(), 1);
         if(context.getPlayer().isSneaking())
         {
             if(context.getWorld().getBlockState(context.getBlockPos().add(context.getSide().getVector())).isAir()) {

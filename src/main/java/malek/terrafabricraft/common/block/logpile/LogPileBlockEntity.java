@@ -30,6 +30,7 @@ public class LogPileBlockEntity extends BlockEntity implements ImplementedInvent
     public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state, T t) {
         ((LogPileBlockEntity)t).tick(world, blockPos, state);
     }
+    public int fireTicks = 0;
     private void tick(World world, BlockPos pos, BlockState state) {
        // System.out.println("hi");
     }

@@ -523,6 +523,8 @@ public class TFCObjects {
     public static final Tag<Block> CAN_PLANT_SALT_WATER_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_salt_water_plants_on"));
     public static final Tag<Block> GRASS_BLOCK = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "grass_block"));
 
+    public static final Block BURNING_LOG_PILE = register("burning_log_pile", new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
+
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
         return block;

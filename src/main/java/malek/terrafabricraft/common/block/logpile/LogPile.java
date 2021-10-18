@@ -25,6 +25,7 @@ public class LogPile extends BlockWithEntity implements BlockEntityProvider, Inv
         super(settings);
         this.setDefaultState((BlockState)this.getDefaultState().with(AXIS, Direction.Axis.X));
     }
+    public int fireTicks = 0;
     @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
         return changeRotation(state, rotation);
