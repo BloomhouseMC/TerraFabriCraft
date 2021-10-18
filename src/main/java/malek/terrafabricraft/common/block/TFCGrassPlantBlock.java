@@ -1,6 +1,7 @@
 package malek.terrafabricraft.common.block;
 
 import malek.terrafabricraft.common.registry.TFCObjects;
+import malek.terrafabricraft.common.registry.TFCTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PlantBlock;
@@ -49,7 +50,7 @@ public class TFCGrassPlantBlock extends PlantBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(TFCObjects.CAN_PLANT_GRASS_PLANTS_ON);
+        return floor.isIn(TFCTags.CAN_PLANT_GRASS_PLANTS_ON);
     }
 
     @Override

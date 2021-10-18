@@ -27,8 +27,11 @@ import java.util.Random;
 public final class TFCUtils {
     public static final Random RNG = new Random();
 
-    public static boolean isClientSide(WorldView world) {
-        return world instanceof World ? !(world instanceof ServerWorld) : world.isClient();
+    public static boolean isBetweenTime(World world, int min, int max) {
+        if (world.getTime() >= min && world.getTime() <= max) {
+            return true;
+        } else
+            return false;
     }
 
     public static TranslatableText translateEnum(Enum<?> anEnum) {

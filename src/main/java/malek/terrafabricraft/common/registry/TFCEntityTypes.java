@@ -1,11 +1,8 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.entity.CamelEntity;
-import malek.terrafabricraft.common.entity.NautilusEntity;
+import malek.terrafabricraft.common.entity.*;
 import malek.terrafabricraft.common.config.ModuleConfig;
-import malek.terrafabricraft.common.entity.CrabEntity;
-import malek.terrafabricraft.common.entity.RoosterEntity;
 import malek.terrafabricraft.common.item.TFCFood;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -40,6 +37,12 @@ public class TFCEntityTypes {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RoosterEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
 
+    public static final EntityType<YakEntity> YAK = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(TerraFabriCraft.MODID, "yak"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, YakEntity::new).dimensions(EntityDimensions.fixed(1.3964844F, 1.4F)).build()
+    );
+
     public static final EntityType<CrabEntity> CRAB = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(TerraFabriCraft.MODID, "crab"),
@@ -58,6 +61,7 @@ public class TFCEntityTypes {
             FabricDefaultAttributeRegistry.register(NAUTILUS, CamelEntity.createMobAttributes());
             FabricDefaultAttributeRegistry.register(CAMEL, NautilusEntity.createMobAttributes());
             FabricDefaultAttributeRegistry.register(CRAB, CrabEntity.createCrabAttributes());
+            FabricDefaultAttributeRegistry.register(YAK, YakEntity.createYakAttributes());
         }
 
     }

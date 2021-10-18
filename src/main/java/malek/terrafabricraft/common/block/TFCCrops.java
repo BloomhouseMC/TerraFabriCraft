@@ -1,6 +1,7 @@
 package malek.terrafabricraft.common.block;
 
 import malek.terrafabricraft.common.registry.TFCObjects;
+import malek.terrafabricraft.common.registry.TFCTags;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -51,7 +52,7 @@ public class TFCCrops extends CropBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(TFCObjects.CAN_PLANT_CROPS_ON);
+        return floor.isIn(TFCTags.CAN_PLANT_CROPS_ON);
     }
 
     @Environment(EnvType.CLIENT)

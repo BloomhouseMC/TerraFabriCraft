@@ -1,4 +1,4 @@
-package malek.terrafabricraft.client.model;
+package malek.terrafabricraft.client.model.entity;
 
 import malek.terrafabricraft.common.entity.CrabEntity;
 import net.minecraft.client.model.*;

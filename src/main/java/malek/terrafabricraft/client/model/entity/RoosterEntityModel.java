@@ -1,4 +1,4 @@
-package malek.terrafabricraft.client.model;// Made with Blockbench 4.0.0-beta.3
+package malek.terrafabricraft.client.model.entity;// Made with Blockbench 4.0.0-beta.3
 // Exported for Minecraft version 1.17 with Mojang mappings
 // Paste this class into your mod and generate all required imports
 

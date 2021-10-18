@@ -90,8 +90,10 @@ public class CrabEntity extends AnimalEntity {
     public void tick() {
         if (this.isSubmergedInWater()) {
             this.stepHeight = 1F;
-        } else
+        } else {
             this.stepHeight = 0.6F;
+        }
+        super.tick();
     }
 
     @Override

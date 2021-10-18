@@ -1,7 +1,7 @@
 package malek.terrafabricraft.common.block;
 
 
-import malek.terrafabricraft.common.registry.TFCObjects;
+import malek.terrafabricraft.common.registry.TFCTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ConnectingBlock;
@@ -75,6 +75,6 @@ public class TFCGrassBlock extends GrassBlock {
     }
 
     private boolean canConnectToGrass(BlockState state) {
-        return state.isIn(TFCObjects.GRASS_BLOCK);
+        return state.isIn(TFCTags.GRASS_BLOCK);
     }
 }
