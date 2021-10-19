@@ -47,6 +47,9 @@ public class PlaceableBlock extends HorizontalFacingBlock implements BlockEntity
             return VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1.0f, 0.01f, 1.0f);
         }
         int stage = blockState.get(STAGE);
+        if(stage == 16) {
+            return VoxelShapes.fullCube();
+        }
         return VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1.0f, 0.0625f*stage, 1.0f);
     }
     @Nullable

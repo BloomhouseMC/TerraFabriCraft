@@ -36,17 +36,18 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
         super(TFCObjects.PLACEABLE_BLOCK_ENTITY, pos, state);
     }
 
-    int fireTicks = -1;
+    int fireTicks = FIRE_TICKS_TO_RUN;
     public static final int FIRE_TICKS_TO_RUN = 500;
+
     public void setOnFire() {
-        fireTicks = 500;
+        fireTicks = FIRE_TICKS_TO_RUN;
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        for(int i = 0; i < inventory.size(); i++){
-            NbtCompound nbtCompound = nbt.getCompound("Item_"+i);
+        for (int i = 0; i < inventory.size(); i++) {
+            NbtCompound nbtCompound = nbt.getCompound("Item_" + i);
             if (nbtCompound != null && !nbtCompound.isEmpty()) {
                 ItemStack itemStack = ItemStack.fromNbt(nbtCompound);
                 this.setStack(i, itemStack);
@@ -64,9 +65,9 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
     }
 
     @Override
-    public void fromClientTag(NbtCompound nbt){
-        for(int i = 0; i < inventory.size(); i++){
-            NbtCompound nbtCompound = nbt.getCompound("Item_"+i);
+    public void fromClientTag(NbtCompound nbt) {
+        for (int i = 0; i < inventory.size(); i++) {
+            NbtCompound nbtCompound = nbt.getCompound("Item_" + i);
             if (nbtCompound != null && !nbtCompound.isEmpty()) {
                 ItemStack itemStack = ItemStack.fromNbt(nbtCompound);
                 this.setStack(i, itemStack);
@@ -76,37 +77,41 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
     }
 
     @Override
-    public NbtCompound toClientTag(NbtCompound nbt){
+    public NbtCompound toClientTag(NbtCompound nbt) {
         nbt.put("Item_0", this.getStack(0).writeNbt(new NbtCompound()));
         nbt.put("Item_1", this.getStack(1).writeNbt(new NbtCompound()));
         nbt.put("Item_2", this.getStack(2).writeNbt(new NbtCompound()));
         nbt.put("Item_3", this.getStack(3).writeNbt(new NbtCompound()));
         return nbt;
     }
+
     public static void tick(World world, BlockPos pos, BlockState state, PlaceableBlockEntity blockEntity) {
-        if(!world.isClient){
-            if(blockEntity.inventory.get(0).getItem() == Items.AIR && blockEntity.inventory.get(1).getItem() == Items.AIR && blockEntity.inventory.get(2).getItem() == Items.AIR && blockEntity.inventory.get(3).getItem() == Items.AIR){
+        if (!world.isClient) {
+            if (blockEntity.inventory.get(0).getItem() == Items.AIR && blockEntity.inventory.get(1).getItem() == Items.AIR && blockEntity.inventory.get(2).getItem() == Items.AIR && blockEntity.inventory.get(3).getItem() == Items.AIR) {
                 world.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
             blockEntity.tick(world, pos, state);
         }
     }
+
     private void tick(World world, BlockPos pos, BlockState state) {
-        if (fireTicks != -1) {
+        if (world.getBlockState(pos.up()).getBlock() == Blocks.FIRE) {
             if (fireTicks != 0) {
-                if(world.getBlockState(pos.up()).getBlock() != Blocks.FIRE) {
-                    world.setBlockState(pos.up(), Blocks.FIRE.getDefaultState());
-                }
                 fireTicks--;
             } else {
-                if(world.getBlockState(pos.up()).getBlock() == Blocks.FIRE) {
-                    world.setBlockState(pos.up(), Blocks.AIR.getDefaultState());
-                }
+                world.setBlockState(pos.up(), Blocks.AIR.getDefaultState());
                 world.setBlockState(pos, state.with(STAGE, 0));
                 doRecipe();
             }
         }
+        else {
+            fireTicks = FIRE_TICKS_TO_RUN;
+        }
     }
+
+
+
+
     private void doRecipe() {
 
     }
@@ -155,21 +160,25 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
     public void clear() {
         inventory.clear();
     }
-
+    public boolean isSurrounded(World world, BlockPos pos) {
+        return !world.getBlockState(pos.down()).isAir() && !world.getBlockState(pos.east()).isAir() && !world.getBlockState(pos.west()).isAir() && !world.getBlockState(pos.south()).isAir() && !world.getBlockState(pos.north()).isAir();
+    }
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(!world.isClient){
             ItemStack stack = player.getStackInHand(hand);
             if(stack.getItem() == TFCObjects.STRAW || stack.getItem() instanceof TFCLogItem) {
                 int currentStage = state.get(STAGE);
-                if(currentStage <= 6 && stack.getItem() == TFCObjects.STRAW) {
-                    world.setBlockState(pos,state.with(STAGE, state.get(STAGE)+1));
-                    stack.decrement(1);
-                    world.playSound(null, pos, SoundEvents.BLOCK_SOUL_SAND_PLACE, SoundCategory.BLOCKS, 1f, 1f);
-                }
-                if(currentStage > 6 && stack.getItem() instanceof TFCLogItem) {
-                    world.setBlockState(pos, state.with(STAGE, state.get(STAGE) + 1));
-                    stack.decrement(1);
-                    world.playSound(null, pos, SoundEvents.BLOCK_BAMBOO_PLACE, SoundCategory.BLOCKS, 1f, 1f);
+                if(isSurrounded(world, getPos())) {
+                    if (currentStage <= 6 && stack.getItem() == TFCObjects.STRAW) {
+                        world.setBlockState(pos, state.with(STAGE, state.get(STAGE) + 1));
+                        stack.decrement(1);
+                        world.playSound(null, pos, SoundEvents.BLOCK_SOUL_SAND_PLACE, SoundCategory.BLOCKS, 1f, 1f);
+                    }
+                    if (currentStage > 6 && stack.getItem() instanceof TFCLogItem) {
+                        world.setBlockState(pos, state.with(STAGE, state.get(STAGE) + 1));
+                        stack.decrement(1);
+                        world.playSound(null, pos, SoundEvents.BLOCK_BAMBOO_PLACE, SoundCategory.BLOCKS, 1f, 1f);
+                    }
                 }
 
                 return;
