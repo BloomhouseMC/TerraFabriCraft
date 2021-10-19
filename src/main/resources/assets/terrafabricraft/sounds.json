@@ -6,5 +6,29 @@
         "name": "terrafabricraft:rooster1"
       }
     ]
+  },
+  "firestart1": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "terrafabricraft:firestarter1"
+      }
+    ]
+  },
+  "firestart2": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "terrafabricraft:firestarter2"
+      }
+    ]
+  },
+  "firestart3": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "terrafabricraft:firestarter3"
+      }
+    ]
   }
 }

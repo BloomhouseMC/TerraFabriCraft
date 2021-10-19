@@ -1,7 +1,9 @@
 package malek.terrafabricraft.common.item;
 
-import malek.terrafabricraft.common.registry.TFCObjects;
+import malek.terrafabricraft.common.registry.TFCSounds;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.FireBlock;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -45,16 +47,15 @@ public class FirestarterItem extends Item {
             BlockPos upPos = pos.up();
             // The "1" at the beginning is the base chance. Later in configs this could possibly set to: 0.5, 0, or 1
             double chance = 1 * (world.hasRain(upPos) ? 0.3 : 1);
-
             if (world.isClient) {
                 Vec3d location = result.getPos();
                 createParticles(world, player, location.getX(), location.getY(), location.getZ(), ticksLeft, getMaxUseTime(stack), world.random);
             } else if (ticksLeft == 1) {
-                if (!player.isCreative()) {
-                    stack.damage(1, player, p -> p.sendToolBreakStatus(Hand.MAIN_HAND));
-                }
-                if (FireBlock.canPlaceAt(world, pos, result.getSide())) {
-                    world.setBlockState(pos, FireBlock.getState(world, pos), 11);
+                if (world.getBlockState(upPos).isAir()) {
+                    world.setBlockState(upPos, Blocks.FIRE.getDefaultState(), 11);
+                    if (!player.getAbilities().creativeMode) {
+                        stack.damage(1, player, (p) -> { p.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND); });
+                    }
                 }
             }
         }
@@ -71,8 +72,12 @@ public class FirestarterItem extends Item {
         }
 
         if (count % 3 == 1) {
-            // Will be TFCSounds.FIRESTARTER when sounds are made
-            player.playSound(SoundEvents.ITEM_FIRECHARGE_USE, 0.5F, 0.05F);
+            if (random.nextFloat() <= 0.3F) {
+                player.playSound(TFCSounds.FIRESTARTER2, 0.5F, 0.05F);
+            } else if (random.nextFloat() <= 0.3F) {
+                player.playSound(TFCSounds.FIRESTARTER3, 0.5F, 0.05F);
+            } else
+                player.playSound(TFCSounds.FIRESTARTER1, 0.5F, 0.05F);
         }
     }
 

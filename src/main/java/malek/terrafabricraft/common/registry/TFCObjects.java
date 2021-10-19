@@ -516,7 +516,7 @@ public class TFCObjects {
     public static final Block BURNING_LOG_PILE = register("burning_log_pile", new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
 
     public static final Item STRAW = register("straw", new Item(new FabricItemSettings().group(TerraFabriCraft.DEVICES_GROUP)));
-    public static final Item FIRE_STARTER = register("fire_starter", new FirestarterItem(new FabricItemSettings().group(TerraFabriCraft.DEVICES_GROUP)));
+    public static final Item FIRESTARTER = register("firestarter", new FirestarterItem(new FabricItemSettings().group(TerraFabriCraft.DEVICES_GROUP)));
 
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
