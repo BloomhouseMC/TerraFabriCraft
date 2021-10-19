@@ -3,12 +3,14 @@ package malek.terrafabricraft.common.block.logpile;
 import malek.terrafabricraft.common.ImplementedInventory;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
@@ -27,12 +29,16 @@ public class LogPileBlockEntity extends BlockEntity implements ImplementedInvent
         super(TFCObjects.LOG_PILE_BLOCK_ENTITY, pos, state);
     }
 
-    public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state, T t) {
-        ((LogPileBlockEntity)t).tick(world, blockPos, state);
+    public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state,LogPileBlockEntity blockEntity, T t) {
+        ((LogPileBlockEntity)t).tick(world, blockPos, state, blockEntity);
     }
     public int fireTicks = 0;
-    private void tick(World world, BlockPos pos, BlockState state) {
-       // System.out.println("hi");
+    public static void tick(World world, BlockPos pos, BlockState state, LogPileBlockEntity blockEntity) {
+        if (!world.isClient) {
+            if (blockEntity.inventory.get(0).getItem() == Items.AIR && blockEntity.inventory.get(1).getItem() == Items.AIR && blockEntity.inventory.get(2).getItem() == Items.AIR && blockEntity.inventory.get(3).getItem() == Items.AIR) {
+                world.setBlockState(pos, Blocks.AIR.getDefaultState());
+            }
+        }
     }
     @Nullable
     @Override
@@ -82,5 +88,15 @@ public class LogPileBlockEntity extends BlockEntity implements ImplementedInvent
         return true;
     }
 
+    @Override
+    public ItemStack removeStack(int slot, int count) {
+        System.out.println("out");
+        System.out.println(this.inventory.get(0).getItem());
+        if(this.inventory.get(0).getItem() == Items.AIR && this.inventory.get(1).getItem() == Items.AIR && this.inventory.get(2).getItem() == Items.AIR && this.inventory.get(3).getItem() == Items.AIR){
+            world.setBlockState(pos, Blocks.AIR.getDefaultState());
+            System.out.println("in");
+        }
+        return ImplementedInventory.super.removeStack(slot, count);
+    }
 
 }

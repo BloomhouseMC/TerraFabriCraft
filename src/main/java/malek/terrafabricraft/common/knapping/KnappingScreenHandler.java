@@ -1,5 +1,18 @@
 package malek.terrafabricraft.common.knapping;
 
+
+import com.mojang.blaze3d.systems.RenderSystem;
+import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
+import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
+import io.github.cottonmc.cotton.gui.widget.WGridPanel;
+import io.github.cottonmc.cotton.gui.widget.WItemSlot;
+import io.github.cottonmc.cotton.gui.widget.WPlayerInvPanel;
+import io.github.cottonmc.cotton.gui.widget.WSprite;
+import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
+import io.github.cottonmc.cotton.gui.widget.data.InputResult;
+import io.github.cottonmc.cotton.gui.widget.data.Insets;
+import io.netty.buffer.Unpooled;
+
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.registry.TFCScreens;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;

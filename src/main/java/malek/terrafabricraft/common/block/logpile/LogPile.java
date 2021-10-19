@@ -1,11 +1,13 @@
 package malek.terrafabricraft.common.block.logpile;
 
+import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SidedInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
@@ -57,9 +59,10 @@ public class LogPile extends BlockWithEntity implements BlockEntityProvider, Inv
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new LogPileBlockEntity(pos, state);
     }
+    @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return LogPileBlockEntity::tick;
+        return (tickerWorld, pos, tickerState, blockEntity) -> LogPileBlockEntity.tick(tickerWorld, pos, tickerState, (LogPileBlockEntity) blockEntity);
     }
     @Override
     public SidedInventory getInventory(BlockState state, WorldAccess world, BlockPos pos) {
@@ -73,5 +76,15 @@ public class LogPile extends BlockWithEntity implements BlockEntityProvider, Inv
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
+    }
+
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        super.onBreak(world, pos, state, player);
+        LogPileBlockEntity blockEntity = (LogPileBlockEntity) world.getBlockEntity(pos);
+        for(int i = 0; i < 4; i++){
+            dropStack(world, pos, blockEntity.inventory.get(i));
+            blockEntity.inventory.set(i, ItemStack.EMPTY);
+        }
     }
 }

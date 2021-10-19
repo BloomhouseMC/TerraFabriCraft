@@ -5,6 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
@@ -94,6 +95,7 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
 
     @Override
     public ItemStack removeStack(int slot, int amount) {
+
         return Inventories.splitStack(inventory, slot, amount);
     }
 

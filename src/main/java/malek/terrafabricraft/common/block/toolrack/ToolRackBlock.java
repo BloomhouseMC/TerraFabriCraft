@@ -1,5 +1,6 @@
 package malek.terrafabricraft.common.block.toolrack;
 
+import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -56,7 +57,7 @@ public class ToolRackBlock extends HorizontalFacingBlock implements BlockEntityP
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         super.onBreak(world, pos, state, player);
         ToolRackBlockEntity blockEntity = (ToolRackBlockEntity) world.getBlockEntity(pos);
-        for(int i = -1; i < 3; i++){
+        for(int i = 0; i < 4; i++){
             dropStack(world, pos, blockEntity.inventory.get(i));
             blockEntity.inventory.set(i, ItemStack.EMPTY);
         }

@@ -13,8 +13,18 @@ public class TFCLogItem extends BlockItem {
     public TFCLogItem(Block block, Settings settings) {
         super(block, settings);
     }
+
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
+        if(context.getPlayer().isSneaking()){
+            return ActionResult.FAIL;
+        }
+        return ActionResult.SUCCESS;
+    }
+    /*
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+
         if(context.getWorld().isClient) {
             return super.useOnBlock(context);
         }
@@ -33,4 +43,6 @@ public class TFCLogItem extends BlockItem {
             return actionResult;
         }
     }
+
+     */
 }

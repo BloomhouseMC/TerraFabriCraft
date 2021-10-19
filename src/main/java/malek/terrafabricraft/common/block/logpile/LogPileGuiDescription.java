@@ -9,18 +9,23 @@ import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import malek.terrafabricraft.common.registry.TFCScreens;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandlerContext;
 
 public class LogPileGuiDescription extends SyncedGuiDescription {
     private static final int INVENTORY_SIZE = 17;
     BlockEntity blockEntity;
+    ScreenHandlerContext context;
     WPlainPanel root;
     int sizeX = 80;
     int sizeY = 80;
     public LogPileGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(TFCScreens.LOG_PILE_SCREEN_HANDLER, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 3));
+        this.context = context;
         root = new WPlainPanel();
         setRootPanel(root);
         root.setSize(sizeX, sizeY);
@@ -61,5 +66,4 @@ public class LogPileGuiDescription extends SyncedGuiDescription {
 
         }).get();
     }
-
 }

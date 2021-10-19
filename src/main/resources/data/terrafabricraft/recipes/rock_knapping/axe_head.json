@@ -1,0 +1,13 @@
+{
+  "type": "terrafabricraft:knapping_recipe",
+  "pattern": [
+    " 1   ",
+    "1111 ",
+    "11111",
+    "1111 ",
+    " 1   "
+  ],
+  "result": {
+    "item": "minecraft:stone"
+  }
+}
