@@ -70,7 +70,7 @@ public class PlaceableBlock extends HorizontalFacingBlock implements BlockEntity
         if (!world.isClient) {
             ((PlaceableBlockEntity) world.getBlockEntity(pos)).onUse(state, world, pos, player, hand, hit);
         }
-        return ActionResult.success(world.isClient);
+        return ActionResult.PASS;
     }
 
     @Override
