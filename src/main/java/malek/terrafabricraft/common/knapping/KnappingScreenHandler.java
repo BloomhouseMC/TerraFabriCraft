@@ -1,5 +1,6 @@
 package malek.terrafabricraft.common.knapping;
 
+
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
@@ -11,11 +12,10 @@ import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.InputResult;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import io.netty.buffer.Unpooled;
+
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.registry.TFCScreens;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-import net.minecraft.client.render.*;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingInventory;
@@ -30,13 +30,13 @@ import net.minecraft.screen.AbstractRecipeScreenHandler;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Matrix4f;
+import net.minecraft.util.collection.DefaultedList;
 
 public class KnappingScreenHandler extends AbstractRecipeScreenHandler<CraftingInventory> {
     private final CraftingInventory input;
     private final CraftingResultInventory output;
     private final CraftingResultInventory result;
+    public final DefaultedList<KnappingButton> knappingButtons = DefaultedList.of();
     private final PlayerEntity player;
 
     public KnappingScreenHandler(int syncID, PlayerInventory playerInventory, PacketByteBuf packetByteBuf) {
@@ -51,26 +51,18 @@ public class KnappingScreenHandler extends AbstractRecipeScreenHandler<CraftingI
         player = inv.player;
         this.addSlot(new CraftingResultSlot(inv.player, this.input, this.result, 0, 124, 35));
 
-        HudRenderCallback.EVENT.register((matrices, tickDelta) -> {
-            for (int k = 0; k <= 11; k++) {
-                for (int j = 0; j <= 11; j++) {
-                    KnappingButton bCarveButton = new KnappingButton(matrices, k, j);
-                }
-            }
-        });
-        int n;
-        int m;
-        for (n = 0; n < 5; ++n) {
-            for (m = 0; m < 5; ++m) {
-                this.addSlot(new Slot(input, m + n * 5, 30 + m * 18, 17 + n * 18));
+        var removedSpacing = 35;
+        int l;
+        int k;
+        for (l = 0; l < 5; ++l) {
+            for (k = 0; k < 5; ++k) {
+                this.addKnappingButton(new KnappingButton(k + l * 5, 30 + k * 18, 17 + l * 18));
             }
         }
 
-        var removedSpacing = 35;
-        int l;
         for (l = 0; l < 3; ++l) {
-            for (int k = 0; k < 9; ++k) {
-                this.addSlot(new Slot(inv, k + l * 9 + 9, 8 + k * 18, 84 + removedSpacing + l * 18));
+            for (k = 0; k < 9; ++k) {
+                this.addSlot(new Slot(inv, k + l * 9 + 9, 8 + k * 18, 84 + l * 18));
             }
         }
 
@@ -79,6 +71,13 @@ public class KnappingScreenHandler extends AbstractRecipeScreenHandler<CraftingI
         }
 
 
+
+    }
+
+    protected KnappingButton addKnappingButton(KnappingButton knappingButton) {
+        knappingButton.id = this.knappingButtons.size();
+        this.knappingButtons.add(knappingButton);
+        return knappingButton;
     }
 
     private boolean isInBounds(int id) {
@@ -95,7 +94,6 @@ public class KnappingScreenHandler extends AbstractRecipeScreenHandler<CraftingI
     public boolean canUse(PlayerEntity player) {
         return true;
     }
-
 
     @Override
     public void populateRecipeFinder(RecipeMatcher finder) {
@@ -187,47 +185,6 @@ public class KnappingScreenHandler extends AbstractRecipeScreenHandler<CraftingI
         }
 
         return itemStack;
-    }
-
-    private static class KnappingButton {
-        MatrixStack matrices;
-        int x;
-        int y;
-        int mouseX;
-        int mouseY;
-        public KnappingButton(MatrixStack matrices, int x, int y) {
-            this.matrices = matrices;
-            this.x = x;
-            this.y = y;
-            this.mouseX = -1;
-            this.mouseY = -1;
-        }
-        public void paint() {
-            var width = 18;
-            var height = 18;
-
-            if (width <= 0) width = 1;
-            if (height <= 0) height = 1;
-
-            float r = (0xFFFFFFFF >> 16 & 255) / 255.0F;
-            float g = (0xFFFFFFFF >> 8 & 255) / 255.0F;
-            float b = (0xFFFFFFFF & 255) / 255.0F;
-            Tessellator tessellator = Tessellator.getInstance();
-            BufferBuilder buffer = tessellator.getBuffer();
-            Matrix4f model = matrices.peek().getModel();
-            RenderSystem.enableBlend();
-            RenderSystem.setShaderTexture(0, new Identifier(TerraFabriCraft.MODID, "gui/knapping/rock.loose/andesite"));
-            RenderSystem.setShaderColor(r, g, b, 1.0f);
-            RenderSystem.setShader(GameRenderer::getPositionTexShader);
-            buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
-            buffer.vertex(model, x, y + height, 0).texture(0.0F, 1.0F).next();
-            buffer.vertex(model, x + width, y + height, 0).texture(1.0F, 1.0F).next();
-            buffer.vertex(model, x + width, y, 0).texture(1.0F, 0.0F).next();
-            buffer.vertex(model, x, y, 0).texture(0.0F, 0.0F).next();
-            buffer.end();
-            BufferRenderer.draw(buffer);
-            RenderSystem.disableBlend();
-        }
     }
 
 //    protected KnappingButton addSlot(KnappingButton button) {
