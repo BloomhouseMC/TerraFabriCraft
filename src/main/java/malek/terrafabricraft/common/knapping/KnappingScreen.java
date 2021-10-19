@@ -11,7 +11,6 @@ import net.minecraft.client.gui.widget.TexturedButtonWidget;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Matrix4f;
@@ -20,16 +19,28 @@ import net.minecraft.util.math.Matrix4f;
 public class KnappingScreen extends HandledScreen<KnappingScreenHandler> implements RecipeBookProvider {
     private static final Identifier TEXTURE = new Identifier("textures/gui/container/hopper.png");
 
-    private static final Identifier GUI_TEXTURE = new Identifier(TerraFabriCraft.MODID, "textures/gui/vessel_container.png");
+    private static final Identifier GUI_TEXTURE = new Identifier(TerraFabriCraft.MODID, "textures/gui/knapping.png");
     private static final Identifier RECIPE_BUTTON_TEXTURE = new Identifier("textures/gui/recipe_button.png");
     private final RecipeBookWidget recipeBook = new RecipeBookWidget();
     private boolean narrow;
+    private float scrollAmount;
+    private int scrollOffset;
+    private KnappingButton focusedButton;
 
     public KnappingScreen(KnappingScreenHandler screenHandler, PlayerInventory playerInventory, Text text) {
         super(screenHandler, playerInventory, text);
     }
 
-    private static void drawTexturedQuad(Matrix4f matrices, int x0, int x1, int y0, int y1, int z, float u0, float u1, float v0, float v1) {
+    private static void drawTexturedQuad(Matrix4f matrices,
+                                         int x0,
+                                         int x1,
+                                         int y0,
+                                         int y1,
+                                         int z,
+                                         float u0,
+                                         float u1,
+                                         float v0,
+                                         float v1) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         BufferBuilder bufferBuilder = Tessellator.getInstance().getBuffer();
         bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
@@ -39,6 +50,14 @@ public class KnappingScreen extends HandledScreen<KnappingScreenHandler> impleme
         bufferBuilder.vertex(matrices, (float) x0, (float) y0, (float) z).texture(u0, v0).next();
         bufferBuilder.end();
         BufferRenderer.draw(bufferBuilder);
+    }
+
+    public static void drawSlotHighlight(MatrixStack matrices, int x, int y, int z) {
+        RenderSystem.disableDepthTest();
+        RenderSystem.colorMask(true, true, true, false);
+        fillGradient(matrices, x, y, x + 16, y + 16, -2130706433, -2130706433, z);
+        RenderSystem.colorMask(true, true, true, true);
+        RenderSystem.enableDepthTest();
     }
 
     @Override
@@ -74,20 +93,64 @@ public class KnappingScreen extends HandledScreen<KnappingScreenHandler> impleme
 
         this.drawMouseoverTooltip(matrices, mouseX, mouseY);
         this.recipeBook.drawTooltip(matrices, this.x, this.y, mouseX, mouseY);
+
+        int p;
+        int q;
+        for (int k = 0; k < this.handler.knappingButtons.size(); ++k) {
+            KnappingButton knappingButton = this.handler.knappingButtons.get(k);
+            if (knappingButton.isEnabled()) {
+                RenderSystem.setShader(GameRenderer::getPositionTexShader);
+                this.drawKnappingButton(matrices, knappingButton);
+            }
+
+            if (this.isPointOverButton(knappingButton, (double) mouseX, (double) mouseY) && knappingButton.isEnabled()) {
+                this.focusedButton = knappingButton;
+                p = knappingButton.x;
+                q = knappingButton.y;
+                drawSlotHighlight(matrices, p, q, this.getZOffset());
+            }
+        }
+    }
+
+    private boolean isPointOverButton(KnappingButton button, double pointX, double pointY) {
+        return this.isPointWithinBounds(button.x, button.y, 16, 16, pointX, pointY);
     }
 
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-        //Must match removedSpacing in KnappingScreenHandler
-        var addedSpacing = 35;
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        renderBackgroundTexture(matrices, new Rectangle(x, y, backgroundWidth, backgroundHeight + addedSpacing), delta, 0xFFFFFFFF);
-        RenderSystem.setShaderTexture(0, TEXTURE);
-        int i = this.x;
+        RenderSystem.setShaderTexture(0, GUI_TEXTURE);
+        int i = (this.width - this.backgroundWidth) / 2;
         int j = (this.height - this.backgroundHeight) / 2;
-        for (Slot slot : getScreenHandler().slots) {
-            this.drawTexture(matrices, x + slot.x - 1, y + slot.y - 1, 43, 19, 18, 18);
-        }
+        this.drawTexture(matrices, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
+    }
+
+    private void drawKnappingButton(MatrixStack matrices, KnappingButton button) {
+        var width = 18;
+        var height = 18;
+
+        if (width <= 0) width = 1;
+        if (height <= 0) height = 1;
+
+        float r = (0xFFFFFFFF >> 16 & 255) / 255.0F;
+        float g = (0xFFFFFFFF >> 8 & 255) / 255.0F;
+        float b = (0xFFFFFFFF & 255) / 255.0F;
+        Tessellator tessellator = Tessellator.getInstance();
+        BufferBuilder buffer = tessellator.getBuffer();
+        Matrix4f model = matrices.peek().getModel();
+        RenderSystem.enableBlend();
+        RenderSystem.setShaderTexture(0, new Identifier(TerraFabriCraft.MODID, "textures/gui/knapping/rock/loose/andesite.png"));
+        RenderSystem.setShaderColor(r, g, b, 1.0f);
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
+        buffer.vertex(model, button.x + 100, button.y + 40 + height, 0).texture(0.0F, 1.0F).next();
+        buffer.vertex(model, button.x + 100 + width, button.y + 40 + height, 0).texture(1.0F, 1.0F).next();
+        buffer.vertex(model, button.x + 100 + width, button.y + 40, 0).texture(1.0F, 0.0F).next();
+        buffer.vertex(model, button.x + 100, button.y + 40, 0).texture(0.0F, 0.0F).next();
+        buffer.end();
+        BufferRenderer.draw(buffer);
+        RenderSystem.disableBlend();
     }
 
     public void renderBackgroundTexture(MatrixStack matrices, KnappingScreen.Rectangle bounds, float delta, int color) {
@@ -127,14 +190,43 @@ public class KnappingScreen extends HandledScreen<KnappingScreenHandler> impleme
             this.setFocused(this.recipeBook);
             return true;
         } else {
-            return this.narrow && this.recipeBook.isOpen() ? true : super.mouseClicked(mouseX, mouseY, button);
+            return this.narrow && this.recipeBook.isOpen() || super.mouseClicked(mouseX, mouseY, button);
         }
+    }
+
+    private void renderRecipeBackground(MatrixStack matrices, int mouseX, int mouseY, int x, int y, int scrollOffset) {
+        for (int i = this.scrollOffset; i < scrollOffset && i < 5; ++i) {
+            int j = i - this.scrollOffset;
+            int k = x + j % 4 * 16;
+            int l = j / 4;
+            int m = y + l * 18 + 2;
+            int n = this.backgroundHeight;
+            if (mouseX >= k && mouseY >= m && mouseX < k + 16 && mouseY < m + 18) {
+                n += 36;
+            }
+
+            this.drawTexture(matrices, k, m - 1, 0, n, 16, 18);
+        }
+
+    }
+
+    private void renderRecipeIcons(int x, int y, int scrollOffset) {
+
+//        for(int i = this.scrollOffset; i < scrollOffset && i < ((StonecutterScreenHandler)this.handler).getAvailableRecipeCount(); ++i) {
+//            int j = i - this.scrollOffset;
+//            int k = x + j % 4 * 16;
+//            int l = j / 4;
+//            int m = y + l * 18 + 2;
+//            this.client.getItemRenderer().renderInGuiWithOverrides(((StonecuttingRecipe)list.get(i)).getOutput(), k, m);
+//        }
+
     }
 
     public void handledScreenTick() {
         super.handledScreenTick();
         this.recipeBook.update();
     }
+
 
     public class Rectangle {
         public int x;
