@@ -1,4 +1,4 @@
-package malek.terrafabricraft.common.knapping;
+package malek.terrafabricraft.common.gui.knapping;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import malek.terrafabricraft.TerraFabriCraft;

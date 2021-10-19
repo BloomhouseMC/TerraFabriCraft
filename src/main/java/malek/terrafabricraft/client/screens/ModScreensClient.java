@@ -6,8 +6,8 @@ import malek.terrafabricraft.common.block.logpile.LogPileGuiDescription;
 import malek.terrafabricraft.common.block.logpile.LogPileScreen;
 import malek.terrafabricraft.common.item.ceramic.CeramicVesselScreen;
 import malek.terrafabricraft.common.item.ceramic.CeramicVesselScreenHandler;
-import malek.terrafabricraft.common.knapping.KnappingScreen;
-import malek.terrafabricraft.common.knapping.KnappingScreenHandler;
+import malek.terrafabricraft.common.gui.knapping.KnappingScreen;
+import malek.terrafabricraft.common.gui.knapping.KnappingScreenHandler;
 import malek.terrafabricraft.common.registry.TFCScreens;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 
