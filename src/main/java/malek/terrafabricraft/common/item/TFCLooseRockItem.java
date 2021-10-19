@@ -31,6 +31,15 @@ public class TFCLooseRockItem extends BlockItem implements ImplementedInventory 
 
     public TFCLooseRockItem(Block block, Settings settings) {
         super(block, settings);
+
+    }
+
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        if(context.getPlayer().isSneaking()){
+            return super.useOnBlock(context);
+        }
+        return ActionResult.PASS;
     }
 
     @Override

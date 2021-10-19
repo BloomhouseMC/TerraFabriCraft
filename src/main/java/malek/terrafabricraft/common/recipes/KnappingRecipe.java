@@ -66,9 +66,9 @@ public class KnappingRecipe implements CraftingRecipe {
     }
 
     public boolean matches(boolean[][] craftingInventory, World world) {
-        /*
-        for (int i = 0; i <= craftingInventory.getWidth() - this.width; ++i) {
-            for (int j = 0; j <= craftingInventory.getHeight() - this.height; ++j) {
+
+        for (int i = 0; i <= 5 - this.width; ++i) {
+            for (int j = 0; j <= 5 - this.height; ++j) {
                 if (this.matchesPattern(craftingInventory, i, j, true)) {
                     return true;
                 }
@@ -79,14 +79,14 @@ public class KnappingRecipe implements CraftingRecipe {
             }
         }
 
-         */
+
 
         return false;
     }
 
-    private boolean matchesPattern(CraftingInventory inv, int offsetX, int offsetY, boolean flipped) {
-        for (int i = 0; i < inv.getWidth(); ++i) {
-            for (int j = 0; j < inv.getHeight(); ++j) {
+    private boolean matchesPattern(boolean[][] inv, int offsetX, int offsetY, boolean flipped) {
+        for (int i = 0; i < 5; ++i) {
+            for (int j = 0; j < 5; ++j) {
                 int k = i - offsetX;
                 int l = j - offsetY;
                 Ingredient ingredient = Ingredient.EMPTY;
@@ -96,10 +96,6 @@ public class KnappingRecipe implements CraftingRecipe {
                     } else {
                         ingredient = (Ingredient) this.input.get(k + l * this.width);
                     }
-                }
-
-                if (!ingredient.test(inv.getStack(i + j * inv.getWidth()))) {
-                    return false;
                 }
             }
         }
@@ -128,8 +124,9 @@ public class KnappingRecipe implements CraftingRecipe {
      * Compiles a pattern and series of symbols into a list of ingredients (the matrix) suitable for matching
      * against a crafting grid.
      */
-    static DefaultedList<Ingredient> createPatternMatrix(String[] pattern, Map<String, Ingredient> symbols, int width, int height) {
+    static DefaultedList<Ingredient> createPatternMatrix(String[] pattern, int width, int height) {
         DefaultedList<Ingredient> defaultedList = DefaultedList.ofSize(width * height, Ingredient.EMPTY);
+        /*
         Set<String> set = Sets.newHashSet((Iterable) symbols.keySet());
         set.remove(" ");
 
@@ -151,6 +148,9 @@ public class KnappingRecipe implements CraftingRecipe {
         } else {
             return defaultedList;
         }
+
+         */
+        return defaultedList;
     }
 
     /**
@@ -314,11 +314,11 @@ public class KnappingRecipe implements CraftingRecipe {
     public static class Serializer implements RecipeSerializer<KnappingRecipe> {
         public KnappingRecipe read(Identifier identifier, JsonObject jsonObject) {
             String string = JsonHelper.getString(jsonObject, "group", "");
-            Map<String, Ingredient> map = readSymbols(JsonHelper.getObject(jsonObject, "key"));
+            //Map<String, Ingredient> map = readSymbols(JsonHelper.getObject(jsonObject, "key"));
             String[] strings = removePadding(getPattern(JsonHelper.getArray(jsonObject, "pattern")));
             int i = strings[0].length();
             int j = strings.length;
-            DefaultedList<Ingredient> defaultedList = createPatternMatrix(strings, map, i, j);
+            DefaultedList<Ingredient> defaultedList = createPatternMatrix(strings, i, j);
             ItemStack itemStack = outputFromJson(JsonHelper.getObject(jsonObject, "result"));
             return new KnappingRecipe(identifier, string, i, j, defaultedList, itemStack);
         }

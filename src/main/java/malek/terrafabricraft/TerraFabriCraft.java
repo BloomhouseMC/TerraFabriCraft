@@ -34,7 +34,6 @@ public class TerraFabriCraft implements ModInitializer {
     public static final ItemGroup DECORATIONS_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "decorations"), () -> new ItemStack(TFCObjects.ALABASTER_STAINED_CYAN.brick.block));
     public static final ItemGroup MISC_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "misc"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
     public static final ItemGroup DEVICES_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "devices"), () -> new ItemStack(TFCObjects.WOOD_SPRUCE.log));
-    public static final Identifier KNAPPING_PACKET_ID = new Identifier(MODID, "knapping");
 
     public static final Feature<OreFeatureConfig> ROCK_FEATURE = new RockFeature(OreFeatureConfig.CODEC);
     @Override
@@ -55,13 +54,6 @@ public class TerraFabriCraft implements ModInitializer {
         TFCRecipeTypes.init();
         TFCSounds.init();
 
-
-        ServerSidePacketRegistry.INSTANCE.register(KNAPPING_PACKET_ID, (packetContext, attachedData) -> {
-            int x = attachedData.readInt();
-            int y = attachedData.readInt();
-            System.out.println(x+" : "+y);
-
-        });
 
 
     }
