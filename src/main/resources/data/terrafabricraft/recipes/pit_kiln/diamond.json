@@ -1,0 +1,11 @@
+{
+  "type": "terrafabricraft:pit_kiln_recipe",
+  "ingredient": {
+    "item": "minecraft:dirt"
+  },
+  "result": {
+    "item": "diamond"
+  },
+  "color": 4849664,
+  "time": 100
+}

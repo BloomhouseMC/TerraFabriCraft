@@ -1,10 +1,7 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.recipes.BeerBrewingRecipe;
-import malek.terrafabricraft.common.recipes.HardBrewingRecipe;
-import malek.terrafabricraft.common.recipes.KnappingRecipe;
-import malek.terrafabricraft.common.recipes.LightBrewingRecipe;
+import malek.terrafabricraft.common.recipes.*;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
@@ -30,6 +27,9 @@ public class TFCRecipeTypes {
 
     public static final RecipeSerializer<KnappingRecipe> KNAPPING_RECIPE_SERIALIZER = create("knapping_recipe", new KnappingRecipe.Serializer());
     public static final RecipeType<KnappingRecipe> KNAPPING_RECIPE_TYPE = create("knapping_recipe");
+
+    public static final RecipeSerializer<PitKilnRecipe> PIT_KILN_RECIPE_SERIALIZER = create("pit_kiln_recipe", new PitKilnRecipe.Serializer());
+    public static final RecipeType<PitKilnRecipe> PIT_KILN_RECIPE_TYPE = create("pit_kiln_recipe");
 
 
     private static <T extends Recipe<?>> RecipeSerializer<T> create(String name, RecipeSerializer<T> serializer) {
