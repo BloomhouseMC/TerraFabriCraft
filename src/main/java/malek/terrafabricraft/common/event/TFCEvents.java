@@ -38,8 +38,7 @@ public class TFCEvents {
         //This Callback lambda is responsible for generating a PlaceableBlock, upon Using an appropriate item which should be placeable in world.
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (player.isSneaking() && TFCTags.PLACEABLE.contains(player.getStackInHand(hand).getItem()) && world.getBlockState(hitResult.getBlockPos()) != TFCObjects.PLACEABLE.getDefaultState()) {
-                BlockHitResult blockHitResult = hitResult;
-                BlockPos pos = blockHitResult.getBlockPos().add(hitResult.getSide().getVector());
+                BlockPos pos = hitResult.getBlockPos().add(hitResult.getSide().getVector());
                 //New BlockPos for the PlaceableBlock
                 BlockPos blockPos = new BlockPos(pos);
                 BlockState newPlaceable = TFCObjects.PLACEABLE.getDefaultState();
@@ -74,9 +73,8 @@ public class TFCEvents {
                 BlockPos pos = blockHitResult.getBlockPos().add(hitResult.getSide().getVector());
                 //New BlockPos for the PlaceableBlock
                 BlockPos blockPos = new BlockPos(pos);
-                BlockState newPlaceable = TFCObjects.LOG_PILE.getDefaultState();
                 Direction direction = player.getHorizontalFacing();
-                newPlaceable = TFCObjects.LOG_PILE.getDefaultState().with(Properties.AXIS, direction.getAxis());
+                BlockState newPlaceable = TFCObjects.LOG_PILE.getDefaultState().with(Properties.AXIS, direction.getAxis());
                 //(BlockState)state.with(AXIS, Direction.Axis.Z);
                 //Check if the block under is valid
                 //TODO: Add condition for a more narrow selection of full blocks.
