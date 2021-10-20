@@ -1,11 +1,11 @@
 {
-  "type": "terrafabricraft:beer_recipe",
+  "type": "terrafabricraft:brew_recipe",
   "ingredients": [
     {
       "item": "terrafabricraft:food/barley_grain"
     },
     {
-      "item": "terrafabricraft:food/hop_mosaic"
+      "item": "terrafabricraft:food/hop_cascade"
     },
     {
       "item": "terrafabricraft:food/yeast_brewers"
