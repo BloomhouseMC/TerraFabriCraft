@@ -23,6 +23,9 @@ public class TFCRecipeTypes {
     public static final RecipeSerializer<KnappingRecipe> KNAPPING_RECIPE_SERIALIZER = create("knapping_recipe", new KnappingRecipe.Serializer());
     public static final RecipeType<KnappingRecipe> KNAPPING_RECIPE_TYPE = create("knapping_recipe");
 
+    public static final RecipeSerializer<PitKilnRecipe> PIT_KILN_RECIPE_SERIALIZER = create("pit_kiln_recipe", new PitKilnRecipe.Serializer());
+    public static final RecipeType<PitKilnRecipe> PIT_KILN_RECIPE_TYPE = create("pit_kiln_recipe");
+
 
     private static <T extends Recipe<?>> RecipeSerializer<T> create(String name, RecipeSerializer<T> serializer) {
         RECIPE_SERIALIZERS.put(serializer, new Identifier(TerraFabriCraft.MODID, name));

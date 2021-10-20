@@ -1,7 +1,12 @@
 package malek.terrafabricraft.common.block.placeable;
 
+import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.item.TFCLogItem;
+import malek.terrafabricraft.common.item.TemperatureReactiveItem;
+import malek.terrafabricraft.common.recipes.PitKilnRecipe;
 import malek.terrafabricraft.common.registry.TFCObjects;
+import malek.terrafabricraft.common.registry.TFCRecipeTypes;
+import malek.terrafabricraft.common.temperature.ItemTemperature;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -16,10 +21,13 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.Optional;
 
 import static malek.terrafabricraft.common.block.placeable.PlaceableBlock.STAGE;
 import static malek.terrafabricraft.common.util.TFCUtils.handleGUILessInventory;
@@ -37,8 +45,8 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
     }
 
     int fireTicks = FIRE_TICKS_TO_RUN;
-    public static final int FIRE_TICKS_TO_RUN = 500;
-
+    public static final int FIRE_TICKS_TO_RUN = 120;
+    public static final int TEMPERATURE_TO_SET_ITEMS = 1600;
     public void setOnFire() {
         fireTicks = FIRE_TICKS_TO_RUN;
     }
@@ -103,16 +111,31 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
                 world.setBlockState(pos, state.with(STAGE, 0));
                 doRecipe();
             }
-        }
-        else {
+        } else {
             fireTicks = FIRE_TICKS_TO_RUN;
+        }
+        for (int i = 0; i < inventory.size(); i++) {
+            if(this.inventory.get(i).getItem() instanceof TemperatureReactiveItem temperatureReactiveItem) {
+                temperatureReactiveItem.doTemperatureReactiveThingsIfNeeded(this, i, this.inventory.get(i));
+            }
         }
     }
 
 
-
-
     private void doRecipe() {
+        for(int i = 0; i < inventory.size(); i++) {
+            ItemTemperature.setTemperature(this.inventory.get(i), TEMPERATURE_TO_SET_ITEMS);
+        }
+        /*
+        for (PitKilnRecipe recipe : world.getRecipeManager().listAllOfType(TFCRecipeTypes.PIT_KILN_RECIPE_TYPE)) {
+            for (int i = 0; i < inventory.size(); i++) {
+                if (recipe.matches(inventory.get(i))) {
+                    this.inventory.set(i, recipe.getOutput());
+                }
+            }
+        }
+
+         */
 
     }
 
@@ -160,15 +183,17 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
     public void clear() {
         inventory.clear();
     }
+
     public boolean isSurrounded(World world, BlockPos pos) {
         return !world.getBlockState(pos.down()).isAir() && !world.getBlockState(pos.east()).isAir() && !world.getBlockState(pos.west()).isAir() && !world.getBlockState(pos.south()).isAir() && !world.getBlockState(pos.north()).isAir();
     }
+
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if(!world.isClient){
+        if (!world.isClient) {
             ItemStack stack = player.getStackInHand(hand);
-            if(stack.getItem() == TFCObjects.STRAW || stack.getItem() instanceof TFCLogItem) {
+            if (stack.getItem() == TFCObjects.STRAW || stack.getItem() instanceof TFCLogItem) {
                 int currentStage = state.get(STAGE);
-                if(isSurrounded(world, getPos())) {
+                if (isSurrounded(world, getPos())) {
                     if (currentStage <= 6 && stack.getItem() == TFCObjects.STRAW) {
                         world.setBlockState(pos, state.with(STAGE, state.get(STAGE) + 1));
                         stack.decrement(1);
@@ -183,19 +208,20 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
 
                 return;
             }
-            if(state.get(STAGE) > 0) {
+            if (state.get(STAGE) > 0) {
                 return;
             }
             double normalX = (hit.getPos().x - pos.getX());
             double normalZ = (hit.getPos().z - pos.getZ());
             if (normalX < 0.5 && normalZ > 0.5) {
-                handleGUILessInventory(stack, player, hand, inventory, 2);}
-            else if (normalX > 0.5 && normalZ > 0.5) {
-                handleGUILessInventory(stack, player, hand, inventory, 3);}
-            else if (normalX < 0.5 && normalZ < 0.5) {
-                handleGUILessInventory(stack, player, hand, inventory, 0);}
-            else if (normalX > 0.5 && normalZ < 0.5) {
-                handleGUILessInventory(stack, player, hand, inventory, 1);}
+                handleGUILessInventory(stack, player, hand, inventory, 2);
+            } else if (normalX > 0.5 && normalZ > 0.5) {
+                handleGUILessInventory(stack, player, hand, inventory, 3);
+            } else if (normalX < 0.5 && normalZ < 0.5) {
+                handleGUILessInventory(stack, player, hand, inventory, 0);
+            } else if (normalX > 0.5 && normalZ < 0.5) {
+                handleGUILessInventory(stack, player, hand, inventory, 1);
+            }
             this.sync();
         }
     }

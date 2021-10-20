@@ -1,0 +1,11 @@
+{
+  "type": "terrafabricraft:pit_kiln_recipe",
+  "ingredient": {
+    "item": "minecraft:gold_ore"
+  },
+  "result": {
+    "item": "minecraft:gold_ingot"
+  },
+  "color": 4849664,
+  "time": 100
+}

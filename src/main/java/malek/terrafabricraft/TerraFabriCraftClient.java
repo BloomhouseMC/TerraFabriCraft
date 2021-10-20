@@ -13,6 +13,8 @@ import malek.terrafabricraft.common.block.placeable.PlaceableBlockEntityRenderer
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackEntityRenderer;
 import malek.terrafabricraft.common.item.MeltableItem;
+import malek.terrafabricraft.common.item.TFCMetalItem;
+import malek.terrafabricraft.common.registry.MetalItem;
 import malek.terrafabricraft.common.registry.TFCClientRegistry;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCParticleTypes;
@@ -48,7 +50,7 @@ public class TerraFabriCraftClient implements ClientModInitializer {
         RenderLayer testLayer = RenderLayerCreator.makeItem("terrafabricraft:custom_item_shader", () -> testShader, true, true);
         ItemShaderTools.registerLayerFunction((stack, direct) -> {
             float temp = 0;
-            if(stack.hasNbt()) {
+            if(stack.hasNbt() && stack.getItem() instanceof TFCMetalItem) {
                 if(stack.getOrCreateNbt().contains("temperature")) {
                     int temperature = stack.getOrCreateNbt().getInt("temperature");
 

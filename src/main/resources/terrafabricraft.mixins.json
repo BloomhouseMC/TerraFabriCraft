@@ -10,7 +10,8 @@
     "common.LivingEntityMixin",
     "common.PlayerEntityMixin",
     "common.ServerPlayerInteractionManagerMixin",
-    "common.TrunkPlacerTypeInvoker"
+    "common.TrunkPlacerTypeInvoker",
+    "common.Temperature.ChunkSerializerMixin"
   ],
   "client": [
     "client.BufferBuilderAccessor",

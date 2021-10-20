@@ -1,5 +1,6 @@
 package malek.terrafabricraft.common.item.ceramic;
 
+import malek.terrafabricraft.common.item.TFCCeramic;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -15,14 +16,12 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class CeramicVessel extends Item  {
+public class CeramicVessel extends Item {
     public Mode mode = Mode.INVENTORY;
 
-    public CeramicVessel(Item.Settings settings) {
+    public CeramicVessel(Settings settings) {
         super(settings);
-
     }
-
 
 
     @Override

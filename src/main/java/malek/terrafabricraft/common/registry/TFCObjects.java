@@ -50,7 +50,7 @@ public class TFCObjects {
     public static final SoilBlock GRASS = new SoilBlock("grass", BlockSoundGroup.GRASS);
     // Debug + Testing
     public static final Item TEST_FOOD = createFood("test_food", 1, 1);
-    public static final Item CERAMIC_VESSEL = createItem("ceramic/vessel", new CeramicVessel(gen(TerraFabriCraft.DEVICES_GROUP)));
+
     public static final Block ALABASTER_RAW_ALABASTER = createRock("alabaster/raw/alabaster", TerraFabriCraft.DECORATIONS_GROUP);
     public static final Block ALABASTER_RAW_ALABASTER_BRICKS = createRock("alabaster/raw/alabaster_bricks", TerraFabriCraft.DECORATIONS_GROUP);
     public static final Block ALABASTER_RAW_POLISHED_ALABASTER = createRock("alabaster/raw/polished_alabaster", TerraFabriCraft.DECORATIONS_GROUP);
@@ -517,6 +517,14 @@ public class TFCObjects {
 
     public static final Item STRAW = register("straw", new Item(new FabricItemSettings().group(TerraFabriCraft.DEVICES_GROUP)));
     public static final Item FIRESTARTER = register("firestarter", new FirestarterItem(new FabricItemSettings().group(TerraFabriCraft.DEVICES_GROUP)));
+
+
+    public static final Item INGOT_MOLD = createItem("ceramic/new_ingot_mold", new Item(gen(TerraFabriCraft.MISC_GROUP)));
+    public static final Item UNFIRED_INGOT_MOLD = createItem("ceramic/unfired_ingot_mold", new TFCCeramic(gen(TerraFabriCraft.MISC_GROUP), INGOT_MOLD));
+
+    public static final Item CERAMIC_VESSEL = createItem("ceramic/vessel", new CeramicVessel(gen(TerraFabriCraft.MISC_GROUP)));
+    public static final Item UNFIRED_CERAMIC_VESSEL = createItem("ceramic/unfired_vessel", new TFCCeramic(gen(TerraFabriCraft.MISC_GROUP), CERAMIC_VESSEL));
+
 
     public static <T extends Block> T register(String id, T block) {
         BLOCKS.put(block, new Identifier(TerraFabriCraft.MODID, id));
