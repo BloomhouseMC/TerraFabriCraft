@@ -1,9 +1,12 @@
 package malek.terrafabricraft.common.block.placeable;
 
+import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.item.TFCLogItem;
+import malek.terrafabricraft.common.item.TemperatureReactiveItem;
 import malek.terrafabricraft.common.recipes.PitKilnRecipe;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCRecipeTypes;
+import malek.terrafabricraft.common.temperature.ItemTemperature;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -43,7 +46,7 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
 
     int fireTicks = FIRE_TICKS_TO_RUN;
     public static final int FIRE_TICKS_TO_RUN = 120;
-
+    public static final int TEMPERATURE_TO_SET_ITEMS = 1600;
     public void setOnFire() {
         fireTicks = FIRE_TICKS_TO_RUN;
     }
@@ -111,10 +114,19 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
         } else {
             fireTicks = FIRE_TICKS_TO_RUN;
         }
+        for (int i = 0; i < inventory.size(); i++) {
+            if(this.inventory.get(i).getItem() instanceof TemperatureReactiveItem temperatureReactiveItem) {
+                temperatureReactiveItem.doTemperatureReactiveThingsIfNeeded(this, i, this.inventory.get(i));
+            }
+        }
     }
 
 
     private void doRecipe() {
+        for(int i = 0; i < inventory.size(); i++) {
+            ItemTemperature.setTemperature(this.inventory.get(i), TEMPERATURE_TO_SET_ITEMS);
+        }
+        /*
         for (PitKilnRecipe recipe : world.getRecipeManager().listAllOfType(TFCRecipeTypes.PIT_KILN_RECIPE_TYPE)) {
             for (int i = 0; i < inventory.size(); i++) {
                 if (recipe.matches(inventory.get(i))) {
@@ -122,6 +134,9 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
                 }
             }
         }
+
+         */
+
     }
 
     @Override
