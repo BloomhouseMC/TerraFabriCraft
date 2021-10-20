@@ -1,5 +1,5 @@
 {
-  "type": "terrafabricraft:light_recipe",
+  "type": "terrafabricraft:brew_recipe",
   "ingredients": [
     {
       "item": "stone"

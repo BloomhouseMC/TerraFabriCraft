@@ -1,8 +1,6 @@
 package malek.terrafabricraft.common.block.keg;
 
-import malek.terrafabricraft.common.recipes.BeerBrewingRecipe;
-import malek.terrafabricraft.common.recipes.HardBrewingRecipe;
-import malek.terrafabricraft.common.recipes.LightBrewingRecipe;
+import malek.terrafabricraft.common.recipes.KegRecipe;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCRecipeTypes;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
@@ -42,9 +40,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
     public int time = 0;
     private boolean loaded = false;
     public Mode mode = Mode.NORMAL;
-    public BeerBrewingRecipe beerRecipe = null;
-    public HardBrewingRecipe hardRecipe = null;
-    public LightBrewingRecipe lightRecipe = null;
+    public KegRecipe kegRecipe = null;
     private Box box;
 
     public KegEntity(BlockPos pos, BlockState state) {
@@ -110,9 +106,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
             if(!blockEntity.loaded){
                 blockEntity.markDirty();
                 blockEntity.box = new Box(pos).contract(0.75);
-                blockEntity.beerRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.BEER_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
-                blockEntity.hardRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.HARD_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
-                blockEntity.lightRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.LIGHT_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
+                blockEntity.kegRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.KEG_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
                 blockEntity.loaded = true;
             }
             if (!world.isClient) {
@@ -151,8 +145,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
 
     private Mode insertStack(ItemStack stack) {
         if (world != null) {
-            //TODO: Change BARELY to another item that resets the brewing state
-            if (stack.getItem() == TFCObjects.BARLEY) {
+            if (stack.getItem() == TFCObjects.STRAW) {
                 Mode reset = reset();
                 syncKeg();
                 return reset;
@@ -161,29 +154,15 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
                 int firstEmpty = getFirstEmptySlot();
                 if (firstEmpty != -1) {
                     setStack(firstEmpty, stack);
-                    beerRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.BEER_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
-                    hardRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.HARD_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
-                    lightRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.LIGHT_BREWING_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
-                    if (beerRecipe != null) {
-                        setColor(beerRecipe.color);
-                        setTime(beerRecipe.time);
+                    kegRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.KEG_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
+                    if (kegRecipe != null) {
+                        setColor(kegRecipe.color);
+                        setTime(kegRecipe.time);
                         this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
-                        return Mode.BEER_BREWING;
-                    }
-                    else if (hardRecipe != null) {
-                        setColor(hardRecipe.color);
-                        setTime(hardRecipe.time);
-                        this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
-                        return Mode.HARD_BREWING;
-                    }
-                    else if (lightRecipe != null) {
-                        setColor(lightRecipe.color);
-                        setTime(lightRecipe.time);
-                        this.getWorld().setBlockState(this.pos, this.getCachedState().with(WORKING, true));
-                        return Mode.LIGHT_BREWING;
+                        return Mode.BREWING;
                     }
                     setColor(0xd6c291);
-                    return Mode.BEER_BREWING;
+                    return Mode.BREWING;
                 }
             }
         }
@@ -288,18 +267,8 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
                 return level - 1;
             }
         }
-        else if (mode == Mode.BEER_BREWING) {
-            if (beerRecipe != null && item == Items.GLASS_BOTTLE) {
-                return level - 1;
-            }
-        }
-        else if (mode == Mode.HARD_BREWING) {
-            if (hardRecipe != null && item == Items.GLASS_BOTTLE) {
-                return level - 1;
-            }
-        }
-        else if (mode == Mode.LIGHT_BREWING) {
-            if (lightRecipe != null && item == Items.GLASS_BOTTLE) {
+        else if (mode == Mode.BREWING) {
+            if (kegRecipe != null && item == Items.GLASS_BOTTLE) {
                 return level - 1;
             }
         }
@@ -308,9 +277,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
 
     public enum Mode {
         NORMAL("NORMAL"),
-        BEER_BREWING("BEER_BREWING"),
-        HARD_BREWING("HARD_BREWING"),
-        LIGHT_BREWING("LIGHT_BREWING"),
+        BREWING("BREWING"),
         FAILED("FAILED");
 
         public final String name;

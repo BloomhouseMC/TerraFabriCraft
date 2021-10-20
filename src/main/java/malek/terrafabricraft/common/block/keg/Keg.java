@@ -1,8 +1,6 @@
 package malek.terrafabricraft.common.block.keg;
 
-import malek.terrafabricraft.common.recipes.BeerBrewingRecipe;
-import malek.terrafabricraft.common.recipes.HardBrewingRecipe;
-import malek.terrafabricraft.common.recipes.LightBrewingRecipe;
+import malek.terrafabricraft.common.recipes.KegRecipe;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -106,22 +104,10 @@ public class Keg extends BlockWithEntity {
                                 if (tfcKegEntity.mode == KegEntity.Mode.NORMAL) {
                                     bottle = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.WATER);
                                 }
-                                else if (tfcKegEntity.mode == KegEntity.Mode.BEER_BREWING) {
-                                    BeerBrewingRecipe beerBrewingRecipe = tfcKegEntity.beerRecipe;
-                                    if (beerBrewingRecipe != null) {
-                                        bottle = beerBrewingRecipe.getOutput().copy();
-                                    }
-                                }
-                                else if (tfcKegEntity.mode == KegEntity.Mode.HARD_BREWING) {
-                                    HardBrewingRecipe hardBrewingRecipe = tfcKegEntity.hardRecipe;
-                                    if (hardBrewingRecipe != null) {
-                                        bottle = hardBrewingRecipe.getOutput().copy();
-                                    }
-                                }
-                                else if (tfcKegEntity.mode == KegEntity.Mode.LIGHT_BREWING) {
-                                    LightBrewingRecipe lightBrewingRecipe = tfcKegEntity.lightRecipe;
-                                    if (lightBrewingRecipe != null) {
-                                        bottle = lightBrewingRecipe.getOutput().copy();
+                                else if (tfcKegEntity.mode == KegEntity.Mode.BREWING) {
+                                    KegRecipe kegRecipe = tfcKegEntity.kegRecipe;
+                                    if (kegRecipe != null) {
+                                        bottle = kegRecipe.getOutput().copy();
                                     }
                                 }
                                 else {

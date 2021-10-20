@@ -1,5 +1,5 @@
 {
-  "type": "terrafabricraft:beer_recipe",
+  "type": "terrafabricraft:brew_recipe",
   "ingredients": [
     {
       "item": "terrafabricraft:food/barley_grain"
@@ -8,12 +8,12 @@
       "item": "terrafabricraft:food/hop_centennial"
     },
     {
-      "item": "terrafabricraft:food/yeast_ale"
+      "item": "terrafabricraft:food/yeast_brewers"
     }
   ],
   "result": {
     "item": "diamond"
   },
-  "color": 4849664,
+  "color": 16028210,
   "time": 100
 }

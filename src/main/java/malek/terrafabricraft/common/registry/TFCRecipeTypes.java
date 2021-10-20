@@ -1,7 +1,8 @@
 package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
-import malek.terrafabricraft.common.recipes.*;
+import malek.terrafabricraft.common.recipes.KegRecipe;
+import malek.terrafabricraft.common.recipes.KnappingRecipe;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
@@ -16,14 +17,8 @@ public class TFCRecipeTypes {
     private static final Map<RecipeType<?>, Identifier> RECIPE_TYPES = new LinkedHashMap<>();
 
 
-    public static final RecipeSerializer<BeerBrewingRecipe> BEER_BREWING_RECIPE_SERIALIZER = create("beer_recipe", new BeerBrewingRecipe.Serializer());
-    public static final RecipeType<BeerBrewingRecipe> BEER_BREWING_RECIPE_TYPE = create("beer_recipe");
-
-    public static final RecipeSerializer<HardBrewingRecipe> HARD_BREWING_RECIPE_SERIALIZER = create("hard_recipe", new HardBrewingRecipe.Serializer());
-    public static final RecipeType<HardBrewingRecipe> HARD_BREWING_RECIPE_TYPE = create("hard_recipe");
-
-    public static final RecipeSerializer<LightBrewingRecipe> LIGHT_BREWING_RECIPE_SERIALIZER = create("light_recipe", new LightBrewingRecipe.Serializer());
-    public static final RecipeType<LightBrewingRecipe> LIGHT_BREWING_RECIPE_TYPE = create("light_recipe");
+    public static final RecipeSerializer<KegRecipe> KEG_RECIPE_SERIALIZER = create("keg_recipe", new KegRecipe.Serializer());
+    public static final RecipeType<KegRecipe> KEG_RECIPE_TYPE = create("keg_recipe");
 
     public static final RecipeSerializer<KnappingRecipe> KNAPPING_RECIPE_SERIALIZER = create("knapping_recipe", new KnappingRecipe.Serializer());
     public static final RecipeType<KnappingRecipe> KNAPPING_RECIPE_TYPE = create("knapping_recipe");

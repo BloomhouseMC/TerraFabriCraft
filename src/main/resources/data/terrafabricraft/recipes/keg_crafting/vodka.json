@@ -1,5 +1,5 @@
 {
-  "type": "terrafabricraft:hard_recipe",
+  "type": "terrafabricraft:keg_recipe",
   "ingredients": [
     {
       "item": "terrafabricraft:food/potato"

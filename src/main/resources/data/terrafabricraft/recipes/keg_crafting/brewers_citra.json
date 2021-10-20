@@ -1,5 +1,5 @@
 {
-  "type": "terrafabricraft:beer_recipe",
+  "type": "terrafabricraft:brew_recipe",
   "ingredients": [
     {
       "item": "terrafabricraft:food/barley_grain"
