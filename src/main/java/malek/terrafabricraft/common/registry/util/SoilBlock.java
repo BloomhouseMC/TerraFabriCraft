@@ -1,4 +1,4 @@
-package malek.terrafabricraft.common.registry;
+package malek.terrafabricraft.common.registry.util;
 
 import malek.terrafabricraft.common.block.TFCGravityBlock;
 import malek.terrafabricraft.common.block.TFCGrassBlock;

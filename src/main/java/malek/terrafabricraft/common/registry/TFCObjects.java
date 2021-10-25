@@ -16,6 +16,8 @@ import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackBlockEntity;
 import malek.terrafabricraft.common.item.*;
 import malek.terrafabricraft.common.item.ceramic.CeramicVessel;
+import malek.terrafabricraft.common.registry.util.*;
+import malek.terrafabricraft.common.registry.util.CoralBlock;
 import malek.terrafabricraft.common.world.generator.tree.GenericSaplingGenerator;
 import malek.terrafabricraft.common.world.generator.tree.KapokSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -37,6 +39,7 @@ import java.util.Map;
 import static malek.terrafabricraft.common.registry.TFCFeatures.*;
 import static net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings.copyOf;
 
+@SuppressWarnings("unused")
 public class TFCObjects {
     public static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
@@ -70,11 +73,11 @@ public class TFCObjects {
     public static final StainedAlabasterBlock ALABASTER_STAINED_RED = new StainedAlabasterBlock("red");
     public static final StainedAlabasterBlock ALABASTER_STAINED_WHITE = new StainedAlabasterBlock("white");
     public static final StainedAlabasterBlock ALABASTER_STAINED_YELLOW = new StainedAlabasterBlock("yellow");
-    public static final CoralBlock CORAL_BRAIN = new CoralBlock("coral/brain");
-    public static final CoralBlock CORAL_BUBBLE = new CoralBlock("coral/bubble");
-    public static final CoralBlock CORAL_FIRE = new CoralBlock("coral/fire");
-    public static final CoralBlock CORAL_HORN = new CoralBlock("coral/horn");
-    public static final CoralBlock CORAL_TUBE = new CoralBlock("coral/tube");
+    public static final malek.terrafabricraft.common.registry.util.CoralBlock CORAL_BRAIN = new malek.terrafabricraft.common.registry.util.CoralBlock("coral/brain");
+    public static final malek.terrafabricraft.common.registry.util.CoralBlock CORAL_BUBBLE = new malek.terrafabricraft.common.registry.util.CoralBlock("coral/bubble");
+    public static final malek.terrafabricraft.common.registry.util.CoralBlock CORAL_FIRE = new malek.terrafabricraft.common.registry.util.CoralBlock("coral/fire");
+    public static final malek.terrafabricraft.common.registry.util.CoralBlock CORAL_HORN = new malek.terrafabricraft.common.registry.util.CoralBlock("coral/horn");
+    public static final malek.terrafabricraft.common.registry.util.CoralBlock CORAL_TUBE = new CoralBlock("coral/tube");
     public static final Block BARLEY_CROP = createCrop("barley_crop", 0, 1, false, TFCObjects.BARLEY_SEED, 9);
     //Seeds
     public static final Item BARLEY_SEED = createItem("seed/barley_seeds", new AliasedBlockItem(BARLEY_CROP, gen(TerraFabriCraft.FLORA_GROUP)));

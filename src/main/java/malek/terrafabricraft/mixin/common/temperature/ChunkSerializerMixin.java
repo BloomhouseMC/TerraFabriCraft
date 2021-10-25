@@ -1,11 +1,9 @@
-package malek.terrafabricraft.mixin.common.Temperature;
+package malek.terrafabricraft.mixin.common.temperature;
 
-import dev.onyxstudios.cca.api.v3.component.ComponentProvider;
 import malek.terrafabricraft.TerraFabriCraft;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureManager;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.ChunkSerializer;
 import net.minecraft.world.chunk.Chunk;
