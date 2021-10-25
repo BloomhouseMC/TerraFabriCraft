@@ -14,7 +14,6 @@ import malek.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import malek.terrafabricraft.common.block.toolrack.ToolRackEntityRenderer;
 import malek.terrafabricraft.common.item.MeltableItem;
 import malek.terrafabricraft.common.item.TFCMetalItem;
-import malek.terrafabricraft.common.registry.MetalItem;
 import malek.terrafabricraft.common.registry.TFCClientRegistry;
 import malek.terrafabricraft.common.registry.TFCObjects;
 import malek.terrafabricraft.common.registry.TFCParticleTypes;

@@ -1,4 +1,4 @@
-package malek.terrafabricraft.common.registry;
+package malek.terrafabricraft.common.registry.util;
 
 import malek.terrafabricraft.common.block.TFCCoralBlock;
 import malek.terrafabricraft.common.block.TFCCoralFanBlock;

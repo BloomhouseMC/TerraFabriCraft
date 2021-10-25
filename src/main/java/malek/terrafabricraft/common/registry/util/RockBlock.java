@@ -1,4 +1,4 @@
-package malek.terrafabricraft.common.registry;
+package malek.terrafabricraft.common.registry.util;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.TFCLooseRock;
@@ -6,6 +6,8 @@ import malek.terrafabricraft.common.block.TFCOreBlock;
 import malek.terrafabricraft.common.block.TFCStairs;
 import malek.terrafabricraft.common.block.TFCStoneButtonBlock;
 import malek.terrafabricraft.common.item.TFCLooseRockItem;
+import malek.terrafabricraft.common.registry.TFCFeatures;
+import malek.terrafabricraft.common.registry.TFCObjects;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;

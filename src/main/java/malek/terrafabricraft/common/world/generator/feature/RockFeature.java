@@ -2,8 +2,7 @@ package malek.terrafabricraft.common.world.generator.feature;
 
 import com.mojang.serialization.Codec;
 import malek.terrafabricraft.common.block.TFCLooseRock;
-import malek.terrafabricraft.common.registry.RockBlock;
-import malek.terrafabricraft.common.registry.TFCObjects;
+import malek.terrafabricraft.common.registry.util.RockBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
