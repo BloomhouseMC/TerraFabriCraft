@@ -1,8 +1,20 @@
 {
   "__comment__": "This file was automatically created by mcresources",
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "terrafabricraft:block/rock/anvil/basalt",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "terrafabricraft:block/rock/anvil/basalt",
+      "y": 180
+    },
+    "facing=south": {
       "model": "terrafabricraft:block/rock/anvil/basalt"
+    },
+    "facing=west": {
+      "model": "terrafabricraft:block/rock/anvil/basalt",
+      "y": 90
     }
   }
 }
