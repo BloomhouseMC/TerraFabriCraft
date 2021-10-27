@@ -4,14 +4,6 @@ plugins {
     id("io.github.juuxel.loom-quiltflower") version "1.3.0"
 }
 
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_16
-    targetCompatibility = JavaVersion.VERSION_16
-}
-
-
-base.archivesBaseName = "${project.property("archives_base_name")}"
 version = "${project.property("mod_version")}"
 group = "${project.property("maven_group")}"
 
@@ -34,6 +26,12 @@ repositories {
     }
 }
 
+val modInclude: Configuration by configurations.creating
+configurations {
+    include.get().extendsFrom(modInclude)
+    modImplementation.get().extendsFrom(modInclude)
+}
+
 dependencies {
     minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
     mappings("net.fabricmc:yarn:${project.property("yarn_mappings")}:v2")
@@ -45,12 +43,9 @@ dependencies {
     //CCA
     modApi("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.property("cc_version")}")
     include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.property("cc_version")}")
-    modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.property("cc_version")}")
-    include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.property("cc_version")}")
-    modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-world:${project.property("cc_version")}")
-    include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-world:${project.property("cc_version")}")
-    modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:${project.property("cc_version")}")
-    include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:${project.property("cc_version")}")
+    modInclude("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.property("cc_version")}")
+    modInclude("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-world:${project.property("cc_version")}")
+    modInclude("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:${project.property("cc_version")}")
 
     //Geckolib
     modImplementation("software.bernie.geckolib:geckolib-fabric-${project.property("gecko_version")}")
@@ -90,30 +85,34 @@ tasks {
     jar {
         from("LICENSE") {
             rename {
-                "${it}_${project.base.archivesBaseName}"
+                "${it}_${project.base.archivesName}"
             }
         }
     }
 }
 
-//publishing {
-//    publications {
-//        mavenJava(MavenPublication) {
-//            // add all the jars that should be included when publishing to maven
-//            artifact(remapJar) {
+val sourcesJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("sources")
+    from(sourceSets.main.get().allSource)
+}
+publishing {
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    publications {
+        register("mavenJava", MavenPublication::class) {
+            // add all the jars that should be included when publishing to maven
+//            artifact(remapJar.get()) {
 //                builtBy(remapJar)
 //            }
-//            artifact(sourcesJar) {
+//            artifact(sourcesJar.get()) {
 //                builtBy(remapSourcesJar)
 //            }
-//        }
-//    }
-//
-//    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-//    repositories {
-//        // Add repositories to publish to here.
-//        // Notice: This block does NOT have the same function as the block in the top level.
-//        // The repositories here will be used for publishing your artifact, not for
-//        // retrieving dependencies.
-//    }
-//}
+        }
+    }
+    repositories {
+        // Add repositories to publish to here.
+        // Notice: This block does NOT have the same function as the block in the top level.
+        // The repositories here will be used for publishing your artifact, not for
+        // retrieving dependencies.
+    }
+}
