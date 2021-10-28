@@ -1,4 +1,6 @@
 plugins {
+    checkstyle
+    id("com.github.spotbugs") version "5.0.0-beta.5"
     id("fabric-loom") version "0.10.27"
     id("maven-publish")
     id("io.github.juuxel.loom-quiltflower") version "1.3.0"
