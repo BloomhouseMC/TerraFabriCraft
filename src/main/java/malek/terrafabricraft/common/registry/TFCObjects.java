@@ -2,6 +2,8 @@ package malek.terrafabricraft.common.registry;
 
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.block.*;
+import malek.terrafabricraft.common.block.anvil.TFCAnvil;
+import malek.terrafabricraft.common.block.anvil.TFCAnvilBlockEntity;
 import malek.terrafabricraft.common.block.bellows.BellowsBlock;
 import malek.terrafabricraft.common.block.bellows.BellowsBlockEntity;
 import malek.terrafabricraft.common.block.forge.Forge;
@@ -515,8 +517,12 @@ public class TFCObjects {
     public static final BlockEntityType<ForgeBlockEntity> FORGE_BLOCK_ENTITY = register("forge_entity", FabricBlockEntityTypeBuilder.create(ForgeBlockEntity::new, FORGE).build(null));
     public static final BlockEntityType<ToolRackBlockEntity> TOOL_RACK_BLOCK_ENTITY = register("tool_rack_block_entity", FabricBlockEntityTypeBuilder.create(ToolRackBlockEntity::new, TFCObjects.WOOD_ACACIA.rack, TFCObjects.WOOD_ASH.rack, TFCObjects.WOOD_ASPEN.rack, TFCObjects.WOOD_BIRCH.rack, TFCObjects.WOOD_BLACKWOOD.rack, TFCObjects.WOOD_CHESTNUT.rack, TFCObjects.WOOD_DOUGLAS_FIR.rack, TFCObjects.WOOD_HICKORY.rack, TFCObjects.WOOD_KAPOK.rack, TFCObjects.WOOD_MAPLE.rack, TFCObjects.WOOD_OAK.rack, TFCObjects.WOOD_PALM.rack, TFCObjects.WOOD_PINE.rack, TFCObjects.WOOD_ROSEWOOD.rack, TFCObjects.WOOD_SEQUOIA.rack, TFCObjects.WOOD_SPRUCE.rack, TFCObjects.WOOD_SYCAMORE.rack, TFCObjects.WOOD_WHITE_CEDAR.rack, TFCObjects.WOOD_WILLOW.rack).build(null));
     public static final BlockEntityType<BellowsBlockEntity> BELLOWS_BLOCK_ENTITY = register("bellows_entity", FabricBlockEntityTypeBuilder.create(BellowsBlockEntity::new,BELLOWS_BLOCK).build(null));
+    public static final BlockEntityType<TFCAnvilBlockEntity> ANVIL_BLOCK_ENTITY = register("anvil_block_entity", FabricBlockEntityTypeBuilder.create(TFCAnvilBlockEntity::new, METAL_ANVIL_BISMUTH_BRONZE, METAL_ANVIL_STEEL, METAL_ANVIL_BLACK_BRONZE, METAL_ANVIL_BRONZE, METAL_ANVIL_BLACK_STEEL, METAL_ANVIL_BLUE_STEEL, METAL_ANVIL_COPPER, METAL_ANVIL_RED_STEEL, METAL_ANVIL_WROUGHT_IRON).build(null));
 
     public static final Block BURNING_LOG_PILE = register("burning_log_pile", new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
+
+    // Tools
+
 
     public static final Item STRAW = register("straw", new Item(new FabricItemSettings().group(TerraFabriCraft.DEVICES_GROUP)));
     public static final Item FIRESTARTER = register("firestarter", new FirestarterItem(new FabricItemSettings().group(TerraFabriCraft.DEVICES_GROUP)));

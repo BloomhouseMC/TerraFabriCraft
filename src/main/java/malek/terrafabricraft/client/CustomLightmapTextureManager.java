@@ -102,7 +102,7 @@ public class CustomLightmapTextureManager implements AutoCloseable {
                         vec3f2.set(q, s, t);
                         float w;
                         Vec3f vec3f5;
-                        if (clientWorld.getSkyProperties().shouldBrightenLighting()) {
+                    /*    if (clientWorld.getSkyProperties().shouldBrightenLighting()) {
                             vec3f2.lerp(new Vec3f(0.99F, 1.12F, 1.0F), 0.25F);
                         } else {
                             Vec3f vec3f3 = vec3f.copy();
@@ -115,7 +115,7 @@ public class CustomLightmapTextureManager implements AutoCloseable {
                                 vec3f5.multiplyComponentwise(0.7F, 0.6F, 0.6F);
                                 vec3f2.lerp(vec3f5, w);
                             }
-                        }
+                        } */
 
                         vec3f2.clamp(0.0F, 1.0F);
                         float v;

@@ -3,6 +3,7 @@ package malek.terrafabricraft.common.registry;
 import malek.terrafabricraft.TerraFabriCraft;
 import malek.terrafabricraft.common.recipes.KegRecipe;
 import malek.terrafabricraft.common.recipes.KnappingRecipe;
+import malek.terrafabricraft.common.recipes.PitKilnRecipe;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;

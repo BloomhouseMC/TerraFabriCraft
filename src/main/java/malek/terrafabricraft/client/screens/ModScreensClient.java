@@ -17,5 +17,6 @@ public class ModScreensClient {
         ScreenRegistry.<ForgeGuiDescription, ForgeScreen>register(TFCScreens.FORGE_GUI_DESCRIPTION, (gui, inventory, title) -> new ForgeScreen(gui, inventory.player, title));
         ScreenRegistry.<CeramicVesselScreenHandler, CeramicVesselScreen>register(TFCScreens.CERAMIC_VESSEL_SCREEN_HANDLER, CeramicVesselScreen::new);
         ScreenRegistry.<KnappingScreenHandler, KnappingScreen>register(TFCScreens.KNAPPING_SCREEN_HANDLER, KnappingScreen::new);
+        ScreenRegistry.<AnvilGuiDescription, AnvilScreen>register(TFCScreens.ANVIL_GUI_DESCRIPTION, (gui, inventory, title) -> new AnvilScreen(gui, inventory.player, title));
     }
 }

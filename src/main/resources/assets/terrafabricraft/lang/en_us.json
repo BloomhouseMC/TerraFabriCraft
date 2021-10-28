@@ -21,6 +21,7 @@
   "death.attack.terrafabricraft.pot.player": "%1$s boiled themself while trying to escape %2$s",
   "death.attack.terrafabricraft.dehydration": "%1$s dehydrated to death",
   "death.attack.terrafabricraft.dehydration.player": "%1$s dehydrated to death while trying to escape %2$s",
+  "death.attack.bleeding": "%1$s was crushed by &2s",
   "terrafabricraft.tile_entity.pot": "Pot",
   "terrafabricraft.tile_entity.grill": "Grill",
   "terrafabricraft.tile_entity.firepit": "Firepit",

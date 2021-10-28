@@ -1,0 +1,12 @@
+{
+  "replace" : false,
+  "values" : [
+    "terrafabricraft:rock/raw/diorite",
+    "terrafabricraft:rock/raw/gabbro",
+    "terrafabricraft:rock/raw/granite",
+    "terrafabricraft:rock/raw/andesite",
+    "terrafabricraft:rock/raw/basalt",
+    "terrafabricraft:rock/raw/dacite",
+    "terrafabricraft:rock/raw/rhyolite"
+  ]
+}

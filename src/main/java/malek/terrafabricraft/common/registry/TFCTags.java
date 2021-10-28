@@ -14,6 +14,7 @@ public class TFCTags {
     public static final Tag<Block> CAN_PLANT_RIVER_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_river_plants_on"));
     public static final Tag<Block> CAN_PLANT_SALT_WATER_PLANTS_ON = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "can_plant_salt_water_plants_on"));
     public static final Tag<Block> GRASS_BLOCK = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "grass_block"));
+    public static final Tag<Block> RAW_IGNEOUS = TagFactory.BLOCK.create(new Identifier(TerraFabriCraft.MODID, "raw_igneous"));
 
 
     // Items
