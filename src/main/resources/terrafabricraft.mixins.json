@@ -1,8 +1,8 @@
 {
   "required": true,
   "minVersion": "0.8.4",
-  "package": "malek.terrafabricraft.mixin",
-  "compatibilityLevel": "JAVA_16",
+  "package": "io.github.bloomhousemc.terrafabricraft.mixin",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
     "common.HungerManagerMixin",
     "common.ItemEntityMixin",

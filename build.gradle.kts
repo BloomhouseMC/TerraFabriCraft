@@ -1,5 +1,4 @@
 plugins {
-    checkstyle
     id("com.github.spotbugs") version "5.0.0-beta.5"
     id("fabric-loom") version "0.10.27"
     id("maven-publish")
@@ -69,6 +68,8 @@ loom {
     accessWidenerPath.set(file("src/main/resources/terrafabricraft.aw"))
 }
 
+var targetJavaVersion = 17
+
 tasks {
     processResources {
         inputs.property("version", project.version)
@@ -80,8 +81,18 @@ tasks {
 
     withType<JavaCompile> {
         options.encoding = "UTF-8"
+        if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+            options.release.set(targetJavaVersion)
+        }
+    }
 
-        options.release.set(16)
+    java {
+        val javaVersion = JavaVersion.toVersion(targetJavaVersion)
+        if (JavaVersion.current() < javaVersion) {
+            toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
+        }
+        base.archivesName.set("${project.property("archives_base_name")}")
+        withSourcesJar()
     }
 
     jar {
@@ -93,10 +104,6 @@ tasks {
     }
 }
 
-val sourcesJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(sourceSets.main.get().allSource)
-}
 publishing {
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
