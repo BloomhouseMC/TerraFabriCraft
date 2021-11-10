@@ -12,16 +12,16 @@ repositories {
         name = "Cardinal Components"
     }
     maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/") {
-        "GeckoLib"
+        name = "GeckoLib"
     }
     maven("https://maven.shedaniel.me") {
-        "Roughly Enough Items"
+        name = "Roughly Enough Items"
     }
     maven("https://maven.blamejared.com") {
-        "Patchouli"
+        name = "Patchouli"
     }
     maven("https://jitpack.io") {
-        "JitPack"
+        name = "JitPack"
     }
     maven("https://server.bbkr.space/artifactory/libs-release") {
         name = "LibGui"
