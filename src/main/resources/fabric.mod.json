@@ -6,32 +6,32 @@
   "description": "This is mod",
   "authors": [
     "mrsterner",
-    "malek",
     "voleil",
+    "malek",
     "safro"
   ],
   "contact": {
     "homepage": "",
-    "sources": "https://github.com/Maleks-Modding-Studios/Terrafabricraft"
+    "sources": "https://github.com/BloomhouseMC/TerraFabriCraft"
   },
-  "license": "CC0-1.0",
+  "license": "mit",
   "icon": "assets/terrafabricraft/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "malek.terrafabricraft.TerraFabriCraft"
+      "com.bloomhousemc.terrafabricraft.TerraFabriCraft"
     ],
     "client": [
-      "malek.terrafabricraft.TerraFabriCraftClient"
+      "com.bloomhousemc.terrafabricraft.TerraFabriCraftClient"
     ],
     "cardinal-components-entity": [
-      "malek.terrafabricraft.common.registry.TFCComponents"
+      "com.bloomhousemc.terrafabricraft.common.registry.TFCComponents"
     ],
     "cardinal-components-world": [
-      "malek.terrafabricraft.common.registry.TFCComponents"
+      "com.bloomhousemc.terrafabricraft.common.registry.TFCComponents"
     ],
     "cardinal-components-item": [
-      "malek.terrafabricraft.common.registry.TFCComponents"
+      "com.bloomhousemc.terrafabricraft.common.registry.TFCComponents"
     ]
   },
   "mixins": [
@@ -59,6 +59,5 @@
     ]
   },
   "suggests": {
-    "another-mod": "*"
   }
 }

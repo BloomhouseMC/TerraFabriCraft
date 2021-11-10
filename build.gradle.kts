@@ -1,6 +1,4 @@
 plugins {
-    checkstyle
-    id("com.github.spotbugs") version "5.0.0-beta.5"
     id("fabric-loom") version "0.10.27"
     id("maven-publish")
     id("io.github.juuxel.loom-quiltflower") version "1.3.0"
@@ -10,18 +8,23 @@ version = "${project.property("mod_version")}"
 group = "${project.property("maven_group")}"
 
 repositories {
-    //CCA
-    maven("https://ladysnake.jfrog.io/artifactory/mods")
-    //GECKOLIB
-    maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/")
-    //REI
-    maven("https://maven.shedaniel.me")
-    //PATCHOULI
-    maven("https://maven.blamejared.com")
-    //JITPACK
-    maven("https://jitpack.io")
-    //LibGui
+    maven("https://ladysnake.jfrog.io/artifactory/mods") {
+        name = "Cardinal Components"
+    }
+    maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/") {
+        "GeckoLib"
+    }
+    maven("https://maven.shedaniel.me") {
+        "Roughly Enough Items"
+    }
+    maven("https://maven.blamejared.com") {
+        "Patchouli"
+    }
+    maven("https://jitpack.io") {
+        "JitPack"
+    }
     maven("https://server.bbkr.space/artifactory/libs-release") {
+        name = "LibGui"
         content {
             includeGroup("io.github.cottonmc")
         }
@@ -69,9 +72,12 @@ loom {
     accessWidenerPath.set(file("src/main/resources/terrafabricraft.aw"))
 }
 
+val targetJavaVersion = 16
+
 tasks {
     processResources {
         inputs.property("version", project.version)
+        filteringCharset = "UTF-8"
 
         filesMatching("fabric.mod.json") {
             expand("version" to project.version)
@@ -80,8 +86,18 @@ tasks {
 
     withType<JavaCompile> {
         options.encoding = "UTF-8"
+        if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+            options.release.set(targetJavaVersion)
+        };
+    }
 
-        options.release.set(16)
+    java {
+        val javaVersion = JavaVersion.toVersion(targetJavaVersion)
+        if (JavaVersion.current() < javaVersion) {
+            toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
+        }
+        base.archivesName.set("${project.property("archives_base_name")}")
+        withSourcesJar()
     }
 
     jar {
@@ -93,10 +109,6 @@ tasks {
     }
 }
 
-val sourcesJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(sourceSets.main.get().allSource)
-}
 publishing {
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
