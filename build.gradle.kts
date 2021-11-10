@@ -86,9 +86,9 @@ tasks {
 
     withType<JavaCompile> {
         options.encoding = "UTF-8"
-        if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible) {
             options.release.set(targetJavaVersion)
-        };
+        }
     }
 
     java {
