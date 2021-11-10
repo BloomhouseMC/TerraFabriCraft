@@ -51,8 +51,5 @@ public class TerraFabriCraft implements ModInitializer {
         TFCParticleTypes.init();
         TFCRecipeTypes.init();
         TFCSounds.init();
-
-
-
     }
 }

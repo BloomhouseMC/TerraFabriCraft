@@ -1,7 +1,7 @@
 package com.bloomhousemc.terrafabricraft.common.gui.knapping;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.bloomhousemc.terrafabricraft.TerraFabriCraft;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -17,8 +17,6 @@ import net.minecraft.util.math.Matrix4f;
 
 @Environment(EnvType.CLIENT)
 public class KnappingScreen extends HandledScreen<KnappingScreenHandler> implements RecipeBookProvider {
-    private static final Identifier TEXTURE = new Identifier("textures/gui/container/hopper.png");
-
     private static final Identifier GUI_TEXTURE = new Identifier(TerraFabriCraft.MODID, "textures/gui/knapping.png");
     private static final Identifier RECIPE_BUTTON_TEXTURE = new Identifier("textures/gui/recipe_button.png");
     private final RecipeBookWidget recipeBook = new RecipeBookWidget();
@@ -31,16 +29,7 @@ public class KnappingScreen extends HandledScreen<KnappingScreenHandler> impleme
         super(screenHandler, playerInventory, text);
     }
 
-    private static void drawTexturedQuad(Matrix4f matrices,
-                                         int x0,
-                                         int x1,
-                                         int y0,
-                                         int y1,
-                                         int z,
-                                         float u0,
-                                         float u1,
-                                         float v0,
-                                         float v1) {
+    private static void drawTexturedQuad(Matrix4f matrices, int x0, int x1, int y0, int y1, int z, float u0, float u1, float v0, float v1) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         BufferBuilder bufferBuilder = Tessellator.getInstance().getBuffer();
         bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
