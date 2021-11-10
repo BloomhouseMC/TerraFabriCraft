@@ -1,6 +1,6 @@
 plugins {
     id("fabric-loom") version "0.10.27"
-    id("maven-publish")
+    `maven-publish`
     id("io.github.juuxel.loom-quiltflower") version "1.3.0"
 }
 
@@ -110,23 +110,14 @@ tasks {
 }
 
 publishing {
+    repositories {
+        maven {
 
-    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-    publications {
-        register("mavenJava", MavenPublication::class) {
-            // add all the jars that should be included when publishing to maven
-//            artifact(remapJar.get()) {
-//                builtBy(remapJar)
-//            }
-//            artifact(sourcesJar.get()) {
-//                builtBy(remapSourcesJar)
-//            }
         }
     }
-    repositories {
-        // Add repositories to publish to here.
-        // Notice: This block does NOT have the same function as the block in the top level.
-        // The repositories here will be used for publishing your artifact, not for
-        // retrieving dependencies.
+    publications {
+        register("mavenJava", MavenPublication::class) {
+            from(components["java"])
+        }
     }
 }
