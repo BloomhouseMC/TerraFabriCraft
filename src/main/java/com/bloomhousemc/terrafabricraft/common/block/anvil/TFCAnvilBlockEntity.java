@@ -1,6 +1,5 @@
 package com.bloomhousemc.terrafabricraft.common.block.anvil;
 
-import com.bloomhousemc.terrafabricraft.client.screens.AnvilGuiDescription;
 import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;

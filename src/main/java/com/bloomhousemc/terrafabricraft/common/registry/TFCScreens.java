@@ -1,6 +1,5 @@
 package com.bloomhousemc.terrafabricraft.common.registry;
 
-import com.bloomhousemc.terrafabricraft.client.screens.AnvilGuiDescription;
 import com.bloomhousemc.terrafabricraft.common.block.forge.ForgeGuiDescription;
 import com.bloomhousemc.terrafabricraft.common.block.logpile.LogPileGuiDescription;
 import com.bloomhousemc.terrafabricraft.common.item.ceramic.CeramicVesselScreenHandler;
