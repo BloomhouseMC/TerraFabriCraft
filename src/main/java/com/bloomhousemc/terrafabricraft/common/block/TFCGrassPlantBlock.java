@@ -36,10 +36,10 @@ public class TFCGrassPlantBlock extends PlantBlock {
     public static IntProperty AGE_4;
 
     static {
-        AGE_7 = IntProperty.of("age", 0, 9);//Age + 2 for dead stage
-        AGE_6 = IntProperty.of("age", 0, 8);
-        AGE_5 = IntProperty.of("age", 0, 7);
-        AGE_4 = IntProperty.of("age", 0, 6);
+        AGE_7 = IntProperty.of("stage", 0, 9);//Age + 2 for dead stage
+        AGE_6 = IntProperty.of("stage", 0, 8);
+        AGE_5 = IntProperty.of("stage", 0, 7);
+        AGE_4 = IntProperty.of("stage", 0, 6);
     }
 
     public final int MAX_AGE;
