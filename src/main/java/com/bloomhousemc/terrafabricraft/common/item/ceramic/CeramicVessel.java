@@ -1,5 +1,6 @@
 package com.bloomhousemc.terrafabricraft.common.item.ceramic;
 
+import com.bloomhousemc.terrafabricraft.common.gui.ceramic.CeramicVesselScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

@@ -16,6 +16,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
+
 public class TFCCrops extends CropBlock {
     private static final VoxelShape[] AGE_TO_SHAPE = {
             Block.createCuboidShape(0, 0, 0, 16, 2, 16),
@@ -43,6 +44,19 @@ public class TFCCrops extends CropBlock {
     public final int maxAge;
 
     //TODO: Both temp and hardy is unnecessary
+
+    //TODO: Move most of the methods also in TFCGrassPlantBlock to a common interface with default methods
+    /**
+     *
+     * @param settings
+     * @param temp Should maybe be an array for the hottest and coldest temperature the crop can survive in
+     * @param speed Growth speed of the crop.
+     * @param seedItem Id of the crop seed.
+     * @param maxAge Amount of age blockstates, should be full growth state plus two dead states.
+     * TODO: @param maxStage Amount of stage blockstates.
+     * TODO: @param collisionLevel Should be an enum value like Small, Medium, or Big for how much to slow down the player when colliding with the crop.
+     * TODO: @param collisionShape How big to make the crop's collision box, should maybe be an enum like collisionLevel's or else a different class for each size of crop.
+     */
     public TFCCrops(Settings settings, int temp, int speed, ItemConvertible seedItem, int maxAge) {
         super(settings);
         this.seedItem = seedItem;

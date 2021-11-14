@@ -16,6 +16,9 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+/**
+ * For plants that can be planted on top of grass blocks (not dirt or on the bottom or side of blocks)
+ */
 public class TFCGrassPlantBlock extends PlantBlock {
     private static final VoxelShape[] AGE_TO_SHAPE = {
             Block.createCuboidShape(0, 0, 0, 16, 2, 16),

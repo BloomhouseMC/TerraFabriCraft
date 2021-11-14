@@ -1,5 +1,6 @@
-package com.bloomhousemc.terrafabricraft.common.item.ceramic;
+package com.bloomhousemc.terrafabricraft.common.gui.ceramic;
 
+import com.bloomhousemc.terrafabricraft.common.item.ceramic.CeramicVessel;
 import com.bloomhousemc.terrafabricraft.common.registry.TFCScreens;
 import com.bloomhousemc.terrafabricraft.common.util.TFCUtils.Dimension;
 import com.bloomhousemc.terrafabricraft.common.util.TFCUtils.InventoryUtils;
