@@ -3,7 +3,7 @@ package com.bloomhousemc.terrafabricraft.common.registry;
 import com.bloomhousemc.terrafabricraft.client.screens.AnvilGuiDescription;
 import com.bloomhousemc.terrafabricraft.common.block.forge.ForgeGuiDescription;
 import com.bloomhousemc.terrafabricraft.common.block.logpile.LogPileGuiDescription;
-import com.bloomhousemc.terrafabricraft.common.item.ceramic.CeramicVesselScreenHandler;
+import com.bloomhousemc.terrafabricraft.common.gui.ceramic.CeramicVesselScreenHandler;
 import com.bloomhousemc.terrafabricraft.common.gui.knapping.KnappingScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.screen.ScreenHandlerContext;

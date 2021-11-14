@@ -1,4 +1,4 @@
-package com.bloomhousemc.terrafabricraft.common.item.ceramic;
+package com.bloomhousemc.terrafabricraft.common.gui.ceramic;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.bloomhousemc.terrafabricraft.TerraFabriCraft;
