@@ -72,6 +72,10 @@ loom {
     accessWidenerPath.set(file("src/main/resources/terrafabricraft.aw"))
 }
 
+quiltflower {
+    addToRuntimeClasspath.set(true)
+}
+
 val targetJavaVersion = 16
 
 tasks {

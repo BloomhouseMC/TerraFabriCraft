@@ -20,7 +20,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
 
-public class TfcSupport extends Block implements Waterloggable {
+public class TfcSupportBlock extends Block implements Waterloggable {
     public static final BooleanProperty NORTH = ConnectingBlock.NORTH;
     public static final BooleanProperty EAST = ConnectingBlock.EAST;
     public static final BooleanProperty SOUTH = ConnectingBlock.SOUTH;
@@ -30,9 +30,9 @@ public class TfcSupport extends Block implements Waterloggable {
     private final Object2IntMap<BlockState> SHAPE_INDEX_CACHE = new Object2IntOpenHashMap<>();
     private final boolean hasPillar;
 
-    public TfcSupport(Settings settings, boolean hasPillar) {
+    public TfcSupportBlock(Settings settings, boolean hasPillar) {
         super(settings);
-        boundingShapes = createShapes(2F, 2F, 16F, 10F, 6F);
+        boundingShapes = createShapes(2F, 2F, 16F, 10F, 16F);
         this.hasPillar = hasPillar;
     }
 

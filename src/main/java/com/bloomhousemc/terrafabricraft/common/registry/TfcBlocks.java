@@ -452,8 +452,8 @@ public final class TfcBlocks {
         return block;
     }
 
-    public static TfcSupport createSupport(String id, Boolean hasPillar) {
-        TfcSupport block = new TfcSupport(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).nonOpaque(), hasPillar);
+    public static TfcSupportBlock createSupport(String id, Boolean hasPillar) {
+        var block = new TfcSupportBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).nonOpaque(), hasPillar);
         if (hasPillar) register(id, block, new TfcSupportItem(block, genItemSettings(WOOD_GROUP)));
         else registerWithoutItem(id, block);
         return block;
@@ -474,7 +474,7 @@ public final class TfcBlocks {
     public static TfcLog createLog(String id, MapColor color) {
         var block = new TfcLog(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).mapColor(color));
         //TODO: What is this?
-        register(id, block, WOOD_GROUP);
+        registerWithoutItem(id, block);
         register(id, new TfcLogItem(block, new FabricItemSettings().group(WOOD_GROUP)));
         return block;
     }    //Block Entities

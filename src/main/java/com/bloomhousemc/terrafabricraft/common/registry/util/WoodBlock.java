@@ -18,8 +18,8 @@ public class WoodBlock {
     public final TfcSapling sapling;
     public final TfcLog stripped_log;
     public final TfcTwig twig;
-    public final TfcSupport vertical_support;
-    public final TfcSupport horizontal_support;
+    public final TfcSupportBlock vertical_support;
+    public final TfcSupportBlock horizontal_support;
     public ToolRackBlock rack;
 
     public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
@@ -38,7 +38,6 @@ public class WoodBlock {
 
 
     private static TfcLog setCreateLog(String special, String variantId, MapColor color) {
-
         return createLog(special + variantId, color);
     }
 
