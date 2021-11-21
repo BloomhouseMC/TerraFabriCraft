@@ -158,6 +158,7 @@ public class RoosterEntity extends ChickenEntity {
     }
 
     static {
-        BREEDING_INGREDIENT = Ingredient.ofItems(new ItemConvertible[]{Items.WHEAT_SEEDS, TfcItems.WHEAT_GRAIN, TfcItems.WHEAT_SEED});
+        //TODO: Shouldn't be a banana
+        BREEDING_INGREDIENT = Ingredient.ofItems(new ItemConvertible[]{Items.WHEAT_SEEDS, TfcItems.WHEAT_GRAIN, TfcItems.BANANA});
     }
 }

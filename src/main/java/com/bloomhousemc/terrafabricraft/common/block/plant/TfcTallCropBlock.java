@@ -56,7 +56,9 @@ public class TfcTallCropBlock extends CropBlock {
     @Environment(EnvType.CLIENT)
     @Override
     protected ItemConvertible getSeedsItem() {
-        return this == TfcBlocks.JUTE_CROP ? TfcItems.JUTE_SEED : TfcItems.MAIZE_SEED;
+        //TODO: Shouldn't be a banana
+        return TfcItems.BANANA;
+//        return this == TfcBlocks.JUTE_CROP ? TfcItems.JUTE_SEED : TfcItems.MAIZE_SEED;
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
