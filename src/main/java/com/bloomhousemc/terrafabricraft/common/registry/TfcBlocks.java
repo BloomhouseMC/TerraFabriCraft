@@ -14,6 +14,7 @@ import com.bloomhousemc.terrafabricraft.common.block.plant.TfcWaterPlantBlock;
 import com.bloomhousemc.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import com.bloomhousemc.terrafabricraft.common.item.GroundCoverOreBlockItem;
 import com.bloomhousemc.terrafabricraft.common.item.TfcLogItem;
+import com.bloomhousemc.terrafabricraft.common.item.TfcLooseRockItem;
 import com.bloomhousemc.terrafabricraft.common.item.TfcSupportItem;
 import com.bloomhousemc.terrafabricraft.common.registry.util.CoralBlock;
 import com.bloomhousemc.terrafabricraft.common.registry.util.*;
@@ -392,7 +393,7 @@ public final class TfcBlocks {
 
     public static TfcGroundCoverBlock createGroundcover(String id, Item dropId) {
         //TODO: Replace with a tag
-        var block = register(id, new TfcGroundCoverBlock(FabricBlockSettings.of(Material.STONE).strength(6.0f)), dropId);
+        var block = registerWithCustomItem(id, new TfcGroundCoverBlock(FabricBlockSettings.of(Material.STONE).strength(6.0f)), dropId);
         return block;
     }
 
@@ -453,8 +454,8 @@ public final class TfcBlocks {
     }
 
     public static TfcSupportBlock createSupport(String id, Boolean hasPillar) {
-        var block = new TfcSupportBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).nonOpaque(), hasPillar);
-        if (hasPillar) register(id, block, new TfcSupportItem(block, genItemSettings(WOOD_GROUP)));
+        var block = new TfcSupportBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD), hasPillar);
+        if (hasPillar) registerWithCustomItem(id, block, new TfcSupportItem(block, genItemSettings(WOOD_GROUP)));
         else registerWithoutItem(id, block);
         return block;
     }
@@ -518,7 +519,7 @@ public final class TfcBlocks {
 
     public static TfcLooseRock createLooseRock(String id) {
         var block = new TfcLooseRock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(6.0f));
-        register(id, block, ROCK_GROUP);
+        registerWithCustomItem(id, block, new TfcLooseRockItem(block, genItemSettings(ROCK_GROUP)));
         return block;
     }
 
@@ -529,11 +530,11 @@ public final class TfcBlocks {
     }
 
     /**
-     * Registers a block with a block item
+     * Registers a block with a generic block item
      *
      * @param id        id of the block and the item
      * @param block     instance of the block to register
-     * @param itemGroup item group
+     * @param itemGroup item group for the block item
      * @param <T>       class of the block to register
      * @return returns block from {@code block}
      */
@@ -544,7 +545,7 @@ public final class TfcBlocks {
         return block;
     }
 
-    private static <T extends Block> T register(String id, T block, Item item) {
+    private static <T extends Block> T registerWithCustomItem(String id, T block, Item item) {
         //TODO: Make block drop item from param
         var fullId = new Identifier(MODID, id);
         Registry.register(Registry.BLOCK, fullId, block);

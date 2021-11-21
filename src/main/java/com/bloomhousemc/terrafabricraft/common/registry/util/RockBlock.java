@@ -85,7 +85,7 @@ public class RockBlock {
         crackedBrick = new BlockVariant(name, "cracked_bricks");
         gravel = setCreateBlock(name, id, "gravel");
         hardened = setCreateBlock(name, id, "hardened");
-        loose = setCreateTFCLooseRock(name, id, "loose");
+        loose = TfcBlocks.createLooseRock(id + "loose/" + name);
         mossyBrick = new BlockVariant(name, "mossy_bricks");
         mossyCobble = new BlockVariant(name, "mossy_cobble");
         pressurePlate = setCreateBlock(name, id, "pressure_plate");
@@ -142,11 +142,6 @@ public class RockBlock {
     }
     public void add(Block ... blocks) {
         oreStones.addAll(Arrays.asList(blocks));
-    }
-
-    private static TfcLooseRock setCreateTFCLooseRock(String name, String id, String special) {
-        TfcLooseRock rock = TfcBlocks.createLooseRock(id + special + "/" + name);
-        return rock;
     }
 
     private static Block setCreateBlock(String name, String id, String special) {
