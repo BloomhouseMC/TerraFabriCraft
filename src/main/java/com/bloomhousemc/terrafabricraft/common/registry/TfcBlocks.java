@@ -50,7 +50,7 @@ public final class TfcBlocks {
     public static final CoralBlock CORAL_HORN = new CoralBlock("coral/horn");
     public static final CoralBlock CORAL_TUBE = new CoralBlock("coral/tube");
 
-    public static final Block BARLEY_CROP = createCrop("barley_crop", 0, 1, false, TfcItems.BARLEY_SEED, 9);
+//    public static final Block BARLEY_CROP = createCrop("barley_crop", 0, 1, false, TfcItems.BARLEY_SEED, 9);
 
     public static final SoilBlock CLAY = new SoilBlock("clay", BlockSoundGroup.GRAVEL);
 //    public static final TFCFood MILK = new TFCFood("barley_bread", new FabricItemSettings(), 1, 1);
@@ -144,24 +144,24 @@ public final class TfcBlocks {
     public static final RockBlock SHALE = new RockBlock("shale");
     public static final RockBlock SLATE = new RockBlock("slate");
 
-    public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0, 1, false, TfcItems.CABBAGE_SEED, 7);
-    public static final Block CARROT_CROP = createCrop("carrot_crop", 0, 1, false, TfcItems.CARROT_SEED, 6);
-    public static final Block GARLIC_CROP = createCrop("garlic_crop", 0, 1, false, TfcItems.GARLIC_SEED, 6);
-    public static final Block GREENBEAN_CROP = createCrop("greenbean_crop", 0, 1, false, TfcItems.GREENBEAN_SEED, 8);
-    public static final Block JUTE_CROP = createCrop("jute_crop", 0, 1, true, TfcItems.JUTE_SEED, 7);
-    public static final Block MAIZE_CROP = createCrop("maize_crop", 0, 1, true, TfcItems.MAIZE_SEED, 7);
-    public static final Block OAT_CROP = createCrop("oat_crop", 0, 1, false, TfcItems.OAT_SEED, 9);
-    public static final Block ONION_CROP = createCrop("onion_crop", 0, 1, false, TfcItems.ONION_SEED, 8);
-    public static final Block POTATO_CROP = createCrop("potato_crop", 0, 1, false, TfcItems.POTATO_SEED, 8);
-    public static final Block RED_BELL_PEPPER_CROP = createCrop("red_bell_pepper_crop", 0, 1, false, TfcItems.RED_BELL_PEPPER_SEED, 8);
-    public static final Block RICE_CROP = createCrop("rice_crop", 0, 1, false, TfcItems.RICE_SEED, 9);
-    public static final Block RUTABAGA_CROP = createCrop("rutabaga_crop", 0, 1, false, TfcItems.RUTABAGA_SEED, 9);
-    public static final Block RYE_CROP = createCrop("rye_crop", 0, 1, false, TfcItems.RYE_SEED, 9);
-    public static final Block SOYBEAN_CROP = createCrop("soybean_crop", 0, 1, false, TfcItems.SOYBEAN_SEED, 8);
-    public static final Block SQUASH_CROP = createCrop("squash_crop", 0, 1, false, TfcItems.SQUASH_SEED, 9);
-    public static final Block TOMATO_CROP = createCrop("tomato_crop", 0, 1, false, TfcItems.TOMATO_SEED, 9);
-    public static final Block WHEAT_CROP = createCrop("wheat_crop", 0, 1, false, TfcItems.WHEAT_SEED, 9);
-    public static final Block YELLOW_BELL_PEPPER_CROP = createCrop("yellow_bell_pepper_crop", 0, 1, false, TfcItems.YELLOW_BELL_PEPPER_SEED, 8);
+//    public static final Block CABBAGE_CROP = createCrop("cabbage_crop", 0, 1, false, TfcItems.CABBAGE_SEED, 7);
+//    public static final Block CARROT_CROP = createCrop("carrot_crop", 0, 1, false, TfcItems.CARROT_SEED, 6);
+//    public static final Block GARLIC_CROP = createCrop("garlic_crop", 0, 1, false, TfcItems.GARLIC_SEED, 6);
+//    public static final Block GREENBEAN_CROP = createCrop("greenbean_crop", 0, 1, false, TfcItems.GREENBEAN_SEED, 8);
+//    public static final Block JUTE_CROP = createCrop("jute_crop", 0, 1, true, TfcItems.JUTE_SEED, 7);
+//    public static final Block MAIZE_CROP = createCrop("maize_crop", 0, 1, true, TfcItems.MAIZE_SEED, 7);
+//    public static final Block OAT_CROP = createCrop("oat_crop", 0, 1, false, TfcItems.OAT_SEED, 9);
+//    public static final Block ONION_CROP = createCrop("onion_crop", 0, 1, false, TfcItems.ONION_SEED, 8);
+//    public static final Block POTATO_CROP = createCrop("potato_crop", 0, 1, false, TfcItems.POTATO_SEED, 8);
+//    public static final Block RED_BELL_PEPPER_CROP = createCrop("red_bell_pepper_crop", 0, 1, false, TfcItems.RED_BELL_PEPPER_SEED, 8);
+//    public static final Block RICE_CROP = createCrop("rice_crop", 0, 1, false, TfcItems.RICE_SEED, 9);
+//    public static final Block RUTABAGA_CROP = createCrop("rutabaga_crop", 0, 1, false, TfcItems.RUTABAGA_SEED, 9);
+//    public static final Block RYE_CROP = createCrop("rye_crop", 0, 1, false, TfcItems.RYE_SEED, 9);
+//    public static final Block SOYBEAN_CROP = createCrop("soybean_crop", 0, 1, false, TfcItems.SOYBEAN_SEED, 8);
+//    public static final Block SQUASH_CROP = createCrop("squash_crop", 0, 1, false, TfcItems.SQUASH_SEED, 9);
+//    public static final Block TOMATO_CROP = createCrop("tomato_crop", 0, 1, false, TfcItems.TOMATO_SEED, 9);
+//    public static final Block WHEAT_CROP = createCrop("wheat_crop", 0, 1, false, TfcItems.WHEAT_SEED, 9);
+//    public static final Block YELLOW_BELL_PEPPER_CROP = createCrop("yellow_bell_pepper_crop", 0, 1, false, TfcItems.YELLOW_BELL_PEPPER_SEED, 8);
 
     public static final TfcGrassPlantBlock PLANT_ARUNDO = createGrassPlant("plant/arundo", 1, 1, 3);
     public static final TfcGrassPlantBlock PLANT_ATHYRIUM_FERN = createGrassPlant("plant/athyrium_fern", 1, 1, 1);

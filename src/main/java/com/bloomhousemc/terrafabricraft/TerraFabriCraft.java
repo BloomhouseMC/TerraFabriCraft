@@ -25,7 +25,7 @@ public final class TerraFabriCraft implements ModInitializer {
         TfcBlocks.init();
         TfcItems.init();
         TfcBlockEntities.init();
-        TfcBiome.init();
+        TfcBiomes.init();
         TfcEntityTypes.init();
         TFCEvents.init();
         TfcScreens.init();
