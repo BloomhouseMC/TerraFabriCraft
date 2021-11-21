@@ -1,15 +1,11 @@
 package com.bloomhousemc.terrafabricraft.common.registry.util;
 
-import com.bloomhousemc.terrafabricraft.TerraFabriCraft;
-import com.bloomhousemc.terrafabricraft.common.block.TFCLooseRock;
-import com.bloomhousemc.terrafabricraft.common.block.TFCOreBlock;
-import com.bloomhousemc.terrafabricraft.common.block.TFCStairs;
-import com.bloomhousemc.terrafabricraft.common.block.TFCStoneButtonBlock;
-import com.bloomhousemc.terrafabricraft.common.item.TFCLooseRockItem;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCFeatures;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import com.bloomhousemc.terrafabricraft.common.block.TfcLooseRock;
+import com.bloomhousemc.terrafabricraft.common.block.TfcOreBlock;
+import com.bloomhousemc.terrafabricraft.common.block.TfcStairs;
+import com.bloomhousemc.terrafabricraft.common.block.TfcStoneButtonBlock;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcFeatures;
 import net.minecraft.block.*;
 
 import java.util.ArrayList;
@@ -17,7 +13,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.bloomhousemc.terrafabricraft.common.registry.TFCObjects.*;
+import static com.bloomhousemc.terrafabricraft.common.registry.TfcItemGroups.ROCK_GROUP;
 
 public class RockBlock {
 
@@ -26,7 +22,7 @@ public class RockBlock {
     public List<Block> oreStones = new ArrayList<>();
     // public Block groundCover;
     //TODO : Add facing and power varation for the stone button
-    public TFCStoneButtonBlock button;
+    public TfcStoneButtonBlock button;
     public Block anvil;
     public BlockVariant brick;
     public Block chiseled;
@@ -34,7 +30,7 @@ public class RockBlock {
     public BlockVariant crackedBrick;
     public Block gravel;
     public Block hardened;
-    public TFCLooseRock loose;
+    public TfcLooseRock loose;
     public BlockVariant mossyBrick;
     public BlockVariant mossyCobble;
     public Block pressurePlate;
@@ -82,7 +78,7 @@ public class RockBlock {
     public RockBlock(String name) {
 
         var id = "rock/";
-        button = createStoneButton(id + "button/" + name);
+        button = TfcBlocks.createStoneButton(id + "button/" + name);
         brick = new BlockVariant(name, "bricks");
         chiseled = setCreateBlock(name, id, "chiseled");
         cobble = new BlockVariant(name, "cobble");
@@ -135,7 +131,7 @@ public class RockBlock {
 
         add(amethyst, bituminousCoal, borax, cinnabar, cryolite, diamond, emerald, graphite, gypsum, halite, kaolinite, lapisLazuil, lignite, opal, pyrite, ruby, saltpeter, sapphire, sulfur, sylvite, topaz);
         add(bismuthinite, cassiterite, garnierite, hematite, limonite, magnetite, malachite, nativeCopper, nativeGold, nativeSilver, sphalerite, tetrahedrite);
-        TFCFeatures.registerOre(name, raw.block.getDefaultState());
+//        TfcFeatures.registerOre(name, raw.block.getDefaultState());
     }
     public void add(OreStoneBlock ... oreStoneBlocks) {
         for(OreStoneBlock oreStoneBlock : oreStoneBlocks) {
@@ -148,46 +144,40 @@ public class RockBlock {
         oreStones.addAll(Arrays.asList(blocks));
     }
 
-    private static TFCLooseRock setCreateTFCLooseRock(String name, String id, String special) {
-        TFCLooseRock rock = register(id + special + "/" + name, new TFCLooseRock(FabricBlockSettings.copy(Blocks.STONE)), false, TerraFabriCraft.ROCK_GROUP);
-        TFCObjects.register(id + special + "/" + name, new TFCLooseRockItem(rock, new FabricItemSettings().group(TerraFabriCraft.ROCK_GROUP)));
+    private static TfcLooseRock setCreateTFCLooseRock(String name, String id, String special) {
+        TfcLooseRock rock = TfcBlocks.createLooseRock(id + special + "/" + name);
         return rock;
     }
 
     private static Block setCreateBlock(String name, String id, String special) {
-        return createRock(id + special + "/" + name, TerraFabriCraft.ROCK_GROUP);
+        return TfcBlocks.createRock(id + special + "/" + name, ROCK_GROUP);
     }
-
-    private static TFCOreBlock setCreateBlockOre(String name, String id, String special) {
-        return register(id + special + "/" + name, new TFCOreBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE)), true, TerraFabriCraft.ORES_GROUP);
-    }
-
 
     public class OreStoneBlock {
-        public TFCOreBlock poor;
-        public TFCOreBlock normal;
-        public TFCOreBlock rich;
+        public TfcOreBlock poor;
+        public TfcOreBlock normal;
+        public TfcOreBlock rich;
 
         public OreStoneBlock(String rockType, String oreType) {
-            poor = setCreateBlockOre(rockType, "ore/poor_" + oreType, "");
-            normal = setCreateBlockOre(rockType, "ore/normal_" + oreType, "");
-            rich = setCreateBlockOre(rockType, "ore/rich_" + oreType, "");
+            poor = TfcBlocks.createOre(rockType, "ore/poor_" + oreType, "");
+            normal = TfcBlocks.createOre(rockType, "ore/normal_" + oreType, "");
+            rich = TfcBlocks.createOre(rockType, "ore/rich_" + oreType, "");
         }
     }
 
     public class BlockVariant {
         public Block block;
         public SlabBlock slab;
-        public TFCStairs stairs;
+        public TfcStairs stairs;
         public WallBlock wall;
 
         public BlockVariant(String name, String special) {
-            var group = TerraFabriCraft.ROCK_GROUP;
+            var group = ROCK_GROUP;
             block = setCreateBlock(name, "rock/", special);
             String variant = "rock/" + special + "/" + name;
-            slab = createStoneSlab(variant + "_slab", group);
-            stairs = createStoneStairs(variant + "_stairs", block, group);
-            wall = createWall(variant + "_wall", group);
+            slab = TfcBlocks.createStoneSlab(variant + "_slab", group);
+            stairs = TfcBlocks.createStoneStairs(variant + "_stairs", block, group);
+            wall = TfcBlocks.createWall(variant + "_wall", group);
         }
     }
 }

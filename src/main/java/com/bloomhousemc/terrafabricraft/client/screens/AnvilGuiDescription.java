@@ -1,6 +1,6 @@
 package com.bloomhousemc.terrafabricraft.client.screens;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCScreens;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcScreens;
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
@@ -12,7 +12,7 @@ public class AnvilGuiDescription extends SyncedGuiDescription {
     private static final int INVENTORY_SIZE = 4;
 
     public AnvilGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
-        super(TFCScreens.ANVIL_GUI_DESCRIPTION, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 1));
+        super(TfcScreens.ANVIL_GUI_DESCRIPTION, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 1));
 
         WPlainPanel root = new WPlainPanel();
         setRootPanel(root);

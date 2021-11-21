@@ -1,7 +1,7 @@
 plugins {
-    id("fabric-loom") version "0.10.27"
+    id("fabric-loom") version "0.10-SNAPSHOT"
     `maven-publish`
-    id("io.github.juuxel.loom-quiltflower") version "1.3.0"
+    id("io.github.juuxel.loom-quiltflower-mini") version "1.1.0"
 }
 
 version = "${project.property("mod_version")}"

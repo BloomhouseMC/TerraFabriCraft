@@ -1,6 +1,6 @@
 package com.bloomhousemc.terrafabricraft.common.block.bellows;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -81,6 +81,6 @@ public class BellowsBlock extends HorizontalFacingBlock implements BlockEntityPr
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return TFCObjects.BELLOWS_BLOCK_ENTITY.instantiate(pos,state);
+        return TfcBlockEntities.BELLOWS_BLOCK_ENTITY.instantiate(pos,state);
     }
 }

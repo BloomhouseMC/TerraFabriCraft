@@ -1,6 +1,6 @@
 package com.bloomhousemc.terrafabricraft.common.block.bellows;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +18,7 @@ public class BellowsBlockEntity extends BlockEntity implements IAnimatable {
     private final AnimationFactory factory = new AnimationFactory(this);
 
     public BellowsBlockEntity(BlockPos pos, BlockState state) {
-        super(TFCObjects.BELLOWS_BLOCK_ENTITY, pos, state);
+        super(TfcBlockEntities.BELLOWS_BLOCK_ENTITY, pos, state);
     }
 
     private <E extends BlockEntity & IAnimatable> PlayState predicate(AnimationEvent<E> event) {

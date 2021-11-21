@@ -17,7 +17,7 @@ import java.util.List;
  * The calendar is meant to count and calculate the real in-game time passed
  * since the moment the world is created taking into account the time spent sleeping.
  */
-public class Calendar extends PersistentState {
+public final class Calendar extends PersistentState {
 
     private final NbtCompound calendarData = new NbtCompound();
     private int iterator;

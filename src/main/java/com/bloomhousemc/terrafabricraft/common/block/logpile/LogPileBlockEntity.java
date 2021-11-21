@@ -1,7 +1,7 @@
 package com.bloomhousemc.terrafabricraft.common.block.logpile;
 
 import com.bloomhousemc.terrafabricraft.common.ImplementedInventory;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -26,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 public class LogPileBlockEntity extends BlockEntity implements ImplementedInventory, NamedScreenHandlerFactory, SidedInventory {
     public final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
     public LogPileBlockEntity(BlockPos pos, BlockState state) {
-        super(TFCObjects.LOG_PILE_BLOCK_ENTITY, pos, state);
+        super(TfcBlockEntities.LOG_PILE_BLOCK_ENTITY, pos, state);
     }
 
     public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state,LogPileBlockEntity blockEntity, T t) {

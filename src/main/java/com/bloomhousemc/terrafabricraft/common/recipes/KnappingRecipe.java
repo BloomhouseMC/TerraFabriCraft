@@ -4,7 +4,7 @@ package com.bloomhousemc.terrafabricraft.common.recipes;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Maps;
 import com.google.gson.*;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCRecipeTypes;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcRecipeTypes;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -44,7 +44,7 @@ public class KnappingRecipe implements CraftingRecipe {
     }
 
     public RecipeSerializer<?> getSerializer() {
-        return TFCRecipeTypes.KNAPPING_RECIPE_SERIALIZER;
+        return TfcRecipeTypes.KNAPPING_RECIPE_SERIALIZER;
     }
 
     public String getGroup() {

@@ -2,8 +2,8 @@ package com.bloomhousemc.terrafabricraft.common.component;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCComponents;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCDamage;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcComponents;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcDamage;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.Difficulty;
@@ -32,13 +32,13 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
 
     public void setThirst(int thirst) {
         this.thirst = thirst;
-        TFCComponents.THIRST_COMPONENT.sync(playerEntity);
+        TfcComponents.THIRST_COMPONENT.sync(playerEntity);
     }
 
     public void increaseThirst(int add) {
         if (getThirst() + add <= getMaxThirst()) {
             setThirst(getThirst() + add);
-            TFCComponents.THIRST_COMPONENT.sync(playerEntity);
+            TfcComponents.THIRST_COMPONENT.sync(playerEntity);
         }
     }
 
@@ -46,7 +46,7 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
         if(getThirst() - sub >= 0){
 
             setThirst(getThirst() - sub);
-            TFCComponents.THIRST_COMPONENT.sync(playerEntity);
+            TfcComponents.THIRST_COMPONENT.sync(playerEntity);
         }
     }
 
@@ -60,7 +60,7 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
         ThirstComponent thirstComponent = ThirstComponent.get(playerEntity);
         //SLOW KILLER
         if(thirstComponent.getThirst() <= 0 && healthComponent.getHealth() > 0 && thirstTicker % 20 == 0 && !playerEntity.isSpectator() && !playerEntity.isCreative()){
-            playerEntity.damage(TFCDamage.DEHYDRATION, 1.0F);
+            playerEntity.damage(TfcDamage.DEHYDRATION, 1.0F);
             thirstTicker = 0;
         }
 
@@ -83,10 +83,10 @@ public class ThirstComponent implements AutoSyncedComponent, ServerTickingCompon
     }
 
     public static ThirstComponent get(PlayerEntity obj) {
-        return TFCComponents.THIRST_COMPONENT.get(obj);
+        return TfcComponents.THIRST_COMPONENT.get(obj);
     }
 
     public static Optional<ThirstComponent> maybeGet(PlayerEntity obj) {
-        return TFCComponents.THIRST_COMPONENT.maybeGet(obj);
+        return TfcComponents.THIRST_COMPONENT.maybeGet(obj);
     }
 }

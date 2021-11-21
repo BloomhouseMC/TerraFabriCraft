@@ -19,9 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class ChunkSerializerMixin {
     @Inject(method = "deserialize", at = @At("RETURN"))
     private static void deserialize(ServerWorld world, StructureManager structureManager, PointOfInterestStorage poiStorage, ChunkPos pos, NbtCompound tag, CallbackInfoReturnable<ProtoChunk> cir) {
-        ProtoChunk ret = cir.getReturnValue();
-        Chunk chunk = ret instanceof ReadOnlyChunk ? ((ReadOnlyChunk) ret).getWrappedChunk() : ret;
-        NbtCompound levelData = tag.getCompound("Level");
+        var levelData = tag.getCompound("Level");
         levelData.getInt("temperature");
         TerraFabriCraft.LOGGER.warn("temp is " + levelData.getInt("temperature") + " degrees celsius.");
     }

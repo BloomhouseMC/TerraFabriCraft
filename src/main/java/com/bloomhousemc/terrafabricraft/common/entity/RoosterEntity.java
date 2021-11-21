@@ -1,8 +1,8 @@
 package com.bloomhousemc.terrafabricraft.common.entity;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCEntityTypes;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCSounds;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcEntityTypes;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcItems;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcSounds;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
@@ -117,14 +117,14 @@ public class RoosterEntity extends ChickenEntity {
     }
 
     public RoosterEntity createChild(ServerWorld serverWorld, PassiveEntity passiveEntity) {
-        return (RoosterEntity) TFCEntityTypes.ROOSTER.create(serverWorld);
+        return (RoosterEntity) TfcEntityTypes.ROOSTER.create(serverWorld);
     }
 
     @Override
     public void mobTick() {
         super.mobTick();
         if (!this.isBaby() && world.getTime() == 500) {
-            world.playSound(null, this.getBlockPos(), TFCSounds.ROOSTER_CRY, SoundCategory.AMBIENT, 1.0f, 1.0f);
+            world.playSound(null, this.getBlockPos(), TfcSounds.ROOSTER_CRY, SoundCategory.AMBIENT, 1.0f, 1.0f);
         }
     }
 
@@ -158,6 +158,6 @@ public class RoosterEntity extends ChickenEntity {
     }
 
     static {
-        BREEDING_INGREDIENT = Ingredient.ofItems(new ItemConvertible[]{Items.WHEAT_SEEDS, TFCObjects.WHEAT_GRAIN, TFCObjects.WHEAT_SEED});
+        BREEDING_INGREDIENT = Ingredient.ofItems(new ItemConvertible[]{Items.WHEAT_SEEDS, TfcItems.WHEAT_GRAIN, TfcItems.WHEAT_SEED});
     }
 }

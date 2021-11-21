@@ -1,6 +1,6 @@
 package com.bloomhousemc.terrafabricraft.common.entity;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCEntityTypes;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcEntityTypes;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
@@ -50,7 +50,7 @@ public class CrabEntity extends AnimalEntity {
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return new CrabEntity(TFCEntityTypes.CRAB, world);
+        return new CrabEntity(TfcEntityTypes.CRAB, world);
     }
 
     @Override

@@ -17,16 +17,16 @@ public class LightmapTextureManagerMixin {
     @Shadow
     private MinecraftClient client;
 
-    /**
-     * @author
-     *
-     */
-    @Overwrite
-    public void enable() {
-        RenderSystem.setShaderTexture(2, this.textureIdentifier);
-        this.client.getTextureManager().bindTexture(this.textureIdentifier);
-        RenderSystem.texParameter(3553, 10241, 9729);
-        RenderSystem.texParameter(3553, 10240, 9729);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-    }
+//    /**
+//     * @author
+//     *
+//     */
+//    @Overwrite
+//    public void enable() {
+//        RenderSystem.setShaderTexture(2, this.textureIdentifier);
+//        this.client.getTextureManager().bindTexture(this.textureIdentifier);
+//        RenderSystem.texParameter(3553, 10241, 9729);
+//        RenderSystem.texParameter(3553, 10240, 9729);
+//        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+//    }
 }

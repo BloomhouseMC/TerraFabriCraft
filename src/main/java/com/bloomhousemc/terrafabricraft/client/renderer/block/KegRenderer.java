@@ -3,7 +3,7 @@ package com.bloomhousemc.terrafabricraft.client.renderer.block;
 import com.bloomhousemc.terrafabricraft.client.model.block.KegModel;
 import com.bloomhousemc.terrafabricraft.common.block.keg.Keg;
 import com.bloomhousemc.terrafabricraft.common.block.keg.KegEntity;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCParticleTypes;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcParticleTypes;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -55,7 +55,7 @@ public class KegRenderer extends GeoBlockRenderer<KegEntity> {
                         case 3 -> fluidHeight = 0.85f;
                     }
                     if (fluidHeight > 0 && entity.getCachedState().get(Keg.WORKING) && cooldown >= 2) {
-                        world.addParticle((ParticleEffect) TFCParticleTypes.KEG_BUBBLE, pos.getX() + 0.5 + MathHelper.nextDouble(world.random, -width, width), pos.getY() + fluidHeight, pos.getZ() + 0.5 + MathHelper.nextDouble(world.random, -width, width), ((entity.color >> 16) & 0xff) / 255f, ((entity.color >> 8) & 0xff) / 255f, (entity.color & 0xff) / 255f);
+                        world.addParticle((ParticleEffect) TfcParticleTypes.KEG_BUBBLE, pos.getX() + 0.5 + MathHelper.nextDouble(world.random, -width, width), pos.getY() + fluidHeight, pos.getZ() + 0.5 + MathHelper.nextDouble(world.random, -width, width), ((entity.color >> 16) & 0xff) / 255f, ((entity.color >> 8) & 0xff) / 255f, (entity.color & 0xff) / 255f);
                         cooldown=0;
                     }
                 }

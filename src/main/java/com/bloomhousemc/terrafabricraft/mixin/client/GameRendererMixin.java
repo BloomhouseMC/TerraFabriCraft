@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class GameRendererMixin {
     private CustomLightmapTextureManager customLightmapTextureManager;
     @Inject(method = "<init>", cancellable = false,  at = @At("TAIL"))
-    public void GameRenderer(MinecraftClient minecraftClient, ResourceManager resourceManager, BufferBuilderStorage bufferBuilderStorage, CallbackInfo ci) {
+    public void gameRenderer(MinecraftClient minecraftClient, ResourceManager resourceManager, BufferBuilderStorage bufferBuilderStorage, CallbackInfo ci) {
         TerraFabriCraftClient.customLightmapTextureManager = new CustomLightmapTextureManager(minecraftClient.gameRenderer, minecraftClient);
     }
     @Inject(method = "close()V", cancellable = true, at = @At("HEAD"))

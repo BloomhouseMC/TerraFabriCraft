@@ -1,7 +1,7 @@
 package com.bloomhousemc.terrafabricraft.common.recipes;
 
 import com.google.gson.JsonObject;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCRecipeTypes;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcRecipeTypes;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -80,12 +80,12 @@ public class PitKilnRecipe implements Recipe<Inventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return TFCRecipeTypes.PIT_KILN_RECIPE_SERIALIZER;
+        return TfcRecipeTypes.PIT_KILN_RECIPE_SERIALIZER;
     }
 
     @Override
     public RecipeType<?> getType() {
-        return TFCRecipeTypes.PIT_KILN_RECIPE_TYPE;
+        return TfcRecipeTypes.PIT_KILN_RECIPE_TYPE;
     }
 
 

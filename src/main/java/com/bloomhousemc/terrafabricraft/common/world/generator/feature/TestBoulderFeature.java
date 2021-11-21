@@ -1,9 +1,9 @@
 package com.bloomhousemc.terrafabricraft.common.world.generator.feature;
 
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
-import com.bloomhousemc.terrafabricraft.common.util.TFCUtils;
+import com.bloomhousemc.terrafabricraft.common.util.TfcUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -67,7 +67,7 @@ public class TestBoulderFeature extends Feature<SingleStateFeatureConfig> {
                             placePos = placePos.down();
                             downState = world.getBlockState(placePos.down());
                         }
-                        if(!(downState.isOf(TFCObjects.CONGLOMERATE.raw.block) || isSoil(downState.getBlock().getDefaultState()) || isStone(downState.getBlock().getDefaultState()) || downState.getBlock() == Blocks.GRAVEL))
+                        if(!(downState.isOf(TfcBlocks.CONGLOMERATE.raw.block) || isSoil(downState.getBlock().getDefaultState()) || isStone(downState.getBlock().getDefaultState()) || downState.getBlock() == Blocks.GRAVEL))
                             continue;
 
                         world.setBlockState(placePos, context.getConfig().state, 4);
@@ -85,7 +85,7 @@ public class TestBoulderFeature extends Feature<SingleStateFeatureConfig> {
                         BlockPos offsetPos = placePositions.offset(direction);
                         if(world.isAir(offsetPos) && random.nextBoolean())
                         {
-                            world.setBlockState(offsetPos, TFCUtils.getRandomRawStone(random), 16);
+                            world.setBlockState(offsetPos, TfcUtils.getRandomRawStone(random), 16);
                         }
                     }
                 }

@@ -1,7 +1,7 @@
 package com.bloomhousemc.terrafabricraft.common.world.generator.feature;
 
 import com.mojang.serialization.Codec;
-import com.bloomhousemc.terrafabricraft.common.block.TFCLooseRock;
+import com.bloomhousemc.terrafabricraft.common.block.TfcLooseRock;
 import com.bloomhousemc.terrafabricraft.common.registry.util.RockBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -54,11 +54,11 @@ public class RockFeature extends Feature<OreFeatureConfig> {
                             if(world.getBlockState(myPos.down()).getBlock() == Blocks.GRASS
                                     || world.getBlockState(myPos.down()).getBlock() == Blocks.TALL_GRASS
                                     || world.getBlockState(myPos.down()).getBlock() == Blocks.WATER
-                                    || world.getBlockState(myPos.down()).getBlock() instanceof TFCLooseRock
+                                    || world.getBlockState(myPos.down()).getBlock() instanceof TfcLooseRock
                                     || world.getBlockState(myPos.down()).getBlock() instanceof LeavesBlock) {
 
                             } else {
-                                world.setBlockState(myPos, looseState.with(TFCLooseRock.COUNT, random.nextInt(3) + 1), 2);
+                                world.setBlockState(myPos, looseState.with(TfcLooseRock.COUNT, random.nextInt(3) + 1), 2);
                             }
                         }
                         for (int y = world.getBottomY(); y < topPos.getY(); y++) {

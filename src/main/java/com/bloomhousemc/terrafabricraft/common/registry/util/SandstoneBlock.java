@@ -1,29 +1,29 @@
 package com.bloomhousemc.terrafabricraft.common.registry.util;
 
-import com.bloomhousemc.terrafabricraft.TerraFabriCraft;
-import com.bloomhousemc.terrafabricraft.common.block.TFCGravityBlock;
-import com.bloomhousemc.terrafabricraft.common.block.TFCStairs;
+import com.bloomhousemc.terrafabricraft.common.block.TfcGravityBlock;
+import com.bloomhousemc.terrafabricraft.common.block.TfcStairs;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.item.ItemGroup;
 
-import static com.bloomhousemc.terrafabricraft.common.registry.TFCObjects.*;
+import static com.bloomhousemc.terrafabricraft.common.registry.TfcItemGroups.EARTH_GROUP;
 
 public class SandstoneBlock {
-    public TFCGravityBlock cutFullBlock;
+    public TfcGravityBlock cutFullBlock;
     public SlabBlock cutSlab;
     public Block cutStairs;
     public Block cutWall;
-    public TFCGravityBlock rawFullBlock;
+    public TfcGravityBlock rawFullBlock;
     public SlabBlock rawSlab;
     public Block rawStairs;
     public Block rawWall;
-    public TFCGravityBlock smoothFullBlock;
+    public TfcGravityBlock smoothFullBlock;
     public SlabBlock smoothSlab;
     public Block smoothStairs;
     public Block smoothWall;
-    public static ItemGroup group = TerraFabriCraft.EARTH_GROUP;
+    public static ItemGroup group = EARTH_GROUP;
 
     public SandstoneBlock(String variantId) {
         var cut = "cut_" + variantId;
@@ -43,19 +43,19 @@ public class SandstoneBlock {
         smoothWall = setCreateWall(smooth);
     }
 
-    public static TFCGravityBlock setCreateBlock(String variantId) {
-        return createRock(variantId, group);
+    public static TfcGravityBlock setCreateBlock(String variantId) {
+        return TfcBlocks.createRock(variantId, group);
     }
 
     public static SlabBlock setCreateSlab(String variantId) {
-        return createStoneSlab(variantId + "_slab", group);
+        return TfcBlocks.createStoneSlab(variantId + "_slab", group);
     }
 
-    public static TFCStairs setCreateStairs(String variantId, Block fullBlock) {
-        return createStoneStairs(variantId + "_stairs", fullBlock, group);
+    public static TfcStairs setCreateStairs(String variantId, Block fullBlock) {
+        return TfcBlocks.createStoneStairs(variantId + "_stairs", fullBlock, group);
     }
 
     public static WallBlock setCreateWall(String variantId) {
-        return createWall(variantId + "_wall", group);
+        return TfcBlocks.createWall(variantId + "_wall", group);
     }
 }

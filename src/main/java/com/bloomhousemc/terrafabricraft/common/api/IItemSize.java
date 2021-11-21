@@ -1,6 +1,6 @@
 package com.bloomhousemc.terrafabricraft.common.api;
 
-import com.bloomhousemc.terrafabricraft.common.util.TFCUtils;
+import com.bloomhousemc.terrafabricraft.common.util.TfcUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.resource.language.I18n;
@@ -25,7 +25,7 @@ public interface IItemSize {
     @Environment(EnvType.CLIENT)
     default void addSizeInfo(@Nonnull ItemStack stack, @Nonnull List<String> text)
     {
-        text.add("\u2696 " + I18n.translate(TFCUtils.getEnumTranslationKey(getWeight(stack))) + " \u21F2 " + I18n.translate(TFCUtils.getEnumTranslationKey(getSize(stack))));
+        text.add("\u2696 " + I18n.translate(TfcUtils.getEnumTranslationKey(getWeight(stack))) + " \u21F2 " + I18n.translate(TfcUtils.getEnumTranslationKey(getSize(stack))));
     }
 
     default int getStackSize(@Nonnull ItemStack stack)

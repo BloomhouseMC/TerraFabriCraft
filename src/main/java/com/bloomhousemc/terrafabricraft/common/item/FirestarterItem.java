@@ -1,6 +1,6 @@
 package com.bloomhousemc.terrafabricraft.common.item;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCSounds;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcSounds;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -71,11 +71,11 @@ public class FirestarterItem extends Item {
 
         if (count % 3 == 1) {
             if (random.nextFloat() <= 0.3F) {
-                player.playSound(TFCSounds.FIRESTARTER2, 0.5F, 0.05F);
+                player.playSound(TfcSounds.FIRESTARTER2, 0.5F, 0.05F);
             } else if (random.nextFloat() <= 0.3F) {
-                player.playSound(TFCSounds.FIRESTARTER3, 0.5F, 0.05F);
+                player.playSound(TfcSounds.FIRESTARTER3, 0.5F, 0.05F);
             } else
-                player.playSound(TFCSounds.FIRESTARTER1, 0.5F, 0.05F);
+                player.playSound(TfcSounds.FIRESTARTER1, 0.5F, 0.05F);
         }
     }
 

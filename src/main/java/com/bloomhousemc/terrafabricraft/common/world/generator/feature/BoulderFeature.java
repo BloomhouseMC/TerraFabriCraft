@@ -1,7 +1,7 @@
 package com.bloomhousemc.terrafabricraft.common.world.generator.feature;
 
 import com.mojang.serialization.Codec;
-import com.bloomhousemc.terrafabricraft.common.util.TFCUtils;
+import com.bloomhousemc.terrafabricraft.common.util.TfcUtils;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -28,7 +28,7 @@ public class BoulderFeature extends Feature<DefaultFeatureConfig> {
         for (int x = 0; x < radius; x++)
             for (int y = 0; y < radius; y++)
                 for (int z = 0; z < radius; z++) {
-                    context.getWorld().setBlockState(topPos.add(x, y, z), TFCUtils.getRandomRawStone(context.getRandom()), 3);
+                    context.getWorld().setBlockState(topPos.add(x, y, z), TfcUtils.getRandomRawStone(context.getRandom()), 3);
                 }
         return true;
     }

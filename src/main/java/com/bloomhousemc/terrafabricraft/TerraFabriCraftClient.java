@@ -7,24 +7,21 @@ import com.bloomhousemc.terrafabricraft.client.particle.KegBubbleParticle;
 import com.bloomhousemc.terrafabricraft.client.renderer.block.BellowsRenderer;
 import com.bloomhousemc.terrafabricraft.client.renderer.block.KegRenderer;
 import com.bloomhousemc.terrafabricraft.client.screens.ModScreensClient;
-import com.bloomhousemc.terrafabricraft.common.block.*;
-import com.bloomhousemc.terrafabricraft.common.block.keg.Keg;
 import com.bloomhousemc.terrafabricraft.common.block.placeable.PlaceableBlockEntityRenderer;
-import com.bloomhousemc.terrafabricraft.common.block.toolrack.ToolRackBlock;
 import com.bloomhousemc.terrafabricraft.common.block.toolrack.ToolRackEntityRenderer;
 import com.bloomhousemc.terrafabricraft.common.item.MeltableItem;
-import com.bloomhousemc.terrafabricraft.common.item.TFCMetalItem;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCClientRegistry;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCParticleTypes;
+import com.bloomhousemc.terrafabricraft.common.item.TfcMetalItem;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks;
+import com.bloomhousemc.terrafabricraft.client.registry.TfcClientRegistry;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.Shader;
 import net.minecraft.client.render.VertexFormats;
@@ -49,7 +46,7 @@ public class TerraFabriCraftClient implements ClientModInitializer {
         RenderLayer testLayer = RenderLayerCreator.makeItem("terrafabricraft:custom_item_shader", () -> testShader, true, true);
         ItemShaderTools.registerLayerFunction((stack, direct) -> {
             float temp = 0;
-            if(stack.hasNbt() && stack.getItem() instanceof TFCMetalItem) {
+            if(stack.hasNbt() && stack.getItem() instanceof TfcMetalItem) {
                 if(stack.getOrCreateNbt().contains("temperature")) {
                     int temperature = stack.getOrCreateNbt().getInt("temperature");
 
@@ -60,7 +57,7 @@ public class TerraFabriCraftClient implements ClientModInitializer {
                         float currentTemp = getTemperature(stack);
                     if (currentTemp / meltingPoint >brighterLightChange) {
                         temp = currentTemp/meltingPoint;
-                        temp = (float) (((temp/brighterLightChange) - 1) * brighterLightChange);
+                        temp = (((temp/brighterLightChange) - 1) * brighterLightChange);
                     }
 
                 }
@@ -72,44 +69,25 @@ public class TerraFabriCraftClient implements ClientModInitializer {
         HudRenderCallback.EVENT.register(new UserHud());
         ModScreensClient.init();
         CalendarClient.initClient();
-        BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.KEG_BLOCK_ENTITY, (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new KegRenderer());
-        ParticleFactoryRegistry.getInstance().register(TFCParticleTypes.KEG_BUBBLE, KegBubbleParticle.Factory::new);
-        BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.TOOL_RACK_BLOCK_ENTITY, ctx -> new ToolRackEntityRenderer());
-        BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.PLACEABLE_BLOCK_ENTITY, ctx -> new PlaceableBlockEntityRenderer());
-        BlockEntityRendererRegistry.INSTANCE.register(TFCObjects.BELLOWS_BLOCK_ENTITY, (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new BellowsRenderer());
-        TFCClientRegistry.init();
+        BlockEntityRendererRegistry.register(TfcBlockEntities.KEG_BLOCK_ENTITY, (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new KegRenderer());
+        ParticleFactoryRegistry.getInstance().register(TfcParticleTypes.KEG_BUBBLE, KegBubbleParticle.Factory::new);
+        BlockEntityRendererRegistry.register(TfcBlockEntities.TOOL_RACK_BLOCK_ENTITY, ctx -> new ToolRackEntityRenderer());
+        BlockEntityRendererRegistry.register(TfcBlockEntities.PLACEABLE_BLOCK_ENTITY, ctx -> new PlaceableBlockEntityRenderer());
+        BlockEntityRendererRegistry.register(TfcBlockEntities.BELLOWS_BLOCK_ENTITY, (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new BellowsRenderer());
+        TfcClientRegistry.init();
 
-
-        for(Block block : TFCObjects.BLOCKS.keySet()) {
-            if(block instanceof GroundCoverBlock groundCoverBlock) {
-                BlockRenderLayerMap.INSTANCE.putBlock(groundCoverBlock, RenderLayer.getCutout());
-            }
-            if(block instanceof TFCOreBlock tfcOreBlock) {
-                BlockRenderLayerMap.INSTANCE.putBlock(tfcOreBlock, RenderLayer.getCutout());
-            }
-            if(block instanceof TFCGrassPlantBlock tfcGrassPlantBlock){
-                BlockRenderLayerMap.INSTANCE.putBlock(tfcGrassPlantBlock, RenderLayer.getCutout());
-            }
-            if(block instanceof TFCCropsTall tfcCropsTall){
-                BlockRenderLayerMap.INSTANCE.putBlock(tfcCropsTall, RenderLayer.getCutout());
-            }
-            if(block instanceof TFCLooseRock tfcLooseRock) {
-                BlockRenderLayerMap.INSTANCE.putBlock(tfcLooseRock, RenderLayer.getCutout());
-            }
-
-            if(block instanceof Keg tfcKeg) {
-                BlockRenderLayerMap.INSTANCE.putBlock(tfcKeg, RenderLayer.getCutout());
-            }
-            if(block instanceof ToolRackBlock toolRackBlock) {
-                BlockRenderLayerMap.INSTANCE.putBlock(toolRackBlock, RenderLayer.getCutout());
-            }
-            if(block instanceof TFCSupport tfcSupport) {
-                BlockRenderLayerMap.INSTANCE.putBlock(tfcSupport, RenderLayer.getCutout());
-            }
-
-
-
-        }
-
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.GRASS.loam, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.GRASS.sandy_loam, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.GRASS.silt, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.GRASS.silty_loam, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.PEAT_GRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.CLAY_GRASS.silty_loam, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.CLAY_GRASS.silt, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.CLAY_GRASS.loam, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.CLAY_GRASS.sandy_loam, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.GRASS_PATH.sandy_loam, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.GRASS_PATH.loam, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.GRASS_PATH.silty_loam, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TfcBlocks.GRASS_PATH.silt, RenderLayer.getCutout());
     }
 }

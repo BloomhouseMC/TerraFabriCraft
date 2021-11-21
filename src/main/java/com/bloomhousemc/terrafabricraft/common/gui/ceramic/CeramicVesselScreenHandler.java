@@ -1,10 +1,10 @@
 package com.bloomhousemc.terrafabricraft.common.gui.ceramic;
 
 import com.bloomhousemc.terrafabricraft.common.item.ceramic.CeramicVessel;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCScreens;
-import com.bloomhousemc.terrafabricraft.common.util.TFCUtils.Dimension;
-import com.bloomhousemc.terrafabricraft.common.util.TFCUtils.InventoryUtils;
-import com.bloomhousemc.terrafabricraft.common.util.TFCUtils.Point;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcScreens;
+import com.bloomhousemc.terrafabricraft.common.util.TfcUtils.Dimension;
+import com.bloomhousemc.terrafabricraft.common.util.TfcUtils.InventoryUtils;
+import com.bloomhousemc.terrafabricraft.common.util.TfcUtils.Point;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -29,7 +29,7 @@ public class CeramicVesselScreenHandler extends ScreenHandler {
     }
 
     public CeramicVesselScreenHandler(int synchronizationID, PlayerInventory playerInventory, ItemStack vesselStack) {
-        super(TFCScreens.CERAMIC_VESSEL_SCREEN_HANDLER, synchronizationID);
+        super(TfcScreens.CERAMIC_VESSEL_SCREEN_HANDLER, synchronizationID);
         this.itemStack = vesselStack;
 
 

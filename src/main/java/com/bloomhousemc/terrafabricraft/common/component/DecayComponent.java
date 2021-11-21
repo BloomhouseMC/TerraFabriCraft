@@ -2,7 +2,7 @@ package com.bloomhousemc.terrafabricraft.common.component;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCComponents;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcComponents;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 
@@ -21,15 +21,15 @@ public class DecayComponent implements AutoSyncedComponent, ServerTickingCompone
 
     public void setDecay(long bigTick) {
         this.bigTick = bigTick;
-        TFCComponents.DECAY_COMPONENT.sync(world);
+        TfcComponents.DECAY_COMPONENT.sync(world);
     }
     public void increseDecay(long add){
             setDecay(getDecay() + add);
-            TFCComponents.DECAY_COMPONENT.sync(world);
+            TfcComponents.DECAY_COMPONENT.sync(world);
     }
 
     public static <T> DecayComponent get(T provider) {
-        return TFCComponents.DECAY_COMPONENT.get(provider);
+        return TfcComponents.DECAY_COMPONENT.get(provider);
     }
 
     @Override

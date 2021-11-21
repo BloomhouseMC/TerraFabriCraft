@@ -3,7 +3,7 @@ package com.bloomhousemc.terrafabricraft.mixin.client;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.bloomhousemc.terrafabricraft.client.TextureTwo;
 import com.bloomhousemc.terrafabricraft.common.item.MeltableItem;
-import com.bloomhousemc.terrafabricraft.common.item.TFCFood;
+import com.bloomhousemc.terrafabricraft.common.item.TfcFoodItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.StainedGlassPaneBlock;
 import net.minecraft.block.TransparentBlock;
@@ -72,7 +72,7 @@ public class ItemRendererMixin {
             float h = (float)(i & 255) / 255.0F;
             if (!stack.isEmpty()) {
                 if (stack.hasNbt()) {
-                    if(stack.getItem() instanceof TFCFood) {
+                    if(stack.getItem() instanceof TfcFoodItem) {
                         int current = getMinuteHand() - stack.getOrCreateNbt().getInt("date_created");
                         int decayPercentage = current * 100 / 5;
                         if(decayPercentage > 100) {
@@ -167,7 +167,7 @@ public class ItemRendererMixin {
 
                             RenderLayer renderLayer = RenderLayers.getItemLayer(stack, bl3);
                             VertexConsumer vertexConsumer4;
-                            MatrixStack.Entry entry = matrices.peek();
+//                            MatrixStack.Entry entry = matrices.peek();
                             /*
                             if (renderMode == ModelTransformation.Mode.GUI) {
                                 entry.getModel().multiply(0.5F);
@@ -201,7 +201,7 @@ public class ItemRendererMixin {
 //                            RenderSystem.blendFunc(GlStateManager.SrcFactor.SRC_ALPHA, GlStateManager.DstFactor.ONE_MINUS_SRC_ALPHA);
                             this.renderBakedItemModel(model, stack, light, overlay, matrices, vertexConsumer2);
                             RenderSystem.applyModelViewMatrix();
-                            MatrixStack matrixStack2 = new MatrixStack();
+//                            MatrixStack matrixStack2 = new MatrixStack();
                             VertexConsumerProvider.Immediate immediate = MinecraftClient.getInstance().getBufferBuilders().getEntityVertexConsumers();
                             immediate.draw();
                             matrices.pop();

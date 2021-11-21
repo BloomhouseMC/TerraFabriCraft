@@ -1,7 +1,7 @@
 package com.bloomhousemc.terrafabricraft.mixin.common;
 
 import com.bloomhousemc.terrafabricraft.common.calendar.CalendarManager;
-import com.bloomhousemc.terrafabricraft.common.item.TFCFood;
+import com.bloomhousemc.terrafabricraft.common.item.TfcFoodItem;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -15,11 +15,11 @@ public class ItemStackMixin {
 
 
     @Inject(method = "<init>(Lnet/minecraft/item/ItemConvertible;I)V", at = @At("RETURN"))
-    public void ItemStackConstructor(ItemConvertible itemConvertible, int i, CallbackInfo ci) {
+    public void itemStackConstructor(ItemConvertible itemConvertible, int i, CallbackInfo ci) {
         if(CalendarManager.getSingleton() == null) {
             return;
         }
-        if(!(itemConvertible.asItem() instanceof TFCFood)) {
+        if(!(itemConvertible.asItem() instanceof TfcFoodItem)) {
             return;
         }
         NbtCompound tag =((ItemStack)(Object)this).getOrCreateNbt();

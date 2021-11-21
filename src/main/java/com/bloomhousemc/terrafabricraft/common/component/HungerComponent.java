@@ -2,7 +2,7 @@ package com.bloomhousemc.terrafabricraft.common.component;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCComponents;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcComponents;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -32,13 +32,13 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
 
     public void setHunger(int hunger) {
         this.hunger = hunger;
-        TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
+        TfcComponents.HUNGER_COMPONENT.sync(playerEntity);
     }
 
     public void increaseHunger(int add) {
         if (getHunger() + add <= getMaxHunger()) {
             setHunger(getHunger() + add);
-            TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
+            TfcComponents.HUNGER_COMPONENT.sync(playerEntity);
         }
     }
 
@@ -47,7 +47,7 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
         if(getHunger() - sub >= 0){
 
             setHunger(getHunger() - sub);
-            TFCComponents.HUNGER_COMPONENT.sync(playerEntity);
+            TfcComponents.HUNGER_COMPONENT.sync(playerEntity);
         }
     }
 
@@ -88,10 +88,10 @@ public class HungerComponent implements AutoSyncedComponent, ServerTickingCompon
     }
 
     public static HungerComponent get(PlayerEntity obj) {
-        return TFCComponents.HUNGER_COMPONENT.get(obj);
+        return TfcComponents.HUNGER_COMPONENT.get(obj);
     }
 
     public static Optional<HungerComponent> maybeGet(PlayerEntity obj) {
-        return TFCComponents.HUNGER_COMPONENT.maybeGet(obj);
+        return TfcComponents.HUNGER_COMPONENT.maybeGet(obj);
     }
 }
