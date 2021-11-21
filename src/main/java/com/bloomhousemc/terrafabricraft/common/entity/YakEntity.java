@@ -1,7 +1,7 @@
 package com.bloomhousemc.terrafabricraft.common.entity;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCEntityTypes;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCTags;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcEntityTypes;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
@@ -36,7 +36,7 @@ public class YakEntity extends CowEntity {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new EscapeDangerGoal(this, 2.0D));
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.0D));
-        this.goalSelector.add(3, new TemptGoal(this, 1.25D, Ingredient.fromTag(TFCTags.GRAIN), false));
+        this.goalSelector.add(3, new TemptGoal(this, 1.25D, Ingredient.fromTag(TfcTags.GRAIN), false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.25D));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
@@ -80,7 +80,7 @@ public class YakEntity extends CowEntity {
     }
 
     public YakEntity createChild(ServerWorld serverWorld, PassiveEntity passiveEntity) {
-        return (YakEntity) TFCEntityTypes.YAK.create(serverWorld);
+        return (YakEntity) TfcEntityTypes.YAK.create(serverWorld);
     }
 
     protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {

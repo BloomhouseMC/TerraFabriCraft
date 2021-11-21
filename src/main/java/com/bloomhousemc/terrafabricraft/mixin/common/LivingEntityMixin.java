@@ -1,6 +1,6 @@
 package com.bloomhousemc.terrafabricraft.mixin.common;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCDamage;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcDamage;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -36,7 +36,7 @@ public abstract class LivingEntityMixin extends Entity {
     @ModifyVariable(method = "applyDamage", ordinal = 2, at = @At(value = "INVOKE", shift = At.Shift.BEFORE, ordinal = 0, target = "Lnet/minecraft/entity/LivingEntity;getHealth()F"))
     private float modifyDamage(float amount, DamageSource source) {
         if (!world.isClient) {
-            amount = TFCDamage.handleDamage((LivingEntity) (Object) this, source, amount);
+            amount = TfcDamage.handleDamage((LivingEntity) (Object) this, source, amount);
         }
         return amount;
     }

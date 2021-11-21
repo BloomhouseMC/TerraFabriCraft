@@ -1,9 +1,9 @@
 package com.bloomhousemc.terrafabricraft.common.registry.util;
 
-import com.bloomhousemc.terrafabricraft.TerraFabriCraft;
 import net.minecraft.item.Item;
 
-import static com.bloomhousemc.terrafabricraft.common.registry.TFCObjects.createItemSimple;
+import static com.bloomhousemc.terrafabricraft.common.registry.TfcItemGroups.ORES_GROUP;
+import static com.bloomhousemc.terrafabricraft.common.registry.TfcItems.createSimpleItem;
 
 public class OreItem {
     public Item native_copper;
@@ -21,21 +21,21 @@ public class OreItem {
 
 
     public OreItem(String id) {
-        native_copper = setCreateItemSimple(id,"native_copper");
-        native_gold   = setCreateItemSimple(id,"native_gold");
-        hematite    = setCreateItemSimple(id,"hematite");
-        native_silver     = setCreateItemSimple(id,"native_silver");
-        cassiterite         = setCreateItemSimple(id,"cassiterite");
-        bismuthinite      = setCreateItemSimple(id,"bismuthinite");
-        garnierite         = setCreateItemSimple(id,"garnierite");
-        malachite      = setCreateItemSimple(id,"malachite");
-        magnetite          = setCreateItemSimple(id,"magnetite");
-        limonite          = setCreateItemSimple(id,"limonite");
-        sphalerite   = setCreateItemSimple(id,"sphalerite");
-        tetrahedrite   = setCreateItemSimple(id,"tetrahedrite");
+        native_copper = setCreateItemSimple(id, "native_copper");
+        native_gold = setCreateItemSimple(id, "native_gold");
+        hematite = setCreateItemSimple(id, "hematite");
+        native_silver = setCreateItemSimple(id, "native_silver");
+        cassiterite = setCreateItemSimple(id, "cassiterite");
+        bismuthinite = setCreateItemSimple(id, "bismuthinite");
+        garnierite = setCreateItemSimple(id, "garnierite");
+        malachite = setCreateItemSimple(id, "malachite");
+        magnetite = setCreateItemSimple(id, "magnetite");
+        limonite = setCreateItemSimple(id, "limonite");
+        sphalerite = setCreateItemSimple(id, "sphalerite");
+        tetrahedrite = setCreateItemSimple(id, "tetrahedrite");
     }
 
     private static Item setCreateItemSimple(String variantId, String special) {
-        return createItemSimple("ore/"+ variantId + "_" + special, TerraFabriCraft.ORES_GROUP);
+        return createSimpleItem("ore/" + variantId + "_" + special, ORES_GROUP);
     }
 }

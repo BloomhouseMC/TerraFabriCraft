@@ -1,6 +1,6 @@
 package com.bloomhousemc.terrafabricraft.common.block.toolrack;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
@@ -24,7 +24,7 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
     public final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
     public ToolRackBlockEntity(BlockPos pos, BlockState state) {
-        super(TFCObjects.TOOL_RACK_BLOCK_ENTITY, pos, state);
+        super(TfcBlockEntities.TOOL_RACK_BLOCK_ENTITY, pos, state);
     }
 
 

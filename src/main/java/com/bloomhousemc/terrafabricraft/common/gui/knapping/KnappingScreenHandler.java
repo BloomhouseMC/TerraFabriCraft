@@ -1,10 +1,8 @@
 package com.bloomhousemc.terrafabricraft.common.gui.knapping;
 
-import com.bloomhousemc.terrafabricraft.common.registry.TFCScreens;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcScreens;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
@@ -17,7 +15,7 @@ public class KnappingScreenHandler extends ScreenHandler {
     }
 
     public KnappingScreenHandler(int syncId, PlayerInventory playerInventory, ItemStack loosePebble) {
-        super(TFCScreens.KNAPPING_SCREEN_HANDLER, syncId);
+        super(TfcScreens.KNAPPING_SCREEN_HANDLER, syncId);
 
         //TODO: Knapping screen
         int m;

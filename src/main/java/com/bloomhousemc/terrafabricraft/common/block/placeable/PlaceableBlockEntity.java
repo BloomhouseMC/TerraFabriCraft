@@ -1,8 +1,9 @@
 package com.bloomhousemc.terrafabricraft.common.block.placeable;
 
-import com.bloomhousemc.terrafabricraft.common.item.TFCLogItem;
+import com.bloomhousemc.terrafabricraft.common.item.TfcLogItem;
 import com.bloomhousemc.terrafabricraft.common.item.TemperatureReactiveItem;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcItems;
 import com.bloomhousemc.terrafabricraft.common.temperature.ItemTemperature;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
@@ -24,7 +25,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import static com.bloomhousemc.terrafabricraft.common.block.placeable.PlaceableBlock.STAGE;
-import static com.bloomhousemc.terrafabricraft.common.util.TFCUtils.handleGUILessInventory;
+import static com.bloomhousemc.terrafabricraft.common.util.TfcUtils.handleGUILessInventory;
 
 public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClientSerializable, Inventory {
 
@@ -35,7 +36,7 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
     }
 
     public PlaceableBlockEntity(BlockPos pos, BlockState state) {
-        super(TFCObjects.PLACEABLE_BLOCK_ENTITY, pos, state);
+        super(TfcBlockEntities.PLACEABLE_BLOCK_ENTITY, pos, state);
     }
 
     int fireTicks = FIRE_TICKS_TO_RUN;
@@ -185,15 +186,15 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
             ItemStack stack = player.getStackInHand(hand);
-            if (stack.getItem() == TFCObjects.STRAW || stack.getItem() instanceof TFCLogItem) {
+            if (stack.getItem() == TfcItems.STRAW || stack.getItem() instanceof TfcLogItem) {
                 int currentStage = state.get(STAGE);
                 if (isSurrounded(world, getPos())) {
-                    if (currentStage <= 6 && stack.getItem() == TFCObjects.STRAW) {
+                    if (currentStage <= 6 && stack.getItem() == TfcItems.STRAW) {
                         world.setBlockState(pos, state.with(STAGE, state.get(STAGE) + 1));
                         stack.decrement(1);
                         world.playSound(null, pos, SoundEvents.BLOCK_SOUL_SAND_PLACE, SoundCategory.BLOCKS, 1f, 1f);
                     }
-                    if (currentStage > 6 && stack.getItem() instanceof TFCLogItem) {
+                    if (currentStage > 6 && stack.getItem() instanceof TfcLogItem) {
                         world.setBlockState(pos, state.with(STAGE, state.get(STAGE) + 1));
                         stack.decrement(1);
                         world.playSound(null, pos, SoundEvents.BLOCK_BAMBOO_PLACE, SoundCategory.BLOCKS, 1f, 1f);

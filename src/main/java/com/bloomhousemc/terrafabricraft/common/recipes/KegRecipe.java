@@ -3,8 +3,8 @@ package com.bloomhousemc.terrafabricraft.common.recipes;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCRecipeTypes;
-import com.bloomhousemc.terrafabricraft.common.util.TFCUtils;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcRecipeTypes;
+import com.bloomhousemc.terrafabricraft.common.util.TfcUtils;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -32,7 +32,7 @@ public class KegRecipe implements Recipe<Inventory> {
 
     @Override
     public boolean matches(Inventory inventory, World world) {
-        return TFCUtils.matches(inventory, input);
+        return TfcUtils.matches(inventory, input);
     }
 
     @Override
@@ -61,12 +61,12 @@ public class KegRecipe implements Recipe<Inventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return TFCRecipeTypes.KEG_RECIPE_SERIALIZER;
+        return TfcRecipeTypes.KEG_RECIPE_SERIALIZER;
     }
 
     @Override
     public RecipeType<?> getType() {
-        return TFCRecipeTypes.KEG_RECIPE_TYPE;
+        return TfcRecipeTypes.KEG_RECIPE_TYPE;
     }
     public static DefaultedList<Ingredient> getIngredients(JsonArray json) {
         DefaultedList<Ingredient> ingredients = DefaultedList.of();

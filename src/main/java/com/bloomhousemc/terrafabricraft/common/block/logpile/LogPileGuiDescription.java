@@ -6,7 +6,7 @@ import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
 import io.github.cottonmc.cotton.gui.widget.WPlayerInvPanel;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCScreens;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcScreens;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -21,7 +21,7 @@ public class LogPileGuiDescription extends SyncedGuiDescription {
     int sizeX = 80;
     int sizeY = 80;
     public LogPileGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
-        super(TFCScreens.LOG_PILE_SCREEN_HANDLER, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 3));
+        super(TfcScreens.LOG_PILE_SCREEN_HANDLER, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 3));
         this.context = context;
         root = new WPlainPanel();
         setRootPanel(root);

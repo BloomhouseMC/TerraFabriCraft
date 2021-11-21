@@ -1,9 +1,9 @@
 package com.bloomhousemc.terrafabricraft.common.item;
 
 import com.bloomhousemc.terrafabricraft.common.api.type.MetalType;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks;
 import com.bloomhousemc.terrafabricraft.common.api.type.RockType;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCTags;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcTags;
 import com.bloomhousemc.terrafabricraft.common.util.damage.CrushingDamageSource;
 import com.bloomhousemc.terrafabricraft.common.util.damage.DamageTypeUtil;
 import net.fabricmc.api.EnvType;
@@ -42,8 +42,8 @@ public class HammerItem extends ToolItem implements Vanishable {
         BlockPos pos = context.getBlockPos();
         BlockState state = world.getBlockState(pos);
 
-        if (state.isIn(TFCTags.RAW_IGNEOUS)) {
-            world.setBlockState(pos, TFCObjects.METAL_ANVIL_STEEL.getDefaultState());
+        if (state.isIn(TfcTags.RAW_IGNEOUS)) {
+            world.setBlockState(pos, TfcBlocks.METAL_ANVIL_STEEL.getDefaultState());
             stack.damage(1, player, (e) -> {
                 e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
             });

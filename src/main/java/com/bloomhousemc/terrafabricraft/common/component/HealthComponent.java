@@ -2,7 +2,7 @@ package com.bloomhousemc.terrafabricraft.common.component;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCComponents;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcComponents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -30,19 +30,19 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
 
     public void setHealth(int health){
         this.health = health;
-        TFCComponents.HEALTH_COMPONENT.sync(livingEntity);
+        TfcComponents.HEALTH_COMPONENT.sync(livingEntity);
     }
 
     public void increaseHealth(int add){
         if(getHealth() + add <= getMaxHealth()){
             setHealth(getHealth() + add);
-            TFCComponents.HEALTH_COMPONENT.sync(livingEntity);
+            TfcComponents.HEALTH_COMPONENT.sync(livingEntity);
         }
     }
     public void decreaseHealth(int sub){
         if(getHealth() - sub >= 0){
             setHealth(getHealth() - sub);
-            TFCComponents.HEALTH_COMPONENT.sync(livingEntity);
+            TfcComponents.HEALTH_COMPONENT.sync(livingEntity);
         }
     }
 
@@ -75,10 +75,10 @@ public class HealthComponent implements AutoSyncedComponent, ServerTickingCompon
     }
 
     public static HealthComponent get(LivingEntity obj) {
-        return TFCComponents.HEALTH_COMPONENT.get(obj);
+        return TfcComponents.HEALTH_COMPONENT.get(obj);
     }
 
     public static Optional<HealthComponent> maybeGet(LivingEntity obj) {
-        return TFCComponents.HEALTH_COMPONENT.maybeGet(obj);
+        return TfcComponents.HEALTH_COMPONENT.maybeGet(obj);
     }
 }

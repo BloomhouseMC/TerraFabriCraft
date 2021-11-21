@@ -1,10 +1,11 @@
 package com.bloomhousemc.terrafabricraft.common.block.forge;
 
-import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
 import com.bloomhousemc.terrafabricraft.common.ImplementedInventory;
 import com.bloomhousemc.terrafabricraft.common.block.bellows.BellowsBlock;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks;
 import com.bloomhousemc.terrafabricraft.common.temperature.ItemTemperature;
+import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -36,7 +37,7 @@ public class ForgeBlockEntity extends BlockEntity implements ImplementedInventor
 
         @Override
         public void set(int index, int value) {
-                temperature = value;
+            temperature = value;
         }
 
         @Override
@@ -44,33 +45,35 @@ public class ForgeBlockEntity extends BlockEntity implements ImplementedInventor
             return 1;
         }
     };
+    int ticks = 0;
+
     public ForgeBlockEntity(BlockPos pos, BlockState state) {
-        super(TFCObjects.FORGE_BLOCK_ENTITY, pos, state);
+        super(TfcBlockEntities.FORGE_BLOCK_ENTITY, pos, state);
     }
 
     public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state, T t) {
-        ((ForgeBlockEntity)t).tick(world, blockPos, state);
+        ((ForgeBlockEntity) t).tick(world, blockPos, state);
     }
-    int ticks = 0;
+
     private void tick(World world, BlockPos pos, BlockState state) {
-       // System.out.println("hi");
-        if(world.isClient) {
+        // System.out.println("hi");
+        if (world.isClient) {
             return;
         }
         ticks++;
         BlockPos upPos = pos.up();
-        for(Direction direction : Direction.values()) {
-            if(world.getBlockState(upPos.offset(direction)).getBlock() == TFCObjects.BELLOWS_BLOCK) {
-                if(world.getBlockState(upPos.offset(direction)).get(BellowsBlock.ON)) {
+        for (Direction direction : Direction.values()) {
+            if (world.getBlockState(upPos.offset(direction)).getBlock() == TfcBlocks.BELLOWS_BLOCK) {
+                if (world.getBlockState(upPos.offset(direction)).get(BellowsBlock.ON)) {
                     temperature++;
                 }
             }
         }
 
-        if(ticks % 18 == 0 && temperature != 0) {
+        if (ticks % 18 == 0 && temperature != 0) {
             temperature--;
         }
-        if(temperature > 190) {
+        if (temperature > 190) {
             temperature = 190;
         }
         propertyDelegate.set(0, temperature);
@@ -78,14 +81,17 @@ public class ForgeBlockEntity extends BlockEntity implements ImplementedInventor
             ItemTemperature.incrementTemperature(item);
         }
     }
+
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
         return new ForgeGuiDescription(syncId, inv, ScreenHandlerContext.create(world, pos));
     }
+
     public DefaultedList<ItemStack> getItems() {
         return inventory;
     }
+
     @Override
     public Text getDisplayName() {
         return new LiteralText("Forge");
@@ -97,6 +103,7 @@ public class ForgeBlockEntity extends BlockEntity implements ImplementedInventor
         clear();
         Inventories.readNbt(tag, this.inventory);
     }
+
     @Override
     public NbtCompound writeNbt(NbtCompound tag) {
         super.writeNbt(tag);

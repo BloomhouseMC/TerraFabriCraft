@@ -1,8 +1,9 @@
 package com.bloomhousemc.terrafabricraft.common.block.keg;
 
 import com.bloomhousemc.terrafabricraft.common.recipes.KegRecipe;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCRecipeTypes;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcItems;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcRecipeTypes;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -44,7 +45,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
     private Box box;
 
     public KegEntity(BlockPos pos, BlockState state) {
-        super(TFCObjects.KEG_BLOCK_ENTITY, pos, state);
+        super(TfcBlockEntities.KEG_BLOCK_ENTITY, pos, state);
     }
 
     @Override
@@ -106,7 +107,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
             if(!blockEntity.loaded){
                 blockEntity.markDirty();
                 blockEntity.box = new Box(pos).contract(0.75);
-                blockEntity.kegRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.KEG_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
+                blockEntity.kegRecipe = world.getRecipeManager().listAllOfType(TfcRecipeTypes.KEG_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(blockEntity, world)).findFirst().orElse(null);
                 blockEntity.loaded = true;
             }
             if (!world.isClient) {
@@ -145,7 +146,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
 
     private Mode insertStack(ItemStack stack) {
         if (world != null) {
-            if (stack.getItem() == TFCObjects.STRAW) {
+            if (stack.getItem() == TfcItems.STRAW) {
                 Mode reset = reset();
                 syncKeg();
                 return reset;
@@ -154,7 +155,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
                 int firstEmpty = getFirstEmptySlot();
                 if (firstEmpty != -1) {
                     setStack(firstEmpty, stack);
-                    kegRecipe = world.getRecipeManager().listAllOfType(TFCRecipeTypes.KEG_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
+                    kegRecipe = world.getRecipeManager().listAllOfType(TfcRecipeTypes.KEG_RECIPE_TYPE).stream().filter(recipe -> recipe.matches(this, world)).findFirst().orElse(null);
                     if (kegRecipe != null) {
                         setColor(kegRecipe.color);
                         setTime(kegRecipe.time);

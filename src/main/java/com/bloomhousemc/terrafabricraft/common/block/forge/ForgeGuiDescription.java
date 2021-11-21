@@ -8,7 +8,7 @@ import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import io.github.cottonmc.cotton.gui.widget.data.Texture;
 import io.github.cottonmc.cotton.gui.widget.icon.ItemIcon;
 import com.bloomhousemc.terrafabricraft.TerraFabriCraft;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCScreens;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcScreens;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -28,7 +28,7 @@ public class ForgeGuiDescription extends SyncedGuiDescription {
     int sizeX = 50;
     int sizeY = 100;
     public ForgeGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
-        super(TFCScreens.FORGE_GUI_DESCRIPTION, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 1));
+        super(TfcScreens.FORGE_GUI_DESCRIPTION, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 1));
         root = new WGridPanel();
         setRootPanel(root);
         root.setSize(50, 50);

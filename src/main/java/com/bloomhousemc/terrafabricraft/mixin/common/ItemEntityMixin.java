@@ -2,7 +2,7 @@ package com.bloomhousemc.terrafabricraft.mixin.common;
 
 import com.bloomhousemc.terrafabricraft.common.block.logpile.LogPile;
 import com.bloomhousemc.terrafabricraft.common.block.logpile.LogPileBlockEntity;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCObjects;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
@@ -19,7 +19,7 @@ public class ItemEntityMixin {
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void tickMixin(CallbackInfo ci) {
-        ItemEntity itemEntity = (ItemEntity) (Object)this;
+        ItemEntity itemEntity = (ItemEntity) (Object) this;
         if (itemEntity.getStack().getItem() != Items.TORCH) {
             return;
         }
@@ -28,23 +28,24 @@ public class ItemEntityMixin {
             return;
         }
 
-        LogPileBlockEntity logPileBlockEntity = (LogPileBlockEntity)world.getBlockEntity(itemEntity.getBlockPos().down());
+        LogPileBlockEntity logPileBlockEntity = (LogPileBlockEntity) world.getBlockEntity(itemEntity.getBlockPos().down());
         logPileBlockEntity.fireTicks++;
-        if(logPileBlockEntity.fireTicks >= 140) {
+        if (logPileBlockEntity.fireTicks >= 140) {
             setLogpilesToFire(world, itemEntity.getBlockPos().down());
         }
 
-            world.addParticle(ParticleTypes.SMOKE, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 0.0F, 0.1F, 0.0F);
-            world.addParticle(ParticleTypes.FLAME, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 0.0F, 0.1F, 0.0F);
+        world.addParticle(ParticleTypes.SMOKE, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 0.0F, 0.1F, 0.0F);
+        world.addParticle(ParticleTypes.FLAME, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 0.0F, 0.1F, 0.0F);
 
     }
+
     private void setLogpilesToFire(World world, BlockPos startingPos) {
-        if(!(world.getBlockState(startingPos).getBlock() instanceof LogPile)) {
-           return;
+        if (!(world.getBlockState(startingPos).getBlock() instanceof LogPile)) {
+            return;
         }
-        for(Direction direction : Direction.values()) {
-                world.setBlockState(startingPos, TFCObjects.BURNING_LOG_PILE.getDefaultState());
-                setLogpilesToFire(world, startingPos.offset(direction));
+        for (Direction direction : Direction.values()) {
+            world.setBlockState(startingPos, TfcBlocks.BURNING_LOG_PILE.getDefaultState());
+            setLogpilesToFire(world, startingPos.offset(direction));
         }
     }
 

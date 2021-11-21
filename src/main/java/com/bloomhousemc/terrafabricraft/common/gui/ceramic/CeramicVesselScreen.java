@@ -2,7 +2,7 @@ package com.bloomhousemc.terrafabricraft.common.gui.ceramic;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.bloomhousemc.terrafabricraft.TerraFabriCraft;
-import com.bloomhousemc.terrafabricraft.common.util.TFCUtils.Dimension;
+import com.bloomhousemc.terrafabricraft.common.util.TfcUtils.Dimension;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;

@@ -2,7 +2,7 @@ package com.bloomhousemc.terrafabricraft.common.component;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
-import com.bloomhousemc.terrafabricraft.common.registry.TFCComponents;
+import com.bloomhousemc.terrafabricraft.common.registry.TfcComponents;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 
@@ -31,18 +31,18 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
     public int getAgriMaxLevel() {return AGRI_MAX_LEVEL;}
     public void setAgriLevel(int agri_level) {
         this.agri_level = agri_level;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public int getAgriXp() {return agri_xp;}
     public int getAgriMaxXp() {return AGRI_MAX_XP;}
     public void setAgriXp(int agri_xp) {
         this.agri_xp = agri_xp;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public void increaseAgriXp(int add) {
         if (getAgriXp() + add <= getAgriMaxXp()) {
             setAgriXp(getAgriXp() + add);
-            TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+            TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
         }
     }
 
@@ -52,18 +52,18 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
     public int getButchMaxLevel() {return BUTCH_MAX_LEVEL;}
     public void setButchLevel(int butch_level) {
         this.butch_level = butch_level;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public int getButchXp() {return butch_xp;}
     public int getButchMaxXp() {return BUTCH_MAX_XP;}
     public void setButchXp(int butch_xp) {
         this.butch_xp = butch_xp;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public void increaseButchXp(int add) {
         if (getButchXp() + add <= getButchMaxXp()) {
             setButchXp(getButchXp() + add);
-            TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+            TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
         }
     }
 
@@ -73,18 +73,18 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
     public int getCookMaxLevel() {return COOK_MAX_LEVEL;}
     public void setCookLevel(int cook_level) {
         this.cook_level = cook_level;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public int getCookXp() {return cook_xp;}
     public int getCookMaxXp() {return COOK_MAX_XP;}
     public void setCookXp(int cook_xp) {
         this.cook_xp = cook_xp;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public void increaseCookXp(int add) {
         if (getCookXp() + add <= getCookMaxXp()) {
             setCookXp(getCookXp() + add);
-            TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+            TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
         }
     }
 
@@ -94,18 +94,18 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
     public int getProsMaxLevel() {return PROS_MAX_LEVEL;}
     public void setProsLevel(int pros_level) {
         this.pros_level = pros_level;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public int getProsXp() {return pros_xp;}
     public int getProsMaxXp() {return PROS_MAX_XP;}
     public void setProsXp(int pros_xp) {
         this.pros_xp = pros_xp;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public void increaseProsXp(int add) {
         if (getProsXp() + add <= getProsMaxXp()) {
             setProsXp(getProsXp() + add);
-            TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+            TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
         }
     }
 
@@ -115,18 +115,18 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
     public int getSmithMaxLevel() {return SMITH_MAX_LEVEL;}
     public void setSmithLevel(int smith_level) {
         this.smith_level = smith_level;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public int getSmithXp() {return smith_xp;}
     public int getSmithMaxXp() {return SMITH_MAX_XP;}
     public void setSmithXp(int smith_xp) {
         this.smith_xp = smith_xp;
-        TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+        TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
     }
     public void increaseSmithXp(int add) {
         if (getSmithXp() + add <= getSmithMaxXp()) {
             setSmithXp(getSmithXp() + add);
-            TFCComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
+            TfcComponents.PROFICIENCY_COMPONENT.sync(playerEntity);
         }
     }
 
@@ -192,10 +192,10 @@ public class ProficiencyComponent implements AutoSyncedComponent, ServerTickingC
         tag.putInt("smithing_xp", getSmithXp());
     }
     public static ProficiencyComponent get(PlayerEntity obj) {
-        return TFCComponents.PROFICIENCY_COMPONENT.get(obj);
+        return TfcComponents.PROFICIENCY_COMPONENT.get(obj);
     }
 
     public static Optional<ProficiencyComponent> maybeGet(PlayerEntity obj) {
-        return TFCComponents.PROFICIENCY_COMPONENT.maybeGet(obj);
+        return TfcComponents.PROFICIENCY_COMPONENT.maybeGet(obj);
     }
 }

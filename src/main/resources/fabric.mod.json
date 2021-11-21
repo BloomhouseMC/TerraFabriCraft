@@ -25,13 +25,13 @@
       "com.bloomhousemc.terrafabricraft.TerraFabriCraftClient"
     ],
     "cardinal-components-entity": [
-      "com.bloomhousemc.terrafabricraft.common.registry.TFCComponents"
+      "com.bloomhousemc.terrafabricraft.common.registry.TfcComponents"
     ],
     "cardinal-components-world": [
-      "com.bloomhousemc.terrafabricraft.common.registry.TFCComponents"
+      "com.bloomhousemc.terrafabricraft.common.registry.TfcComponents"
     ],
     "cardinal-components-item": [
-      "com.bloomhousemc.terrafabricraft.common.registry.TFCComponents"
+      "com.bloomhousemc.terrafabricraft.common.registry.TfcComponents"
     ]
   },
   "mixins": [
