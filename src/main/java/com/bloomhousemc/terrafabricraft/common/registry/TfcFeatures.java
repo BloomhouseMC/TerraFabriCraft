@@ -36,10 +36,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_ACACIA = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ACACIA.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ACACIA.LOG.getDefaultState()),
                     new StraightTrunkPlacer(5, 0, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ACACIA.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ACACIA.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ACACIA.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ACACIA.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).ignoreVines().build())
@@ -49,10 +49,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_ASH = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASH.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASH.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASH.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASH.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASH.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASH.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).ignoreVines().build())
@@ -62,10 +62,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_ASPEN = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASPEN.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASPEN.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASPEN.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASPEN.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASPEN.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ASPEN.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).ignoreVines().build())
@@ -75,10 +75,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_BIRCH = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BIRCH.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BIRCH.LOG.getDefaultState()),
                     new StraightTrunkPlacer(12, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BIRCH.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BIRCH.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BIRCH.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BIRCH.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -88,10 +88,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_BLACKWOOD = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BLACKWOOD.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BLACKWOOD.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BLACKWOOD.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BLACKWOOD.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BLACKWOOD.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_BLACKWOOD.SAPLING.getDefaultState()),
                     new PineFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(5), ConstantIntProvider.create(5)),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -101,10 +101,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_CHESTNUT = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_CHESTNUT.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_CHESTNUT.LOG.getDefaultState()),
                     new StraightTrunkPlacer(5, 2, 3),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_CHESTNUT.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_CHESTNUT.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_CHESTNUT.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_CHESTNUT.SAPLING.getDefaultState()),
                     new BushFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -114,10 +114,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_DOUGLAS_FIR = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_DOUGLAS_FIR.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_DOUGLAS_FIR.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_DOUGLAS_FIR.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_DOUGLAS_FIR.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_DOUGLAS_FIR.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_DOUGLAS_FIR.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -127,10 +127,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_HICKORY = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_HICKORY.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_HICKORY.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_HICKORY.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_HICKORY.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_HICKORY.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_HICKORY.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -140,10 +140,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_KAPOK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.LOG.getDefaultState()),
                     new StraightTrunkPlacer(15, 9, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -153,10 +153,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_BIG_KAPOK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.LOG.getDefaultState()),
                     new StraightTrunkPlacer(30, 9, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -166,10 +166,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_SMALL_KAPOK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.LOG.getDefaultState()),
                     new StraightTrunkPlacer(15, 9, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_KAPOK.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -179,10 +179,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_MAPLE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_MAPLE.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_MAPLE.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_MAPLE.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_MAPLE.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_MAPLE.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_MAPLE.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -192,10 +192,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_OAK = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_OAK.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_OAK.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_OAK.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_OAK.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_OAK.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_OAK.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -205,10 +205,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_PALM = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PALM.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PALM.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PALM.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PALM.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PALM.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PALM.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -218,10 +218,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_PINE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PINE.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PINE.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PINE.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PINE.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PINE.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_PINE.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -231,10 +231,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_ROSEWOOD = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ROSEWOOD.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ROSEWOOD.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ROSEWOOD.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ROSEWOOD.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ROSEWOOD.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_ROSEWOOD.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -244,10 +244,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_SEQUOIA = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SEQUOIA.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SEQUOIA.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SEQUOIA.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SEQUOIA.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SEQUOIA.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SEQUOIA.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -257,10 +257,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_SPRUCE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SPRUCE.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SPRUCE.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SPRUCE.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SPRUCE.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SPRUCE.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SPRUCE.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -270,10 +270,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_SYCAMORE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SYCAMORE.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SYCAMORE.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SYCAMORE.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SYCAMORE.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SYCAMORE.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_SYCAMORE.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -283,10 +283,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_WHITE_CEDAR = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WHITE_CEDAR.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WHITE_CEDAR.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WHITE_CEDAR.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WHITE_CEDAR.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WHITE_CEDAR.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WHITE_CEDAR.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())
@@ -296,10 +296,10 @@ public class TfcFeatures {
 
     public static final ConfiguredFeature<?, ?> TREE_WILLOW = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WILLOW.log.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WILLOW.LOG.getDefaultState()),
                     new StraightTrunkPlacer(8, 3, 0),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WILLOW.leaves.getDefaultState()),
-                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WILLOW.sapling.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WILLOW.LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(TfcBlocks.WOOD_WILLOW.SAPLING.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)
             ).build())

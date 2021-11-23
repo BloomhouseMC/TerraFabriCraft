@@ -1,6 +1,5 @@
 package com.bloomhousemc.terrafabricraft.common.block;
 
-import com.bloomhousemc.terrafabricraft.TerraFabriCraft;
 import com.bloomhousemc.terrafabricraft.common.registry.TfcTags;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
@@ -13,12 +12,16 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+
+import java.util.Map;
 
 public class TfcSupportBlock extends Block implements Waterloggable {
     public static final BooleanProperty NORTH = ConnectingBlock.NORTH;
@@ -27,13 +30,14 @@ public class TfcSupportBlock extends Block implements Waterloggable {
     public static final BooleanProperty WEST = ConnectingBlock.WEST;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     protected final VoxelShape[] boundingShapes;
+    protected static final Map<Direction, BooleanProperty> FACING_PROPERTIES = (Map)ConnectingBlock.FACING_PROPERTIES.entrySet().stream().filter(entry -> ((Direction)entry.getKey()).getAxis().isHorizontal()).collect(Util.toMap());
     private final Object2IntMap<BlockState> SHAPE_INDEX_CACHE = new Object2IntOpenHashMap<>();
-    private final boolean hasPillar;
+    private final boolean HAS_PILLAR;
 
     public TfcSupportBlock(Settings settings, boolean hasPillar) {
         super(settings);
-        boundingShapes = createShapes(2F, 2F, 16F, 10F, 16F);
-        this.hasPillar = hasPillar;
+        boundingShapes = createShapes(3F, 3F, 16F, 10F, 16F);
+        HAS_PILLAR = hasPillar;
     }
 
 
@@ -77,8 +81,8 @@ public class TfcSupportBlock extends Block implements Waterloggable {
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        TerraFabriCraft.LOGGER.debug("Below pos is " + world.getBlockState(pos.down()));
-        return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos, Direction.UP);
+        var floor = world.getBlockState(pos.down());
+        return floor.isSideSolidFullSquare(world, pos, Direction.UP) || floor.isIn(TfcTags.SUPPORT_BEAMS);
     }
 
     protected VoxelShape[] createShapes(float radius1, float radius2, float height1, float offset2, float height2) {
@@ -86,7 +90,7 @@ public class TfcSupportBlock extends Block implements Waterloggable {
         var maxXZ = 8F + radius1;
         var minXZ2 = 8F - radius2;
         var maxXZ2 = 8F + radius2;
-        var voxelShape = (hasPillar) ? createCuboidShape(minXZ, 0.0, minXZ, maxXZ, height1, maxXZ) : createCuboidShape(minXZ, 10, minXZ, maxXZ, height1, maxXZ);
+        var voxelShape = (HAS_PILLAR) ? createCuboidShape(minXZ, 0.0, minXZ, maxXZ, height1, maxXZ) : createCuboidShape(minXZ, 10, minXZ, maxXZ, height1, maxXZ);
         var voxelShape2 = createCuboidShape(minXZ2, offset2, 0.0, maxXZ2, height2, maxXZ2);
         var voxelShape3 = createCuboidShape(minXZ2, offset2, minXZ2, maxXZ2, height2, 16.0);
         var voxelShape4 = createCuboidShape(0.0, offset2, minXZ2, maxXZ2, height2, maxXZ2);
@@ -139,6 +143,14 @@ public class TfcSupportBlock extends Block implements Waterloggable {
             case CLOCKWISE_90 -> state.with(NORTH, (Boolean) state.get(WEST)).with(EAST, (Boolean) state.get(NORTH)).with(SOUTH, (Boolean) state.get(EAST)).with(WEST, (Boolean) state.get(SOUTH));
             default -> state;
         };
+    }
+
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        if (state.get(WATERLOGGED)) {
+            world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        }
+
+        return direction.getAxis().getType() == Direction.Type.HORIZONTAL ? state.with(FACING_PROPERTIES.get(direction), canConnect(neighborState)) : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
     @Override

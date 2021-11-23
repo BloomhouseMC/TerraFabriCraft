@@ -18,12 +18,12 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.Map;
 
-public class TFCGrassBlock extends GrassBlock {
+public class TfcGrassBlock extends GrassBlock {
     protected static final Map<Direction, BooleanProperty> FACING_PROPERTIES = ConnectingBlock.FACING_PROPERTIES.entrySet().stream().filter((entry) -> {
         return ((Direction) entry.getKey()).getAxis().isHorizontal();
     }).collect(Util.toMap());
 
-    public TFCGrassBlock(Settings settings) {
+    public TfcGrassBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(Properties.NORTH, false).with(Properties.EAST, false).with(Properties.SOUTH, false).with(Properties.WEST, false));
     }
@@ -45,20 +45,15 @@ public class TFCGrassBlock extends GrassBlock {
         BlockState blockState2 = blockView.getBlockState(blockPos3);
         BlockState blockState3 = blockView.getBlockState(blockPos4);
         BlockState blockState4 = blockView.getBlockState(blockPos5);
-        return super.getPlacementState(ctx).with(Properties.NORTH, this.canConnect(blockState, blockState.isSideSolidFullSquare(blockView, blockPos2, Direction.SOUTH), Direction.SOUTH)).with(Properties.EAST, this.canConnect(blockState2, blockState2.isSideSolidFullSquare(blockView, blockPos3, Direction.WEST), Direction.WEST)).with(Properties.SOUTH, this.canConnect(blockState3, blockState3.isSideSolidFullSquare(blockView, blockPos4, Direction.NORTH), Direction.NORTH)).with(Properties.WEST, this.canConnect(blockState4, blockState4.isSideSolidFullSquare(blockView, blockPos5, Direction.EAST), Direction.EAST));
+        return super.getPlacementState(ctx).with(Properties.NORTH, this.canConnect(blockState)).with(Properties.EAST, this.canConnect(blockState2)).with(Properties.SOUTH, this.canConnect(blockState3)).with(Properties.WEST, this.canConnect(blockState4));
     }
 
-    public boolean canConnect(BlockState state, boolean neighborIsFullSquare, Direction dir) {
-        boolean bl = this.canConnectToGrass(state);
-        return bl;
+    public boolean canConnect(BlockState state) {
+        return state.isIn(TfcTags.GRASS_BLOCKS);
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        return direction.getAxis().getType() == Direction.Type.HORIZONTAL ? state.with(FACING_PROPERTIES.get(direction), this.canConnect(neighborState, neighborState.isSideSolidFullSquare(world, neighborPos, direction.getOpposite()), direction.getOpposite())) : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
-    }
-
-    private boolean canConnectToGrass(BlockState state) {
-        return state.isIn(TfcTags.GRASS_BLOCKS);
+        return direction.getAxis().getType() == Direction.Type.HORIZONTAL ? state.with(FACING_PROPERTIES.get(direction), canConnect(neighborState)) : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 }
