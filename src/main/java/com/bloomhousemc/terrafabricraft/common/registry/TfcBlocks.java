@@ -345,8 +345,8 @@ public final class TfcBlocks {
         return block;
     }
 
-    public static TFCGrassBlock createGrass(String id, BlockSoundGroup sound) {
-        var block = new TFCGrassBlock(FabricBlockSettings.copyOf(Blocks.DIRT).sounds(sound));
+    public static TfcGrassBlock createGrass(String id, BlockSoundGroup sound) {
+        var block = new TfcGrassBlock(FabricBlockSettings.copyOf(Blocks.DIRT).sounds(sound));
         register(id, block, EARTH_GROUP);
         return block;
     }
@@ -392,14 +392,15 @@ public final class TfcBlocks {
     }
 
     public static TfcGroundCoverBlock createGroundcover(String id, Item dropId) {
-        //TODO: Replace with a tag
-        var block = registerWithCustomItem(id, new TfcGroundCoverBlock(FabricBlockSettings.of(Material.STONE).strength(6.0f)), dropId);
+        //TODO: Bind dropId to block
+        var block = createGroundcover(id);
         return block;
     }
 
     public static TfcGroundCoverBlock createGroundcover(String id) {
         //TODO: Replace with a tag
-        var block = registerWithoutItem(id, new TfcGroundCoverBlock(FabricBlockSettings.of(Material.STONE).strength(6.0f)));
+        var block = new TfcGroundCoverBlock(FabricBlockSettings.of(Material.STONE).strength(6.0f));
+        registerWithoutItem(id, block);
         return block;
     }
 
@@ -498,8 +499,8 @@ public final class TfcBlocks {
         return block;
     }
 
-    public static TFCGrassBlock createGrass(String id) {
-        var block = new TFCGrassBlock(FabricBlockSettings.of(Material.LEAVES).sounds(BlockSoundGroup.GRASS).strength(2.0f));
+    public static TfcGrassBlock createGrass(String id) {
+        var block = new TfcGrassBlock(FabricBlockSettings.of(Material.LEAVES).sounds(BlockSoundGroup.GRASS).strength(2.0f));
         register(id, block, EARTH_GROUP);
         return block;
     }
@@ -546,9 +547,10 @@ public final class TfcBlocks {
     }
 
     private static <T extends Block> T registerWithCustomItem(String id, T block, Item item) {
-        //TODO: Make block drop item from param
         var fullId = new Identifier(MODID, id);
         Registry.register(Registry.BLOCK, fullId, block);
+        Registry.register(Registry.ITEM, fullId, item);
+
         return block;
     }
 

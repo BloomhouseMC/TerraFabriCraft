@@ -1,12 +1,10 @@
 package com.bloomhousemc.terrafabricraft.common.registry.util;
 
-import com.bloomhousemc.terrafabricraft.common.block.TfcGravityBlock;
-import com.bloomhousemc.terrafabricraft.common.block.TFCGrassBlock;
+import com.bloomhousemc.terrafabricraft.common.block.TfcGrassBlock;
 import net.minecraft.block.Block;
 import net.minecraft.sound.BlockSoundGroup;
 
 import static com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks.createGrass;
-import static com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks.createSand;
 
 public class SoilBlock {
     public Block loam;
@@ -21,7 +19,7 @@ public class SoilBlock {
         silty_loam = setCreateGrassBlock(id, "silty_loam", sound);
     }
 
-    private static TFCGrassBlock setCreateGrassBlock(String variantId, String special, BlockSoundGroup sound) {
+    private static TfcGrassBlock setCreateGrassBlock(String variantId, String special, BlockSoundGroup sound) {
         return createGrass(variantId + "/" + special, sound);
     }
 }

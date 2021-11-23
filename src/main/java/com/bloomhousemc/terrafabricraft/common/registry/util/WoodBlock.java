@@ -10,30 +10,30 @@ import net.minecraft.block.sapling.SaplingGenerator;
 import static com.bloomhousemc.terrafabricraft.common.registry.TfcBlocks.*;
 
 public class WoodBlock {
-    public final TfcFallenLeavesBlock fallen_leaves;
-    public final Keg keg;
-    public final TfcLeaves leaves;
-    public final TfcLog log;
-    public final Block planks;
-    public final TfcSapling sapling;
-    public final TfcLog stripped_log;
-    public final TfcTwig twig;
-    public final TfcSupportBlock vertical_support;
-    public final TfcSupportBlock horizontal_support;
-    public ToolRackBlock rack;
+    public final TfcFallenLeavesBlock FALLEN_LEAVES;
+    public final Keg KEG;
+    public final TfcLeaves LEAVES;
+    public final TfcLog LOG;
+    public final Block PLANKS;
+    public final TfcSapling SAPLING;
+    public final TfcLog STRIPPED_LOG;
+    public final TfcTwig TWIG;
+    public final TfcSupportBlock VERTICAL_SUPPORT;
+    public final TfcSupportBlock HORISONTAL_SUPPORT;
+    public ToolRackBlock RACK;
 
     public WoodBlock(String variantId, SaplingGenerator saplingGenerator, MapColor color) {
-        fallen_leaves = createFallenLeaves("wood/fallen_leaves/" + variantId);
-        keg = createKeg("wood/keg/" + variantId);
-        leaves = createLeaves("wood/leaves/" + variantId);
-        log = setCreateLog("wood/log/", variantId, color);
-        planks = setCreateFlammableBlock("wood/planks/", variantId, color);
-        sapling = createSapling("wood/sapling/" + variantId, saplingGenerator);
-        stripped_log = setCreateLog("wood/stripped_log/", variantId, color);
-        twig = createTwig("wood/twig/" + variantId);
-        vertical_support = createSupport("wood/vertical_support/" + variantId, true);
-        horizontal_support = createSupport("wood/horizontal_support/" + variantId, false);
-        rack = createRack("wood/rack/" + variantId);
+        FALLEN_LEAVES = createFallenLeaves("wood/fallen_leaves/" + variantId);
+        KEG = createKeg("wood/keg/" + variantId);
+        LEAVES = createLeaves("wood/leaves/" + variantId);
+        LOG = setCreateLog("wood/log/", variantId, color);
+        PLANKS = setCreateFlammableBlock("wood/planks/", variantId, color);
+        SAPLING = createSapling("wood/sapling/" + variantId, saplingGenerator);
+        STRIPPED_LOG = setCreateLog("wood/stripped_log/", variantId, color);
+        TWIG = createTwig("wood/twig/" + variantId);
+        VERTICAL_SUPPORT = createSupport("wood/vertical_support/" + variantId, true);
+        HORISONTAL_SUPPORT = createSupport("wood/horizontal_support/" + variantId, false);
+        RACK = createRack("wood/rack/" + variantId);
     }
 
 
