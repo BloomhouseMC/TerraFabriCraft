@@ -10,7 +10,7 @@ import static com.bloomhousemc.terrafabricraft.TerraFabriCraft.MODID;
 public final class TfcItemGroups {
     public static final ItemGroup EARTH_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "earth"), () -> new ItemStack(TfcBlocks.SAND_WHITE));
     public static final ItemGroup ORES_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "ores"), () -> new ItemStack(TfcBlocks.ORE_SMALL_NATIVE_COPPPER));
-    public static final ItemGroup ROCK_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "rock"), () -> new ItemStack(TfcBlocks.ANDESITE.raw.block));
+    public static final ItemGroup ROCK_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "rock"), () -> new ItemStack(TfcBlocks.ANDESITE.RAW.BLOCK));
     public static final ItemGroup METAL_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "metal"), () -> new ItemStack(TfcItems.INGOT.wrought_iron));
     public static final ItemGroup WOOD_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "wood"), () -> new ItemStack(TfcBlocks.WOOD_DOUGLAS_FIR.LOG));
     public static final ItemGroup FOOD_GROUP = FabricItemGroupBuilder.build(new Identifier(MODID, "food"), () -> new ItemStack(TfcItems.RED_APPLE));

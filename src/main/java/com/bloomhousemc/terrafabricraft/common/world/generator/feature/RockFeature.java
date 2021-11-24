@@ -37,7 +37,7 @@ public class RockFeature extends Feature<OreFeatureConfig> {
             //This is for special rock;
             BlockState state = config.targets.get(0).state;
             BlockState secondState = state;
-            BlockState looseState = RockBlock.stateToRock.get(state).loose.getDefaultState();
+            BlockState looseState = RockBlock.stateToRock.get(state).LOOSE.getDefaultState();
             RockBlock rockBlock = RockBlock.stateToRock.get(state);
             if(random.nextFloat() < 0.2) {
                 secondState = rockBlock.oreStones.get(random.nextInt(rockBlock.oreStones.size())).getDefaultState();

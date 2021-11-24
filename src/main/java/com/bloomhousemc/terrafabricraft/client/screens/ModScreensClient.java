@@ -7,7 +7,6 @@ import com.bloomhousemc.terrafabricraft.common.block.logpile.LogPileScreen;
 import com.bloomhousemc.terrafabricraft.common.gui.ceramic.CeramicVesselScreen;
 import com.bloomhousemc.terrafabricraft.common.gui.ceramic.CeramicVesselScreenHandler;
 import com.bloomhousemc.terrafabricraft.common.gui.knapping.KnappingScreen;
-import com.bloomhousemc.terrafabricraft.common.gui.knapping.KnappingScreenHandler;
 import com.bloomhousemc.terrafabricraft.common.registry.TfcScreens;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 

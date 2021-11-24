@@ -74,21 +74,21 @@ public final class TfcUtils {
         public static BlockState getRandomRawStone (Random random){
 
             if (MathHelper.nextInt(random, 1, 7) == 1) {
-                return TfcBlocks.ANDESITE.raw.block.getDefaultState();
+                return TfcBlocks.ANDESITE.RAW.BLOCK.getDefaultState();
             } else if (MathHelper.nextInt(random, 1, 7) == 2) {
-                return TfcBlocks.DOLOMITE.raw.block.getDefaultState();
+                return TfcBlocks.DOLOMITE.RAW.BLOCK.getDefaultState();
             } else if (MathHelper.nextInt(random, 1, 7) == 3) {
-                return TfcBlocks.CHALK.raw.block.getDefaultState();
+                return TfcBlocks.CHALK.RAW.BLOCK.getDefaultState();
             } else if (MathHelper.nextInt(random, 1, 7) == 4) {
-                return TfcBlocks.LIMESTONE.raw.block.getDefaultState();
+                return TfcBlocks.LIMESTONE.RAW.BLOCK.getDefaultState();
             } else if (MathHelper.nextInt(random, 1, 7) == 5) {
-                return TfcBlocks.CHERT.raw.block.getDefaultState();
+                return TfcBlocks.CHERT.RAW.BLOCK.getDefaultState();
             } else if (MathHelper.nextInt(random, 1, 7) == 6) {
-                return TfcBlocks.CONGLOMERATE.raw.block.getDefaultState();
+                return TfcBlocks.CONGLOMERATE.RAW.BLOCK.getDefaultState();
             } else if (MathHelper.nextInt(random, 1, 7) == 7) {
-                return TfcBlocks.SHALE.raw.block.getDefaultState();
+                return TfcBlocks.SHALE.RAW.BLOCK.getDefaultState();
             } else
-                return TfcBlocks.CLAYSTONE.raw.block.getDefaultState();
+                return TfcBlocks.CLAYSTONE.RAW.BLOCK.getDefaultState();
 
         }
 
