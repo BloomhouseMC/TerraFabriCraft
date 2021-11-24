@@ -1,7 +1,7 @@
 package com.bloomhousemc.terrafabricraft.common.item;
 
 import com.bloomhousemc.terrafabricraft.common.ImplementedInventory;
-import com.bloomhousemc.terrafabricraft.common.gui.knapping.KnappingScreenHandler;
+import com.bloomhousemc.terrafabricraft.client.screens.KnappingScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;

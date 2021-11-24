@@ -67,7 +67,7 @@ public class TestBoulderFeature extends Feature<SingleStateFeatureConfig> {
                             placePos = placePos.down();
                             downState = world.getBlockState(placePos.down());
                         }
-                        if(!(downState.isOf(TfcBlocks.CONGLOMERATE.raw.block) || isSoil(downState.getBlock().getDefaultState()) || isStone(downState.getBlock().getDefaultState()) || downState.getBlock() == Blocks.GRAVEL))
+                        if(!(downState.isOf(TfcBlocks.CONGLOMERATE.RAW.BLOCK) || isSoil(downState.getBlock().getDefaultState()) || isStone(downState.getBlock().getDefaultState()) || downState.getBlock() == Blocks.GRAVEL))
                             continue;
 
                         world.setBlockState(placePos, context.getConfig().state, 4);

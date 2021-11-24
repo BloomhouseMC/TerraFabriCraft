@@ -345,6 +345,12 @@ public final class TfcBlocks {
         return block;
     }
 
+    public static TfcPressurePlateBlock createPressurePlate(String id, ItemGroup group) {
+        var block = new TfcPressurePlateBlock(FabricBlockSettings.copyOf(Blocks.STONE).noCollision());
+        register(id, block, group);
+        return block;
+    }
+
     public static TfcGrassBlock createGrass(String id, BlockSoundGroup sound) {
         var block = new TfcGrassBlock(FabricBlockSettings.copyOf(Blocks.DIRT).sounds(sound));
         register(id, block, EARTH_GROUP);
