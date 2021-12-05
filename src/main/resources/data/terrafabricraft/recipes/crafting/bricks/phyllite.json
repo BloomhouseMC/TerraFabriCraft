@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "#": {
+            "item": "terrafabricraft:brick/phyllite"
+        },
+        "%": {
+            "item": "terrafabricaft:mortar"
+        }
+    },
+    "pattern": [
+        "#%#",
+        "%#%",
+        "#%#"
+    ],
+    "result": {
+        "item": "terrafabricraft:bricks/phyllite"
+    }
+}

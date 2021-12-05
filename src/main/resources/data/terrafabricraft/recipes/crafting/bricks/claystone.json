@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "#": {
+            "item": "terrafabricraft:brick/claystone"
+        },
+        "%": {
+            "item": "terrafabricaft:mortar"
+        }
+    },
+    "pattern": [
+        "#%#",
+        "%#%",
+        "#%#"
+    ],
+    "result": {
+        "item": "terrafabricraft:bricks/claystone"
+    }
+}

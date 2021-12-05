@@ -1,0 +1,13 @@
+{
+    "__comment__": "Recipe uses fresh water.",
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {"tag": "c:fresh_water_buckets"},
+        {
+            "item": "terrafabricraft:food/wheat_flour"
+        }
+    ],
+    "result": {
+        "item": "terrafabricraft:food/wheat_dough"
+    }
+}
