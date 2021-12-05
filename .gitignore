@@ -31,3 +31,7 @@ bin/
 # fabric
 
 run/
+
+# other
+
+src/main/resources/pack.mcmeta

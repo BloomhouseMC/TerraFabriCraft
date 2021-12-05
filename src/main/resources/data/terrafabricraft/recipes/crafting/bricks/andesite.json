@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "#": {
+            "item": "terrafabricraft:brick/andesite"
+        },
+        "%": {
+            "item": "terrafabricaft:mortar"
+        }
+    },
+    "pattern": [
+        "#%#",
+        "%#%",
+        "#%#"
+    ],
+    "result": {
+        "item": "terrafabricraft:bricks/andesite"
+    }
+}
