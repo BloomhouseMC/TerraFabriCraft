@@ -64,8 +64,8 @@ dependencies {
 
     include(modImplementation("io.github.cottonmc:LibGui:${project.property("libgui_version")}")!!)
 
-    modApi("com.github.GiantLuigi4:ShaderUtil:4b79bb79b5")
-    include("com.github.GiantLuigi4:ShaderUtil:4b79bb79b5")
+//    modApi("com.github.GiantLuigi4:ShaderUtil:4b79bb79b5")
+ //   include("com.github.GiantLuigi4:ShaderUtil:4b79bb79b5")
 }
 
 loom {
@@ -76,7 +76,7 @@ quiltflower {
     addToRuntimeClasspath.set(true)
 }
 
-val targetJavaVersion = 16
+val targetJavaVersion = 17
 
 tasks {
     processResources {

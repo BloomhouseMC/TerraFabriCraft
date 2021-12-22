@@ -3,7 +3,7 @@ package com.bloomhousemc.terrafabricraft.common.block.toolrack;
 import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,7 +19,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClientSerializable, Inventory {
+public class ToolRackBlockEntity extends BlockEntity implements Inventory {
     @Environment(EnvType.CLIENT)
     public final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
@@ -39,18 +39,19 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
                 this.setStack(i, itemStack);
             }
         }
+        fromClientTag(nbt);
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         nbt.put("Item_0", this.getStack(0).writeNbt(new NbtCompound()));
         nbt.put("Item_1", this.getStack(1).writeNbt(new NbtCompound()));
         nbt.put("Item_2", this.getStack(2).writeNbt(new NbtCompound()));
         nbt.put("Item_3", this.getStack(3).writeNbt(new NbtCompound()));
-        return super.writeNbt(nbt);
+        toClientTag(nbt);
+        super.writeNbt(nbt);
     }
 
-    @Override
     public void fromClientTag(NbtCompound nbt){
         for(int i = 0; i < inventory.size(); i++){
             NbtCompound nbtCompound = nbt.getCompound("Item_"+i);
@@ -62,7 +63,6 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
         }
     }
 
-    @Override
     public NbtCompound toClientTag(NbtCompound nbt){
         nbt.put("Item_0", this.getStack(0).writeNbt(new NbtCompound()));
         nbt.put("Item_1", this.getStack(1).writeNbt(new NbtCompound()));
@@ -162,7 +162,7 @@ public class ToolRackBlockEntity extends BlockEntity implements BlockEntityClien
                     if (normalZ < 0.5 && normalY < 0.5) handle(stack, player, hand, 3);
                 }
             }
-                this.sync();
+            this.getWorld().updateListeners(this.getPos(), this.getCachedState(), this.getCachedState(), Block.NOTIFY_ALL);
         }
     }
 }

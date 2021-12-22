@@ -4,7 +4,7 @@ import com.bloomhousemc.terrafabricraft.common.recipes.KegRecipe;
 import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
 import com.bloomhousemc.terrafabricraft.common.registry.TfcItems;
 import com.bloomhousemc.terrafabricraft.common.registry.TfcRecipeTypes;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityType;
@@ -16,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.DefaultedList;
@@ -33,7 +34,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import static com.bloomhousemc.terrafabricraft.common.block.keg.Keg.WORKING;
 
-public class KegEntity extends BlockEntity implements Inventory, IAnimatable, BlockEntityClientSerializable {
+public class KegEntity extends BlockEntity implements Inventory, IAnimatable {
     private final AnimationFactory manager = new AnimationFactory(this);
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
     public int processTimer = 0;
@@ -48,7 +49,6 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
         super(TfcBlockEntities.KEG_BLOCK_ENTITY, pos, state);
     }
 
-    @Override
     public void fromClientTag(NbtCompound tag) {
         Inventories.readNbt(tag, inventory);
         mode = Mode.valueOf(tag.getString("Mode"));
@@ -61,7 +61,6 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
         processTimer = tag.getInt("ProcessTimer");
     }
 
-    @Override
     public NbtCompound toClientTag(NbtCompound tag) {
         Inventories.writeNbt(tag, inventory);
         tag.putInt("Color", color);
@@ -72,14 +71,19 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
     }
 
     @Override
+    public final BlockEntityUpdateS2CPacket toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
+    }
+
+    @Override
     public void readNbt(NbtCompound nbt) {
         fromClientTag(nbt);
         super.readNbt(nbt);
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
-        return super.writeNbt(toClientTag(nbt));
+    public void writeNbt(NbtCompound nbt) {
+        super.writeNbt(toClientTag(nbt));
     }
 
     public void setTime(int time) {
@@ -171,7 +175,7 @@ public class KegEntity extends BlockEntity implements Inventory, IAnimatable, Bl
     }
 
     public void syncKeg() {
-        sync();
+        this.getWorld().updateListeners(this.getPos(), this.getCachedState(), this.getCachedState(), Block.NOTIFY_ALL);
     }
 
     private <E extends BlockEntity & IAnimatable> PlayState predicate(AnimationEvent<E> event) {

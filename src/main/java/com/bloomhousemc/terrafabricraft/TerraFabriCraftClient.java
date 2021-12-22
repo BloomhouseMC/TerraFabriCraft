@@ -27,9 +27,6 @@ import net.minecraft.client.render.Shader;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.util.Identifier;
-import tfc.shaderutil.client.api.CoreShaderRegistry;
-import tfc.shaderutil.client.api.ItemShaderTools;
-import tfc.shaderutil.client.api.RenderLayerCreator;
 
 import static com.bloomhousemc.terrafabricraft.common.temperature.ItemTemperature.getTemperature;
 
@@ -40,7 +37,7 @@ public class TerraFabriCraftClient implements ClientModInitializer {
     static float brighterLightChange = 0.9f;
     @Override
     public void onInitializeClient() {
-        CoreShaderRegistry.register(new Identifier("terrafabricraft:custom_item_shader"),
+    /*    CoreShaderRegistry.register(new Identifier("terrafabricraft:custom_item_shader"),
                 (factory, name) -> testShader = new Shader(factory, name, VertexFormats.POSITION_COLOR_TEXTURE_LIGHT_NORMAL)
         );
         RenderLayer testLayer = RenderLayerCreator.makeItem("terrafabricraft:custom_item_shader", () -> testShader, true, true);
@@ -64,7 +61,7 @@ public class TerraFabriCraftClient implements ClientModInitializer {
             }
             testShader.getUniformOrDefault("Count").set(temp);
             return testLayer;
-        });
+        }); */
 
         HudRenderCallback.EVENT.register(new UserHud());
         ModScreensClient.init();

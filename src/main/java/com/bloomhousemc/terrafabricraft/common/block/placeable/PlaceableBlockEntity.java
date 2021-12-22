@@ -5,7 +5,7 @@ import com.bloomhousemc.terrafabricraft.common.item.TemperatureReactiveItem;
 import com.bloomhousemc.terrafabricraft.common.registry.TfcBlockEntities;
 import com.bloomhousemc.terrafabricraft.common.registry.TfcItems;
 import com.bloomhousemc.terrafabricraft.common.temperature.ItemTemperature;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import static com.bloomhousemc.terrafabricraft.common.block.placeable.PlaceableBlock.STAGE;
 import static com.bloomhousemc.terrafabricraft.common.util.TfcUtils.handleGUILessInventory;
 
-public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClientSerializable, Inventory {
+public class PlaceableBlockEntity extends BlockEntity implements Inventory {
 
     public final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
@@ -59,15 +59,15 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         nbt.put("Item_0", this.getStack(0).writeNbt(new NbtCompound()));
         nbt.put("Item_1", this.getStack(1).writeNbt(new NbtCompound()));
         nbt.put("Item_2", this.getStack(2).writeNbt(new NbtCompound()));
         nbt.put("Item_3", this.getStack(3).writeNbt(new NbtCompound()));
-        return super.writeNbt(nbt);
+        toClientTag(nbt);
+        super.writeNbt(nbt);
     }
 
-    @Override
     public void fromClientTag(NbtCompound nbt) {
         for (int i = 0; i < inventory.size(); i++) {
             NbtCompound nbtCompound = nbt.getCompound("Item_" + i);
@@ -77,9 +77,9 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
                 this.markDirty();
             }
         }
+        fromClientTag(nbt);
     }
 
-    @Override
     public NbtCompound toClientTag(NbtCompound nbt) {
         nbt.put("Item_0", this.getStack(0).writeNbt(new NbtCompound()));
         nbt.put("Item_1", this.getStack(1).writeNbt(new NbtCompound()));
@@ -217,7 +217,7 @@ public class PlaceableBlockEntity extends BlockEntity implements BlockEntityClie
             } else if (normalX > 0.5 && normalZ < 0.5) {
                 handleGUILessInventory(stack, player, hand, inventory, 1);
             }
-            this.sync();
+            this.getWorld().updateListeners(this.getPos(), this.getCachedState(), this.getCachedState(), Block.NOTIFY_ALL);
         }
     }
 }

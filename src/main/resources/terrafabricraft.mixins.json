@@ -11,7 +11,8 @@
     "common.PlayerEntityMixin",
     "common.ServerPlayerInteractionManagerMixin",
     "common.TrunkPlacerTypeInvokerMixin",
-    "common.temperature.ChunkSerializerMixin"
+    "common.temperature.ChunkSerializerMixin",
+    "common.SimpleBlockStateProviderAccessor"
   ],
   "client": [
     "client.BufferBuilderAccessor",

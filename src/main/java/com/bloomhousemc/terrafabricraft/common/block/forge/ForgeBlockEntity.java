@@ -105,11 +105,9 @@ public class ForgeBlockEntity extends BlockEntity implements ImplementedInventor
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound tag) {
+    public void writeNbt(NbtCompound tag) {
         super.writeNbt(tag);
-        tag = super.writeNbt(tag);
         Inventories.writeNbt(tag, this.inventory);
-        return tag;
     }
 
     @Override

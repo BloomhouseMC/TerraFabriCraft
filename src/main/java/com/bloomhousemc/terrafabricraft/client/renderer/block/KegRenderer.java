@@ -65,7 +65,7 @@ public class KegRenderer extends GeoBlockRenderer<KegEntity> {
 
     private void renderWater(KegEntity entity, MatrixStack matrices, VertexConsumer buffer, int light, Sprite sprite) {
         matrices.push();
-        Matrix4f matrix4f = matrices.peek().getModel();
+        Matrix4f matrix4f = matrices.peek().getPositionMatrix();
         float sizeFactor = 0.125f;
         float maxV = (sprite.getMaxV() - sprite.getMinV()) * sizeFactor;
         float minV = (sprite.getMaxV() - sprite.getMinV()) * (1 - sizeFactor);
