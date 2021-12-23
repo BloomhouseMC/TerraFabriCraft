@@ -1,5 +1,5 @@
 [//]: # (<img alt="TerraFabriCraft Icon" src="src/main/resources/assets/terrafabricraft/icon.png" width="128">)
-
+<div style="text-align: center">
 
 ## **TerraFabriCraft**
 
@@ -10,7 +10,7 @@
 [![Downloads](https://img.shields.io/badge/dynamic/json?label=Downloads&style=for-the-badge&color=f16436&query=downloadCount&url=https%3A%2F%2Faddons-ecs.forgesvc.net%2Fapi%2Fv2%2Faddon%2F494721)][curseforge:files]
 </div>
 
-<br />
+<br/>
 
 Our take on an old mod
 
@@ -29,7 +29,7 @@ TerraFabriCraft while heavily inspired by TerraFirmaCraft it's not a port in the
 ## Licence
 
 * Code
-  - (c) 2021-2022, the Bloomhouse team (See [AUTHORS](AUTHORS))
+  - (c) 2021-2022, the Bloomhouse team: [MrSterner], [Voleil], [MalekiRe], [Safrodev]
   - [![License](https://camo.githubusercontent.com/7db4c41fd9c360cd75560fa34cb8c7a8fd4977fe440ec479dd024f3cd1c1e217/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e63652d4d49542d626c7565)](https://opensource.org/licenses/MIT)
   
 * Textures, models and sounds
@@ -44,3 +44,7 @@ TerraFabriCraft while heavily inspired by TerraFirmaCraft it's not a port in the
 [curseforge]: https://curseforge.com/minecraft/mc-mods/modid/files
 [curseforge:files]: https://curseforge.com/minecraft/mc-mods/modid/files
 [releases]: https://github.com/BloomhouseMC/Terrafabricraft/releases
+[MrSterner]: https://github.com/mrsterner
+[Voleil]: https://github.com/Voleil
+[Safrodev]: https://github.com/Safrodev
+[MalekiRe]: https://github.com/MalekiRe
