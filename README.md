@@ -1,5 +1,5 @@
 [//]: # (<img alt="TerraFabriCraft Icon" src="src/main/resources/assets/terrafabricraft/icon.png" width="128">)
-<div style="text-align: center">
+<div align="center">
 
 ## **TerraFabriCraft**
 
