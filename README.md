@@ -1,9 +1,7 @@
-<div style="text-align: center">
-
 [//]: # (<img alt="TerraFabriCraft Icon" src="src/main/resources/assets/terrafabricraft/icon.png" width="128">)
 
 
-<p style="font-size: 40px"><b>TerraFabriCraft</b></p>
+## **TerraFabriCraft**
 
 <!-- todo: replace 494721 with your CurseForge project id -->
 [![Release](https://img.shields.io/github/v/release/BloomhouseMC/Terrafabricraft?style=for-the-badge&include_prereleases&sort=semver)][releases]
@@ -46,8 +44,3 @@ TerraFabriCraft while heavily inspired by TerraFirmaCraft it's not a port in the
 [curseforge]: https://curseforge.com/minecraft/mc-mods/modid/files
 [curseforge:files]: https://curseforge.com/minecraft/mc-mods/modid/files
 [releases]: https://github.com/BloomhouseMC/Terrafabricraft/releases
-[mrsterner]: https://github.com/mrsterner
-[Voleil]: https://github.com/Voleil
-[Safrodev]: https://github.com/Safrodev
-[MalekiRe]: https://github.com/MalekiRe
-
